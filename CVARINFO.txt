@@ -1,0 +1,3 @@
+server int hdblib_enableammo_1 = 0;
+server int hdblib_enableammo_2 = 0;
+server int hdblib_enableammo_3 = 0;

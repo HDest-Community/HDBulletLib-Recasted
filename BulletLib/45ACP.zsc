@@ -1,0 +1,94 @@
+// ------------------------------
+// CREATED BY POPGUY12
+// ------------------------------
+
+class HDB_45ACP : HDBulletActor
+{
+	Default
+	{
+		PushFactor 0.2;
+		Mass 150;
+		Speed HDCONST_MPSTODUPT * 400;
+		Stamina 1150;
+		WoundHealth 4;
+		Accuracy 300;
+		HDBulletActor.Hardness 3;
+	}
+}
+
+class HDSpent45ACP : HDSpent9mm
+{
+	Default
+	{
+		BounceSound "misc/casing3";
+		XScale 0.7;
+		YScale 0.6;
+	}
+
+	States
+	{
+		Spawn:
+			45CA A 2 NoDelay A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			Loop;
+		Death:
+			45CA # -1;
+			Stop;
+	}
+}
+
+class HD45ACPAmmo : HDRoundAmmo
+{
+	override void SplitPickup()
+	{
+		SplitPickupBoxableRound(10, 70, "HD45ACPBoxPickup", "45TN", "45RN");
+	}
+
+	const EncRoundLoaded = 0.55;
+	const EncRound = EncRoundLoaded * 1.35;
+
+	Default
+	{
+		+INVENTORY.IGNORESKILL
+		+CANNOTPUSH
+		+FORCEXYBILLBOARD
+		+ROLLSPRITE
+		+ROLLCENTER
+		+HDPICKUP.MULTIPICKUP
+		XScale 0.65;
+		YScale 0.65;
+		Tag ".45 ACP round";
+		Inventory.Icon "45TNA0";
+		Inventory.PickupMessage "Picked up a .45 ACP round.";
+		HDPickup.RefId "45c";
+		HDPickup.Bulk EncRound;
+	}
+
+	states
+	{
+		Spawn:
+			45RN A -1;
+			45TN A -1;
+			Stop;
+	}
+}
+
+
+class HD45ACPBoxPickup : HDUPK
+{
+	Default
+	{
+		XScale 0.30;
+		YScale 0.40;
+		HDUPK.Amount 50;
+		HDUPK.PickupSound "weapons/pocket";
+		HDUPK.PickupMessage "Picked up a .45 ACP box.";
+		HDUPK.PickupType "HD45ACPAmmo";
+	}
+
+	States
+	{
+		Spawn:
+			45BX A -1;
+			Stop;
+	}
+}

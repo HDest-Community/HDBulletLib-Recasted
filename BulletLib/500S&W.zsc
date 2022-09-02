@@ -1,0 +1,139 @@
+// ------------------------------
+// CREATED BY SLEDGE
+// ------------------------------
+
+const ENC_50SW = 1.2;
+const ENC_50SW_LOADED = 0.9;
+
+// [Ace] Regular.
+class HDB_500SW : HDBulletActor
+{
+	Default
+	{
+		Pushfactor 0.3;
+		Mass 230;
+		Speed 800;
+		Accuracy 240;
+		Stamina 1270;
+		WoundHealth 30;
+		HDBulletActor.Hardness 3;
+	}
+}
+
+// [Ace] Wildcat/handloads.
+class HDB_500LAD : HDBulletActor
+{
+	Default
+	{
+		Pushfactor 0.5;
+		Mass 450;
+		Speed 480;
+		Accuracy 110;
+		Stamina 1270;
+		Woundhealth 45;
+		HDBulletActor.Hardness 1;
+	}
+}
+
+class HDSpent500 : HDSpent9mm
+{
+	Default
+	{
+		YScale 1.20;
+	}
+}
+
+class HD500SWLightAmmo : HDRoundAmmo
+{
+	override void SplitPickup()
+	{
+		SplitPickupBoxableRound(10, 40, "HD500SWLightBoxPickup", "TNSWA0", "SWRNA0");
+	}
+
+	Default
+	{
+		+INVENTORY.IGNORESKILL
+		+CANNOTPUSH
+		+FORCEXYBILLBOARD
+		+ROLLSPRITE
+		+ROLLCENTER
+		+HDPICKUP.MULTIPICKUP
+		YScale 0.6;
+		Inventory.PickupMessage "Picked up a .500 S&W light round.";
+		HDPickup.RefId "5sw";
+		Tag ".500 S&W light";
+		HDPickup.Bulk ENC_50SW;
+		Inventory.Icon "TNSWA0";
+	}
+
+	States
+	{
+		Spawn:
+			SWRN A -1;
+			TNSW A -1;
+			Stop;
+	}
+}
+
+class HD500SWHeavyAmmo : HD500SWLightAmmo
+{
+	override void SplitPickup()
+	{
+		SplitPickupBoxableRound(10, 20, "HD500SWHeavyBoxPickup", "TNSWB0", "SWRNB0");
+	}
+
+	Default
+	{
+		Translation "64:111=@72[128,13,0]";
+		Inventory.PickupMessage "Picked up a .500 wildcat cartridge.";
+		HDPickup.RefId "5ld";
+		Tag ".500 S&W heavy";
+		HDPickup.Bulk ENC_50SW;
+		Inventory.Icon "TNSWB0";
+	}
+
+	States
+	{
+		Spawn:
+			SWRN B -1;
+			TNSW B -1;
+			Stop;
+	}
+}
+
+class HD500SWLightBoxPickup : HDUPK
+{
+	Default
+	{
+		Scale 0.4;
+		HDUPK.Amount 40;
+		HDUPK.PickupSound "weapons/pocket";
+		HDUPK.PickupMessage "Picked up some .500 S&W ammo.";
+		HDUPK.PickupType "HD500SWLightAmmo";
+	}
+
+	States
+	{
+		Spawn:
+			5LBX A -1;
+			Stop;
+	}
+}
+class HD500SWHeavyBoxPickup : HDUPK
+{
+	Default
+	{
+		Scale 0.4;
+		HDUPK.Amount 20;
+		HDUPK.PickupSound "weapons/pocket";
+		HDUPK.PickupMessage "Picked up some .500 S&W handloads. How the hell did these get here?";
+		HDUPK.PickupType "HD500SWHeavyAmmo";
+	}
+
+	States
+	{
+		Spawn:
+			5HBX A -1;
+			Stop;
+	}
+}

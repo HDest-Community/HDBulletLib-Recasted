@@ -1,0 +1,24 @@
+OptionMenu "HDBulletLibMenu"
+{
+	Title "Standard Bullet Library Options"
+
+	StaticText "Enabling the ammo types below allows them to be spawned", "White"
+	StaticText "in ammo boxes and backpacks. Otherwise, they will be disabled.", "White"
+	StaticText "Keep an ammo type disabled if you are not playing with any", "White"
+	StaticText "mods that utilize it.", "White"
+	StaticText "Does not actually control spawning by other mods.", "Fire"
+	StaticText ""
+	FlagOption ".50 Action Express", "hdblib_enableammo_1", "OnOff", 0
+	FlagOption "12 ga Slugs", "hdblib_enableammo_1", "OnOff", 1
+	FlagOption ".500 S&W Light", "hdblib_enableammo_1", "OnOff", 2
+	FlagOption ".500 S&W Heavy", "hdblib_enableammo_1", "OnOff", 3
+	FlagOption ".50 OMG", "hdblib_enableammo_1", "OnOff", 4
+	FlagOption ".45 ACP", "hdblib_enableammo_1", "OnOff", 5
+	FlagOption "10mm Auto", "hdblib_enableammo_1", "OnOff", 6
+	FlagOption ".45 LC", "hdblib_enableammo_1", "OnOff", 7
+}
+
+AddOptionMenu "OptionsMenu"
+{
+	Submenu "Bullet Library", "HDBulletLibMenu"
+}

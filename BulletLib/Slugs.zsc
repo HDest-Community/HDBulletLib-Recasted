@@ -1,0 +1,197 @@
+// ------------------------------
+// CREATED BY SLEDGE
+// ------------------------------
+
+class HDB_Slug : HDBulletActor
+{
+	Default
+	{
+		PushFactor 0.7;
+		Mass 570;
+		Speed 500;
+		Accuracy 100;
+		Stamina 1830;
+		WoundHealth 20;
+		HDBulletActor.Hardness 2;
+	}
+}
+
+class HDSlugAmmo : HDRoundAmmo
+{
+	override void SplitPickup()
+	{
+		SplitPickupBoxableRound(4, 20, "SlugBoxPickup", "SLUGA0", "SLG1A0");
+	}
+
+	override string PickupMessage()
+	{
+		if (Amount > 1)
+		{
+			return "Picked up some shotgun slugs.";
+		}
+		return Super.PickupMessage();
+	}
+
+	Default
+	{
+		+INVENTORY.IGNORESKILL
+		+HDPICKUP.MULTIPICKUP
+		Inventory.PickupMessage "Picked up a shotgun slug.";
+		Scale 0.3;
+		Tag "Shotgun slugs";
+		HDPickup.RefId "slu";
+		HDPickup.Bulk ENC_SHELL;
+		Inventory.Icon "SLUGA0";
+	}
+	
+	States
+	{
+		Spawn:
+			SLG1 A -1;
+			Stop;
+		Death:
+			ESLG A -1
+			{
+				if (Wads.CheckNumForName("id", 0) == -1)
+				{
+					A_SetTranslation("FreeSlug");
+				}
+				frame = randompick(0, 0, 0, 0, 4, 4, 4, 4, 2, 2, 5);
+			}
+			Stop;
+	}
+}
+
+class HDSpentSlug : HDSpentShell
+{
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if (Wads.CheckNumForName("id", 0) == -1)
+		{
+			A_SetTranslation("FreeSlug");
+		}
+	}
+
+	States
+	{
+		Spawn:
+			ESLG ABCDEFGH 2;
+			Loop;
+		Death:
+			ESLG A -1
+			{
+				bMISSILE = false;
+				frame = randompick(0, 0, 0, 0, 4, 4, 4, 4, 2, 2, 5);
+			}
+			Stop;
+	}
+}
+
+//a shell that can be caught in hand, launched from the Slayer
+class HDUnSpentSlug : HDSpentSlug
+{
+	States
+	{
+		Spawn:
+			ESLG ABCDE 2;
+			TNT1 A 0
+			{
+				if(A_JumpIfInTargetInventory("HDSlugAmmo",0,"null"))
+				{
+					A_SpawnItemEx("HDFumblingSlug", 0, 0, 0, vel.x + frandom(-1, 1), vel.y + frandom(-1, 1), vel.z, 0, SXF_NOCHECKPOSITION | SXF_ABSOLUTEMOMENTUM);
+				}
+				else
+				{
+					A_GiveToTarget("HDSlugAmmo", 1);
+				}
+			}
+			Stop;
+	}
+}
+
+//any other single shell tumblng out
+class HDFumblingSlug : HDSpentSlug
+{
+	Default
+	{
+		BounceFactor 0.3;
+	}
+
+	States
+	{
+		Spawn:
+			ESLG ABCDEFGH 2;
+			Loop;
+		Death:
+			TNT1 A 0 A_SpawnItemEx("HDFumbledSlug", 0, 0, 0, vel.x, vel.y, vel.z, 0, SXF_ABSOLUTEMOMENTUM | SXF_NOCHECKPOSITION);
+			Stop;
+	}
+}
+
+//the static pickup
+class HDFumbledSlug : IdleDummy
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay
+			{
+				let sss = HDSlugAmmo(Spawn("HDSlugAmmo", pos, ALLOW_REPLACE));
+				sss.Amount = 1;
+				sss.SetStateLabel("death");
+			}
+			stop;
+	}
+}
+
+class SlugBoxPickup : HDUPK
+{
+	Default
+	{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of Shotgun Slugs"
+		//$Sprite "SBOXA0"
+		Scale 0.4;
+		HDUPK.Amount 20;
+		HDUPK.PickupSound "weapons/pocket";
+		HDUPK.PickupMessage "Picked up some shotgun slugs.";
+		HDUPK.PickupType "HDSlugAmmo";
+	}
+	states
+	{
+		Spawn:
+			SLBX A -1 NoDelay
+			{
+				if (Wads.CheckNumForName("id", 0) == -1)
+				{
+					scale = (0.25, 0.25);
+				}
+			}
+	}
+}
+
+class SlugPickup : IdleDummy
+{
+	Default
+	{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Four Shotgun Slugs"
+		//$Sprite "SLUGA0"
+	}
+
+	States
+	{
+		Spawn:
+			SLUG A 0 NoDelay
+			{
+				let iii = hdpickup(Spawn("HDSlugAmmo", pos, ALLOW_REPLACE));
+				iii.amount = 4;
+				iii.special = special;
+				iii.ChangeTID(tid);
+				iii.angle = angle;
+				iii.vel = vel;
+			}
+			Stop;
+	}
+}

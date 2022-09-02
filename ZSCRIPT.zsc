@@ -1,0 +1,109 @@
+version "4.5"
+
+#include "BulletLib/50AE.zsc"
+#include "BulletLib/Slugs.zsc"
+#include "BulletLib/500S&W.zsc"
+#include "BulletLib/50OMG.zsc"
+#include "BulletLib/45ACP.zsc"
+#include "BulletLib/10mmAuto.zsc"
+#include "BulletLib/45LC.zsc"
+
+class HDBulletLibHandler : EventHandler
+{
+	// [Ace] Order here must match order in menu.
+	static const class<HDAmmo> RemovedClasses[] =
+	{
+		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo"
+	};
+
+	private transient CVar AmmoSpawns[3]; // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.
+	private HDAmBoxList AmmoBoxList;
+
+	override void WorldThingSpawned(WorldEvent e)
+	{
+		for (int i = 0; i < 1 + RemovedClasses.Size() / 32; ++i)
+		{	
+			if (!AmmoSpawns[i])
+			{
+				AmmoSpawns[i] = CVar.GetCVar("hdblib_enableammo_"..(i + 1));
+			}
+		}
+
+		if (e.Thing is 'HDAmBox' && !AmmoBoxList) // [Ace] Only do it for the first ammo box encountered because they all share the same thinker.
+		{
+			AmmoBoxList = HDAmBoxList.Get();
+			for (int i = 0; i < AmmoBoxList.InvClasses.Size();)
+			{
+				for (int j = 0; j < RemovedClasses.Size(); ++j)
+				{
+					if (AmmoBoxList.InvClasses[i] == RemovedClasses[j] && !(AmmoSpawns[j / 32].GetInt() & (1 << (j % 32))))
+					{
+						int index = AmmoBoxList.InvClasses.Find(RemovedClasses[j].GetClassName());
+						if (index != AmmoBoxList.InvClasses.Size())
+						{
+							AmmoBoxList.InvClasses.Delete(index);
+							continue;
+						}
+					}
+				}
+				i++; // [Ace] Manually advance because deleting an element in the array shifts the indices.
+			}
+		}
+		else if (e.Thing is 'HDBackpack' && !Inventory(e.Thing).Owner)
+		{
+			Array<class<HDAmmo> > validItems;
+			let bp = HDBackpack(e.Thing);
+			for (int i = 0; i < RemovedClasses.Size(); ++i)
+			{
+				if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32))))
+				{
+					// [Ace] Delete disabled ammo types and spawn something else in their place.
+					if (bp.Storage.DestroyItem(RemovedClasses[i]))
+					{
+						// [Ace] Only populate the list once to save on performance.
+						if (validItems.Size() == 0)
+						{
+							for (int j = 0; j < AllActorClasses.Size(); ++j)
+							{
+								let invItem = (class<HDAmmo>)(AllActorClasses[j]);
+								if (!invItem || invItem is 'HDMagAmmo' || IsRemovedClass(invItem))
+								{
+									continue;
+								}
+
+								if (bp.Storage.CheckConditions(null, invItem) != IType_Invalid)
+								{
+									validItems.Push(invItem);
+								}
+							}
+						}
+
+						int index = random(0, validItems.Size() - 1);
+						let am = GetDefaultByType(validItems[index]);
+
+						int amt = 0;
+						amt = int(min(random(1, am.bMULTIPICKUP ? random(1, 80) : random(1, random(1, 20))), am.MaxAmount, bp.MaxCapacity / (max(1.0, am.Bulk) * 5.0)));
+						if (am.RefId == "")
+						{
+							amt = random(-2, amt);
+						}
+						bp.Storage.AddAmount(am.GetClass(), amt);
+					}
+				}
+			}
+		}
+	}
+
+	private bool IsRemovedClass(class<HDAmmo> cls)
+	{
+		for (int i = 0; i < RemovedClasses.Size(); ++i)
+		{
+			if (cls == RemovedClasses[i])
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+}

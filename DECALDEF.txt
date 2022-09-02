@@ -1,0 +1,64 @@
+// [Ace] BulletChipLarge is taken from Bogus' ZM69.
+decal BulletChipLarge1
+{
+	pic CHIP1
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 1.0
+	y-scale 1.0
+	randomflipx
+	randomflipy
+}
+
+decal BulletChipLarge2
+{
+	pic CHIP2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 1.0
+	y-scale 1.0
+	randomflipx
+	randomflipy
+}
+
+decal BulletChipLarge3
+{
+	pic CHIP3
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 1.0
+	y-scale 1.0
+	randomflipx
+	randomflipy
+}
+
+decal BulletChipLarge4
+{
+	pic CHIP4
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 1.0
+	y-scale 1.0
+	randomflipx
+	randomflipy
+}
+
+decal BulletChipLarge5
+{
+	pic CHIP5
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 1.0
+	y-scale 1.0
+	randomflipx
+	randomflipy
+}
+
+decalgroup BulletChipLarge
+{
+	BulletChipLarge1 1
+	BulletChipLarge2 1
+	BulletChipLarge3 1
+	BulletChipLarge4 1
+	BulletChipLarge5 1
+}
