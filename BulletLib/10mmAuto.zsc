@@ -2,7 +2,7 @@
 // 10mm Ammo
 // -- ----------------------------------------------------------
 const enc_10=1.2;
-const enc_10_loaded=enc_10/1.3
+const enc_10_loaded=enc_10/1.3;
 
 /* for reference, 10mm should be just a bit better than 355,
 almost twice as powerful as 9mm, but high recoil due to incredibly hot loads.*/
