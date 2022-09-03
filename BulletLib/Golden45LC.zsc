@@ -1,3 +1,7 @@
+// ------------------------------
+// CREATED BY SWAMPYRAD
+// ------------------------------
+
 class HDB_Gold45lc:HDBulletActor{
 	default{
 		pushfactor 0.5;//big and slow, not as accurate
