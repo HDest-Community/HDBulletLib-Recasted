@@ -1,0 +1,223 @@
+// ------------------------------
+// CREATED BY SWAMPYRAD
+// ------------------------------
+
+class HDExplosiveShellAmmo:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill
+		+hdpickup.multipickup
+		inventory.pickupmessage "Picked up an explosive shell.";
+		scale 0.3;
+		tag "explosive shell";
+		hdpickup.refid "xsh";
+		hdpickup.bulk ENC_SHELL;
+		inventory.icon "XLS4A0";
+	}
+	override void GetItemsThatUseThis(){
+		itemsthatusethis.push("ExplosiveHunter");
+		//itemsthatusethis.push("ExplosiveSlayer");
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(4,20,"ExplosiveShellBoxPickup","XLS4A0","XLS1A0");
+	}
+	override string pickupmessage(){
+		if(amount>1)return "Picked up some explosive shells.";
+		return super.pickupmessage();
+	}
+	states{
+	spawn:
+		XLS1 A -1;
+		stop;
+	death:
+		XLLS A -1{
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+class HDSpentExplosiveShell:HDDebris{
+	default{
+		-noteleport +forcexybillboard
+		seesound "misc/casing2";scale 0.3;height 2;radius 2;
+		bouncefactor 0.5;
+	}
+	override void postbeginplay(){
+		super.postbeginplay();
+			if(vel==(0,0,0))A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+	}
+	vector3 lastvel;
+	override void Tick(){
+		if(!isFrozen())lastvel=vel;
+		super.Tick();
+	}
+	states{
+	spawn:
+		XLLS ABCDEFGH 2;
+		loop;
+	death:
+		XLLS A -1{
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+//a shell that can be caught in hand, launched from the Slayer
+class HDUnSpentExplosiveShell:HDSpentShell{
+	states{
+	spawn:
+		XLLS ABCDE 2;
+		TNT1 A 0{
+			if(A_JumpIfInTargetInventory("HDExplosiveShellAmmo",0,"null"))
+			A_SpawnItemEx("HDFumblingExplosiveShell",
+				0,0,0,vel.x+frandom(-1,1),vel.y+frandom(-1,1),vel.z,
+				0,SXF_NOCHECKPOSITION|SXF_ABSOLUTEMOMENTUM
+			);else A_GiveToTarget("HDExplosiveShellAmmo",1);
+		}
+		stop;
+	}
+}
+//any other single shell tumblng out
+class HDFumblingExplosiveShell:HDSpentShell{
+	default{
+		bouncefactor 0.3;
+	}
+	states{
+	spawn:
+		XLLS ABCDEFGH 2;
+		loop;
+	death:
+		TNT1 A 0{
+			let sss=spawn("HDExplosiveShellAmmo",pos);
+			sss.vel.xy=lastvel.xy+lastvel.xy.unit()*abs(lastvel.z);
+			sss.setstatelabel("death");
+			if(sss.vel.x||sss.vel.y){
+				sss.A_FaceMovementDirection();
+				sss.angle+=90;
+				sss.frame=randompick(0,4);
+			}else sss.frame=randompick(0,0,0,4,4,4,2,2,5);
+			inventory(sss).amount=1;
+		}stop;
+	}
+}
+
+
+class ExplosiveShellBoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of Explosive Shells"
+		//$Sprite "XLBXA0"
+		scale 0.4;
+		hdupk.amount 20;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "Picked up some explosive shells.";
+		hdupk.pickuptype "HDExplosiveShellAmmo";
+		//translation "160:167=80:105";
+	}
+	states{
+	spawn:
+		XLBX A -1 nodelay;
+
+	}
+}
+class ExplosiveShellPickup:IdleDummy{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Four Shotgun Shells"
+		//$Sprite "XLS4A0"
+	}
+	states{
+	spawn:
+		XLS4 A 0 nodelay{
+			let iii=hdpickup(spawn("HDExplosiveShellAmmo",pos,ALLOW_REPLACE));
+			if(iii){
+				hdf.transferspecials(self,iii,hdf.TS_ALL);
+				iii.amount=4;
+			}
+		}stop;
+	}
+}
+
+class HDMiniExplosion:IdleDummy{
+	default{
+  +forcexybillboard 
+  +bright
+		alpha 0.9;
+   renderstyle "add";
+		deathsound "world/explode";
+   xscale 0.25;
+   yscale 0.25;
+	}
+
+	states{
+	spawn:
+	death:
+		MISL B 0 nodelay{
+			if(max(abs(pos.x),abs(pos.y),abs(pos.z))>=32000){destroy();return;}
+			vel.z+=4;
+			A_StartSound(deathsound,CHAN_BODY);
+
+    A_SpawnChunksFrags("HDB_00",20,1);
+    A_SpawnChunksFrags("HDB_frag",10,1);
+
+			let xxx=spawn("HDExplosionLight",pos);
+			xxx.target=self;
+		}
+
+		MISL B 0 A_SpawnItemEx("ParticleWhiteSmall", 0,0,0, vel.x+random(-2,2),vel.y+random(-2,2),vel.z,0,SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION|SXF_TRANSFERPOINTERS);
+		MISL B 0 A_SpawnItemEx("HDSmoke", 0,0,0, vel.x+frandom(-2,2),vel.y+frandom(-2,2),vel.z,0,SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION|SXF_TRANSFERPOINTERS);
+		MISL B 0 A_Jump(256,"fade");
+	fade:
+		MISL B 1 A_FadeOut(0.1);
+		MISL C 1 A_FadeOut(0.2);
+		MISL DD 1 A_FadeOut(0.2);
+		TNT1 A 20;
+		stop;
+	}
+}
+
+class HDB_12GuageSlugMissile:HDB_00{
+	default{
+		pushfactor 0.3;
+		mass 200;
+		speed HDCONST_MPSTODUPT*500;//720;
+		accuracy 100;
+		stamina 1850;
+		woundhealth 10;
+		hdbulletactor.hardness 1;
+	}
+
+override actor Puff(){
+
+
+		if(max(abs(pos.x),abs(pos.y))>32000)return null;
+		double sp=speed*speed*mass*0.000015;
+		if(sp<50)return null;
+
+  A_HDBlast(
+     blastradius:16,
+     blastdamage:25,
+     fullblastradius:1,
+     blastdamagetype:"bashing",
+     immolateradius:48,
+     immolateamount:random(16,24),
+     immolatechance:48
+			);
+		
+		A_SprayDecal("BrontoScorch",4);
+
+		let aaa=HDBulletPuff(spawn("HDMiniExplosion",pos));
+		if(aaa){
+			aaa.angle=angle;aaa.pitch=pitch;
+			aaa.stamina=int(sp*0.01);
+			aaa.scarechance=max(0,20-int(sp*0.001));
+			aaa.scale=(1.,1.)*(0.4+0.05*aaa.stamina);
+			aaa.target=target;
+    distantnoise.make(aaa,"world/rocketfar");
+		}
+		return aaa;
+	}
+
+	states{
+	death:
+		TNT1 A 0 {if(tracer)puff();}
+		goto super::death;
+	}
+}

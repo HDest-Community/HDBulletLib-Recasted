@@ -16,8 +16,12 @@ OptionMenu "HDBulletLibMenu"
 	FlagOption ".45 ACP", "hdblib_enableammo_1", "OnOff", 5
 	FlagOption "10mm Auto", "hdblib_enableammo_1", "OnOff", 6
 	FlagOption ".45 LC", "hdblib_enableammo_1", "OnOff", 7
-	FlagOption "Musket Balls", "hdblib_enableammo_1", "OnOff", 8
-	FlagOption "4-Gauge", "hdblib_enableammo_1", "OnOff", 9
+	FlagOption "Less-Lethal Shells", "hdblib_enableammo_1", "OnOff", 8
+	FlagOption "Explosive Slugs", "hdblib_enableammo_1", "OnOff", 9
+	FlagOption "Golden .45 LC", "hdblib_enableammo_1", "OnOff", 10
+	FlagOption "Flare Shells", "hdblib_enableammo_1", "OnOff", 11
+	FlagOption "Musket Balls", "hdblib_enableammo_1", "OnOff", 12
+	FlagOption "4-Gauge", "hdblib_enableammo_1", "OnOff", 13
 }
 
 AddOptionMenu "OptionsMenu"
