@@ -1,0 +1,85 @@
+// ------------------------------------------------------------
+// .50 Action Mega
+// ------------------------------------------------------------
+const HDLD_50AM="5am";
+const ENC_50AM=ENC_355*1.1;
+const ENC_50AM_LOADED=ENC_355_LOADED*1.1;
+
+class HD50AM_Ammo:HDRoundAmmo{
+	default{
+		+forcexybillboard +cannotpush
+		+inventory.ignoreskill
+		+hdpickup.multipickup
+		xscale 0.7;yscale 0.7;
+		inventory.pickupmessage "Picked up a .50 Action Mega round.";
+		hdpickup.refid HDLD_50AM;
+		tag ".50 Action Mega";
+		hdpickup.bulk ENC_50AM;
+		inventory.icon "50AMW0";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(10,65,"PB_50AMBoxPickup","G50YA0","G50ZA0");
+	}
+	states{
+	spawn:
+		G50Z A -1;
+		G50Y A -1;
+	}
+}
+
+class HDSpent50AM:HDDebris{
+	override void postbeginplay(){
+		super.postbeginplay();
+		//should we just put this in the weapon itself? but right now they're all the same...
+		A_ChangeVelocity(frandom(-0.5,0.5),frandom(-7,-8),frandom(-0.5,0.5),CVF_RELATIVE);
+	}
+	default{
+		bouncesound "misc/casing3";scale 0.7;
+	}
+	states{
+	spawn:
+		50AM Y 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		50AM # -1;
+	}
+}
+
+class HDLoose50AM:HDSpent50AM{
+	override void postbeginplay(){
+		HDDebris.postbeginplay();
+	}
+	default{
+		bouncefactor 0.5;
+	}
+	states{
+		spawn:
+		50AM W 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		TNT1 A 1{
+			actor a=spawn("HD50AM_Ammo",self.pos,ALLOW_REPLACE);
+			a.roll=self.roll;a.vel=self.vel;
+		}stop;
+	}
+}
+
+class PB_50AMBoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of 7.76mm"
+		//$Sprite "7BOXA0"
+
+		scale 0.4;
+		hdupk.amount 65;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "Picked up some .50 Action Mega.";
+		hdupk.pickuptype "HD50AM_Ammo";
+	}
+	states{
+	spawn:
+		50AM X -1;
+	}
+}

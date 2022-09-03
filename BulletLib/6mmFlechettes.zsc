@@ -1,0 +1,169 @@
+// ------------------------------
+// CREATED BY POTETOBLOKE
+// ------------------------------
+
+const HDLD_6MMFLECHETTE="6fl";
+const ENC_6MMFLECHETTE=ENC_426*1.21;
+const ENC_6MMFLECHETTE_LOADED=ENC_6MMFLECHETTE*0.37;
+
+class HD6mmFlechetteAmmo:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill
+		+cannotpush
+		+forcexybillboard
+		+rollsprite +rollcenter
+		+hdpickup.multipickup
+		inventory.pickupmessage "Picked up a 6mm Flechette round.";
+		hdpickup.refid HDLD_6MMFLECHETTE;
+		tag "6x42mm SCF Round";
+		hdpickup.bulk ENC_6MMFLECHETTE;
+		inventory.icon "ACRPJ0";
+		xscale 0.3;yscale 0.3;
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(12,100,"HD6mmFlechetteBoxPickup","ACR9I0","ACRPI0");
+	}
+	states{
+	spawn:
+		ACRP I -1;
+		ACR9 I -1;
+	}
+}
+
+class HD6mmFlechetteBoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of 9mm"
+		//$Sprite "9BOXA0"
+
+		scale 0.3;
+		hdupk.amount 100;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "Picked up a box of 6mm Flechettes.";
+		hdupk.pickuptype "HD6mmFlechetteAmmo";
+	}
+	states{
+	spawn:
+		ACRP K -1;
+	}
+}
+
+class HDSpent6mmFlechette:HDDebris{
+	default{
+		bouncesound "misc/casing3";scale 0.30;
+		alpha 0.5;
+	}
+	states{
+	spawn:
+		ACRP L 2 nodelay;loop;
+	death:
+		ACRP L -1;
+	}
+}
+
+class HDB_6mmFlechette:HDBulletActor{
+	default{
+		pushfactor 0.15;
+		mass 25;
+		speed HDCONST_MPSTODUPT*950;
+		accuracy 760;
+		stamina 125;				//flechettes are slim
+		woundhealth 25;
+		hdbulletactor.hardness 5;	//full steel flechettes
+		hdbulletactor.distantsound "world/riflefar";
+		hdbulletactor.distantsoundvol 0.85;
+	}
+	override void postbeginplay(){
+		super.postbeginplay();
+		for(int i=2;i;i--){
+			A_SpawnItemEx("PB_HDFlechetteSabot",0,0,0,
+				speed*cos(pitch)*0.01,(i==2?2:-2),speed*sin(pitch)*0.01,0,
+				SXF_NOCHECKPOSITION|SXF_TRANSFERPOINTERS
+			);
+		}
+	}
+	
+	//Both entrance and exit holes are small
+	
+	override void HitGeometry(line hitline, sector hitsector, int hitside, int hitpart, vector3 vu, double lastdist)
+	{
+		A_SprayDecal(speed > 400 ? "FlechettePuncture" : "FlechettePuncture", 4);
+		super.HitGeometry(hitline, hitsector, hitside, hitpart, vu, lastdist);
+		angle -= 180;
+		A_SprayDecal(speed > 400 ? "FlechettePuncture" : "FlechettePuncture", 4);
+		angle += 180;
+	}
+	
+	override name GetBulletDecal(
+		double bulletspeed,
+		line hitline,
+		int hitpart,
+		bool exithole
+	){
+		return bulletspeed>(exithole?400:600)?"FlechettePuncture":"FlechettePuncture";
+	}
+}
+
+
+class HDB_6mmFlechette_Duplex:HDBulletActor{
+	default{
+		pushfactor 0.2;
+		mass 15;
+		speed HDCONST_MPSTODUPT*650;
+		accuracy 710;
+		stamina 125;				//flechettes are slim
+		woundhealth 15;
+		hdbulletactor.hardness 5;	//full steel flechettes
+		//hdbulletactor.distantsound "world/riflefar";
+		//hdbulletactor.distantsoundvol 0.35;
+	}
+	override void postbeginplay(){
+		super.postbeginplay();
+		for(int i=1;i;i--){
+			A_SpawnItemEx("PB_HDFlechetteSabot",0,0,0,
+				speed*cos(pitch)*0.01,(i==2?2:-2),speed*sin(pitch)*0.01,0,
+				SXF_NOCHECKPOSITION|SXF_TRANSFERPOINTERS
+			);
+		}
+	}
+	override void HitGeometry(line hitline, sector hitsector, int hitside, int hitpart, vector3 vu, double lastdist)
+	{
+		A_SprayDecal(speed > 400 ? "FlechettePuncture" : "FlechettePuncture", 4);
+		super.HitGeometry(hitline, hitsector, hitside, hitpart, vu, lastdist);
+		angle -= 180;
+		A_SprayDecal(speed > 400 ? "FlechettePuncture" : "FlechettePuncture", 4);
+		angle += 180;
+	}
+	
+	override name GetBulletDecal(
+		double bulletspeed,
+		line hitline,
+		int hitpart,
+		bool exithole
+	){
+		return bulletspeed>(exithole?400:600)?"FlechettePuncture":"FlechettePuncture";
+	}
+}
+
+
+class PB_HDFlechetteSabot:HDDebris{
+	default{
+		xscale 0.3;yscale 0.1;height 2;radius 2;
+		translation "ice";
+		bouncesound "nothingxddd";
+	}
+	states{
+	spawn:
+		TNT1 A 0 nodelay{
+			int blh=random(20,35);
+			A_ChangeVelocity(cos(pitch)*blh,frandom(-1,1),-sin(pitch)*blh,CVF_RELATIVE);
+		}
+	spawn2:
+		RBRS A 2{angle+=45;}
+		loop;
+	death:
+		---- A 90;
+		---- A 1 A_Fadeout(0.1);
+		wait;
+	}
+}

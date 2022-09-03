@@ -1,0 +1,134 @@
+Sprite "ACRPI1", 2, 2
+{
+	XScale 1.200
+	YScale 1.200
+	Offset 1, 2
+	Patch "ACRP_RND", 0, 0
+	{
+		Rotate 90
+		Blend "#000000", 0.3
+	}
+}
+
+Sprite "ACRPI2I8", 10, 2
+{
+	XScale 2.000
+	YScale 1.200
+	Offset 4, 2
+	Patch "ACRP_RND", 0, 0
+	{
+		Blend "#000000", 0.3
+	}
+	Patch "ACRP_RND", 3, 0
+}
+
+Sprite "ACRPI3I7", 7, 2
+{
+	YScale 1.200
+	Offset 3, 2
+	Patch "ACRP_RND", 0, 0
+}
+
+Sprite "ACRPI4I6", 10, 2
+{
+	XScale 2.000
+	YScale 1.200
+	Offset 4, 2
+	Patch "ACRP_RND", 0, 0
+	{
+		Blend "#FFFFFF", 0.3
+	}
+	Patch "ACRP_RND", 0, 0
+}
+
+Sprite "ACRPI5", 2, 2
+{
+	XScale 1.200
+	YScale 1.200
+	Offset 1, 2
+	Patch "ACRP_CASE", 0, 0
+	{
+		Blend "#FFFFFF", 0.0
+	}
+}
+
+Sprite "ACRPL1", 2, 2
+{
+	XScale 1.200
+	YScale 1.200
+	Offset 1, 2
+	Patch "ACRP_RND", 0, 0
+	{
+		Rotate 90
+		Blend "#000000", 0.2
+	}
+}
+
+Sprite "ACRPL2L8", 10, 2
+{
+	XScale 2.000
+	YScale 1.200
+	Offset 4, 2
+	Patch "ACRP_CASE", 0, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "ACRP_RND", 0, 0
+	{
+		Blend "#000000", 0.4
+	}
+	Patch "ACRP_CASE", 0, 0
+	{
+		Blend "#FFFFFF", 0.2
+	}
+}
+
+Sprite "ACRPL3L7", 7, 2
+{
+	YScale 1.200
+	Offset 3, 2
+	Patch "ACRP_CASE", 0, 0
+	{
+		Blend "#FFFFFF", 0.0
+	}
+}
+
+Sprite "ACRPL4L6", 10, 2
+{
+	XScale 2.000
+	YScale 1.200
+	Offset 4, 2
+	Patch "ACRP_CASE", 0, 0
+	{
+		Blend "#FFFFFF", 0.4
+	}
+	Patch "ACRP_RND", 0, 0
+	{
+		Blend "#FFFFFF", 0.2
+	}
+}
+
+Sprite "ACRPL5", 2, 2
+{
+	XScale 1.200
+	YScale 1.200
+	Offset 1, 2
+	Patch "ACRP_CASE", 0, 0
+	{
+		Blend "#FFFFFF", 0.4
+	}
+}
+
+Sprite "ACR9I0", 18, 8
+{
+	XScale 1.200
+	Offset 8, 8
+	Patch "ACRPJ0", -24, -44
+}
+
+Graphic "ACRP_CASE", 7, 2
+{
+	YScale 1.200
+	Offset 3, 2
+	Patch "ACRP_CAS", 0, 0
+}

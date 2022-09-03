@@ -1,0 +1,111 @@
+// ------------------------------
+// CREATED BY POTETOBLOKE
+// ------------------------------
+
+const HDLD_5MM = "5mr";
+
+//const ENC_5MM = 0.1444;
+//const ENC_5MM_LOADED = 0.0722;
+
+const ENC_5MM = ENC_426*1.005;
+const ENC_5MM_LOADED = ENC_5MM*0.4;
+
+class HD5mm_Ammo : HDRoundAmmo
+{
+	override void SplitPickup()
+	{
+		SplitPickupBoxableRound(16, 160, "PB_5mmBoxPickup", "5MMYA0", "5MMZA0");
+	}
+
+	Default
+	{
+		+FORCEXYBILLBOARD
+		+CANNOTPUSH
+		+INVENTORY.IGNORESKILL
+		+HDPICKUP.MULTIPICKUP
+		Scale 0.55;
+		Inventory.PickupMessage "Picked up a 5mm BR round.";
+		HDPickup.RefId HDLD_5MM;
+		Tag "5x12mm Bumblebee Rimfire";
+		HDPickup.Bulk ENC_5MM;
+	}
+	
+	states
+	{
+		Spawn:
+			5MMY A -1;
+			5MMZ A -1;
+			Stop;
+	}
+}
+
+class HDSpent5mmMR : HDDebris
+{
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_ChangeVelocity(frandom(-1, 1), frandom(-0.4, 0.4), 0, CVF_RELATIVE);
+	}
+	
+
+	Default
+	{
+		BounceSound "misc/casing3";
+		Scale 0.55;
+	}
+
+	States
+	{
+		Spawn:
+			5MMR Z 2 NoDelay
+			{
+				A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			}
+			Loop;
+		Death:
+			5MMR # -1;
+			Stop;
+	}
+}
+
+class PB_5mmBoxPickup : HDUPK
+{
+	Default
+	{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of 5x16mm MR"
+		//$Sprite "5MBXA0"
+		Scale 0.4;
+		HDUPK.Amount 160;
+		HDUPK.PickupSound "weapons/pocket";
+		HDUPK.PickupMessage "Picked up ''some'' 5mm BR.";
+		HDUPK.PickupType "HD5mm_Ammo";
+	}
+
+	States
+	{
+		Spawn:
+			5MBX A -1;
+			Stop;
+	}
+}
+
+class HDBullet5mmMR : HDBulletActor
+{
+	Default
+	{
+		Pushfactor 0.6; //nerfed
+		Mass 28;
+		speed HDCONST_MPSTODUPT*350;
+		Accuracy 270;
+		Stamina 560;
+		WoundHealth 7;
+		HdBulletActor.Hardness 3;
+	}
+}
+const HDLD_M165N="a18";
+
+const ENC_M165_MAG=20;
+
+const ENC_M165_MAG_EMPTY=15.25;
+const ENC_M165_MAG_LOADED=7.5;

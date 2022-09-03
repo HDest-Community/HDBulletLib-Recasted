@@ -1,0 +1,110 @@
+Sprite "5MMRY0", 6, 1
+{
+	XScale 1.600
+	YScale 1.300
+	Offset 3, 1
+	Patch "5MM_0000", 2, 0
+	{
+		Translation "160:163=96:101"
+	}
+	Patch "5MM_0000", 0, 0
+}
+
+Sprite "5MMRX0", 1, 6
+{
+	XScale 1.300
+	YScale 1.600
+	Offset 1, 6
+	Patch "5MM_0000", 0, 0
+	{
+		Rotate -90
+		Translation "160:163=96:101"
+	}
+	Patch "5MM_0000", 0, 2
+	{
+		Rotate -90
+	}
+}
+
+Sprite "5MMYA0", 16, 7
+{
+	XScale 1.300
+	YScale 1.600
+	Offset 8, 7
+	Patch "5MMRX0", 0, 1
+	Patch "5MMRX0", 1, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "5MMRX0", 2, 1
+	Patch "5MMRX0", 3, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "5MMRX0", 4, 1
+	Patch "5MMRX0", 5, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "5MMRX0", 6, 1
+	Patch "5MMRX0", 8, 1
+	Patch "5MMRX0", 10, 1
+	Patch "5MMRX0", 12, 1
+	Patch "5MMRX0", 14, 1
+	Patch "5MMRX0", 7, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "5MMRX0", 9, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "5MMRX0", 11, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "5MMRX0", 13, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "5MMRX0", 15, 0
+	{
+		Blend "#000000", 0.2
+	}
+}
+
+Sprite "5MMZA0", 6, 1
+{
+	XScale 1.600
+	YScale 1.300
+	Offset 3, 1
+	Patch "5MM_0000", 2, 0
+	{
+		Translation "160:163=96:101"
+	}
+	Patch "5MM_0000", 0, 0
+}
+
+Sprite "5MMRZ0", 1, 4
+{
+	XScale 1.300
+	YScale 1.600
+	Offset 1, 4
+	Patch "5MM_0000", 0, 0
+	{
+		FlipX
+		Rotate 90
+	}
+	Patch "5MM_0000", 0, -2
+	{
+		Rotate 90
+		Blend "#000000", 0.1
+		Style Modulate
+	}
+	Patch "5MM_0000", 0, -3
+	{
+		Rotate 90
+		Blend "#000000", 0.1
+		Style Modulate
+	}
+}

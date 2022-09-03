@@ -13,13 +13,16 @@ version "4.5"
 #include "BulletLib/ExplosiveSlugs.zsc"
 #include "BulletLib/Golden45LC.zsc"
 #include "BulletLib/FlareShells.zsc"
+#include "BulletLib/5mm.zsc"
+#include "BulletLib/6mmFlechettes.zsc"
+#include "BulletLib/50AM.zsc"
 
 class HDBulletLibHandler : EventHandler
 {
 	// [Ace] Order here must match order in menu.
 	static const class<HDAmmo> RemovedClasses[] =
 	{
-		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDBallAmmo", "HD4GSAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDFlareAmmo"
+		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo"
 	};
 
 	private transient CVar AmmoSpawns[3]; // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.

@@ -22,6 +22,9 @@ OptionMenu "HDBulletLibMenu"
 	FlagOption "Flare Shells", "hdblib_enableammo_1", "OnOff", 11
 	FlagOption "Musket Balls", "hdblib_enableammo_1", "OnOff", 12
 	FlagOption "4-Gauge", "hdblib_enableammo_1", "OnOff", 13
+	FlagOption "5mm Bumblebee Rimfire", "hdblib_enableammo_1", "OnOff", 14
+	FlagOption "6mm Flechettes", "hdblib_enableammo_1", "OnOff", 15
+	FlagOption "50 Action-Mega", "hdblib_enableammo_1", "OnOff", 16
 }
 
 AddOptionMenu "OptionsMenu"
