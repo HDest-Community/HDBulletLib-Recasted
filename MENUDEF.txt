@@ -17,6 +17,7 @@ OptionMenu "HDBulletLibMenu"
 	FlagOption "10mm Auto", "hdblib_enableammo_1", "OnOff", 6
 	FlagOption ".45 LC", "hdblib_enableammo_1", "OnOff", 7
 	FlagOption "Musket Balls", "hdblib_enableammo_1", "OnOff", 8
+	FlagOption "4-Gauge", "hdblib_enableammo_1", "OnOff", 9
 }
 
 AddOptionMenu "OptionsMenu"

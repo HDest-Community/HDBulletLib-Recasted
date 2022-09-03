@@ -1,0 +1,112 @@
+const ENC_4GS = ENC_SHELL*3;
+const ENC_4GSLOADED = ENC_SHELLLOADED*3;
+
+class HDB_4GS : HDBulletActor{
+	default{
+		pushfactor 0.15;
+		mass 1710;
+		speed HDCONST_MPSTODUPT*600;//850;
+		accuracy 600;
+		stamina 2500;
+		hdbulletactor.hardness 5;
+        hdbulletactor.distantsound "world/shotgunfar";
+		hdbulletactor.distantsoundvol 2.;
+        seesound "weapons/riflecrack";
+	}
+}
+
+class HD4GSAmmo:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill
+		+hdpickup.multipickup
+		inventory.pickupmessage "Picked up a 4 gauge saboted slug.";
+		scale 0.3;
+		tag "4 gauge saboted slug";
+		hdpickup.refid "4gs";
+		hdpickup.bulk ENC_4GS;
+		inventory.icon "4GS1A0";
+	}
+	states{
+	spawn:
+		4GS1 A -1;
+		stop;
+	death:
+		E4GS A -1{
+			if(Wads.CheckNumForName("id",0)==-1)A_SetTranslation("Free4GS");
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+class HDSpent4GS:HDSpentShell{
+	override void postbeginplay(){
+		super.postbeginplay();
+		if(Wads.CheckNumForName("id",0)==-1)A_SetTranslation("Free4GS");
+		if(vel==(0,0,0))A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+	}
+	states{
+	spawn:
+		E4GS ABCDEFGH 2;
+		loop;
+	death:
+		E4GS A -1{
+			bmissile=false;
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+//a shell that can be caught in hand, launched from the Slayer
+class HDUnSpent4GS:HDSpent4GS{
+	states{
+	spawn:
+		E4GS ABCDE 2;
+		TNT1 A 0{
+			if(A_JumpIfInTargetInventory("HD4GSAmmo",0,"null"))
+			A_SpawnItemEx("HDFumbling4GS",
+				0,0,0,vel.x+frandom(-1,1),vel.y+frandom(-1,1),vel.z,
+				0,SXF_NOCHECKPOSITION|SXF_ABSOLUTEMOMENTUM
+			);else A_GiveToTarget("HD4GSAmmo",1);
+		}
+		stop;
+	}
+}
+//any other single shell tumblng out
+class HDFumbling4GS:HDSpent4GS{
+	default{
+		bouncefactor 0.3;
+	}
+	states{
+	spawn:
+		E4GS ABCDEFGH 2;
+		loop;
+	death:
+		TNT1 A 0 A_SpawnItemEx("HDFumbled4GS",0,0,0,
+			vel.x,vel.y,vel.z,
+			0,SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION
+		);stop;
+	}
+}
+//the static pickup
+class HDFumbled4GS:IdleDummy{
+	states{
+	spawn:
+		TNT1 A 0 nodelay{
+			let sss=HD4GSAmmo(spawn("HD4GSAmmo",pos,ALLOW_REPLACE));
+			sss.amount=1;
+			sss.setstatelabel("death");
+		}stop;
+	}
+}
+
+class HD4GSSpawn:IdleDummy{
+	states{
+	spawn:
+		TNT1 A 0 nodelay{
+			if(!random(0,4)){
+				spawn("HD4GSAmmo",pos,ALLOW_REPLACE);
+				spawn("HD4GSAmmo",pos+(2,0,0),ALLOW_REPLACE);
+				spawn("HD4GSAmmo",pos-(2,0,0),ALLOW_REPLACE);
+				spawn("HD4GSAmmo",pos-(4,0,0),ALLOW_REPLACE);
+			}else spawn("HD4GSAmmo",pos,ALLOW_REPLACE);
+		}stop;
+	}
+}
