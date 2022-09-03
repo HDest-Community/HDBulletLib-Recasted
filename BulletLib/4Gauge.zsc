@@ -1,3 +1,7 @@
+// ------------------------------
+// CREATED BY KHAN
+// ------------------------------
+
 const ENC_4GS = ENC_SHELL*3;
 const ENC_4GSLOADED = ENC_SHELLLOADED*3;
 
