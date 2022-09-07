@@ -1,0 +1,136 @@
+const HDLD_420="4fr";
+const HDLD_069BORE="69b";
+const ENC_420=1;
+const ENC_420_LOADED=0.6;
+const ENC_069BORE=0.6;
+const ENC_069BORE_LOADED=0.4;
+
+
+
+class HDB_420:HDBulletActor{
+    default{
+        pushfactor 0.3;
+        mass 190;
+        speed HDCONST_MPSTODUPT*460;//600;
+        accuracy 240;
+        stamina 1062;
+        woundhealth 30;
+        hdbulletactor.hardness 2;
+    }
+}
+
+class HDB_000:HDBulletActor{
+    default{
+        pushfactor 0.35;
+        mass 35;
+        speed HDCONST_MPSTODUPT*430;
+        accuracy 200;
+        stamina 910;
+        woundhealth 5;
+        hdbulletactor.hardness 5;
+    }
+}
+
+class HDSpent420:HDDebris{
+	default{
+		bouncesound "misc/casing3";scale 0.6;
+	}
+	states{
+	spawn:
+		420S A 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		420S # -1;
+	}
+}
+
+class HDAurochsAmmo:HDPistolAmmo{
+	default{
+		xscale 0.7;
+		yscale 0.85;
+		inventory.pickupmessage "Picked up a .420 Frei round.";
+		hdpickup.refid HDLD_420;
+		tag ".420 Frei round";
+		hdpickup.bulk ENC_420;
+		inventory.icon "42TEA0";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(10,60,"HD420BoxPickup","42TEA0","420BA0");
+	}
+	states{
+	spawn:
+		420B A -1;
+		42TE A -1;
+	}
+}
+
+
+class HD420BoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of .355"
+		//$Sprite "3BOXA0"
+		scale 0.5;
+		hdupk.amount 60;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "Picked up some .420 Frei ammo.";
+		hdupk.pickuptype "HDAurochsAmmo";
+	}
+	states{
+	spawn:
+		420A A -1;
+	}
+}
+
+class HDSpent069Bore:HDDebris{
+	default{
+		bouncesound "misc/casing2";
+		xscale 0.3;
+		yscale 0.4;
+	}
+	states{
+	spawn:
+		42BR A 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		42BR # -1;
+	}
+}
+
+class HD069BoreAmmo:HDPistolAmmo{
+	default{
+		xscale 0.3;
+		yscale 0.4;
+		inventory.pickupmessage "Picked up a .069 bore shell.";
+		hdpickup.refid HDLD_069BORE;
+		tag "69 bore shell";
+		hdpickup.bulk ENC_069BORE;
+		inventory.icon "42BTA0";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(10,30,"HD069BoreBox","42BTA0","42BRA0");
+	}
+	states{
+	spawn:
+		42BR A -1;
+		42BT A -1;
+	}
+}
+class HD069BoreBox:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of .355"
+		//$Sprite "3BOXA0"
+		scale 0.5;
+		hdupk.amount 30;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "Picked up some .069 bore shells.";
+		hdupk.pickuptype "HD069BoreAmmo";
+	}
+	states{
+	spawn:
+		42BX A -1;
+	}
+}

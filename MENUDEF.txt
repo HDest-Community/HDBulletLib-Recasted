@@ -15,6 +15,8 @@ OptionMenu "HDBulletLibMenu"
 	FlagOption "12 ga Slugs", "hdblib_enableammo_1", "OnOff", 1
 	FlagOption ".500 S&W Light", "hdblib_enableammo_1", "OnOff", 2
 	FlagOption ".500 S&W Heavy", "hdblib_enableammo_1", "OnOff", 3
+	FlagOption ".420 Frei", "hdblib_enableammo_1", "OnOff", 17
+	FlagOption ".069 Bore", "hdblib_enableammo_1", "OnOff", 18
 	StaticText ""
 	StaticText "Created by Bogus", "white"
 	FlagOption ".50 OMG", "hdblib_enableammo_1", "OnOff", 4

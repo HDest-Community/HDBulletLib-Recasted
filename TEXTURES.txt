@@ -1030,4 +1030,75 @@ Sprite "G50YA0", 10, 7
 	}
 }
 
+// .069 Bore & .420 Frei
+
+Sprite "42TEA0", 10, 6
+{
+	Offset 5, 6
+	Patch "420BA0", 0, 1
+	Patch "420BA0", 2, 1
+	Patch "420BA0", 4, 1
+	Patch "420BA0", 6, 1
+	Patch "420BA0", 8, 1
+	Patch "420BA0", 1, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "420BA0", 3, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "420BA0", 5, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "420BA0", 7, 0
+	{
+		Blend "#000000", 0.2
+	}
+	Patch "420BA0", 9, 0
+	{
+		Blend "#000000", 0.2
+	}
+}
+
+Sprite "42BTA0", 20, 8
+{
+	Offset 10, 8
+	Patch "42BRA0", 0, 2
+	Patch "42BRA0", 16, 2
+	Patch "42BRA0", 8, 2
+	Patch "42BRA0", 4, 2
+	Patch "42BRA0", 12, 2
+	Patch "42BRA0", 2, 1
+	{
+		Blend "#000000", 0.3
+	}
+	Patch "42BRA0", 18, 1
+	{
+		Blend "#000000", 0.3
+	}
+	Patch "42BRA0", 10, 1
+	{
+		Blend "#000000", 0.3
+	}
+	Patch "42BRA0", 6, 1
+	{
+		Blend "#000000", 0.3
+	}
+	Patch "42BRA0", 14, 1
+	{
+		Blend "#000000", 0.3
+	}
+}
+
+Sprite "42FOA0", 7, 5
+{
+	Offset 4, 5
+	Patch "420BA0", 0, 0
+	Patch "420BA0", 2, 0
+	Patch "420BA0", 4, 0
+	Patch "420BA0", 6, 0
+}
+
 // End of texture definitions
