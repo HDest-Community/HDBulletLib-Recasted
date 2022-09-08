@@ -83,3 +83,18 @@ class PB_50AMBoxPickup:HDUPK{
 		50AM X -1;
 	}
 }
+
+//Bullet
+
+class HDB_50AM:HDBulletActor{
+    default{
+		pushfactor 0.35;
+		mass 110;
+		speed HDCONST_MPSTODUPT*650;
+		accuracy 300;
+		stamina 1270;
+		woundhealth 45;
+		hdbulletactor.hardness 3;
+		hdbulletactor.distantsound "world/deaglefar";
+    }
+}
