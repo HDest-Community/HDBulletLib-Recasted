@@ -1101,4 +1101,217 @@ Sprite "42FOA0", 7, 5
 	Patch "420BA0", 6, 0
 }
 
+Sprite "BX10A0", 30, 14
+{
+	Offset 15, 14
+	Patch "BX10A0", 0, 0
+}
+
+Sprite "CS10A0", 11, 17
+{
+	XScale 5.000
+	YScale 5.000
+	Offset 5, 17
+	Patch "CS10A0", 0, 0
+}
+
+Sprite "CS10B0", 16, 15
+{
+	XScale 5.000
+	YScale 5.000
+	Offset 8, 15
+	Patch "CS10B0", 0, 0
+}
+
+Sprite "PR10A0", 9, 22
+{
+	XScale 5.000
+	YScale 5.000
+	Offset 4, 20
+	Patch "PR10A0", 0, 0
+}
+
+Sprite "T10MA0", 54, 24
+{
+	XScale 5.000
+	YScale 5.000
+	Offset 27, 24
+	Patch "T10MA0", 0, 0
+}
+
+sprite C45GA0,11,17{
+  xscale 2
+  yscale 2
+	offset 5, 17
+	patch C45GA0,0,0{}
+}
+
+sprite C45GB0,15,16{
+  xscale 2
+  yscale 2
+	offset 7, 16
+	patch C45GB0,0,0{}
+}
+
+
+sprite GC45A0,9,22{
+  xscale 2
+  yscale 2
+	offset 5, 22
+	patch GC45A0,0,0{}
+}
+
+sprite GLBXA0,59,27{
+  xscale 2
+  yscale 2
+	offset 28, 27
+	patch GLBXA0,0,0{}
+}
+
+sprite GSIXA0,54,22{
+  xscale 2
+  yscale 2
+	offset 27, 22
+	patch GSIXA0,0,0{}
+}
+
+sprite LLBXA0,32,12{
+	offset 15,12
+	patch LLBXA0,0,0{}
+}
+
+sprite LLS1A0,5,7{
+	offset 3,7
+	patch LLS1A0,0,0{}
+}
+
+sprite LLS4A0,15,7{
+	offset 7,7
+	patch LLS4A0,0,0{}
+}
+
+//fumbled shell sprites
+sprite ELLSA1,3,4{
+	offset 2,4
+	patch ELLSA1,0,0{}
+}
+sprite ELLSA2A8,6,4{
+	offset 3,4
+	patch ELLSA2A8,0,0{}
+}
+sprite ELLSA3A7,8,3{
+	offset 4,3
+	patch ELLSA3A7,0,0{}
+}
+sprite ELLSA4A6,6,4{
+	offset 3,4
+	patch ELLSA4A6,0,0{}
+}
+sprite ELLSA5,3,4{
+	offset 4,3
+	patch ELLSA5,0,0{}
+}
+sprite ELLSE1,3,4{
+	offset 2,4
+	patch ELLSE1,0,0{}
+}
+sprite ELLSE2E8,6,4{
+	offset 3,4
+	patch ELLSE2E8,0,0{}
+}
+sprite ELLSE3E7,8,3{
+	offset 4,3
+	patch ELLSE3E7,0,0{}
+}
+sprite ELLSE4E6,6,4{
+	offset 3,4
+	patch ELLSE4E6,0,0{}
+}
+sprite ELLSE5,3,4{
+	offset 4,3
+	patch ELLSE5,0,0{}
+}
+
+//single flare shells
+sprite FLARA0,3,10{
+yscale 0.6
+xscale 0.5
+offset 1,10
+patch FLARA0,0,0{}
+}
+
+//four flare shells
+sprite FLA4A0,15,10{
+yscale 0.6
+xscale 0.5
+offset 7,10
+patch FLA4A0,0,0{}
+}
+
+//flare shellbox
+sprite FLBXA0,32,12{
+offset 16,12
+patch FLBXA0,0,0{}
+}
+
+sprite XLS4A0,15,7{
+	offset 7,7
+	patch XLS4A0,0,0{}
+}
+sprite XLS1A0,5,7{
+	offset 3,7
+	patch XLS1A0,0,0{}
+}
+sprite XLBXA0,32,12{
+	offset 15,12
+	patch XLBXA0,0,0{}
+}
+
+//fumbled shell sprites
+sprite XLLSA1,3,4{
+	offset 2,4
+	patch XLLSA1,0,0{}
+}
+sprite XLLSA2A8,6,4{
+	offset 3,4
+	patch XLLSA2A8,0,0{}
+}
+sprite XLLSA3A7,8,3{
+	offset 4,3
+	patch XLLSA3A7,0,0{}
+}
+sprite XLLSA4A6,6,4{
+	offset 3,4
+	patch XLLSA4A6,0,0{}
+}
+sprite XLLSA5,3,4{
+	offset 4,3
+	patch XLLSA5,0,0{}
+}
+sprite XLLSE1,3,4{
+	offset 2,4
+	patch XLLSE1,0,0{}
+}
+sprite XLLSE2E8,6,4{
+	offset 3,4
+	patch XLLSE2E8,0,0{}
+}
+sprite XLLSE3E7,8,3{
+	offset 4,3
+	patch XLLSE3E7,0,0{}
+}
+sprite XLLSE4E6,6,4{
+	offset 3,4
+	patch XLLSE4E6,0,0{}
+}
+sprite XLLSE5,3,4{
+	offset 4,3
+	patch XLLSE5,0,0{}
+}
+
+sprite 45LBA0, 24,13{
+  offset 12,13
+  patch 45LBA0,0,0{}
+}
+
 // End of texture definitions

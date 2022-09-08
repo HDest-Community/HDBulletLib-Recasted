@@ -31,6 +31,7 @@ OptionMenu "HDBulletLibMenu"
 	FlagOption "Explosive Slugs", "hdblib_enableammo_1", "OnOff", 9
 	FlagOption "Golden .45 LC", "hdblib_enableammo_1", "OnOff", 10
 	FlagOption "Flare Shells", "hdblib_enableammo_1", "OnOff", 11
+	FlagOption "10mm Auto Casings", "hdblib_enableammo_1", "OnOff", 19
 	StaticText ""
 	StaticText "Created by Cozi & Ted", "green"
 	FlagOption ".56 Caliber Musket Balls", "hdblib_enableammo_1", "OnOff", 12

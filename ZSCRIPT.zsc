@@ -23,7 +23,7 @@ class HDBulletLibHandler : EventHandler
 	// [Ace] Order here must match order in menu.
 	static const class<HDAmmo> RemovedClasses[] =
 	{
-		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo", "HDAurochsAmmo", "HD069BoreAmmo"
+		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDGold45LCAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo", "HDAurochsAmmo", "HD069BoreAmmo", "TenMilBrass"
 	};
 
 	private transient CVar AmmoSpawns[3]; // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.
