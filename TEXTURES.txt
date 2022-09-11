@@ -1322,4 +1322,20 @@ Sprite "MA7GB0", 8, 17
 	Patch "MA7GB0", 0, 0
 }
 
+Sprite "THRKB0", 12, 24
+{
+	XScale 0.800
+	YScale 0.800
+	Offset 6, 23
+	Patch "THRKB0", 0, 0
+}
+
+Sprite "TRTRB0", 16, 58
+{
+	XScale 1.200
+	YScale 1.600
+	Offset 8, 57
+	Patch "TRTRB0", 0, 0
+}
+
 // End of texture definitions
