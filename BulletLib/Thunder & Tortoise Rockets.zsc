@@ -1,0 +1,369 @@
+// ------------------------------
+// CREATED BY WANZER
+// ------------------------------
+
+// Hoping to avoid complications in the future by creating my own rocket projectile to inherit from
+//This is just the normal heat rocket but standalone, doesn't need a custom pickup actor
+class WAN_CustomRocket:SlowProjectile{
+	default{
+		-noextremedeath -noteleport +bloodlessimpact +forcepain
+		height 2; radius 2; scale 0.37;
+		speed HDCONST_MPSTODUPT*152;
+		mass 600; accuracy 0; woundhealth 1800;
+		decal "BrontoScorch";
+		obituary "%o was fragged by %k.";
+		stamina 5; //used for fuel
+	}
+	override void postbeginplay(){
+		super.postbeginplay();
+		A_ChangeVelocity(speed*cos(pitch),0,speed*sin(-pitch),CVF_RELATIVE);
+	}
+	override void ExplodeSlowMissile(line blockingline,actor blockingobject){
+		if(max(abs(skypos.x),abs(skypos.y))>=32768){destroy();return;}
+		bmissile=false;
+		//bounce
+		//nothing here - HEAT will always explode
+
+		//explosion
+		A_SpawnChunksFrags("HDB_fragRL",180);
+		if(!inthesky){
+			A_HDBlast(
+				pushradius:256,pushamount:96,fullpushradius:72,
+				fragradius:HDCONST_ONEMETRE*10,fragtype:"HDB_fragRL",
+				immolateradius:96,immolateamount:random(1,40),
+				immolatechance:random(1,stamina)
+			);
+			actor xpl=spawn("Gyrosploder",self.pos-(0,0,1),ALLOW_REPLACE);
+			xpl.target=target;xpl.master=master;xpl.stamina=stamina;
+
+			//damage
+			HEATShot(self,128);
+
+			A_SprayDecal("BrontoScorch",16);
+
+		}else distantnoise.make(self,"world/rocketfar");
+
+		destroy();return;
+	}
+	states{
+	spawn:
+		MISL A 0 nodelay{
+			primed=true;
+		}
+		goto spawnrocket;
+	spawnrocket:
+		---- A 0{
+			primed=true;
+			if(!inthesky){
+				brockettrail=true;
+				Gunsmoke();
+				A_StartSound("weapons/rocklaunch",CHAN_VOICE);
+			}
+		}
+		---- AAA 0{
+			actor sss=spawn("HDGunSmoke",pos-vel*0.1+(0,0,-4),ALLOW_REPLACE);
+			sss.vel=vel*-0.06+(frandom(-2,2),frandom(-2,2),frandom(-2,2));
+		}
+	spawnrocket2:
+		#### A 1{
+			//frame = 0;
+			if(stamina>0){  
+				if(!inthesky){
+					brockettrail=true;
+					actor sss=spawn("HDGunsmoke",pos,ALLOW_REPLACE);
+					sss.vel=vel*0.1;
+				}else{
+					brockettrail=false;
+					bgrenadetrail=false;
+				}
+				A_ChangeVelocity(
+					cos(pitch)*60,0,
+					sin(-pitch)*60+1,CVF_RELATIVE
+				);
+				stamina--;
+			}
+		}
+		---- A 0{
+			if(primed){
+				if(!inthesky)A_StartSound("weapons/rocklaunch",5);
+			}else{
+				primed=true;
+				brockettrail=false;
+				if(!inthesky)bgrenadetrail=true;
+			}
+		}loop;
+	death:
+		TNT1 A 1;
+		stop;
+	}
+	
+	static void HEATShot(actor caller,double squirtamt){
+		vector3 originalpos=caller.pos;
+
+		//do a series of linetracers to drill through everything
+		caller.A_SprayDecal("BigScorch",squirtamt);
+		array<actor>hitactors;hitactors.clear();
+		flinetracedata sqtrace;
+		do{
+			caller.linetrace(
+				caller.angle,
+				squirtamt,
+				caller.pitch,
+				data:sqtrace
+			);
+
+			caller.setorigin(sqtrace.hitlocation-sqtrace.hitdir,false);
+			if(sqtrace.hitactor){
+				int dmgg=int(frandom(70,240+squirtamt));
+				int dangle=int(absangle(caller.angle,caller.angleto(sqtrace.hitactor)));
+				bool crapshot=dangle>40;
+				if(dangle<20){
+					dmgg+=int((180-dangle)*squirtamt*frandom(0.4,0.45));
+					if(hd_debug)console.printf("CRIT!");
+				}else if(!crapshot)dmgg+=int(frandom(100,400-dangle+squirtamt*2));
+				int originalhealth=sqtrace.hitactor.health;
+				sqtrace.hitactor.damagemobj(
+					caller,caller.target,dmgg,crapshot?"Slashing":"Piercing",
+					crapshot?0:DMG_NO_ARMOR
+				);
+				int fdmg=0;
+				if(sqtrace.hitactor){
+					fdmg=originalhealth-sqtrace.hitactor.health;
+					if(
+						sqtrace.hitactor.health>0
+						&&(fdmg<<3)<sqtrace.hitactor.spawnhealth()
+					)break;
+					else{
+						hitactors.push(sqtrace.hitactor);
+						sqtrace.hitactor.bnonshootable=true;
+					}
+				}
+				squirtamt-=max(8,fdmg>>6);
+			}else{
+				doordestroyer.destroydoor(caller,maxwidth:squirtamt*frandom(1.3,1.6),dedicated:true);
+				squirtamt-=max(16,sqtrace.distance);
+			}
+		}while(squirtamt>0);
+		for(int i=0;i<hitactors.size();i++){
+			if(hitactors[i])hitactors[i].bnonshootable=false;
+		}
+		vector3 finalpos=caller.pos;
+		caller.setorigin(originalpos,false);
+
+		if(finalpos!=originalpos){
+			int iii=int((finalpos-originalpos).length());
+			vector3 trailpos=(0,0,0);
+			vector3 vu=caller.vel.unit();
+			vector3 vu2=vu*4;
+			for(int i=0;i<iii;i++){
+				trailpos+=vu;
+				caller.A_SpawnParticle(
+					"white",
+					SPF_FULLBRIGHT,
+					5,
+					frandom(0.04,0.07)*(iii-i*0.5),
+					caller.angle,
+					trailpos.x+frandom(-12,12),trailpos.y+frandom(-12,12),trailpos.z+frandom(-12,12),
+					vu2.x,vu2.y,vu2.z,
+					0,0,0.6,
+					sizestep:4
+				);
+			}
+		}
+	}
+}
+
+//Overpowered thunder rockets
+class WAN_ThuRKT:WAN_CustomRocket{
+	override void ExplodeSlowMissile(line blockingline,actor blockingobject){
+		if(max(abs(skypos.x),abs(skypos.y))>=32768){destroy();return;}
+		bmissile=false;
+
+		//explosion
+		A_SpawnChunksFrags("HDB_fragRL",180);//long range shrapnel
+		if(!inthesky){
+			A_HDBlast(
+				630,random(96,256)*1.5,196,"slashing",
+				pushradius:420,pushamount:256,
+				fragradius:HDCONST_ONEMETRE*5,fragtype:"HDB_fragRL",
+				immolateradius:300,immolateamount:-200,immolatechance:90
+			);
+			actor xpl=spawn("Gyrosploder",self.pos-(0,0,1),ALLOW_REPLACE);
+			xpl.target=target;xpl.master=master;xpl.stamina=stamina;
+			//actor ltt=spawn("LingeringThunder",pos+(frandom(-40,40),frandom(-40,40),frandom(-4,4)),ALLOW_REPLACE);
+			//this might need adjusting
+			spawn("LingeringThunder",pos+(frandom(-4,4),frandom(-4,4),0),ALLOW_REPLACE);
+			A_SpawnItemEx("LingeringThunder",frandom(-175,175),frandom(-175,175),frandom(-10,10),ALLOW_REPLACE);
+			A_SpawnItemEx("LingeringThunder",frandom(-125,125),frandom(-125,125),frandom(-10,10),ALLOW_REPLACE);
+			A_SpawnItemEx("LingeringThunder",frandom(-100,100),frandom(-90,90),frandom(-10,10),ALLOW_REPLACE);
+			A_SpawnItemEx("LingeringThunder",frandom(-65,65),frandom(-65,65),frandom(-10,10),ALLOW_REPLACE);
+			A_SpawnItemEx("LingeringThunder",frandom(-40,40),frandom(-40,40),frandom(-10,10),ALLOW_REPLACE);
+			A_SpawnItemEx("BeamSpotFlashLight",flags:SXF_NOCHECKPOSITION|SXF_SETTARGET);
+			
+			//damage
+			//basing damage off gyro rockets for a direct hit currently
+			if(blockingobject){
+				int dmgg=random(32,128);
+				double dangle=absangle(angle,angleto(blockingobject));
+				if(dangle<20){
+					dmgg+=random(300,600);
+					if(hd_debug)A_Log("CRIT!");
+				}else if(dangle<40)dmgg+=random(200,500);
+				blockingobject.damagemobj(self,target,dmgg,"Piercing");
+			}else doordestroyer.destroydoor(self,maxdepth:7);
+
+			A_SprayDecal("BrontoScorch",16);
+			A_SprayDecal("BusterScorch",14);
+			DistantNoise.Make(self,"world/tbfar");
+			DistantNoise.Make(self,"world/tbfar2");
+			DistantQuaker.Quake(self,
+			5,50,2048,8,128,256,256
+			);
+			//check floor and ceiling and spawn more debris
+			DistantNoise.Make(self,"world/tbfar");
+			for(int i=0;i<3;i++)A_SpawnItemEx("WallChunker",
+				frandom(-4,4),frandom(-4,4),-4,
+				flags:SXF_NOCHECKPOSITION|SXF_TRANSFERPOINTERS
+			);
+			doordestroyer.destroydoor(self,frandom(1,frandom(32,96)),frandom(1,frandom(16,64)));
+
+		}else distantnoise.make(self,"world/rocketfar");
+
+		destroy();return;
+	}
+	states{
+	spawn:
+		THRK A 0 nodelay{
+			primed=true;
+		}
+		goto spawnrocket;
+	death:
+		TNT1 A 1;
+		stop;
+	}
+}
+
+//just as ridiculous wide area anti-personnel rockets
+class Wan_TortRkt:Wan_CustomRocket{
+	default{
+		height 2.2; radius 2.2; scale 0.37;//slightly larger
+		speed HDCONST_MPSTODUPT*32;//much slower than usual
+		mass 800; accuracy 0; woundhealth 900;//more mass, less woundhealth
+	}
+	override void ExplodeSlowMissile(line blockingline,actor blockingobject){
+		if(max(abs(skypos.x),abs(skypos.y))>=32768){destroy();return;}
+		bmissile=false;
+		
+		if(!inthesky){
+			A_HDBlast(//big explosion
+				656,random(200,400),256,"bashing",
+				pushradius:512,pushamount:288,fullpushradius:256,
+				fragradius:HDCONST_ONEMETRE*20,fragtype:"HDB_frag",
+				immolateradius:600,immolateamount:random(40,80),immolatechance:45+stamina
+			);
+			A_SpawnChunksFrags("HDB_frag",360,1.0+0.05*stamina);
+			
+			//damage
+			//does less than even a gyro rocket on direct hit
+			if(blockingobject){
+				int dmgg=random(32,96);
+				double dangle=absangle(angle,angleto(blockingobject));
+				if(dangle<20){
+					dmgg+=random(100,300);
+					if(hd_debug)A_Log("CRIT!");
+				}else if(dangle<40)dmgg+=random(50,200);
+				blockingobject.damagemobj(self,target,dmgg,"Piercing");
+			}else doordestroyer.destroydoor(self,maxdepth:7);
+			
+			A_SprayDecal("BrontoScorch",16);
+			DistantQuaker.Quake(self,
+				5,50,2048,8,128,256,256
+			);
+			
+			A_StartSound("world/explode",CHAN_AUTO);
+			A_StartSound("world/explode",CHAN_AUTO);
+			
+			actor xpl=spawn("WallChunker",self.pos-(0,0,1),ALLOW_REPLACE);
+				xpl.target=target;xpl.master=master;xpl.stamina=stamina;
+			xpl=spawn("HDExplosion",self.pos-(0,0,1),ALLOW_REPLACE);
+				xpl.target=target;xpl.master=master;xpl.stamina=stamina;
+			A_SpawnChunks("BigWallChunk",14,4,12);
+			distantnoise.make(self,"world/rocketfar");
+			distantnoise.make(self,"weapons/SPNKR_explodefar", 1.0, 0.8);
+			distantnoise.make(self,"weapons/SPNKR_explodefar", 1.0, 0.8);
+			
+			for(int i=0;i < 18; i++){
+				A_SetAngle(angle+20);
+				A_SpawnItemEx("HDSmoke",300,0,8,20);
+				A_SpawnItemEx("WAN_BeSilentExplosion",200,0,8);
+				A_SpawnItemEx("HDSmoke",200,0,16,20);
+				A_SpawnItemEx("HDSmoke",100,0,24,20);
+				A_SpawnItemEx("HDSmoke",50,0,32,20);
+				A_SpawnItemEx("HDSmoke",0,0,1,5,0,6);
+			}
+			
+		}else distantnoise.make(self,"world/rocketfar");
+		
+		destroy();return;
+	}
+	states{
+	spawn:
+		TRTR A 0 nodelay{
+			primed=true;
+		}
+		goto spawnrocket;
+	death:
+		TNT1 A 1;
+		stop;
+	}
+}
+
+class Wan_ThuRKTAmmo:HDAmmo{
+	default{
+		+inventory.ignoreskill
+		inventory.maxamount (60+40);
+		inventory.pickupmessage "Picked up a thunder rocket.";
+		tag "thunder rocket";
+		hdpickup.refid 'vrk';
+		hdpickup.bulk ENC_HEATROCKET*1.1; //weigh slightly more than a heat
+		xscale 0.25;
+		yscale 0.31;
+	}
+	override void GetItemsThatUseThis(){
+		itemsthatusethis.push("WAN_SPNKR");
+	}
+	states{
+	spawn:
+		THRK B -1;
+		stop;
+	}
+}
+
+class Wan_TortRKTAmmo:HDAmmo{
+	default{
+		+inventory.ignoreskill
+		inventory.maxamount (60+40);
+		inventory.pickupmessage "Picked up a tortoise rocket.";
+		tag "tortoise rocket";
+		hdpickup.refid 'trt';
+		hdpickup.bulk ENC_HEATROCKET*1.2; //weigh more than a heat
+		xscale 0.28;
+		yscale 0.34;
+	}
+	override void GetItemsThatUseThis(){
+		itemsthatusethis.push("WAN_SPNKR");
+	}
+	states{
+	spawn:
+		TRTR B -1;
+		stop;
+	}
+}
+
+class WAN_BeSilentExplosion : HDExplosion
+{
+	default
+	{
+		deathsound "none";
+	}
+}

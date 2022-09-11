@@ -1314,4 +1314,12 @@ sprite 45LBA0, 24,13{
   patch 45LBA0,0,0{}
 }
 
+Sprite "MA7GB0", 8, 17
+{
+	XScale 1.500
+	YScale 1.500
+	Offset 4, 16
+	Patch "MA7GB0", 0, 0
+}
+
 // End of texture definitions

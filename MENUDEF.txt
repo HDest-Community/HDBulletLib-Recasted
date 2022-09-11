@@ -43,6 +43,11 @@ OptionMenu "HDBulletLibMenu"
 	FlagOption "5mm Bumblebee Rimfire", "hdblib_enableammo_1", "OnOff", 14
 	FlagOption "6mm Flechettes", "hdblib_enableammo_1", "OnOff", 15
 	FlagOption ".50 Action-Mega", "hdblib_enableammo_1", "OnOff", 16
+	StaticText ""
+	StaticText "Created by Wanzer", "Light Blue"
+	FlagOption "Thunder Rockets", "hdblib_enableammo_1", "OnOff", 20
+	FlagOption "Tortoise Rockets", "hdblib_enableammo_1", "OnOff", 21
+	FlagOption "20mm Grenades", "hdblib_enableammo_1", "OnOff", 22
 }
 
 AddOptionMenu "OptionsMenu"
