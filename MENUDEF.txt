@@ -11,7 +11,7 @@ OptionMenu "HDBulletLibMenu"
 	StaticText "Created by Accensus", "cyan"
 	FlagOption ".50 Action Express", "hdblib_enableammo_1", "OnOff", 0
 	StaticText ""
-	StaticText "Created by Sledge", "purple"
+	StaticText "Created by Sledge & prettyFist", "purple"
 	FlagOption "12 ga Slugs", "hdblib_enableammo_1", "OnOff", 1
 	FlagOption ".500 S&W Light", "hdblib_enableammo_1", "OnOff", 2
 	FlagOption ".500 S&W Heavy", "hdblib_enableammo_1", "OnOff", 3
