@@ -13,10 +13,6 @@ class HDFlareAmmo:HDRoundAmmo{
 		hdpickup.bulk ENC_SHELL*0.9;
 		inventory.icon "FLA4A0";
 	}
-	override void GetItemsThatUseThis(){
-		itemsthatusethis.push("FireBlooper");
-		itemsthatusethis.push("MetalFireBlooper");
-	}
 
 	override void SplitPickup(){	SplitPickupBoxableRound(
 4,20,"FlareShellBoxPickup","FLA4A0","FLARA0");

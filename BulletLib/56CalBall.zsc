@@ -59,9 +59,6 @@ class HDBallAmmo : HDRoundAmmo
 		HDPickup.Bulk ENC_BALL;
 		Inventory.Icon "OG10A0";
 	}
-	override void GetItemsThatUseThis(){
-	itemsthatusethis.push("HD_Musket");
-	}
 
 	States
 	{

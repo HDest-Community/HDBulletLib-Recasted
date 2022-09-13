@@ -249,9 +249,6 @@ class HDGold45LCAmmo:HDRoundAmmo{
 	override void SplitPickup(){
 		SplitPickupBoxableRound(6,12,"HDGold45lcBoxPickup","GSIXA0","GC45A0");
 	}
-	override void GetItemsThatUseThis(){
-		itemsthatusethis.push("HDGoldSingleActionRevolver");
-	}
 	states{
 	spawn:
 		GC45 A -1;

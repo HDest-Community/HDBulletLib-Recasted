@@ -196,9 +196,6 @@ class WAN_20mmGrenadeAmmo:HDAmmo{
 		inventory.maxamount (60+40);
 		inventory.icon "MA7GB0";
 	}
-	override void GetItemsThatUseThis(){
-		itemsthatusethis.push("WAN_MA76C");
-	}
 	states{
 	spawn:
 		MA7G B -1;

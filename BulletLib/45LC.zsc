@@ -229,11 +229,6 @@ class HD45LCAmmo:HDPistolAmmo{
 		hdpickup.bulk ENC_355*2;
   inventory.icon "T10MA0";
 	}
-
-	override void GetItemsThatUseThis(){
-		itemsthatusethis.push("HDSingleActionRevolver");
-	}
-
 	override void SplitPickup(){
 	  SplitPickupBoxableRound(10, 50, "HD45LCBoxPickup",  "T10MA0", "PR10A0");
 	}

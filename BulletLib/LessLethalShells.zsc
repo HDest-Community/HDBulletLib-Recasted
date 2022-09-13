@@ -13,9 +13,6 @@ class HDLLShellAmmo:HDRoundAmmo{
 		hdpickup.bulk ENC_SHELL;
 		inventory.icon "LLS4A0";
 	}
-	override void GetItemsThatUseThis(){
-		itemsthatusethis.push("LLHunter");
-	}
 	override void SplitPickup(){
 		SplitPickupBoxableRound(4,20,"LLShellBoxPickup","LLS4A0","LLS1A0");
 	}

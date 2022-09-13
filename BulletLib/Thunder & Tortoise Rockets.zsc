@@ -329,9 +329,6 @@ class Wan_ThuRKTAmmo:HDAmmo{
 		xscale 0.25;
 		yscale 0.31;
 	}
-	override void GetItemsThatUseThis(){
-		itemsthatusethis.push("WAN_SPNKR");
-	}
 	states{
 	spawn:
 		THRK B -1;
@@ -349,9 +346,6 @@ class Wan_TortRKTAmmo:HDAmmo{
 		hdpickup.bulk ENC_HEATROCKET*1.2; //weigh more than a heat
 		xscale 0.28;
 		yscale 0.34;
-	}
-	override void GetItemsThatUseThis(){
-		itemsthatusethis.push("WAN_SPNKR");
 	}
 	states{
 	spawn:
