@@ -1,0 +1,113 @@
+class HDB_3006:HDBulletActor{
+	default{
+		pushfactor 0.05;
+		mass 150;
+		speed 1000;
+		accuracy 600;
+		stamina 767;
+		woundhealth 5;
+		hdbulletactor.hardness 4;
+		hdbulletactor.distantsound "world/riflefar";
+		hdbulletactor.distantsoundvol 2.;
+	}
+}
+
+class ThirtyAughtSixAmmo:HDRoundAmmo{
+	default{
+		+forcexybillboard +cannotpush
+		+inventory.ignoreskill
+		+hdpickup.multipickup
+		xscale 0.7;yscale 0.82;
+		inventory.pickupmessage "Picked up a .30-06 round.";
+		hdpickup.refid "306";
+		tag ".30-06 round";
+		hdpickup.bulk ENC_776*1.25;
+		inventory.icon "TEN7A0";
+	}
+	bool uas;
+	override void SplitPickup(){
+		SplitPickupBoxableRound(10,uas?int.max:40,"HD3006BoxPickup","TEN7A0","RBRSA0");
+		if(amount==10){ scale.y=0.82; scale.x=0.7; }
+		else {scale.x = 0.86; scale.y=0.8; }
+	}
+	states{
+	spawn:
+		RBRS A -1;
+		TEN7 A -1;
+	}
+}
+
+class HD3006BoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of 7.76mm"
+		//$Sprite "7BOXA0"
+
+		yscale 0.4; xscale 0.5;
+		hdupk.amount 40;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "Picked up some .30-06 ammo.";
+		hdupk.pickuptype "ThirtyAughtSixAmmo";
+	}
+	states{
+	spawn:
+		M1A1 Y -1;
+	}
+}
+
+class ThirtyAughtSixBrass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 16;radius 8;
+		tag ".30-06 casing";
+		//hdpickup.refid HDLD_SEVNBRA; idk
+		hdpickup.bulk ENC_776B * 1.25;
+		xscale 0.87;yscale 0.8;
+		inventory.pickupmessage "Picked up some brass.";
+		inventory.icon "RBRSA3A7";
+	}
+	states{
+	spawn:
+		RBRS A -1;
+		stop;
+	}
+}
+
+class HDSpent3006:HDSpent7mm{
+	default{
+		hdupk.pickuptype "ThirtyAughtSixBrass";
+		xscale 0.87;yscale 0.8;
+	}
+	states{
+	death:
+		RBRS A -1{
+			actor p=spawn("ThirtyAughtSixBrass",self.pos,ALLOW_REPLACE);
+			p.vel=self.vel;p.vel.xy*=3;p.angle=angle;
+			if(p.vel!=(0,0,0)){
+				p.A_FaceMovementDirection();
+				p.angle+=90;
+			}
+			destroy();
+		}stop;
+	}
+}
+class HDLoose3006:HDSpent3006{
+	override void postbeginplay(){
+		HDUPK.postbeginplay();
+	}
+	default{
+		bouncefactor 0.6;
+		hdupk.pickuptype "ThirtyAughtSixAmmo";
+		hdupk.pickupmessage "Picked up a .30-06 round.";
+	}
+	states{
+	death:
+		---- A 1{
+			actor a=spawn("ThirtyAughtSixAmmo",pos,ALLOW_REPLACE);
+			a.angle=self.angle;a.vel=self.vel;
+			destroy();
+		}stop;
+	}
+}
