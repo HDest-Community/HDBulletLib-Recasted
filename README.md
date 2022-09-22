@@ -22,6 +22,7 @@ Currently Includes:
 - 4-Gauge Saboted Slugs by Khan
 - 5mm Bumblebee Rimfire, 6mm Flechettes and .50 Action-Mega by Potetobloke.
 - 20mm Grenades, Thunder Rockets and Tortoise Rockets by Wanzer.
+- .30-06 by HexaDoken.
 
 If you want to have your bullet added to the library or want to suggest any changes, feel free to fork the project and add it as a pull request for it to be added!
 The only requirement for addition is that your round needs to fully function in-game and allow GZDoom to startup. There are no quality requirements at all, though it's preferable to have your round be fully created before getting pushed to the public.
