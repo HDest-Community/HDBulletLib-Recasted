@@ -319,6 +319,7 @@ class HDB_00Rubber:HDBulletActor{
 
 		if(HDMobBase(hitactor) 
     && !HDMobBase(hitactor).bNOINCAP 
+    && hitactor.health>0
     && hitactor.ResolveState("falldown")
     && !hitactor.InStateSequence
         (hitactor.CurState, 
