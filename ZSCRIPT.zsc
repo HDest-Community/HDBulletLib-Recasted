@@ -47,6 +47,7 @@ class HDBulletLibHandler : EventHandler
 			AmmoBoxList = HDAmBoxList.Get();
 			for (int i = 0; i < AmmoBoxList.InvClasses.Size();)
 			{
+				int deleted = -1;
 				for (int j = 0; j < RemovedClasses.Size(); ++j)
 				{
 					if (AmmoBoxList.InvClasses[i] == RemovedClasses[j] && !(AmmoSpawns[j / 32].GetInt() & (1 << (j % 32))))
@@ -55,11 +56,16 @@ class HDBulletLibHandler : EventHandler
 						if (index != AmmoBoxList.InvClasses.Size())
 						{
 							AmmoBoxList.InvClasses.Delete(index);
+							deleted = index;
 							continue;
 						}
 					}
 				}
-				i++; // [Ace] Manually advance because deleting an element in the array shifts the indices.
+				// [MK] deleting an index lesser or equal to the current one already "advances" on its own
+				if ( (deleted == -1) || (deleted > i) )
+				{
+					i++;
+				}
 			}
 		}
 		else if (e.Thing is 'HDBackpack' && !Inventory(e.Thing).Owner)
