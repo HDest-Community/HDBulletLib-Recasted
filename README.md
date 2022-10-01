@@ -14,7 +14,7 @@ Magazines are out of this library's scope. On its own, the library only provides
 Currently Includes:
 
 - .50 AE by Accensus
-- 12 Gauge Slugs, .500 S&W Lights and Heavies by Sledge & PrettyFist
+- 12 Gauge Slugs, .500 S&W Lights and Heavies, .420 Bore and .069 by Sledge & PrettyFist
 - .50 OMG by Bogus
 - .45 ACP by Popguy
 - 10mm Auto, .45 LC, Golden .45 LC, Less-Lethal Shells, Explosive Slugs and Flare Shells by Swampyrad
