@@ -122,7 +122,7 @@ class HDB_00Rubber:HDBulletActor{
 	default{
 		pushfactor 5;
 		mass 150;
-		speed HDCONST_MPSTODUPT*300;
+		speed HDCONST_MPSTODUPT*225;//slower than standard shells
 		accuracy 200;
 		stamina 838;
 		woundhealth 0;
