@@ -1,4 +1,4 @@
 GameInfo
 {
-	AddEventHandlers = "HDBulletLibHandler, HDBulletLibAmmoSpawner"
+	AddEventHandlers = "HDBulletLibHandler", "HDBulletLibAmmoSpawner"
 }

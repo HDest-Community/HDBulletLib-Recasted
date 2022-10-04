@@ -1,3 +1,9 @@
+
+AddOptionMenu "OptionsMenu"
+{
+	Submenu "Bullet Library", "HDBulletLibMenu"
+}
+
 OptionMenu "HDBulletLibMenu"
 {
 	Title "Standard Bullet Library Options"
@@ -8,53 +14,687 @@ OptionMenu "HDBulletLibMenu"
 	StaticText "mods that utilize it.", "White"
 	StaticText "Does not actually control spawning by other mods.", "Fire"
 	StaticText ""
+	SafeCommand "Reset all options for HDBulletLib-Recasted", "hdb_reset_cvars"
+	StaticText ""
 	StaticText "Created by Accensus", "cyan"
-	FlagOption ".50 Action Express", "hdblib_enableammo_1", "OnOff", 0
+	Submenu ".50 AE", "50AE", 0, 1
 	StaticText ""
 	StaticText "Created by Sledge & prettyFist", "purple"
-	FlagOption "12 ga Slugs", "hdblib_enableammo_1", "OnOff", 1
-	FlagOption ".500 S&W Light", "hdblib_enableammo_1", "OnOff", 2
-	FlagOption ".500 S&W Heavy", "hdblib_enableammo_1", "OnOff", 3
-	FlagOption ".420 Frei", "hdblib_enableammo_1", "OnOff", 17
-	FlagOption ".069 Bore", "hdblib_enableammo_1", "OnOff", 18
+    Submenu "12 Gauge Slugs", "12GaugeSlugs", 0, 1
+    Submenu ".500 S&W", "500SW", 0, 1
+	Submenu ".420 Frei", "420Frei", 0, 1
+	Submenu ".069 Bore", "069Bore", 0, 1
 	StaticText ""
 	StaticText "Created by Bogus", "white"
-	FlagOption ".50 OMG", "hdblib_enableammo_1", "OnOff", 4
+	Submenu ".50 OMG", "50OMG", 0, 1
 	StaticText ""
 	StaticText "Created by Popguy", "purple"
-	FlagOption ".45 ACP", "hdblib_enableammo_1", "OnOff", 5
+	Submenu ".45 ACP", "45ACP", 0, 1
 	StaticText ""
 	StaticText "Created by Swampyrad", "orange"
-	FlagOption "10mm Auto", "hdblib_enableammo_1", "OnOff", 6
-	FlagOption ".45 LC", "hdblib_enableammo_1", "OnOff", 7
-	FlagOption "Less-Lethal Shells", "hdblib_enableammo_1", "OnOff", 8
-	FlagOption "Explosive Slugs", "hdblib_enableammo_1", "OnOff", 9
-	FlagOption "Golden .45 LC", "hdblib_enableammo_1", "OnOff", 10
-	FlagOption "Flare Shells", "hdblib_enableammo_1", "OnOff", 11
-	FlagOption "10mm Auto Brass", "hdblib_enableammo_1", "OnOff", 19
+	Submenu "10mm Auto", "10mmAuto", 0, 1
+	Submenu ".45 LC", "45LC", 0, 1
+	Submenu "Golden .45 LC", "Gold45LC", 0, 1
+	Submenu "Less-Lethal Shells", "LessLethalShells", 0, 1
+	Submenu "Explosive Slugs", "ExplosiveSlugs", 0, 1
+	Submenu "Flare Shells", "FlareShells", 0, 1
 	StaticText ""
 	StaticText "Created by Cozi & Ted", "green"
-	FlagOption ".56 Caliber Musket Balls", "hdblib_enableammo_1", "OnOff", 12
+	Submenu ".56 Caliber Musket Balls", "MusketBalls", 0, 1
 	StaticText ""
 	StaticText "Created by Khan", "orange"
-	FlagOption "4-Gauge Saboted Slugs", "hdblib_enableammo_1", "OnOff", 13
+	Submenu "4-Gauge Saboted Slugs", "4GSS", 0, 1
 	StaticText ""
 	StaticText "Created by Potetobloke", "Blue"
-	FlagOption "5mm Bumblebee Rimfire", "hdblib_enableammo_1", "OnOff", 14
-	FlagOption "6mm Flechettes", "hdblib_enableammo_1", "OnOff", 15
-	FlagOption ".50 Action-Mega", "hdblib_enableammo_1", "OnOff", 16
+	Submenu "5mm Bumblebee Rimfire", "5mm", 0, 1
+	Submenu ".50 Action-Mega", "50AM", 0, 1
+	Submenu "6mm Flechettes", "6mmF", 0, 1
 	StaticText ""
 	StaticText "Created by Wanzer", "Light Blue"
-	FlagOption "Thunder Rockets", "hdblib_enableammo_1", "OnOff", 20
-	FlagOption "Tortoise Rockets", "hdblib_enableammo_1", "OnOff", 21
-	FlagOption "20mm Grenades", "hdblib_enableammo_1", "OnOff", 22
+	Submenu "Thunder Rockets", "ThuRKT", 0, 1
+	Submenu "Tortoise Rockets", "TortRKT", 0, 1
+	Submenu "20mm Grenades", "20mmG", 0, 1
 	StaticText ""
-	StaticText "Created by HexaDoken", "Light Green"
-	FlagOption ".30-06", "hdblib_enableammo_1", "OnOff", 23
-	FlagOption ".30-06 Brass", "hdblib_enableammo_1", "OnOff", 24
+	StaticText "Created by HexaDoken", "Dark Green"
+	Submenu ".30-06", "3006", 0, 1
 }
 
-AddOptionMenu "OptionsMenu"
+OptionMenu 50AE
 {
-	Submenu "Bullet Library", "HDBulletLibMenu"
+    Title "------ .50 AE Options ------"
+   	StaticText "Notice:", "Cyan"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Cyan"
+    StaticText  "Control the spawn rate of .50 AE on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_50ae_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_50ae_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .50 AE casings", "white"
+	Option "Spawn Rate: ", "hdb_50ae_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_50ae_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable .50 AE from spawning in Ammo Boxes and Backpacks.", "Cyan"
+	FlagOption ".50 Action Express", "hdblib_enableammo_1", "OnOff", 0
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_50ae_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_50ae_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Cyan"
+	SafeCommand "Reset all options", "hdb_50ae_reset_cvars"
+}
+
+OptionMenu 500SW
+{
+    Title "------ .500 S&W Options ------"
+   	StaticText "Notice:", "purple"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "purple"
+    StaticText  "Control the spawn rate of .500 S&W lights on Shell Boxes", "white"
+	Option "Spawn Rate: ", "hdb_500sw_shellbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_500sw_shellbox_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .500 S&W heavies on Rocket Boxes", "white"
+	Option "Spawn Rate: ", "hdb_500sw_rocket_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_500sw_rocket_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .500 S&W casings", "white"
+	Option "Spawn Rate: ", "hdb_500sw_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_500sw_casing_spawn_bias"
+	StaticText ""
+	StaticText "Enable/Disable .500 S&W from spawning in Ammo Boxes and Backpacks.", "purple"
+	FlagOption ".500 S&W Light", "hdblib_enableammo_1", "OnOff", 2
+	FlagOption ".500 S&W Heavy", "hdblib_enableammo_1", "OnOff", 3
+ 	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_500sw_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_500sw_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "purple"
+	SafeCommand "Reset all options", "hdb_500sw_reset_cvars"
+}
+
+OptionMenu 12GaugeSlugs
+{
+    Title "------ 12 Gauge Slug Options ------"
+   	StaticText "Notice:", "purple"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "purple"
+    StaticText  "Control the spawn rate of 12-Gauge Slugs on Shell Boxes", "white"
+	Option "Spawn Rate: ", "hdb_12gslug_shellbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_12gslug_shellbox_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 12-Gauge Slugs on Shells", "white"
+	Option "Spawn Rate: ", "hdb_12gslug_shell_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_12gslug_shell_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 12-Gauge Slug casings", "white"
+	Option "Spawn Rate: ", "hdb_12gslug_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_12gslug_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable 12 Gauge Slugs from spawning in Ammo Boxes and Backpacks.", "purple"
+	FlagOption "12 gauge Slugs", "hdblib_enableammo_1", "OnOff", 1
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_12gslug_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_12gslug_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "purple"
+	SafeCommand "Reset all options", "hdb_12gslug_reset_cvars"
+}
+
+OptionMenu 420Frei
+{
+    Title "------ .420 Frei Options ------"
+   	StaticText "Notice:", "purple"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "purple"
+    StaticText  "Control the spawn rate of .420 Frei on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_420frei_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_420frei_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .420 Frei casings", "white"
+	Option "Spawn Rate: ", "hdb_420frei_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_420frei_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable .420 Frei from spawning in Ammo Boxes and Backpacks.", "purple"
+	FlagOption ".420 Frei", "hdblib_enableammo_1", "OnOff", 17
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_420frei_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_420frei_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "purple"
+	SafeCommand "Reset all options", "hdb_420frei_reset_cvars"
+}
+
+OptionMenu 069Bore
+{
+    Title "------ .069 Bore Options ------"
+   	StaticText "Notice:", "purple"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "purple"
+    StaticText  "Control the spawn rate of .069 Bore on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_069bore_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_069bore_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .069 Bore casings", "white"
+	Option "Spawn Rate: ", "hdb_069bore_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_069bore_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable .069 Bore from spawning in Ammo Boxes and Backpacks.", "purple"
+	FlagOption ".069 Bore", "hdblib_enableammo_1", "OnOff", 18
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_069bore_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_069bore_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "purple"
+	SafeCommand "Reset all options", "hdb_069bore_reset_cvars"
+}
+
+OptionMenu 50OMG
+{
+    Title "------ .50 OMG Options ------"
+   	StaticText "Notice:", "white"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "white"
+    StaticText  "Control the spawn rate of .50 OMG on Rocket Boxes", "white"
+	Option "Spawn Rate: ", "hdb_50omg_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_50omg_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .50 OMG casings", "white"
+	Option "Spawn Rate: ", "hdb_50omg_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_50omg_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable .50 OMG from spawning in Ammo Boxes and Backpacks.", "white"
+	FlagOption ".50 OMG", "hdblib_enableammo_1", "OnOff", 4
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_50omg_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_50omg_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "white"
+	SafeCommand "Reset all options", "hdb_50OMG_reset_cvars"
+}
+
+OptionMenu 45ACP
+{
+    Title "------ .45 ACP Options ------"
+   	StaticText "Notice:", "Purple"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Purple"
+    StaticText  "Control the spawn rate of .45 ACP on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_45acp_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_45acp_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .45 ACP casings", "white"
+	Option "Spawn Rate: ", "hdb_45acp_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_45acp_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable .45 ACP from spawning in Ammo Boxes and Backpacks.", "purple"
+	FlagOption ".45 ACP", "hdblib_enableammo_1", "OnOff", 5
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_45acp_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_45acp_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Purple"
+	SafeCommand "Reset all options", "hdb_45ACP_reset_cvars"
+}
+
+OptionMenu 10mmAuto
+{
+    Title "------ 10mm Auto Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of 10mm Auto on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_10mm_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_10mm_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 10mm Auto casings", "white"
+	Option "Spawn Rate: ", "hdb_10mm_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_10mm_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable 10mm Auto and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "10mm Auto", "hdblib_enableammo_1", "OnOff", 6
+	FlagOption "10mm Auto Brass", "hdblib_enableammo_1", "OnOff", 19
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_10mm_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_10mm_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_10mmAuto_reset_cvars"
+}
+
+OptionMenu 45LC
+{
+    Title "------ .45 LC Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of .45 LC on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_45lc_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_45lc_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 10mm Auto casings", "white"
+	Option "Spawn Rate: ", "hdb_45lc_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_45lc_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable .45 LC from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption ".45 LC", "hdblib_enableammo_1", "OnOff", 7
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_45lc_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_45lc_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_45lc_reset_cvars"
+}
+
+OptionMenu Gold45LC
+{
+    Title "------ Gold .45 LC Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of .45 LC on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_g45lc_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_g45lc_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 10mm Auto casings", "white"
+	Option "Spawn Rate: ", "hdb_g45lc_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_g45lc_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Gold .45 LC from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "Golden .45 LC", "hdblib_enableammo_1", "OnOff", 10
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_g45lc_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_g45lc_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_g45lc_reset_cvars"
+}
+
+OptionMenu LessLethalShells
+{
+    Title "------ Less-Lethal Shell Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of Less-Lethal Shells on Shell Boxes", "white"
+	Option "Spawn Rate: ", "hdb_LLS_shellbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_LLS_shellbox_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of Less-Lethal Shells on Shells", "white"
+	Option "Spawn Rate: ", "hdb_LLS_shell_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_LLS_shell_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of Less-Lethal Shell casings", "white"
+	Option "Spawn Rate: ", "hdb_LLS_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_LLS_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Less-Lethal Shells from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "Less-Lethal Shells", "hdblib_enableammo_1", "OnOff", 8
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_LLS_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_LLS_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_lesslethalshells_reset_cvars"
+}
+
+OptionMenu ExplosiveSlugs
+{
+    Title "------ Explosve Slug Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of Explosive Slug boxes on Shell Boxes", "white"
+	Option "Spawn Rate: ", "hdb_ESlug_shellbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_ESlug_shellbox_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of Explosive Slugs on Shells", "white"
+	Option "Spawn Rate: ", "hdb_ESlug_shell_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_ESlug_shell_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of Explosive Slug casings", "white"
+	Option "Spawn Rate: ", "hdb_ESlug_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_ESlug_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Explosive Slugs from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "Explosive Slugs", "hdblib_enableammo_1", "OnOff", 9
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_ESlug_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_ESlug_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_explosiveslugs_reset_cvars"
+}
+
+OptionMenu FlareShells
+{
+    Title "------ Flare Shell Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of Flare Shell Boxes on Shell Boxes", "white"
+	Option "Spawn Rate: ", "hdb_FShell_shellbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_FShell_shellbox_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of Flare Shells on Shells", "white"
+	Option "Spawn Rate: ", "hdb_FShell_shell_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_FShell_shell_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Flare Shells from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "Flare Shells", "hdblib_enableammo_1", "OnOff", 11
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_FShell_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_FShell_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_fshells_reset_cvars"
+}
+
+OptionMenu MusketBalls
+{
+    Title "------ .56 Caliber Musket Balls Options ------"
+   	StaticText "Notice:", "Green"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Green"
+    StaticText  "Control the spawn rate of Musket Balls on Casings", "white"
+	Option "Spawn Rate: ", "hdb_MBall_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_MBall_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Musket Balls from spawning in Ammo Boxes and Backpacks.", "Green"
+	FlagOption ".56 Caliber Musket Balls", "hdblib_enableammo_1", "OnOff", 12
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_MBall_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_MBall_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Green"
+	SafeCommand "Reset all options", "hdb_mball_reset_cvars"
+}
+
+OptionMenu 4GSS
+{
+    Title "------ 4-Gauge Saboted Slug Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of 4-Gauge Slugs on Shell Boxes", "white"
+	Option "Spawn Rate: ", "hdb_4gss_shellbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_4gss_shellbox_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 4-Gauge Slugs on Shells", "white"
+	Option "Spawn Rate: ", "hdb_4gss_shell_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_4gss_shell_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 4-Gauge Slug casings", "white"
+	Option "Spawn Rate: ", "hdb_4gss_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_4gss_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable 4-Gauge Slugs from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "4-Gauge Saboted Slugs", "hdblib_enableammo_1", "OnOff", 13
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_4gss_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_4gss_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_4GSS_reset_cvars"
+}
+
+OptionMenu 5mm
+{
+    Title "------ 5mm Bumblebee Rimfire Options ------"
+   	StaticText "Notice:", "Blue"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Blue"
+    StaticText  "Control the spawn rate of 5mm Bumblebee Rimfire on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_5mm_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_5mm_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 5mm Bumblebee Rimfire casings", "white"
+	Option "Spawn Rate: ", "hdb_5mm_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_5mm_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable 5mm Bumblebee Rimfire from spawning in Ammo Boxes and Backpacks.", "Blue"
+	FlagOption "5mm Bumblebee Rimfire", "hdblib_enableammo_1", "OnOff", 14
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_5mm_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_5mm_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Blue"
+	SafeCommand "Reset all options", "hdb_5mm_reset_cvars"
+}
+
+OptionMenu 50AM
+{
+    Title "------ .50 Action-Mega Options ------"
+   	StaticText "Notice:", "Blue"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Blue"
+    StaticText  "Control the spawn rate of .50 Action-Mega on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_50am_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_50am_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .50 Action-Mega casings", "white"
+	Option "Spawn Rate: ", "hdb_50am_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_50am_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable .50 Action-Mega from spawning in Ammo Boxes and Backpacks.", "Blue"
+	FlagOption ".50 Action-Mega", "hdblib_enableammo_1", "OnOff", 16
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_50am_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_50am_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Blue"
+	SafeCommand "Reset all options", "hdb_50am_reset_cvars"
+}
+
+OptionMenu 6mmF
+{
+    Title "------ 6mm Flechettes Options ------"
+   	StaticText "Notice:", "Blue"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Blue"
+    StaticText  "Control the spawn rate of 6mm Flechettes on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_6mm_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_6mm_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 6mm Flechettes casings", "white"
+	Option "Spawn Rate: ", "hdb_6mm_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_6mm_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable 6mm Flechettes from spawning in Ammo Boxes and Backpacks.", "Blue"
+	FlagOption "6mm Flechettes", "hdblib_enableammo_1", "OnOff", 15
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_6mm_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_6mm_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Blue"
+	SafeCommand "Reset all options", "hdb_6mm_reset_cvars"
+}
+
+OptionMenu 20mmG
+{
+    Title "------ 20mm Grenade Options ------"
+   	StaticText "Notice:", "Light Blue"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Light Blue"
+    StaticText  "Control the spawn rate of 20mm Grenades on Rocket Boxes", "white"
+	Option "Spawn Rate: ", "hdb_20mm_rbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_20mm_rbox_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable 20mm Grenades from spawning in Ammo Boxes and Backpacks.", "Light Blue"
+	FlagOption "20mm Grenades", "hdblib_enableammo_1", "OnOff", 22
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_20mm_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_20mm_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Light Blue"
+	SafeCommand "Reset all options", "hdb_20mm_reset_cvars"
+}
+
+OptionMenu ThuRKT
+{
+    Title "------ Thunder Rocket Options ------"
+   	StaticText "Notice:", "Light Blue"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Light Blue"
+    StaticText  "Control the spawn rate of Thunder Rockets on Rocket Boxes", "white"
+	Option "Spawn Rate: ", "hdb_ThuRKT_rbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_ThuRKT_rbox_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Thunder Rockets from spawning in Ammo Boxes and Backpacks.", "Light Blue"
+	FlagOption "Thunder Rockets", "hdblib_enableammo_1", "OnOff", 20
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_ThuRKT_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_ThuRKT_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Light Blue"
+	SafeCommand "Reset all options", "hdb_ThuRKT_reset_cvars"
+}
+
+OptionMenu TortRKT
+{
+    Title "------ Tortoise Rocket Options ------"
+   	StaticText "Notice:", "Light Blue"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Light Blue"
+    StaticText  "Control the spawn rate of Tortoise Rockets on Rocket Boxes", "white"
+	Option "Spawn Rate: ", "hdb_TortRKT_rbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_TortRKT_rbox_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Tortoise Rockets from spawning in Ammo Boxes and Backpacks.", "Light Blue"
+	FlagOption "Tortoise Rockets", "hdblib_enableammo_1", "OnOff", 21
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_TortRKT_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_TortRKT_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Light Blue"
+	SafeCommand "Reset all options", "hdb_TortRKT_reset_cvars"
+}
+
+OptionMenu 3006
+{
+    Title "------ .30-06 Options ------"
+   	StaticText "Notice:", "Dark Green"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Dark Green"
+    StaticText  "Control the spawn rate of .30-06 on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_3006_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_3006_box_spawn_bias"
+ 	StaticText ""
+    StaticText  "Control the spawn rate of .30-06 casings", "white"
+	Option "Spawn Rate: ", "hdb_3006_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_3006_casing_spawn_bias"
+	StaticText ""
+	StaticText "Enable/Disable .30-06 and its casings from spawning in Ammo Boxes and Backpacks.", "Dark Green"
+	FlagOption ".30-06", "hdblib_enableammo_1", "OnOff", 23
+	FlagOption ".30-06 Brass", "hdblib_enableammo_1", "OnOff", 24
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_3006_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_3006_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Dark Green"
+	SafeCommand "Reset all options", "hdb_3006_reset_cvars"
+}
+
+// Spawn Bias (for items that do replace)
+OptionValue "SpawnBias"
+{
+	-1,    "Disabled"
+	 0,    "Replace All"
+	 2,    "1 in 3"
+	 4,    "1 in 5"
+	 9,    "1 in 10"
+	 14,   "1 in 15"
+	 19,   "1 in 20"
+	 24,   "1 in 25"
+	 49,   "1 in 50"
+	 99,   "1 in 100"
+	 149,  "1 in 150"
+	 199,  "1 in 200"
 }
