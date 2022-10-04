@@ -31,7 +31,7 @@ OptionMenu "HDBulletLibMenu"
 	FlagOption "Explosive Slugs", "hdblib_enableammo_1", "OnOff", 9
 	FlagOption "Golden .45 LC", "hdblib_enableammo_1", "OnOff", 10
 	FlagOption "Flare Shells", "hdblib_enableammo_1", "OnOff", 11
-	FlagOption "10mm Auto Casings", "hdblib_enableammo_1", "OnOff", 19
+	FlagOption "10mm Auto Brass", "hdblib_enableammo_1", "OnOff", 19
 	StaticText ""
 	StaticText "Created by Cozi & Ted", "green"
 	FlagOption ".56 Caliber Musket Balls", "hdblib_enableammo_1", "OnOff", 12
@@ -48,6 +48,10 @@ OptionMenu "HDBulletLibMenu"
 	FlagOption "Thunder Rockets", "hdblib_enableammo_1", "OnOff", 20
 	FlagOption "Tortoise Rockets", "hdblib_enableammo_1", "OnOff", 21
 	FlagOption "20mm Grenades", "hdblib_enableammo_1", "OnOff", 22
+	StaticText ""
+	StaticText "Created by HexaDoken", "Light Green"
+	FlagOption ".30-06", "hdblib_enableammo_1", "OnOff", 23
+	FlagOption ".30-06 Brass", "hdblib_enableammo_1", "OnOff", 24
 }
 
 AddOptionMenu "OptionsMenu"

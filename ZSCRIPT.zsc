@@ -26,7 +26,7 @@ class HDBulletLibHandler : EventHandler
 	// [Ace] Order here must match order in menu. And zscript files. - [Ted]
 	static const class<HDAmmo> RemovedClasses[] =
 	{
-		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDGold45LCAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo", "HDAurochsAmmo", "HD069BoreAmmo", "TenMilBrass", "Wan_ThuRKTAmmo", "Wan_TortRKTAmmo", "WAN_20mmGrenadeAmmo", "ThirtyAughtSixAmmo"
+		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDGold45LCAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo", "HDAurochsAmmo", "HD069BoreAmmo", "TenMilBrass", "Wan_ThuRKTAmmo", "Wan_TortRKTAmmo", "WAN_20mmGrenadeAmmo", "ThirtyAughtSixAmmo", "ThirtyAughtSixBrass"
 	};
 
 	private transient CVar AmmoSpawns[3]; // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.
@@ -125,4 +125,410 @@ class HDBulletLibHandler : EventHandler
 
 		return false;
 	}
+}
+
+// Struct for ammo spawning information.
+class HDBLRSpawnAmmo play
+{
+    string spawnname; // ID by string for spawner
+    Array<HDBLRSpawnAmmoEntry> spawnreplaces; // ID by string for spawnees
+    int spawnreplacessize; // Cached size of the above array
+    bool isPersistent; // Whether or not to persistently spawn.
+    bool replaceAmmo;
+}
+ 
+class HDBLRSpawnAmmoEntry play
+{
+    string name;
+    int chance;
+}
+
+class HDBulletLibAmmoSpawner: EventHandler
+{
+    // List of persistent classes to completely ignore.
+    // This -should- mean this mod has no performance impact.
+    static const class<actor> blacklist[] =
+    {
+        "HDSmoke",
+        "BloodTrail",
+        "CheckPuff",
+        "WallChunk",
+        "HDBulletPuff",
+        "HDFireballTail",
+        "ReverseImpBallTail",
+        "HDSmokeChunk",
+        "ShieldSpark",
+        "HDFlameRed",
+        "HDMasterBlood",
+        "PlantBit",
+        "HDBulletActor",
+        "HDLadderSection"
+    };
+   
+    // List of ammo spawn associations.
+    // used for ammo replacement on mapload.
+    array<HDBLRSpawnAmmo> ammospawnlist;
+    int ammospawnlistsize;
+   
+    // appends an entry to ammospawnlist;
+    void addAmmo(string name, Array<HDBLRSpawnAmmoEntry> replacees, bool persists, bool rep=true)
+    {
+        // Creates a new struct;
+        HDBLRSpawnAmmo spawnee = HDBLRSpawnAmmo(new('HDBLRSpawnAmmo'));
+       
+        // Populates the struct with relevant information,
+        spawnee.spawnname = name;
+        spawnee.isPersistent = persists;
+        spawnee.replaceAmmo = rep;
+        for(int i = 0; i < replacees.size(); i++)
+        {
+            spawnee.spawnreplaces.push(replacees[i]);
+            spawnee.spawnreplacessize++;
+        }
+       
+        // Pushes the finished struct to the array.
+        ammospawnlist.push(spawnee);
+        ammospawnlistsize++;
+    }
+ 
+    HDBLRSpawnAmmoEntry addAmmoentry(string name, int chance)
+    {
+        // Creates a new struct;
+        HDBLRSpawnAmmoEntry spawnee = HDBLRSpawnAmmoEntry(new('HDBLRSpawnAmmoEntry'));
+        spawnee.name = name.makelower();
+        spawnee.chance = chance;
+        return spawnee;
+       
+    }
+    bool cvarsAvailable;
+   
+    // Populates the replacement and association arrays.
+    void init()
+    {
+        cvarsAvailable = true;
+       
+    // --------------------
+    // Ammo spawn lists.
+    // --------------------
+ 
+    // 500 S&W Lights
+        Array<HDBLRSpawnAmmoEntry> spawns_500SWL;  
+        spawns_500SWL.push(addAmmoentry('ShellBoxRandom', 500sw_shellbox_spawn_bias));
+        addAmmo('HD500SWLightBoxPickup', spawns_500SWL, 500sw_persistent_spawning);
+	// 500 S&W Heavies
+        Array<HDBLRSpawnAmmoEntry> spawns_500SWH;  
+        spawns_500SWH.push(addAmmoentry('RocketBoxRandom', 500sw_rocket_spawn_bias));
+        addAmmo('HD500SWHeavyBoxPickup', spawns_500SWH, 500sw_persistent_spawning);
+	// 500 S&W Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_500SWC;  
+        spawns_500SWC.push(addAmmoentry('HDCasingBits', 500sw_casing_spawn_bias));
+        addAmmo('HDSpent500', spawns_500SWC, 500sw_persistent_spawning);
+
+	// 12 Gauge Slug Box
+        Array<HDBLRSpawnAmmoEntry> spawns_12gslugbox;  
+        spawns_12gslugbox.push(addAmmoentry('ShellBoxRandom', 12gslug_shellbox_spawn_bias));
+        addAmmo('SlugBoxPickup', spawns_12gslugbox, 12gslug_persistent_spawning);
+	// 12 Gauge Slug Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_12gslugpick;  
+        spawns_12gslugpick.push(addAmmoentry('ShellRandom', 12gslug_shell_spawn_bias));
+        addAmmo('SlugPickup', spawns_12gslugpick, 12gslug_persistent_spawning);
+	// 12 Gauge Slug Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_12gslugammo;  
+        spawns_12gslugammo.push(addAmmoentry('ShellRandom', 12gslug_shell_spawn_bias));
+        addAmmo('HDSlugAmmo', spawns_12gslugammo, 12gslug_persistent_spawning);
+	// 12 Gauge Slug Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_12gslugcase;  
+        spawns_12gslugcase.push(addAmmoentry('HDCasingBits', 12gslug_casing_spawn_bias));
+        addAmmo('HDSpentSlug', spawns_12gslugcase, 12gslug_persistent_spawning);
+
+	// .420 Frei Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_420freibox;  
+        spawns_420freibox.push(addAmmoentry('ClipBoxPickup', 420frei_box_spawn_bias));
+        addAmmo('HD420BoxPickup', spawns_420freibox, 420frei_persistent_spawning);
+	// .420 Frei Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_420freicasing;  
+        spawns_420freicasing.push(addAmmoentry('HDCasingBits', 420frei_casing_spawn_bias));
+        addAmmo('HDSpent420', spawns_420freicasing, 420frei_persistent_spawning);
+
+	// .069 Bore Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_069borebox;  
+        spawns_069borebox.push(addAmmoentry('ShellBoxRandom', 069bore_box_spawn_bias));
+        addAmmo('HD069BoreBox', spawns_069borebox, 069bore_persistent_spawning);
+	// .069 Bore Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_069borecasing;  
+        spawns_069borecasing.push(addAmmoentry('HDCasingBits', 069bore_casing_spawn_bias));
+        addAmmo('HDSpent069Bore', spawns_069borecasing, 069bore_persistent_spawning);
+
+	// .50 AE Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_50aebox;  
+        spawns_50aebox.push(addAmmoentry('ClipBoxPickup', 50ae_box_spawn_bias));
+        addAmmo('HD50AEBoxPickup', spawns_50aebox, 50ae_persistent_spawning);
+	// .50 AE Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_50aecasing;  
+        spawns_50aecasing.push(addAmmoentry('HDCasingBits', 50ae_casing_spawn_bias));
+        addAmmo('HDSpent50AE', spawns_50aecasing, 50ae_persistent_spawning);
+
+	// .50 OMG Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_50omgbox;  
+        spawns_50omgbox.push(addAmmoentry('RocketBoxRandom', 50omg_box_spawn_bias));
+        addAmmo('HD50OMGBoxPickup', spawns_50omgbox, 50omg_persistent_spawning);
+	// .50 OMG Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_50omgcasing;  
+        spawns_50omgcasing.push(addAmmoentry('HDCasingBits', 50omg_casing_spawn_bias));
+        addAmmo('HDSpent50OMG', spawns_50omgcasing, 50omg_persistent_spawning);
+
+	// .45 ACP Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_45acpbox;  
+        spawns_45acpbox.push(addAmmoentry('ClipBoxPickup', 45acp_box_spawn_bias));
+        addAmmo('HD45ACPBoxPickup', spawns_45acpbox, 45acp_persistent_spawning);
+	// .45 ACP Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_45acpcasing;  
+        spawns_45acpcasing.push(addAmmoentry('HDCasingBits', 45acp_casing_spawn_bias));
+        addAmmo('HDSpent45ACP', spawns_45acpcasing, 45acp_persistent_spawning);
+
+	// 10mm Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_10mmBox;  
+        spawns_10mmBox.push(addAmmoentry('ClipBoxPickup', 10mm_box_spawn_bias));
+        addAmmo('HD10mBoxPickup', spawns_10mmBox, 10mm_persistent_spawning);
+	// 10mm Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_10mmBrass;  
+        spawns_10mmBrass.push(addAmmoentry('HDCasingBits', 10mm_casing_spawn_bias));
+        addAmmo('HDSpent10mm', spawns_10mmBrass, 10mm_persistent_spawning);
+
+	// .45 LC Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_45lcbox;  
+        spawns_45lcbox.push(addAmmoentry('ClipBoxPickup', 45lc_box_spawn_bias));
+        addAmmo('HD45LCBoxPickup', spawns_45lcbox, 45lc_persistent_spawning);
+	// .45 LC Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_45lccasing;  
+        spawns_45lccasing.push(addAmmoentry('HDCasingBits', 45lc_casing_spawn_bias));
+        addAmmo('HDSpent45LC', spawns_45lccasing, 45lc_persistent_spawning);
+
+	// Gold .45 LC Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_g45lcbox;  
+        spawns_g45lcbox.push(addAmmoentry('ClipBoxPickup', g45lc_box_spawn_bias));
+        addAmmo('HDGold45LCBoxPickup', spawns_g45lcbox, g45lc_persistent_spawning);
+	// Gold .45 LC Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_g45lccasing;  
+        spawns_g45lccasing.push(addAmmoentry('HDCasingBits', g45lc_casing_spawn_bias));
+        addAmmo('HDSpentGold45LC', spawns_g45lccasing, g45lc_persistent_spawning);
+
+	// Less-Lethal Shell Box
+        Array<HDBLRSpawnAmmoEntry> spawns_llsbox;  
+        spawns_llsbox.push(addAmmoentry('ShellBoxRandom', LLS_shellbox_spawn_bias));
+        addAmmo('LLShellBoxPickup', spawns_llsbox, LLS_persistent_spawning);
+	// Less-Lethal Shell Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_llspickup;  
+        spawns_llspickup.push(addAmmoentry('ShellRandom', LLS_shell_spawn_bias));
+        addAmmo('LLShellPickup', spawns_llspickup, LLS_persistent_spawning);
+	// Less-Lethal Shell Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_llsammo;  
+        spawns_llsammo.push(addAmmoentry('ShellRandom', LLS_shell_spawn_bias));
+        addAmmo('HDLLShellAmmo', spawns_llsammo, LLS_persistent_spawning);
+	// Less-Lethal Shell Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_llscasing;  
+        spawns_llscasing.push(addAmmoentry('HDCasingBits', LLS_casing_spawn_bias));
+        addAmmo('HDLLSpentShell', spawns_llscasing, LLS_persistent_spawning);
+
+	// Explosive Slug Box
+        Array<HDBLRSpawnAmmoEntry> spawns_eslugbox;  
+        spawns_eslugbox.push(addAmmoentry('ShellBoxRandom', ESlug_shellbox_spawn_bias));
+        addAmmo('ExplosiveShellBoxPickup', spawns_eslugbox, ESlug_persistent_spawning);
+	// Explosive Slug Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_elugpickup;  
+        spawns_elugpickup.push(addAmmoentry('ShellRandom', ESlug_shell_spawn_bias));
+        addAmmo('ExplosiveShellPickup', spawns_elugpickup, ESlug_persistent_spawning);
+	// Explosive Slug Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_eslugammo;  
+        spawns_eslugammo.push(addAmmoentry('ShellRandom', ESlug_shell_spawn_bias));
+        addAmmo('HDExplosiveShellAmmo', spawns_eslugammo, ESlug_persistent_spawning);
+	// Explosive Slug Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_eslugcasing;  
+        spawns_eslugcasing.push(addAmmoentry('HDCasingBits', ESlug_casing_spawn_bias));
+        addAmmo('HDSpentExplosiveShell', spawns_eslugcasing, ESlug_persistent_spawning);
+
+	// Flare Shell Box
+        Array<HDBLRSpawnAmmoEntry> spawns_fshellbox;  
+        spawns_fshellbox.push(addAmmoentry('ShellBoxRandom', FShell_shellbox_spawn_bias));
+        addAmmo('FlareShellBoxPickup', spawns_fshellbox, FShell_persistent_spawning);
+	// Flare Shell Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_fshellpickup;  
+        spawns_fshellpickup.push(addAmmoentry('ShellRandom', FShell_shell_spawn_bias));
+        addAmmo('FlareShellPickup', spawns_fshellpickup, FShell_persistent_spawning);
+	// Flare Shell Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_fshellammo;  
+        spawns_fshellammo.push(addAmmoentry('ShellRandom', FShell_shell_spawn_bias));
+        addAmmo('HDFlareAmmo', spawns_fshellammo, FShell_persistent_spawning);
+
+	// .56 Caliber Musket Ball
+        Array<HDBLRSpawnAmmoEntry> spawns_mball;  
+        spawns_mball.push(addAmmoentry('HDCasingBits', MBall_casing_spawn_bias));
+        addAmmo('HDBallAmmo', spawns_mball, MBall_persistent_spawning);
+
+	// 4-Gauge Saboted Slug Box
+        Array<HDBLRSpawnAmmoEntry> spawns_4gssbox;  
+        spawns_4gssbox.push(addAmmoentry('ShellBoxRandom', 4gss_shellbox_spawn_bias));
+        addAmmo('HD4GSSpawn', spawns_4gssbox, 4gss_persistent_spawning);
+	// 4-Gauge Saboted Slug Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_4gsspickup;  
+        spawns_4gsspickup.push(addAmmoentry('ShellRandom', 4gss_shell_spawn_bias));
+        addAmmo('HDFumbled4GS', spawns_4gsspickup, 4gss_persistent_spawning);
+	// 4-Gauge Saboted Slug Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_4gssammo;  
+        spawns_4gssammo.push(addAmmoentry('ShellRandom', 4gss_shell_spawn_bias));
+        addAmmo('HD4GSAmmo', spawns_4gssammo, 4gss_persistent_spawning);
+	// 4-Gauge Saboted Slug Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_4gsscasing;  
+        spawns_4gsscasing.push(addAmmoentry('HDCasingBits', 4gss_casing_spawn_bias));
+        addAmmo('HDSpent4GS', spawns_4gsscasing, 4gss_persistent_spawning);
+
+	// .50 Action Mega Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_50ambox;  
+        spawns_5mmbox.push(addAmmoentry('ClipBoxPickup', 50am_box_spawn_bias));
+        addAmmo('PB_50AMBoxPickup', spawns_50ambox, 50am_persistent_spawning);
+	// .50 Action Mega Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_50amcasing;  
+        spawns_50amcasing.push(addAmmoentry('HDCasingBits', 50am_casing_spawn_bias));
+        addAmmo('HDSpent50AM', spawns_50amcasing, 50am_persistent_spawning);
+
+	// .50 Action Mega Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_50ambox;  
+        spawns_5mmbox.push(addAmmoentry('ClipBoxPickup', 50am_box_spawn_bias));
+        addAmmo('PB_50AMBoxPickup', spawns_50ambox, 50am_persistent_spawning);
+	// .50 Action Mega Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_50amcasing;  
+        spawns_50amcasing.push(addAmmoentry('HDCasingBits', 50am_casing_spawn_bias));
+        addAmmo('HDSpent50AM', spawns_50amcasing, 50am_persistent_spawning);
+
+	// 6mm Flechette Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_6mmBox;  
+        spawns_6mmBox.push(addAmmoentry('ClipBoxPickup', 6mm_box_spawn_bias));
+        addAmmo('HD6mmFlechetteBoxPickup', spawns_6mmBox, 6mm_persistent_spawning);
+	// 6mm Flechette Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_6mmcasing;  
+        spawns_6mmcasing.push(addAmmoentry('HDCasingBits', 6mm_casing_spawn_bias));
+        addAmmo('HDSpent6mmFlechette', spawns_6mmcasing, 6mm_persistent_spawning);
+
+	// 20mm Grenade Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_20mmgrenades;  
+        spawns_20mmgrenades.push(addAmmoentry('RocketBoxRandom', 20mm_rbox_spawn_bias));
+        addAmmo('WAN_20mmGrenadeAmmo', spawns_20mmgrenades, 20mm_persistent_spawning);
+
+	// Thunder Rockets
+        Array<HDBLRSpawnAmmoEntry> spawns_thunderrockets;  
+        spawns_thunderrockets.push(addAmmoentry('RocketBoxRandom', ThuRKT_rbox_spawn_bias));
+        addAmmo('WAN_ThuRKT', spawns_thunderrockets, ThuRKT_persistent_spawning);
+
+	// Tortoise Missiles
+        Array<HDBLRSpawnAmmoEntry> spawns_tortrockets;  
+        spawns_tortrockets.push(addAmmoentry('RocketBoxRandom', TortRKT_rbox_spawn_bias));
+        addAmmo('Wan_TortRkt', spawns_tortrockets, TortRKT_persistent_spawning);
+
+	// .30-06 Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_3006box;  
+        spawns_5mmbox.push(addAmmoentry('ClipBoxPickup', 3006_box_spawn_bias));
+        addAmmo('HD3006BoxPickup', spawns_3006box, 3006_persistent_spawning);
+	// .30-06 Casing/Brass
+        Array<HDBLRSpawnAmmoEntry> spawns_3006casing;  
+        spawns_3006casing.push(addAmmoentry('HDCasingBits', 3006_casing_spawn_bias));
+        addAmmo('HDSpent3006', spawns_3006casing, 3006_persistent_spawning);
+}
+   
+    // Random stuff, stores it and forces negative values just to be 0.
+    bool giverandom(int chance)
+    {
+        bool result = false;
+        int iii = random(0, chance);
+        if(iii < 0)
+            iii = 0;
+        if (iii == 0)
+        {
+            if(chance > -1)
+                result = true;
+        }
+       
+        return result;
+    }
+ 
+    // Tries to create the ammunition via random spawning.
+    bool trycreateAmmo(worldevent e, HDBLRSpawnAmmo f, int g, bool rep)
+    {
+        bool result = false;
+        if(giverandom(f.spawnreplaces[g].chance))
+        {
+            vector3 spawnpos = e.thing.pos;
+            let spawnAmmo = Actor.Spawn(f.spawnname, (spawnpos.x, spawnpos.y, spawnpos.z));
+            if(spawnAmmo)
+            {
+                if(rep)
+                {
+                    e.thing.destroy();
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+   
+    override void worldthingspawned(worldevent e)
+     {
+        string candidatename;
+       
+        // loop controls.
+        int i, j;
+       
+        // Populates the main arrays if they haven't been already.
+        if(!cvarsAvailable)
+            init();
+       
+       
+        for(i = 0; i < blacklist.size(); i++)
+        {
+            if (e.thing is blacklist[i])
+                return;
+        }
+       
+        // Checks for null events.
+        if(!e.Thing)
+        {
+            return;
+        }
+ 
+        candidatename  = e.Thing.GetClassName();
+        candidatename = candidatename.makelower();
+       
+        // Iterates through the list of ammo candidates for e.thing.
+        for(i = 0; i < ammospawnlistsize; i++)
+        {
+            // Tries to cast the ammo as an inventory.
+            let thing_inv_ptr = Inventory(e.thing);
+       
+            // Checks if the ammo in question is owned.
+            bool owned = thing_inv_ptr && (thing_inv_ptr.owner);
+ 
+            // Checks if the level has been loaded more than 1 tic.
+            bool prespawn = !(level.maptime > 1);
+           
+            // Checks if persistent spawning is on.
+            bool persist = (ammospawnlist[i].isPersistent);
+           
+            // if the ammo is owned (doesn't retain owner ptr),
+            // do not replace it.
+            if ((prespawn || persist) && (!owned && prespawn))
+            {
+                int original_i = i;
+                for(j = 0; j < ammospawnlist[original_i].spawnreplacessize; j++)
+                {
+                    if(ammospawnlist[i].spawnreplaces[j].name == candidatename)
+                    {
+                        if(trycreateAmmo(e, ammospawnlist[i], j, ammospawnlist[i].replaceAmmo))
+                        {
+                            j = ammospawnlist[i].spawnreplacessize;
+                            i = ammospawnlistsize;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
