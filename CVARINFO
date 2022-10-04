@@ -1,0 +1,118 @@
+// Main HDBulletLib cvars for handling ammo box and backpack spawns. - [Ted]
+server int hdblib_enableammo_1 = 0;
+server int hdblib_enableammo_2 = 0;
+server int hdblib_enableammo_3 = 0;
+
+// My added cvars for world spawning, these each control every specific spawn for each ammo. If you're adding your own, do it at the bottom like with the main cvars.
+// I keep them at 0 by default to have the opt-in nature respected. - [Ted]
+
+// .500 S&W
+server int 500sw_shellbox_spawn_bias = 0;
+server int 500sw_rocket_spawn_bias = 0;
+server int 500sw_casing_spawn_bias = 0;
+server bool 500sw_persistent_spawning = false;
+
+// 12 Gauge Slugs
+server int 12gslug_shellbox_spawn_bias = 0;
+server int 12gslug_shell_spawn_bias = 0;
+server int 12gslug_casing_spawn_bias = 0;
+server bool 12gslug_persistent_spawning = false;
+
+// .420 Frei
+server int 420frei_box_spawn_bias = 0;
+server int 420frei_casing_spawn_bias = 0;
+server bool 420frei_persistent_spawning = false;
+
+// .069 Bore
+server int 069bore_box_spawn_bias = 0;
+server int 069bore_casing_spawn_bias = 0;
+server bool 069bore_persistent_spawning = false;
+
+// .50 AE
+server int 50ae_box_spawn_bias = 0;
+server int 50ae_casing_spawn_bias = 0;
+server bool 50ae_persistent_spawning = false;
+
+// .50 OMG
+server int 50omg_box_spawn_bias = 0;
+server int 50omg_casing_spawn_bias = 0;
+server bool 50omg_persistent_spawning = false;
+
+// .45 ACP
+server int 45acp_box_spawn_bias = 0;
+server int 45acp_casing_spawn_bias = 0;
+server bool 45acp_persistent_spawning = false;
+
+// 10mm
+server int 10mm_box_spawn_bias = 0;
+server int 10mm_casing_spawn_bias = 0;
+server bool 10mm_persistent_spawning = false;
+
+// .45 LC
+server int 45lc_box_spawn_bias = 0;
+server int 45lc_casing_spawn_bias = 0;
+server bool 45lc_persistent_spawning = false;
+
+// Golden .45 LC
+server int g45lc_box_spawn_bias = 0;
+server int g45lc_casing_spawn_bias = 0;
+server bool g45lc_persistent_spawning = false;
+
+// Less-Lethal Shells
+server int LLS_shellbox_spawn_bias = 0;
+server int LLS_shell_spawn_bias = 0;
+server int LLS_casing_spawn_bias = 0;
+server bool LLS_persistent_spawning = false;
+
+// Explosive Slugs
+server int ESlug_shellbox_spawn_bias = 0;
+server int ESlug_shell_spawn_bias = 0;
+server int ESlug_casing_spawn_bias = 0;
+server bool ESlug_persistent_spawning = false;
+
+// Explosive Slugs
+server int FShell_shellbox_spawn_bias = 0;
+server int FShell_shell_spawn_bias = 0;
+server bool FShell_persistent_spawning = false;
+
+// Musket Balls
+server int MBall_casing_spawn_bias = 0;
+server bool MBall_persistent_spawning = false;
+
+// 4-Gauge Saboted Slugs
+server int 4gss_shellbox_spawn_bias = 0;
+server int 4gss_shell_spawn_bias = 0;
+server int 4gss_casing_spawn_bias = 0;
+server bool 4gss_persistent_spawning = false;
+
+// 5mm Bumblebee Rimfire
+server int 5mm_box_spawn_bias = 0;
+server int 5mm_casing_spawn_bias = 0;
+server bool 5mm_persistent_spawning = false;
+
+// .50 Action-Mega
+server int 50am_box_spawn_bias = 0;
+server int 50am_casing_spawn_bias = 0;
+server bool 50am_persistent_spawning = false;
+
+// 6mm Flechette
+server int 6mm_box_spawn_bias = 0;
+server int 6mm_casing_spawn_bias = 0;
+server bool 6mm_persistent_spawning = false;
+
+// 20mm Grenades
+server int 20mm_rbox_spawn_bias = 0;
+server bool 20mm_persistent_spawning = false;
+
+// Thunder Rockets
+server int ThuRKT_rbox_spawn_bias = 0;
+server bool ThuRKT_persistent_spawning = false;
+
+// Tortoise Rockets
+server int TortRKT_rbox_spawn_bias = 0;
+server bool TortRKT_persistent_spawning = false;
+
+// .30-06
+server int 3006_box_spawn_bias = 0;
+server int 3006_casing_spawn_bias = 0;
+server bool 3006_persistent_spawning = false;

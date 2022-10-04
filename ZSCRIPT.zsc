@@ -211,7 +211,7 @@ class HDBulletLibAmmoSpawner: EventHandler
     // Ammo spawn lists.
     // --------------------
  
-    // 500 S&W Lights
+        // 500 S&W Lights
         Array<HDBLRSpawnAmmoEntry> spawns_500SWL;  
         spawns_500SWL.push(addAmmoentry('ShellBoxRandom', 500sw_shellbox_spawn_bias));
         addAmmo('HD500SWLightBoxPickup', spawns_500SWL, 500sw_persistent_spawning);
@@ -382,14 +382,14 @@ class HDBulletLibAmmoSpawner: EventHandler
         spawns_4gsscasing.push(addAmmoentry('HDCasingBits', 4gss_casing_spawn_bias));
         addAmmo('HDSpent4GS', spawns_4gsscasing, 4gss_persistent_spawning);
 
-	// .50 Action Mega Box Pickup
-        Array<HDBLRSpawnAmmoEntry> spawns_50ambox;  
-        spawns_5mmbox.push(addAmmoentry('ClipBoxPickup', 50am_box_spawn_bias));
-        addAmmo('PB_50AMBoxPickup', spawns_50ambox, 50am_persistent_spawning);
-	// .50 Action Mega Casing
-        Array<HDBLRSpawnAmmoEntry> spawns_50amcasing;  
-        spawns_50amcasing.push(addAmmoentry('HDCasingBits', 50am_casing_spawn_bias));
-        addAmmo('HDSpent50AM', spawns_50amcasing, 50am_persistent_spawning);
+	// 5mm Bumblebee Rimfire Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_5mmbox;  
+        spawns_5mmbox.push(addAmmoentry('ClipBoxPickup', 5mm_box_spawn_bias));
+        addAmmo('PB_5mmBoxPickup', spawns_5mmbox, 5mm_persistent_spawning);
+	// 5mm Bumblebee Rimfire Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_5mmbox;  
+        spawns_5mmbox.push(addAmmoentry('HDCasingBits', 5mm_casing_spawn_bias));
+        addAmmo('HDSpent5mmMR', spawns_5mmbox, 5mm_persistent_spawning);
 
 	// .50 Action Mega Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_50ambox;  
