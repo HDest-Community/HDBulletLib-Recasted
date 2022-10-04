@@ -9,7 +9,7 @@ class HDB_4GS : HDBulletActor{
 	default{
 		pushfactor 0.15;
 		mass 1710;
-		speed HDCONST_MPSTODUPT*600;//850;
+		speed HDCONST_MPSTODUPT*400;//600;
 		accuracy 600;
 		stamina 2500;
 		hdbulletactor.hardness 5;
