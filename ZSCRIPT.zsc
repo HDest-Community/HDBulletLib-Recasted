@@ -347,7 +347,7 @@ class HDBulletLibAmmoSpawner: EventHandler
         spawns_elugpickup.push(addAmmoentry('ShellPickup', hdb_ESlug_shell_spawn_bias));
         addAmmo('ExplosiveShellPickup', spawns_elugpickup, hdb_ESlug_persistent_spawning);
 	// Explosive Slug Ammo
-        Array<HDBLRSpawnAmmoEntry> HDShellAmmo;  
+        Array<HDBLRSpawnAmmoEntry> spawns_eslugammo;  
         spawns_eslugammo.push(addAmmoentry('HDShellAmmo', hdb_ESlug_shell_spawn_bias));
         addAmmo('HDExplosiveShellAmmo', spawns_eslugammo, hdb_ESlug_persistent_spawning);
 	// Explosive Slug Casing
