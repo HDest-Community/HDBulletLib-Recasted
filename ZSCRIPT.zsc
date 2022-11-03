@@ -16,10 +16,10 @@ version "4.5"
 #include "BulletLib/5mm.zsc"
 #include "BulletLib/6mmFlechettes.zsc"
 #include "BulletLib/50AM.zsc"
-#include "BulletLib/.069 Bore .420 Frei.zsc"
+#include "BulletLib/069 Bore 420 Frei.zsc"
 #include "BulletLib/Thunder & Tortoise Rockets.zsc"
 #include "BulletLib/20mm Grenades.zsc"
-#include "BulletLib/.30-06.zsc"
+#include "BulletLib/30-06.zsc"
 
 class HDBulletLibHandler : EventHandler
 {
