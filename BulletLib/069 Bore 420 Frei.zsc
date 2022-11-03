@@ -45,7 +45,7 @@ class HDSpent420:HDDebris{
 	}
 }
 
-class HDAurochsAmmo:HDPistolAmmo{
+class HDAurochsAmmo:HDRoundAmmo{
 	default{
 		xscale 0.7;
 		yscale 0.85;
@@ -99,7 +99,7 @@ class HDSpent069Bore:HDDebris{
 	}
 }
 
-class HD069BoreAmmo:HDPistolAmmo{
+class HD069BoreAmmo:HDRoundAmmo{
 	default{
 		xscale 0.3;
 		yscale 0.4;
