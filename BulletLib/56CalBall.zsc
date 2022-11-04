@@ -55,7 +55,7 @@ class HDBallAmmo : HDRoundAmmo
 		YScale 0.125;
 		Inventory.PickupMessage "Picked up a lead ball.";
 		HDPickup.RefId "bal";
-		Tag "Lead Ball";
+		Tag "$TAG_MUSKETBALL";
 		HDPickup.Bulk ENC_BALL;
 		Inventory.Icon "OG10A0";
 	}

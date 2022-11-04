@@ -61,7 +61,7 @@ class HD500SWLightAmmo : HDRoundAmmo
 		YScale 0.6;
 		Inventory.PickupMessage "Picked up a .500 S&W light round.";
 		HDPickup.RefId "5sw";
-		Tag ".500 S&W light";
+		Tag "$TAG_500SWL";
 		HDPickup.Bulk ENC_50SW;
 		Inventory.Icon "TNSWA0";
 	}
@@ -87,7 +87,7 @@ class HD500SWHeavyAmmo : HD500SWLightAmmo
 		Translation "64:111=@72[128,13,0]";
 		Inventory.PickupMessage "Picked up a .500 wildcat cartridge.";
 		HDPickup.RefId "5ld";
-		Tag ".500 S&W heavy";
+		Tag "$TAG_500SWH";
 		HDPickup.Bulk ENC_50SW;
 		Inventory.Icon "TNSWB0";
 	}

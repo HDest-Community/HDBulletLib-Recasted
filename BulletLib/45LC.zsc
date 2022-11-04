@@ -225,7 +225,7 @@ class HD45LCAmmo:HDPistolAmmo{
 		yscale 1.0;
 		inventory.pickupmessage "Picked up a .45LC round.";
 		hdpickup.refid "45L";
-		tag ".45LC round";
+		tag "$TAG_45LC";
 		hdpickup.bulk ENC_355*2;
   inventory.icon "T10MA0";
 	}

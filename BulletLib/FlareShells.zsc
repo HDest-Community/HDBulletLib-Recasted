@@ -8,7 +8,7 @@ class HDFlareAmmo:HDRoundAmmo{
 		+hdpickup.multipickup
 		inventory.pickupmessage "Picked up a flare shell.";
 		scale 0.2;
-		tag "flare shells";
+		tag "$TAG_FLARESHELL";
 		hdpickup.refid "fsh";
 		hdpickup.bulk ENC_SHELL*0.9;
 		inventory.icon "FLA4A0";

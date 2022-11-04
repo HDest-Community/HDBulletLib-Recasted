@@ -56,7 +56,7 @@ class HD45ACPAmmo : HDRoundAmmo
 		+HDPICKUP.MULTIPICKUP
 		XScale 0.65;
 		YScale 0.65;
-		Tag ".45 ACP round";
+		Tag "$TAG_45ACP";
 		Inventory.Icon "45TNA0";
 		Inventory.PickupMessage "Picked up a .45 ACP round.";
 		HDPickup.RefId "45c";

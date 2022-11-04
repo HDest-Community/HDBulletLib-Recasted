@@ -1,7 +1,7 @@
 
 AddOptionMenu "OptionsMenu"
 {
-	Submenu "Bullet Library", "HDBulletLibMenu"
+	Submenu "$BULLETLIB_MENU", "HDBulletLibMenu"
 }
 
 OptionMenu "HDBulletLibMenu"
@@ -14,7 +14,7 @@ OptionMenu "HDBulletLibMenu"
 	StaticText "mods that utilize it.", "White"
 	StaticText "Does not actually control spawning by other mods.", "Fire"
 	StaticText ""
-	SafeCommand "Reset all options for HDBulletLib-Recasted", "hdb_reset_cvars"
+	SafeCommand "Reset all options", "hdb_reset_cvars"
 	StaticText ""
 	StaticText "Created by Accensus", "cyan"
 	Submenu ".50 AE", "50AE", 0, 1

@@ -47,7 +47,7 @@ class HD50OMGAmmo : HDRoundAmmo
 		YScale 0.8;
 		Inventory.PickupMessage "Picked up a .50 OMG round.";
 		HDPickup.RefId "omg";
-		Tag ".50 OMG round";
+		Tag "$TAG_50OMG";
 		HDPickup.Bulk ENC_50OMG;
 		Inventory.Icon "OG10A0";
 	}

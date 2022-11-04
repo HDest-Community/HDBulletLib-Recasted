@@ -13,7 +13,7 @@ class HD50AM_Ammo:HDRoundAmmo{
 		xscale 0.7;yscale 0.7;
 		inventory.pickupmessage "Picked up a .50 Action Mega round.";
 		hdpickup.refid HDLD_50AM;
-		tag ".50 Action Mega";
+		tag "$TAG_50AM";
 		hdpickup.bulk ENC_50AM;
 		inventory.icon "50AMW0";
 	}

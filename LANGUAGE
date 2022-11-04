@@ -1,0 +1,30 @@
+[enu default]
+
+// This controls the menu's coloration in the options menu. I have to use it like this as I wanted the funky symbol and the coloring. - [Ted]
+BULLETLIB_MENU = "\c[Blue]Ⓑ\c- HDBulletLib \c[Gold]Recasted\c";
+
+// All of these are for the individual rounds to allow external mods to modify their tags. This can be incredibly helpful for resprites that may want to change lorebits. - [Ted]
+TAG_069BORE = ".069 bore shell";
+TAG_420FREI = ".420 Frei round";
+TAG_500SWL = ".500 S&W light";
+TAG_500SWH = ".500 S&W heavy";
+TAG_EXPLSHL = "Explosive Shotgun Slugs";
+TAG_FLARESHELL = "Flare Shells";
+TAG_G45LC = "Golden .45 LC round";
+TAG_45LC = ".45 LC Round";
+TAG_50AE = ".50 AE round";
+TAG_50AM = ".50 Action Mega";
+TAG_50OMG = ".50 OMG round";
+TAG_MUSKETBALL = "Lead Ball";
+TAG_LLSHELL = "Less-Lethal Shotgun Shells";
+TAG_12SLUG = "Shotgun slugs";
+TAG_THUNROCKET = "Thunder Rocket";
+TAG_TORTROCKET = "Tortoise Rocket";
+TAG_45ACP = ".45 ACP round";
+TAG_3006 = ".30-06 round";
+TAG_20MMGREN = "20mm grenade";
+TAG_10MMAUTO = "10mm Auto round";
+TAG_10MMCASING = "10mm Auto casing";
+TAG_6MMFLECH = "6x42mm SCF Round";
+TAG_22LR = "5x12mm Bumblebee Rimfire";
+TAG_4GS = "4 gauge saboted slug";

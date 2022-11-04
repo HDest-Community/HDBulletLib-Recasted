@@ -323,7 +323,7 @@ class Wan_ThuRKTAmmo:HDAmmo{
 		+inventory.ignoreskill
 		inventory.maxamount (60+40);
 		inventory.pickupmessage "Picked up a thunder rocket.";
-		tag "thunder rocket";
+		tag "$TAG_THUNROCKET";
 		hdpickup.refid 'vrk';
 		hdpickup.bulk ENC_HEATROCKET*1.1; //weigh slightly more than a heat
 		xscale 0.25;
@@ -341,7 +341,7 @@ class Wan_TortRKTAmmo:HDAmmo{
 		+inventory.ignoreskill
 		inventory.maxamount (60+40);
 		inventory.pickupmessage "Picked up a tortoise rocket.";
-		tag "tortoise rocket";
+		tag "$TAG_TORTROCKET";
 		hdpickup.refid 'trt';
 		hdpickup.bulk ENC_HEATROCKET*1.2; //weigh more than a heat
 		xscale 0.28;

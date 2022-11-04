@@ -51,7 +51,7 @@ class HDAurochsAmmo:HDRoundAmmo{
 		yscale 0.85;
 		inventory.pickupmessage "Picked up a .420 Frei round.";
 		hdpickup.refid HDLD_420;
-		tag ".420 Frei round";
+		tag "$TAG_420FREI";
 		hdpickup.bulk ENC_420;
 		inventory.icon "42TEA0";
 		+hdpickup.multipickup
@@ -106,7 +106,7 @@ class HD069BoreAmmo:HDRoundAmmo{
 		yscale 0.4;
 		inventory.pickupmessage "Picked up a .069 bore shell.";
 		hdpickup.refid HDLD_069BORE;
-		tag "69 bore shell";
+		tag "$TAG_069BORE";
 		hdpickup.bulk ENC_069BORE;
 		inventory.icon "42BTA0";
 		+hdpickup.multipickup

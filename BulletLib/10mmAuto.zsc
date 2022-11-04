@@ -30,7 +30,7 @@ class HD10mAmmo:HDRoundAmmo{//10mm ammo pickup
 		yscale 0.6;
 		inventory.pickupmessage "Picked up a 10mm round.";
 		hdpickup.refid "10M";
-		tag "10mm round";
+		tag "$TAG_10MMAUTO";
 		hdpickup.bulk enc_10;
 		inventory.icon "T10MA0";
 	}
@@ -52,7 +52,7 @@ class TenMilBrass:HDAmmo{
 		+hdpickup.multipickup
 		+hdpickup.cheatnogive
 		height 16;radius 8;
-		tag "10mm casing";
+		tag "$TAG_10MMCASING";
 		hdpickup.refid "c10";
 		hdpickup.bulk ENC_776B;
 		xscale 0.7;yscale 0.8;

@@ -242,7 +242,7 @@ class HDGold45LCAmmo:HDRoundAmmo{
 		yscale 0.4;
 		inventory.pickupmessage "Picked up a gold 45. LC round.";
 		hdpickup.refid "45g";
-		tag "gold 45. lc round";
+		tag "$TAG_G45LC";
 		hdpickup.bulk ENC_9*3;
 		inventory.icon "GLBXA0";
 	}

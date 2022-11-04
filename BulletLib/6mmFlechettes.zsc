@@ -15,7 +15,7 @@ class HD6mmFlechetteAmmo:HDRoundAmmo{
 		+hdpickup.multipickup
 		inventory.pickupmessage "Picked up a 6mm Flechette round.";
 		hdpickup.refid HDLD_6MMFLECHETTE;
-		tag "6x42mm SCF Round";
+		tag "$TAG_6MMFLECH";
 		hdpickup.bulk ENC_6MMFLECHETTE;
 		inventory.icon "ACRPJ0";
 		xscale 0.3;yscale 0.3;

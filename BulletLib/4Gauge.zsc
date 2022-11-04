@@ -25,7 +25,7 @@ class HD4GSAmmo:HDRoundAmmo{
 		+hdpickup.multipickup
 		inventory.pickupmessage "Picked up a 4 gauge saboted slug.";
 		scale 0.3;
-		tag "4 gauge saboted slug";
+		tag "$TAG_4GS";
 		hdpickup.refid "4gs";
 		hdpickup.bulk ENC_4GS;
 		inventory.icon "4GS1A0";

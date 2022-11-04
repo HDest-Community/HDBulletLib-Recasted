@@ -38,7 +38,7 @@ class HDSlugAmmo : HDRoundAmmo
 		+HDPICKUP.MULTIPICKUP
 		Inventory.PickupMessage "Picked up a shotgun slug.";
 		Scale 0.3;
-		Tag "Shotgun slugs";
+		Tag "$TAG_12SLUG";
 		HDPickup.RefId "slu";
 		HDPickup.Bulk ENC_SHELL;
 		Inventory.Icon "SLUGA0";

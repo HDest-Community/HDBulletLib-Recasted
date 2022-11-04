@@ -58,7 +58,7 @@ class HD50AEAmmo : HDRoundAmmo
 		+HDPICKUP.MULTIPICKUP
 		XScale 0.9;
 		YScale 0.8;
-		Tag ".50 AE round";
+		Tag "$TAG_50AE";
 		Inventory.icon "TEN9A0";
 		Inventory.PickupMessage "Picked up a .50 AE round.";
 		HDPickup.RefId "50r";

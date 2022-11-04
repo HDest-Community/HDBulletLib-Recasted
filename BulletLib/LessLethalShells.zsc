@@ -8,7 +8,7 @@ class HDLLShellAmmo:HDRoundAmmo{
 		+hdpickup.multipickup
 		inventory.pickupmessage "Picked up a less-lethal shell.";
 		scale 0.3;
-		tag "less-lethal shells";
+		tag "$TAG_LLSHELL";
 		hdpickup.refid "LLS";
 		hdpickup.bulk ENC_SHELL;
 		inventory.icon "LLS4A0";

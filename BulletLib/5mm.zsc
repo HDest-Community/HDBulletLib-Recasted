@@ -26,7 +26,7 @@ class HD5mm_Ammo : HDRoundAmmo
 		Scale 0.55;
 		Inventory.PickupMessage "Picked up a 5mm BR round.";
 		HDPickup.RefId HDLD_5MM;
-		Tag "5x12mm Bumblebee Rimfire";
+		Tag "$TAG_22LR";
 		HDPickup.Bulk ENC_5MM;
 	}
 	

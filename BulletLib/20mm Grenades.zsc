@@ -190,7 +190,7 @@ class WAN_20mmGrenadeAmmo:HDAmmo{
 
 		inventory.pickupmessage "Picked up a 20mm grenade.";
 		scale 0.33;
-		tag "20mm grenade";
+		tag "$TAG_20MMGREN";
 		hdpickup.refid '2gr';
 		hdpickup.bulk ENC_20MMGRENADE;
 		inventory.maxamount (60+40);

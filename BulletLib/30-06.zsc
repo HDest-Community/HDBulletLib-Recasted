@@ -20,7 +20,7 @@ class ThirtyAughtSixAmmo:HDRoundAmmo{
 		xscale 0.7;yscale 0.82;
 		inventory.pickupmessage "Picked up a .30-06 round.";
 		hdpickup.refid "306";
-		tag ".30-06 round";
+		tag "$TAG_3006";
 		hdpickup.bulk ENC_776*1.25;
 		inventory.icon "TEN7A0";
 	}

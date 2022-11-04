@@ -8,7 +8,7 @@ class HDExplosiveShellAmmo:HDRoundAmmo{
 		+hdpickup.multipickup
 		inventory.pickupmessage "Picked up an explosive shell.";
 		scale 0.3;
-		tag "explosive shell";
+		tag "$TAG_EXPLSHL";
 		hdpickup.refid "xsh";
 		hdpickup.bulk ENC_SHELL;
 		inventory.icon "XLS4A0";
