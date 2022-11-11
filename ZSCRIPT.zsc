@@ -489,6 +489,12 @@ class HDBulletLibAmmoSpawner: EventHandler
         // loop controls.
         int i, j;
        
+        // Return if range.
+        if(level.MapName ~== "RANGE")
+        {
+                return;
+        }
+
         // Populates the main arrays if they haven't been already.
         if(!cvarsAvailable)
             init();
