@@ -17,46 +17,46 @@ OptionMenu "HDBulletLibMenu"
 	SafeCommand "Reset all options", "hdb_reset_cvars"
 	StaticText ""
 	StaticText "Created by Accensus", "cyan"
-	Submenu ".50 AE", "50AE", 0, 1
+	Submenu "$TAG_50AE", "50AE", 0, 1
 	StaticText ""
 	StaticText "Created by Sledge & prettyFist", "purple"
-    Submenu "12 Gauge Slugs", "12GaugeSlugs", 0, 1
-    Submenu ".500 S&W", "500SW", 0, 1
-	Submenu ".420 Frei", "420Frei", 0, 1
-	Submenu ".069 Bore", "069Bore", 0, 1
+    Submenu "$TAG_12SLUG", "12GaugeSlugs", 0, 1
+    Submenu "$TAG_500SWL", "500SW", 0, 1
+	Submenu "$TAG_420FREI", "420Frei", 0, 1
+	Submenu "$TAG_069BORE", "069Bore", 0, 1
 	StaticText ""
 	StaticText "Created by Bogus", "white"
-	Submenu ".50 OMG", "50OMG", 0, 1
+	Submenu "$TAG_50OMG", "50OMG", 0, 1
 	StaticText ""
 	StaticText "Created by Popguy", "purple"
-	Submenu ".45 ACP", "45ACP", 0, 1
+	Submenu "$TAG_45ACP", "45ACP", 0, 1
 	StaticText ""
 	StaticText "Created by Swampyrad", "orange"
-	Submenu "10mm Auto", "10mmAuto", 0, 1
-	Submenu ".45 LC", "45LC", 0, 1
-	Submenu "Golden .45 LC", "Gold45LC", 0, 1
-	Submenu "Less-Lethal Shells", "LessLethalShells", 0, 1
-	Submenu "Explosive Slugs", "ExplosiveSlugs", 0, 1
-	Submenu "Flare Shells", "FlareShells", 0, 1
+	Submenu "$TAG_10MMAUTO", "10mmAuto", 0, 1
+	Submenu "$TAG_45LC", "45LC", 0, 1
+	Submenu "$TAG_G45LC", "Gold45LC", 0, 1
+	Submenu "$TAG_LLSHELL", "LessLethalShells", 0, 1
+	Submenu "$TAG_EXPLSHL", "ExplosiveSlugs", 0, 1
+	Submenu "$TAG_FLARESHELL", "FlareShells", 0, 1
 	StaticText ""
 	StaticText "Created by Cozi & Ted", "green"
-	Submenu ".56 Caliber Musket Balls", "MusketBalls", 0, 1
+	Submenu "$TAG_MUSKETBALL", "MusketBalls", 0, 1
 	StaticText ""
 	StaticText "Created by Khan", "orange"
-	Submenu "4-Gauge Saboted Slugs", "4GSS", 0, 1
+	Submenu "$TAG_4GS", "4GSS", 0, 1
 	StaticText ""
 	StaticText "Created by Potetobloke", "Blue"
-	Submenu "5mm Bumblebee Rimfire", "5mm", 0, 1
-	Submenu ".50 Action-Mega", "50AM", 0, 1
-	Submenu "6mm Flechettes", "6mmF", 0, 1
+	Submenu "$TAG_22LR", "5mm", 0, 1
+	Submenu "$TAG_50AM", "50AM", 0, 1
+	Submenu "$TAG_6MMFLECH", "6mmF", 0, 1
 	StaticText ""
 	StaticText "Created by Wanzer", "Light Blue"
-	Submenu "Thunder Rockets", "ThuRKT", 0, 1
-	Submenu "Tortoise Rockets", "TortRKT", 0, 1
-	Submenu "20mm Grenades", "20mmG", 0, 1
+	Submenu "$TAG_THUNROCKET", "ThuRKT", 0, 1
+	Submenu "$TAG_TORTROCKET", "TortRKT", 0, 1
+	Submenu "$TAG_20MMGREN", "20mmG", 0, 1
 	StaticText ""
 	StaticText "Created by HexaDoken", "Dark Green"
-	Submenu ".30-06", "3006", 0, 1
+	Submenu "$TAG_3006", "3006", 0, 1
 }
 
 OptionMenu 50AE
