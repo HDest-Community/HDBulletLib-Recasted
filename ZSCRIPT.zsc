@@ -219,6 +219,7 @@ class HDBulletLibAmmoSpawner: EventHandler
 	// 500 S&W Heavies
         Array<HDBLRSpawnAmmoEntry> spawns_500SWH;  
         spawns_500SWH.push(addAmmoentry('RocketBigPickup', hdb_500sw_rocket_spawn_bias));
+        spawns_500SWH.push(addAmmoentry('HDRocketAmmo', hdb_500sw_rocket_spawn_bias));
         addAmmo('HD500SWHeavyBoxPickup', spawns_500SWH, hdb_500sw_persistent_spawning);
 	// 500 S&W Casing
         Array<HDBLRSpawnAmmoEntry> spawns_500SWC;  
@@ -277,6 +278,7 @@ class HDBulletLibAmmoSpawner: EventHandler
 	// .50 OMG Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_50omgbox;  
         spawns_50omgbox.push(addAmmoentry('RocketBigPickup', hdb_50omg_box_spawn_bias));
+        spawns_50omgbox.push(addAmmoentry('HDRocketAmmo', hdb_50omg_box_spawn_bias));
         addAmmo('HD50OMGBoxPickup', spawns_50omgbox, hdb_50omg_persistent_spawning);
 	// .50 OMG Casing
         Array<HDBLRSpawnAmmoEntry> spawns_50omgcasing;  
@@ -429,16 +431,19 @@ class HDBulletLibAmmoSpawner: EventHandler
 	// Thunder Rockets
         Array<HDBLRSpawnAmmoEntry> spawns_thunderrockets;  
         spawns_thunderrockets.push(addAmmoentry('RocketBigPickup', hdb_ThuRKT_rbox_spawn_bias));
+        spawns_thunderrockets.push(addAmmoentry('HEATAmmo', hdb_ThuRKT_rbox_spawn_bias));
         addAmmo('WAN_ThuRKT', spawns_thunderrockets, hdb_ThuRKT_persistent_spawning);
 
 	// Tortoise Missiles
         Array<HDBLRSpawnAmmoEntry> spawns_tortrockets;  
         spawns_tortrockets.push(addAmmoentry('RocketBigPickup', hdb_TortRKT_rbox_spawn_bias));
+        spawns_tortrockets.push(addAmmoentry('HEATAmmo', hdb_TortRKT_rbox_spawn_bias));
         addAmmo('Wan_TortRkt', spawns_tortrockets, hdb_TortRKT_persistent_spawning);
 
 	// .30-06 Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_3006box;  
         spawns_5mmbox.push(addAmmoentry('HD7mBoxPickup', hdb_3006_box_spawn_bias));
+        spawns_5mmbox.push(addAmmoentry('HDRocketAmmo', hdb_3006_box_spawn_bias));
         addAmmo('HD3006BoxPickup', spawns_3006box, hdb_3006_persistent_spawning);
 	// .30-06 Casing/Brass
         Array<HDBLRSpawnAmmoEntry> spawns_3006casing;  
