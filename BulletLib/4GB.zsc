@@ -1,0 +1,186 @@
+
+const ENC_4GB = ENC_SHELL*2.5;
+const ENC_4GBLOADED = ENC_SHELLLOADED*2.5;
+/*
+class HDB_4GS : HDBulletActor{
+	default{
+		pushfactor 0.15;
+		mass 1710;
+		speed 850;
+		accuracy 600;
+		stamina 2500;
+		hdbulletactor.hardness 5;
+        hdbulletactor.distantsound "world/shotgunfar";
+		hdbulletactor.distantsoundvol 2.;
+        seesound "weapons/riflecrack";
+	}
+}
+*/
+
+class HDB_400:HDBulletActor{
+	default{
+		pushfactor 0.3;
+		mass 25;
+		speed HDCONST_MPSTODUPT*500;
+		accuracy 200;
+		stamina 838;
+		woundhealth 3;
+		hdbulletactor.hardness 5;
+	}
+}
+class HDB_4wad:HDBulletActor{
+	default{
+		pushfactor 10.;
+		mass 12;
+		speed HDCONST_MPSTODUPT*200; //presumably most energy is transferred to the shot
+		accuracy 0;
+		stamina 1900;
+		woundhealth 5;
+		hdbulletactor.hardness 0; //should we change this to a double...
+		translation "AllRed";
+	}
+	override void gunsmoke(){}
+}
+
+class HD4GBAmmo:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill
+		+hdpickup.multipickup
+		inventory.pickupmessage "Picked up a 4 gauge 00 Buck shell.";
+		scale 0.4;
+		tag "4 GA 00 Buck shell";
+		hdpickup.refid "4gb";
+		hdpickup.bulk ENC_4GB;
+		inventory.icon "4GSIA0";
+	}
+	
+	override void SplitPickup()
+	{
+		SplitPickupBoxableRound(4, 25, "HD4GBBox", "4GPAA0", "4GSIA0");
+	}
+	
+	states{
+	spawn:
+		4GSI A -1;
+		stop;
+	death:
+		400S A -1{
+			if(Wads.CheckNumForName("id",0)==-1)A_SetTranslation("Free4GB");
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+
+class HDSpent4GB:HDSpentShell{
+	override void postbeginplay(){
+		super.postbeginplay();
+		if(Wads.CheckNumForName("id",0)==-1)A_SetTranslation("Free4GB");
+		if(vel==(0,0,0))A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+	}
+	default
+	{
+		scale 0.4;
+	}
+	states{
+	spawn:
+		400S ABCDEFGH 2;
+		loop;
+	death:
+		400S A -1{
+			bmissile=false;
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+//a shell that can be caught in hand, launched from the Slayer
+class HDUnSpent4GB:HDSpent4GB{
+	default
+	{
+		scale 0.4;
+	}
+	states{
+	spawn:
+		400S ABCDE 2;
+		TNT1 A 0{
+			if(A_JumpIfInTargetInventory("HD4GBAmmo",0,"null"))
+			A_SpawnItemEx("HDFumbling4GB",
+				0,0,0,vel.x+frandom(-1,1),vel.y+frandom(-1,1),vel.z,
+				0,SXF_NOCHECKPOSITION|SXF_ABSOLUTEMOMENTUM
+			);else A_GiveToTarget("HD4GBAmmo",1);
+		}
+		stop;
+	}
+}
+//any other single shell tumblng out
+class HDFumbling4GB:HDSpent4GB{
+	default{
+		bouncefactor 0.3;
+		scale 0.4;
+	}
+	states{
+	spawn:
+		400S AAAAAAAA 2 A_SetRoll(roll+random(1,10), SPF_INTERPOLATE);
+		loop;
+	death:
+		TNT1 A 0 A_SpawnItemEx("HDFumbled4GB",0,0,0,vel.x,vel.y,vel.z,0,SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION);
+		stop;
+	}
+}
+//the static pickup
+class HDFumbled4GB:IdleDummy{
+	default{
+		scale 0.4;
+	}
+	states{
+	spawn:
+		TNT1 A 0 nodelay{
+			let sss=HD4GBAmmo(spawn("HD4GBAmmo",pos,ALLOW_REPLACE));
+			sss.amount=1;
+			sss.setstatelabel("death");
+		}stop;
+	}
+}
+
+class HD4GBBox : HDUPK
+{
+	Default
+	{
+		scale 0.10;
+		HDUPK.Amount 25;
+		HDUPK.PickupSound "weapons/pocket";
+		HDUPK.PickupMessage "Picked up a 4 GA 00 Buck box.";
+		HDUPK.PickupType "HD4GBAmmo";
+	}
+
+	States
+	{
+		Spawn:
+			4GBX A -1;
+			Stop;
+	}
+}
+
+class HD4GBPickup : IdleDummy
+{
+	Default
+	{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Four 4 Gauge 00 Shotgun Shells"
+		//$Sprite "4GPAA0"
+	}
+
+	States
+	{
+		Spawn:
+			4GPA A 0 NoDelay
+			{
+				let iii = hdpickup(Spawn("HD4GBAmmo", pos, ALLOW_REPLACE));
+				iii.amount = 4;
+				iii.special = special;
+				iii.ChangeTID(tid);
+				iii.angle = angle;
+				iii.vel = vel;
+			}
+			Stop;
+	}
+}

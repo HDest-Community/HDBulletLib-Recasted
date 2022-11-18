@@ -1338,4 +1338,20 @@ Sprite "TRTRB0", 16, 58
 	Patch "TRTRB0", 0, 0
 }
 
+Sprite "4GSIA0", 26, 62
+{
+	XScale 7.000
+	YScale 7.000
+	Offset 13, 62
+	Patch "4GB1", 0, 0
+}
+
+Sprite "4GPAA0", 104, 61
+{
+	XScale 7.000
+	YScale 7.000
+	Offset 52, 61
+	Patch "4GB4", 0, 0
+}
+
 // End of texture definitions
