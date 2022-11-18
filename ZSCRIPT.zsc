@@ -27,7 +27,7 @@ class HDBulletLibHandler : EventHandler
 	// [Ace] Order here must match order in menu. And zscript files. - [Ted]
 	static const class<HDAmmo> RemovedClasses[] =
 	{
-		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDGold45LCAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo", "HDAurochsAmmo", "HD069BoreAmmo", "TenMilBrass", "Wan_ThuRKTAmmo", "Wan_TortRKTAmmo", "WAN_20mmGrenadeAmmo", "ThirtyAughtSixAmmo", "ThirtyAughtSixBrass"
+		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDGold45LCAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo", "HDAurochsAmmo", "HD069BoreAmmo", "TenMilBrass", "Wan_ThuRKTAmmo", "Wan_TortRKTAmmo", "WAN_20mmGrenadeAmmo", "ThirtyAughtSixAmmo", "ThirtyAughtSixBrass", "HD4GBAmmo"
 	};
 
 	private transient CVar AmmoSpawns[3]; // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.
@@ -450,6 +450,23 @@ class HDBulletLibAmmoSpawner: EventHandler
         Array<HDBLRSpawnAmmoEntry> spawns_3006casing;  
         spawns_3006casing.push(addAmmoentry('SevenMilBrass', hdb_3006_casing_spawn_bias));
         addAmmo('HDSpent3006', spawns_3006casing, hdb_3006_persistent_spawning);
+
+	// 4-Gauge Buckshot Box
+        Array<HDBLRSpawnAmmoEntry> spawns_4gbsbox;  
+        spawns_4gbsbox.push(addAmmoentry('ShellBoxPickup', hdb_4gbs_shellbox_spawn_bias));
+        addAmmo('HD4GBBox', spawns_4gbsbox, hdb_4gbs_persistent_spawning);
+	// 4-Gauge Buckshot Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_4gbspickup;  
+        spawns_4gbspickup.push(addAmmoentry('ShellPickup', hdb_4gss_shell_spawn_bias));
+        addAmmo('HD4GBPickup', spawns_4gbspickup, hdb_4gbs_persistent_spawning);
+	// 4-Gauge Buckshot Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_4gbsammo;  
+        spawns_4gbsammo.push(addAmmoentry('HDShellAmmo', hdb_4gss_shell_spawn_bias));
+        addAmmo('HD4GBAmmo', spawns_4gbsammo, hdb_4gbs_persistent_spawning);
+	// 4-Gauge Buckshot Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_4gbscasing;  
+        spawns_4gbscasing.push(addAmmoentry('HDSpentShell', hdb_4gss_casing_spawn_bias));
+        addAmmo('HDSpent4GB', spawns_4gbscasing, hdb_4gbs_persistent_spawning);
 }
    
     // Random stuff, stores it and forces negative values just to be 0.

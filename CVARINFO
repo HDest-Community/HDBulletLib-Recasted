@@ -116,3 +116,9 @@ server bool hdb_TortRKT_persistent_spawning = false;
 server int hdb_3006_box_spawn_bias = -1;
 server int hdb_3006_casing_spawn_bias = -1;
 server bool hdb_3006_persistent_spawning = false;
+
+// 4-Gauge Buckshot
+server int hdb_4gbs_shellbox_spawn_bias = -1;
+server int hdb_4gbs_shell_spawn_bias = -1;
+server int hdb_4gbs_casing_spawn_bias = -1;
+server bool hdb_4gbs_persistent_spawning = false;

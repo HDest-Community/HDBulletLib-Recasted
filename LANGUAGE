@@ -28,3 +28,5 @@ TAG_10MMCASING = "10mm Auto casing";
 TAG_6MMFLECH = "6x42mm SCF Round";
 TAG_22LR = "5x12mm Bumblebee Rimfire";
 TAG_4GS = "4 gauge saboted slug";
+// 4 GA 00 Buck shell was the original tag, I feel this is a bit more consistent. - [Ted]
+TAG_4GB = "4 gauge 00 buckshot";

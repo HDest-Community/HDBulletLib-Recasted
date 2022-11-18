@@ -48,7 +48,7 @@ class HD4GBAmmo:HDRoundAmmo{
 		+hdpickup.multipickup
 		inventory.pickupmessage "Picked up a 4 gauge 00 Buck shell.";
 		scale 0.4;
-		tag "4 GA 00 Buck shell";
+		tag "$TAG_4GB";
 		hdpickup.refid "4gb";
 		hdpickup.bulk ENC_4GB;
 		inventory.icon "4GSIA0";

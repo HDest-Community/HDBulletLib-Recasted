@@ -1,3 +1,7 @@
+// For those looking through this, please be noted that I'm going to migrate all of this to a language lump.
+// It'll allow other users to translate these menus and such or change the names of the various rounds in it if wanted.
+// Sadly, it will make this practically unreadable without the LANGUAGE lump opened also for cross-referencing.
+// Keep this in mind. - [Ted]
 
 AddOptionMenu "OptionsMenu"
 {
@@ -30,6 +34,7 @@ OptionMenu "HDBulletLibMenu"
 	StaticText ""
 	StaticText "Created by Popguy", "purple"
 	Submenu "$TAG_45ACP", "45ACP", 0, 1
+	Submenu "$TAG_4GB", "4GaugeBuckshot", 0, 1
 	StaticText ""
 	StaticText "Created by Swampyrad", "orange"
 	Submenu "$TAG_10MMAUTO", "10mmAuto", 0, 1
@@ -495,6 +500,38 @@ OptionMenu 4GSS
    	StaticText ""
 	StaticText "Reset Options", "Orange"
 	SafeCommand "Reset all options", "hdb_4GSS_reset_cvars"
+}
+
+OptionMenu 4GaugeBuckshot
+{
+    Title "------ 4-Gauge Buckshot Options ------"
+   	StaticText "Notice:", "Purple"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Purple"
+    StaticText  "Control the spawn rate of 4-Gauge Buckshot on Shell Boxes", "white"
+	Option "Spawn Rate: ", "hdb_4gbs_shellbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_4gbs_shellbox_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 4-Gauge Buckshot on Shells", "white"
+	Option "Spawn Rate: ", "hdb_4gbs_shell_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_4gbs_shell_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 4-Gauge Buckshot casings", "white"
+	Option "Spawn Rate: ", "hdb_4gbs_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_4gbs_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable 4-Gauge Slugs from spawning in Ammo Boxes and Backpacks.", "Purple"
+	FlagOption "4-Gauge Saboted Slugs", "hdblib_enableammo_1", "OnOff", 25
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_4gbs_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_4gbs_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Purple"
+	SafeCommand "Reset all options", "hdb_4GBS_reset_cvars"
 }
 
 OptionMenu 5mm
