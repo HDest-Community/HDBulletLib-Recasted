@@ -28,6 +28,7 @@ class HDB_400:HDBulletActor{
 		hdbulletactor.hardness 5;
 	}
 }
+
 class HDB_4wad:HDBulletActor{
 	default{
 		pushfactor 10.;
@@ -92,6 +93,7 @@ class HDSpent4GB:HDSpentShell{
 		}stop;
 	}
 }
+
 //a shell that can be caught in hand, launched from the Slayer
 class HDUnSpent4GB:HDSpent4GB{
 	default
@@ -111,6 +113,7 @@ class HDUnSpent4GB:HDSpent4GB{
 		stop;
 	}
 }
+
 //any other single shell tumblng out
 class HDFumbling4GB:HDSpent4GB{
 	default{
@@ -126,6 +129,7 @@ class HDFumbling4GB:HDSpent4GB{
 		stop;
 	}
 }
+
 //the static pickup
 class HDFumbled4GB:IdleDummy{
 	default{
