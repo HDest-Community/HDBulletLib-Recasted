@@ -4,7 +4,7 @@ server int hdblib_enableammo_2 = -1;
 server int hdblib_enableammo_3 = -1;
 
 // My added cvars for world spawning, these each control every specific spawn for each ammo. If you're adding your own, do it at the bottom like with the main cvars.
-// I keep them at 0 by default to have the opt-in nature respected. - [Ted]
+// I keep them at -1 by default to have the opt-in nature respected. - [Ted]
 
 // .500 S&W
 server int hdb_500sw_shellbox_spawn_bias = -1;

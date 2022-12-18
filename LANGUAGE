@@ -8,6 +8,7 @@ TAG_069BORE = ".069 bore shell";
 TAG_420FREI = ".420 Frei round";
 TAG_500SWL = ".500 S&W light";
 TAG_500SWH = ".500 S&W heavy";
+TAG_500SW = ".500 S&W";
 TAG_EXPLSHL = "Explosive Shotgun Slugs";
 TAG_FLARESHELL = "Flare Shells";
 TAG_G45LC = "Golden .45 LC round";

@@ -25,7 +25,7 @@ OptionMenu "HDBulletLibMenu"
 	StaticText ""
 	StaticText "Created by Sledge & prettyFist", "purple"
 	Submenu "$TAG_12SLUG", "12GaugeSlugs", 0, 1
-	Submenu "$TAG_500SWL", "500SW", 0, 1
+	Submenu "$TAG_500SW", "500SW", 0, 1
 	Submenu "$TAG_420FREI", "420Frei", 0, 1
 	Submenu "$TAG_069BORE", "069Bore", 0, 1
 	StaticText ""
