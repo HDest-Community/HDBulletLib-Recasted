@@ -8,6 +8,11 @@ AddOptionMenu "OptionsMenu"
 	Submenu "$BULLETLIB_MENU", "HDBulletLibMenu"
 }
 
+AddOptionMenu "HDAddonMenu"
+{
+	Submenu "$BULLETLIB_MENU", "HDBulletLibMenu"
+}
+
 OptionMenu "HDBulletLibMenu"
 {
 	Title "Standard Bullet Library Options"
