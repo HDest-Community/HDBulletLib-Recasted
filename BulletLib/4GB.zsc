@@ -149,7 +149,7 @@ class HD4GBBox : HDUPK
 {
 	Default
 	{
-		scale 0.10;
+		scale 0.40;
 		HDUPK.Amount 25;
 		HDUPK.PickupSound "weapons/pocket";
 		HDUPK.PickupMessage "Picked up a 4 GA 00 Buck box.";
