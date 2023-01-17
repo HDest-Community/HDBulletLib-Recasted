@@ -77,7 +77,7 @@ class HD45ACPBoxPickup : HDUPK
 {
 	Default
 	{
-		XScale 0.30;
+		XScale 0.40;
 		YScale 0.40;
 		HDUPK.Amount 50;
 		HDUPK.PickupSound "weapons/pocket";
