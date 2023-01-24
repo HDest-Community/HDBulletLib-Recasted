@@ -40,7 +40,7 @@ class HD45ACPAmmo : HDRoundAmmo
 {
 	override void SplitPickup()
 	{
-		SplitPickupBoxableRound(10, 50, "HD45ACPBoxPickup", "45TN", "45RN");
+		SplitPickupBoxableRound(10, 50, "HD45ACPBoxPickup", "45TNA0", "45RNA0");
 	}
 
 	const EncRoundLoaded = 0.55;
