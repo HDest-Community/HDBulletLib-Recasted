@@ -53,7 +53,7 @@ class HDBallAmmo : HDRoundAmmo
 		+HDPICKUP.MULTIPICKUP
 		XScale 0.125;
 		YScale 0.125;
-		Inventory.PickupMessage "Picked up a lead ball.";
+		Inventory.PickupMessage "$PICKUP_MUSKETBALL";
 		HDPickup.RefId "bal";
 		Tag "$TAG_MUSKETBALL";
 		HDPickup.Bulk ENC_BALL;
@@ -82,7 +82,7 @@ class HDLooseBall : HDUPK
 		MaxStepHeight 0.6;
 		BounceFactor 0.6;
 		HDUPK.PickupType "HDBallAmmo";
-		HDUPK.PickupMessage "Picked up a lead ball.";
+		HDUPK.PickupMessage "$PICKUP_MUSKETBALL";
 	}
 
 	States

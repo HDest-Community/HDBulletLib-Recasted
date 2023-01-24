@@ -6,7 +6,7 @@ class HDExplosiveShellAmmo:HDRoundAmmo{
 	default{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
-		inventory.pickupmessage "Picked up an explosive shell.";
+		inventory.pickupmessage "$PICKUP_EXPLOSIVESLUG";
 		scale 0.3;
 		tag "$TAG_EXPLSHL";
 		hdpickup.refid "xsh";
@@ -21,7 +21,7 @@ class HDExplosiveShellAmmo:HDRoundAmmo{
 		SplitPickupBoxableRound(4,20,"ExplosiveShellBoxPickup","XLS4A0","XLS1A0");
 	}
 	override string pickupmessage(){
-		if(amount>1)return "Picked up some explosive shells.";
+		if(amount>1)return "$PICKUP_EXPLOSIVESLUGS";
 		return super.pickupmessage();
 	}
 	states{
@@ -107,7 +107,7 @@ class ExplosiveShellBoxPickup:HDUPK{
 		scale 0.4;
 		hdupk.amount 20;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some explosive shells.";
+		hdupk.pickupmessage "$PICKUP_EXPLOSIVESLUGBOX";
 		hdupk.pickuptype "HDExplosiveShellAmmo";
 		//translation "160:167=80:105";
 	}

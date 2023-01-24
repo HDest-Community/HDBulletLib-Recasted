@@ -3,7 +3,7 @@
 // ------------------------------
 
 // Hoping to avoid complications in the future by creating my own rocket projectile to inherit from
-//This is just the normal heat rocket but standalone, doesn't need a custom pickup actor
+// This is just the normal heat rocket but standalone, doesn't need a custom pickup actor
 class WAN_CustomRocket:SlowProjectile{
 	default{
 		-noextremedeath -noteleport +bloodlessimpact +forcepain
@@ -11,7 +11,7 @@ class WAN_CustomRocket:SlowProjectile{
 		speed HDCONST_MPSTODUPT*152;
 		mass 600; accuracy 0; woundhealth 1800;
 		decal "BrontoScorch";
-		obituary "%o was fragged by %k.";
+		obituary "$OB_WANROCKET";
 		stamina 5; //used for fuel
 	}
 	override void postbeginplay(){
@@ -322,7 +322,7 @@ class Wan_ThuRKTAmmo:HDAmmo{
 	default{
 		+inventory.ignoreskill
 		inventory.maxamount (60+40);
-		inventory.pickupmessage "Picked up a thunder rocket.";
+		inventory.pickupmessage "$PICKUP_THUNROCKET";
 		tag "$TAG_THUNROCKET";
 		hdpickup.refid 'vrk';
 		hdpickup.bulk ENC_HEATROCKET*1.1; //weigh slightly more than a heat
@@ -340,7 +340,7 @@ class Wan_TortRKTAmmo:HDAmmo{
 	default{
 		+inventory.ignoreskill
 		inventory.maxamount (60+40);
-		inventory.pickupmessage "Picked up a tortoise rocket.";
+		inventory.pickupmessage "$PICKUP_TORTROCKET";
 		tag "$TAG_TORTROCKET";
 		hdpickup.refid 'trt';
 		hdpickup.bulk ENC_HEATROCKET*1.2; //weigh more than a heat

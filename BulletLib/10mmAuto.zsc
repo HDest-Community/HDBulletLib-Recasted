@@ -28,7 +28,7 @@ class HD10mAmmo:HDRoundAmmo{//10mm ammo pickup
 		+hdpickup.multipickup
 		xscale 0.7;
 		yscale 0.6;
-		inventory.pickupmessage "Picked up a 10mm round.";
+		inventory.pickupmessage "$PICKUP_10MM";
 		hdpickup.refid "10M";
 		tag "$TAG_10MMAUTO";
 		hdpickup.bulk enc_10;
@@ -56,7 +56,7 @@ class TenMilBrass:HDAmmo{
 		hdpickup.refid "c10";
 		hdpickup.bulk ENC_776B;
 		xscale 0.7;yscale 0.8;
-		inventory.pickupmessage "Picked up some 10mm brass.";
+		inventory.pickupmessage "$PICKUP_10MMBRASS";
 		inventory.icon "CS10B0";
 	}
 	states{
@@ -73,7 +73,8 @@ class HDSpent10mm:HDUPK{
 		height 4;radius 2;
 		bouncetype "doom";
 		hdupk.pickuptype "TenMilBrass";
-		hdupk.pickupmessage "Picked up a 10mm casing.";
+		// I don't know what the difference between this and the 10mm brass is relating to pickups so it's getting the brass one. - [Ted]
+		hdupk.pickupmessage "$PICKUP_10MMBRASS";
 
 		bouncesound "misc/casing";
 		bouncefactor 0.4;
@@ -132,7 +133,7 @@ class HD10mBoxPickup:HDUPK{
 		scale 0.4;
 		hdupk.amount 100;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some 10mm ammo.";
+		hdupk.pickupmessage "$PICKUP_10MMBOX";
 		hdupk.pickuptype "HD10mAmmo";
 	}
 	states{

@@ -6,7 +6,7 @@ class HDLLShellAmmo:HDRoundAmmo{
 	default{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
-		inventory.pickupmessage "Picked up a less-lethal shell.";
+		inventory.pickupmessage "$PICKUP_LESSLETHALSHELL";
 		scale 0.3;
 		tag "$TAG_LLSHELL";
 		hdpickup.refid "LLS";
@@ -17,7 +17,7 @@ class HDLLShellAmmo:HDRoundAmmo{
 		SplitPickupBoxableRound(4,20,"LLShellBoxPickup","LLS4A0","LLS1A0");
 	}
 	override string pickupmessage(){
-		if(amount>1)return "Picked up some less-lethal shells.";
+		if(amount>1)return "$PICKUP_LESSLETHALSHELLS";
 		return super.pickupmessage();
 	}
 	states{
@@ -89,7 +89,7 @@ class LLShellBoxPickup:HDUPK{
 		scale 0.4;
 		hdupk.amount 20;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some less-lethal shells.";
+		hdupk.pickupmessage "$PICKUP_LESSLETHALSHELLBOX";
 		hdupk.pickuptype "HDLLShellAmmo";
 		translation "160:167=80:105";
 	}

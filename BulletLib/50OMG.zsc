@@ -45,7 +45,7 @@ class HD50OMGAmmo : HDRoundAmmo
 		+HDPICKUP.MULTIPICKUP
 		XScale 0.7;
 		YScale 0.8;
-		Inventory.PickupMessage "Picked up a .50 OMG round.";
+		Inventory.PickupMessage "$PICKUP_50OMG";
 		HDPickup.RefId "omg";
 		Tag "$TAG_50OMG";
 		HDPickup.Bulk ENC_50OMG;
@@ -103,7 +103,7 @@ class HDLoose50OMG : HDUPK
 		MaxStepHeight 0.6;
 		BounceFactor 0.6;
 		HDUPK.PickupType "HD50OMGAmmo";
-		HDUPK.PickupMessage "Picked up a .50 OMG round.";
+		HDUPK.PickupMessage "$PICKUP_50OMG";
 	}
 
 	States
@@ -140,7 +140,7 @@ class HD50OMGBoxPickup : HDUPK
 		Scale 0.4;
 		HDUPK.Amount 20;
 		HDUPK.PickupSound "weapons/pocket";
-		HDUPK.PickupMessage "Picked up some .50 OMG ammo.";
+		HDUPK.PickupMessage "$PICKUP_50OMGBOX";
 		HDUPK.PickupType "HD50OMGAmmo";
 	}
 

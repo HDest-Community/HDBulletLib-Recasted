@@ -59,7 +59,7 @@ class HD500SWLightAmmo : HDRoundAmmo
 		+ROLLCENTER
 		+HDPICKUP.MULTIPICKUP
 		YScale 0.6;
-		Inventory.PickupMessage "Picked up a .500 S&W light round.";
+		Inventory.PickupMessage "$PICKUP_500SWL";
 		HDPickup.RefId "5sw";
 		Tag "$TAG_500SWL";
 		HDPickup.Bulk ENC_50SW;
@@ -85,7 +85,7 @@ class HD500SWHeavyAmmo : HD500SWLightAmmo
 	Default
 	{
 		Translation "64:111=@72[128,13,0]";
-		Inventory.PickupMessage "Picked up a .500 wildcat cartridge.";
+		Inventory.PickupMessage "$PICKUP_500SWH";
 		HDPickup.RefId "5ld";
 		Tag "$TAG_500SWH";
 		HDPickup.Bulk ENC_50SW;
@@ -108,7 +108,7 @@ class HD500SWLightBoxPickup : HDUPK
 		Scale 0.4;
 		HDUPK.Amount 40;
 		HDUPK.PickupSound "weapons/pocket";
-		HDUPK.PickupMessage "Picked up some .500 S&W ammo.";
+		HDUPK.PickupMessage "$PICKUP_500SWLBOX";
 		HDUPK.PickupType "HD500SWLightAmmo";
 	}
 
@@ -126,7 +126,7 @@ class HD500SWHeavyBoxPickup : HDUPK
 		Scale 0.4;
 		HDUPK.Amount 20;
 		HDUPK.PickupSound "weapons/pocket";
-		HDUPK.PickupMessage "Picked up some .500 S&W handloads. How the hell did these get here?";
+		HDUPK.PickupMessage "$PICKUP_500SWHBOX";
 		HDUPK.PickupType "HD500SWHeavyAmmo";
 	}
 

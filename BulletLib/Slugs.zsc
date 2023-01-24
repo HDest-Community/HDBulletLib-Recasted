@@ -27,7 +27,7 @@ class HDSlugAmmo : HDRoundAmmo
 	{
 		if (Amount > 1)
 		{
-			return "Picked up some shotgun slugs.";
+			return "$PICKUP_SLUGS";
 		}
 		return Super.PickupMessage();
 	}
@@ -36,7 +36,7 @@ class HDSlugAmmo : HDRoundAmmo
 	{
 		+INVENTORY.IGNORESKILL
 		+HDPICKUP.MULTIPICKUP
-		Inventory.PickupMessage "Picked up a shotgun slug.";
+		Inventory.PickupMessage "$PICKUP_SLUG";
 		Scale 0.3;
 		Tag "$TAG_12SLUG";
 		HDPickup.RefId "slu";
@@ -155,7 +155,7 @@ class SlugBoxPickup : HDUPK
 		Scale 0.4;
 		HDUPK.Amount 20;
 		HDUPK.PickupSound "weapons/pocket";
-		HDUPK.PickupMessage "Picked up some shotgun slugs.";
+		HDUPK.PickupMessage "$PICKUP_SLUGBOX";
 		HDUPK.PickupType "HDSlugAmmo";
 	}
 	states

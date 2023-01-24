@@ -18,7 +18,7 @@ class ThirtyAughtSixAmmo:HDRoundAmmo{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
 		xscale 0.7;yscale 0.82;
-		inventory.pickupmessage "Picked up a .30-06 round.";
+		inventory.pickupmessage "$PICKUP_3006";
 		hdpickup.refid "306";
 		tag "$TAG_3006";
 		hdpickup.bulk ENC_776*1.25;
@@ -46,7 +46,7 @@ class HD3006BoxPickup:HDUPK{
 		yscale 0.4; xscale 0.5;
 		hdupk.amount 40;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some .30-06 ammo.";
+		hdupk.pickupmessage "$PICKUP_3006BOX";
 		hdupk.pickuptype "ThirtyAughtSixAmmo";
 	}
 	states{
@@ -61,11 +61,11 @@ class ThirtyAughtSixBrass:HDAmmo{
 		+hdpickup.multipickup
 		+hdpickup.cheatnogive
 		height 16;radius 8;
-		tag ".30-06 casing";
+		tag "$TAG_3006BRASS";
 		//hdpickup.refid HDLD_SEVNBRA; idk
 		hdpickup.bulk ENC_776B * 1.25;
 		xscale 0.87;yscale 0.8;
-		inventory.pickupmessage "Picked up some brass.";
+		inventory.pickupmessage "$PICKUP_3006BRASS";
 		inventory.icon "RBRSA3A7";
 	}
 	states{
@@ -100,7 +100,7 @@ class HDLoose3006:HDSpent3006{
 	default{
 		bouncefactor 0.6;
 		hdupk.pickuptype "ThirtyAughtSixAmmo";
-		hdupk.pickupmessage "Picked up a .30-06 round.";
+		hdupk.pickupmessage "$PICKUP_3006";
 	}
 	states{
 	death:

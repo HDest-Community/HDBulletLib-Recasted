@@ -23,7 +23,7 @@ class HD4GSAmmo:HDRoundAmmo{
 	default{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
-		inventory.pickupmessage "Picked up a 4 gauge saboted slug.";
+		inventory.pickupmessage "$PICKUP_4GS";
 		scale 0.3;
 		tag "$TAG_4GS";
 		hdpickup.refid "4gs";

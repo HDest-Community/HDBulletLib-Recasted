@@ -52,7 +52,7 @@ class WAN_20mmGrenade:SlowProjectile{
 		height 1.5; radius 1.5; scale 0.26;
 		speed HDCONST_MPSTODUPT*40;
 		mass 100; accuracy 0; woundhealth 0;
-		obituary "%o was fragged by %k.";
+		obituary "$OB_20MM";
 		stamina 5; //used for fuel
 	}
 	override void postbeginplay(){
@@ -188,7 +188,7 @@ class WAN_20mmsploder:HDActor{
 class WAN_20mmGrenadeAmmo:HDAmmo{
 	default{
 
-		inventory.pickupmessage "Picked up a 20mm grenade.";
+		inventory.pickupmessage "$PICKUP_20MM";
 		scale 0.33;
 		tag "$TAG_20MMGREN";
 		hdpickup.refid '2gr';
@@ -214,7 +214,7 @@ class WAN_Dud20mmGrenade:HDActor{ //You can't use them for anything so there's n
 		deathsound "misc/fragknock";
 		bouncesound "misc/fragknock";
 		wallbouncesound "misc/fragknock";
-		obituary "%o was fragged by %k.";
+		obituary "$OB_20MM";
 		//hdupk.pickupmessage "picked up (and defused) a rocket grenade.";
 		damagefactor(0);
 		radius 1.5; height 1.5; scale 0.26;

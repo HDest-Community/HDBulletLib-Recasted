@@ -1,21 +1,6 @@
 
 const ENC_4GB = ENC_SHELL*2.5;
 const ENC_4GBLOADED = ENC_SHELLLOADED*2.5;
-/*
-class HDB_4GS : HDBulletActor{
-	default{
-		pushfactor 0.15;
-		mass 1710;
-		speed 850;
-		accuracy 600;
-		stamina 2500;
-		hdbulletactor.hardness 5;
-        hdbulletactor.distantsound "world/shotgunfar";
-		hdbulletactor.distantsoundvol 2.;
-        seesound "weapons/riflecrack";
-	}
-}
-*/
 
 class HDB_400:HDBulletActor{
 	default{
@@ -47,7 +32,7 @@ class HD4GBAmmo:HDRoundAmmo{
 	default{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
-		inventory.pickupmessage "Picked up a 4 gauge 00 Buck shell.";
+		inventory.pickupmessage "$PICKUP_4GB";
 		scale 0.4;
 		tag "$TAG_4GB";
 		hdpickup.refid "4gb";
@@ -152,7 +137,7 @@ class HD4GBBox : HDUPK
 		scale 0.40;
 		HDUPK.Amount 25;
 		HDUPK.PickupSound "weapons/pocket";
-		HDUPK.PickupMessage "Picked up a 4 GA 00 Buck box.";
+		HDUPK.PickupMessage "$PICKUP_4GBBOX";
 		HDUPK.PickupType "HD4GBAmmo";
 	}
 

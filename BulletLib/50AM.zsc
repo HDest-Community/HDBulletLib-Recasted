@@ -11,7 +11,7 @@ class HD50AM_Ammo:HDRoundAmmo{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
 		xscale 0.7;yscale 0.7;
-		inventory.pickupmessage "Picked up a .50 Action Mega round.";
+		inventory.pickupmessage "$PICKUP_50AM";
 		hdpickup.refid HDLD_50AM;
 		tag "$TAG_50AM";
 		hdpickup.bulk ENC_50AM;
@@ -75,7 +75,7 @@ class PB_50AMBoxPickup:HDUPK{
 		scale 0.4;
 		hdupk.amount 65;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some .50 Action Mega.";
+		hdupk.pickupmessage "$PICKUP_50AMBOX";
 		hdupk.pickuptype "HD50AM_Ammo";
 	}
 	states{

@@ -13,7 +13,7 @@ class HD6mmFlechetteAmmo:HDRoundAmmo{
 		+forcexybillboard
 		+rollsprite +rollcenter
 		+hdpickup.multipickup
-		inventory.pickupmessage "Picked up a 6mm Flechette round.";
+		inventory.pickupmessage "$PICKUP_6MMFLECHETTE";
 		hdpickup.refid HDLD_6MMFLECHETTE;
 		tag "$TAG_6MMFLECH";
 		hdpickup.bulk ENC_6MMFLECHETTE;
@@ -39,7 +39,7 @@ class HD6mmFlechetteBoxPickup:HDUPK{
 		scale 0.3;
 		hdupk.amount 100;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up a box of 6mm Flechettes.";
+		hdupk.pickupmessage "$PICKUP_6MMFLECHETTEBOX";
 		hdupk.pickuptype "HD6mmFlechetteAmmo";
 	}
 	states{

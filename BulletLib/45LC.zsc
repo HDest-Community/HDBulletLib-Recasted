@@ -223,7 +223,7 @@ class HD45LCAmmo:HDPistolAmmo{
 	default{
 		xscale 0.8;
 		yscale 1.0;
-		inventory.pickupmessage "Picked up a .45LC round.";
+		inventory.pickupmessage "$PICKUP_45LC";
 		hdpickup.refid "45L";
 		tag "$TAG_45LC";
 		hdpickup.bulk ENC_355*2;
@@ -242,7 +242,7 @@ class HD45LCBoxPickup:HDUPK{
 		scale 0.4;
 		hdupk.amount 50;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some .45LC ammo.";
+		hdupk.pickupmessage "$PICKUP_45LCBOX";
 		hdupk.pickuptype "HD45LCAmmo";
 	}
 	states{

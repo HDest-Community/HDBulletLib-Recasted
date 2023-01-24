@@ -6,7 +6,7 @@ class HDFlareAmmo:HDRoundAmmo{
 	default{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
-		inventory.pickupmessage "Picked up a flare shell.";
+		inventory.pickupmessage "$PICKUP_FLARESHELL";
 		scale 0.2;
 		tag "$TAG_FLARESHELL";
 		hdpickup.refid "fsh";
@@ -19,7 +19,7 @@ class HDFlareAmmo:HDRoundAmmo{
 	}
 
 	override string pickupmessage(){
-		if(amount>1)return "Picked up some flare shells.";
+		if(amount>1)return "$PICKUP_FLARESHELLS";
 		return super.pickupmessage();
 	}
 	states{
@@ -43,7 +43,7 @@ class FlareShellBoxPickup:HDUPK{
 		scale 0.4;
 		hdupk.amount 20;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some flare shells.";
+		hdupk.pickupmessage "$PICKUP_FLARESHELLBOX";
 		hdupk.pickuptype "HDFlareAmmo";
 		translation "160:167=80:105";
 	}

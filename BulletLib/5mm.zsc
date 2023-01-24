@@ -24,7 +24,7 @@ class HD5mm_Ammo : HDRoundAmmo
 		+INVENTORY.IGNORESKILL
 		+HDPICKUP.MULTIPICKUP
 		Scale 0.55;
-		Inventory.PickupMessage "Picked up a 5mm BR round.";
+		Inventory.PickupMessage "$PICKUP_5MM";
 		HDPickup.RefId HDLD_5MM;
 		Tag "$TAG_22LR";
 		HDPickup.Bulk ENC_5MM;
@@ -78,7 +78,7 @@ class PB_5mmBoxPickup : HDUPK
 		Scale 0.4;
 		HDUPK.Amount 160;
 		HDUPK.PickupSound "weapons/pocket";
-		HDUPK.PickupMessage "Picked up ''some'' 5mm BR.";
+		HDUPK.PickupMessage "$PICKUP_5MMBOX";
 		HDUPK.PickupType "HD5mm_Ammo";
 	}
 

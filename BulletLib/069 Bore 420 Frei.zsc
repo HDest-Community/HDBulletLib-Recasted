@@ -5,8 +5,6 @@ const ENC_420_LOADED=0.6;
 const ENC_069BORE=0.6;
 const ENC_069BORE_LOADED=0.4;
 
-
-
 class HDB_420:HDBulletActor{
     default{
         pushfactor 0.3;
@@ -49,7 +47,7 @@ class HDAurochsAmmo:HDRoundAmmo{
 	default{
 		xscale 0.7;
 		yscale 0.85;
-		inventory.pickupmessage "Picked up a .420 Frei round.";
+		inventory.pickupmessage "$PICKUP_420FREI";
 		hdpickup.refid HDLD_420;
 		tag "$TAG_420FREI";
 		hdpickup.bulk ENC_420;
@@ -75,7 +73,7 @@ class HD420BoxPickup:HDUPK{
 		scale 0.5;
 		hdupk.amount 60;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some .420 Frei ammo.";
+		hdupk.pickupmessage "$PICKUP_420FREIBOX";
 		hdupk.pickuptype "HDAurochsAmmo";
 	}
 	states{
@@ -104,7 +102,7 @@ class HD069BoreAmmo:HDRoundAmmo{
 	default{
 		xscale 0.3;
 		yscale 0.4;
-		inventory.pickupmessage "Picked up a .069 bore shell.";
+		inventory.pickupmessage "$PICKUP_069BORE";
 		hdpickup.refid HDLD_069BORE;
 		tag "$TAG_069BORE";
 		hdpickup.bulk ENC_069BORE;
@@ -128,7 +126,7 @@ class HD069BoreBox:HDUPK{
 		scale 0.5;
 		hdupk.amount 30;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some .069 bore shells.";
+		hdupk.pickupmessage "$PICKUP_069BOREBOX";
 		hdupk.pickuptype "HD069BoreAmmo";
 	}
 	states{

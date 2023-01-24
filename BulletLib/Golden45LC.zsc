@@ -240,7 +240,7 @@ class HDGold45LCAmmo:HDRoundAmmo{
 		+hdpickup.multipickup
 		xscale 0.4;
 		yscale 0.4;
-		inventory.pickupmessage "Picked up a gold 45. LC round.";
+		inventory.pickupmessage "$PICKUP_GOLD45LC";
 		hdpickup.refid "45g";
 		tag "$TAG_G45LC";
 		hdpickup.bulk ENC_9*3;
@@ -264,7 +264,7 @@ class HDGold45lcBoxPickup:HDUPK{
 		scale 0.4;
 		hdupk.amount 12;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some gold .45LC ammo.";
+		hdupk.pickupmessage "$PICKUP_GOLD45LCBOX";
 		hdupk.pickuptype "HDGold45LCAmmo";
 	}
 	states{

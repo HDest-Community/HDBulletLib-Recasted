@@ -60,7 +60,7 @@ class HD50AEAmmo : HDRoundAmmo
 		YScale 0.8;
 		Tag "$TAG_50AE";
 		Inventory.icon "TEN9A0";
-		Inventory.PickupMessage "Picked up a .50 AE round.";
+		Inventory.PickupMessage "$PICKUP_50AE";
 		HDPickup.RefId "50r";
 		HDPickup.Bulk EncRound;
 	}
@@ -82,7 +82,7 @@ class HD50AEBoxPickup : HDUPK
 		Scale 0.32;
 		HDUPK.Amount 50;
 		HDUPK.PickupSound "weapons/pocket";
-		HDUPK.PickupMessage "Picked up some .50 Action Express ammo.";
+		HDUPK.PickupMessage "$PICKUP_50AEBOX";
 		HDUPK.PickupType "HD50AEAmmo";
 	}
 
