@@ -48,6 +48,9 @@ OptionMenu "HDBulletLibMenu"
 	Submenu "$TAG_LLSHELL", "LessLethalShells", 0, 1
 	Submenu "$TAG_EXPLSHL", "ExplosiveSlugs", 0, 1
 	Submenu "$TAG_FLARESHELL", "FlareShells", 0, 1
+	Submenu "$TAG_BIRDSHOT", "Birdshot", 0, 1
+	Submenu "$TAG_300SAVAGE", "300Savage", 0, 1
+	Submenu "$TAG_762TOKAREV", "762Tokarev", 0, 1
 	StaticText ""
 	StaticText "Created by Cozi & Ted", "green"
 	Submenu "$TAG_MUSKETBALL", "MusketBalls", 0, 1
@@ -722,6 +725,95 @@ OptionMenu 3006
    	StaticText ""
 	StaticText "Reset Options", "Dark Green"
 	SafeCommand "Reset all options", "hdb_3006_reset_cvars"
+}
+
+OptionMenu Birdshot
+{
+    Title "------ Birdshot Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of Birdshot on Shell Boxes", "white"
+	Option "Spawn Rate: ", "hdb_bird_shellbox_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_bird_shellbox_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of Birdshot on Shells", "white"
+	Option "Spawn Rate: ", "hdb_bird_shell_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_bird_shell_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of Birdshot casings", "white"
+	Option "Spawn Rate: ", "hdb_bird_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_bird_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Birdshot from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "Birdshot", "hdblib_enableammo_1", "OnOff", 26
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_bird_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_bird_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_bird_reset_cvars"
+}
+
+OptionMenu 300savage
+{
+    Title "------ .300 Savage Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of .300 Savage on Rockets & Rocket Boxes", "white"
+	Option "Spawn Rate: ", "hdb_300savage_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_300savage_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .300 Savage casings", "white"
+	Option "Spawn Rate: ", "hdb_300savage_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_300savage_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable .300 Savage from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption ".300 Savage", "hdblib_enableammo_1", "OnOff", 27
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_300savage_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_300savage_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_300savage_reset_cvars"
+}
+
+OptionMenu 762Tokarev
+{
+    Title "------ 7.62 Tokarev Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of 7.62 Tokarev on Clip Boxes", "white"
+	Option "Spawn Rate: ", "hdb_7Tokarev_box_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_7Tokarev_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of 7.62 Tokarev casings", "white"
+	Option "Spawn Rate: ", "hdb_762Tokarev_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_7Tokarev_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable 7.62 Tokarev and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "7.62 Tokarev", "hdblib_enableammo_1", "OnOff", 28
+	FlagOption "7.62 Tokarev Brass", "hdblib_enableammo_1", "OnOff", 29
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_7Tokarev_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_7Tokarev_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_762Tokarev_reset_cvars"
 }
 
 // Spawn Bias (for items that do replace)

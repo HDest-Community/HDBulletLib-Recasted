@@ -21,13 +21,16 @@ version "4.5"
 #include "BulletLib/20mm Grenades.zsc"
 #include "BulletLib/30-06.zsc"
 #include "BulletLib/4GB.zsc"
+#include "Bulletlib/Birdshot.zsc"
+#include "Bulletlib/300savage.zsc"
+#include "Bulletlib/762Tokarev.zsc"
 
 class HDBulletLibHandler : EventHandler
 {
 	// [Ace] Order here must match order in menu. And zscript files. - [Ted]
 	static const class<HDAmmo> RemovedClasses[] =
 	{
-		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDGold45LCAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo", "HDAurochsAmmo", "HD069BoreAmmo", "TenMilBrass", "Wan_ThuRKTAmmo", "Wan_TortRKTAmmo", "WAN_20mmGrenadeAmmo", "ThirtyAughtSixAmmo", "ThirtyAughtSixBrass", "HD4GBAmmo"
+		"HD50AEAmmo", "HDSlugAmmo", "HD500SWLightAmmo", "HD500SWHeavyAmmo", "HD50OMGAmmo", "HD45ACPAmmo", "HD10mAmmo", "HD45LCAmmo", "HDLLShellAmmo", "HDExplosiveShellAmmo", "HDGold45LCAmmo", "HDFlareAmmo", "HDBallAmmo", "HD4GSAmmo", "HD5mm_Ammo", "HD6mmFlechetteAmmo", "HD50AM_Ammo", "HDAurochsAmmo", "HD069BoreAmmo", "TenMilBrass", "Wan_ThuRKTAmmo", "Wan_TortRKTAmmo", "WAN_20mmGrenadeAmmo", "ThirtyAughtSixAmmo", "ThirtyAughtSixBrass", "HD4GBAmmo", "HDBirdshotShellAmmo", "Savage300Ammo", "HD762TokarevAmmo", "TokarevBrass"
 	};
 
 	private transient CVar AmmoSpawns[3]; // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.
@@ -457,16 +460,53 @@ class HDBulletLibAmmoSpawner: EventHandler
         addAmmo('HD4GBBox', spawns_4gbsbox, hdb_4gbs_persistent_spawning);
 	// 4-Gauge Buckshot Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_4gbspickup;  
-        spawns_4gbspickup.push(addAmmoentry('ShellPickup', hdb_4gss_shell_spawn_bias));
+        spawns_4gbspickup.push(addAmmoentry('ShellPickup', hdb_4gbs_shell_spawn_bias));
         addAmmo('HD4GBPickup', spawns_4gbspickup, hdb_4gbs_persistent_spawning);
 	// 4-Gauge Buckshot Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_4gbsammo;  
-        spawns_4gbsammo.push(addAmmoentry('HDShellAmmo', hdb_4gss_shell_spawn_bias));
+        spawns_4gbsammo.push(addAmmoentry('HDShellAmmo', hdb_4gbs_shell_spawn_bias));
         addAmmo('HD4GBAmmo', spawns_4gbsammo, hdb_4gbs_persistent_spawning);
 	// 4-Gauge Buckshot Casing
         Array<HDBLRSpawnAmmoEntry> spawns_4gbscasing;  
-        spawns_4gbscasing.push(addAmmoentry('HDSpentShell', hdb_4gss_casing_spawn_bias));
+        spawns_4gbscasing.push(addAmmoentry('HDSpentShell', hdb_4gbs_casing_spawn_bias));
         addAmmo('HDSpent4GB', spawns_4gbscasing, hdb_4gbs_persistent_spawning);
+
+	// Birdshot Box
+        Array<HDBLRSpawnAmmoEntry> spawns_birdbox;  
+        spawns_birdbox.push(addAmmoentry('ShellBoxPickup', hdb_bird_shellbox_spawn_bias));
+        addAmmo('BirdshotShellBoxPickup', spawns_birdbox, hdb_bird_persistent_spawning);
+	// Birdshot Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_birdpickup;  
+        spawns_birdpickup.push(addAmmoentry('ShellPickup', hdb_bird_shell_spawn_bias));
+        addAmmo('BirdshotShellPickup', spawns_birdpickup, hdb_bird_persistent_spawning);
+	// Birdshot Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_birdammo;  
+        spawns_birdammo.push(addAmmoentry('HDShellAmmo', hdb_bird_shell_spawn_bias));
+        addAmmo('HDBirdshotShellAmmo', spawns_birdammo, hdb_bird_persistent_spawning);
+	// Birdshot Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_birdcasing;  
+        spawns_birdcasing.push(addAmmoentry('HDSpentShell', hdb_bird_casing_spawn_bias));
+        addAmmo('HDSpentBirdshotShell', spawns_birdcasing, hdb_bird_persistent_spawning);
+
+	// .300 Savage Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_300savagebox;  
+        spawns_300savagebox.push(addAmmoentry('RocketBigPickup', hdb_300savage_box_spawn_bias));
+        spawns_300savagebox.push(addAmmoentry('HDRocketAmmo', hdb_300savage_box_spawn_bias));
+        addAmmo('HDSavage300BoxPickup', spawns_300savagebox, hdb_300savage_persistent_spawning);
+	// .300 Savage Casing
+        // Currently doesn't have a casing actor. Once it does this will be pushed to main along with the other concerns being solved. - [Ted]
+        /*Array<HDBLRSpawnAmmoEntry> spawns_300savage_casing;  
+        spawns_300savage_casing.push(addAmmoentry('SevenMilBrass', hdb_300savage_casing_spawn_bias));
+        addAmmo('HDSpent50OMG', spawns_300savage_casing, hdb_300savage_persistent_spawning);*/
+
+	// 7.62 Tokarev Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_7Tokarev_Box;  
+        spawns_7Tokarev_Box.push(addAmmoentry('HD9mBoxPickup', hdb_7tokarev_box_spawn_bias));
+        addAmmo('HD762TokarevBoxPickup', spawns_7Tokarev_Box, hdb_7tokarev_persistent_spawning);
+	// 7.62 Tokarev Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_7Tokarev_Brass;  
+        spawns_7Tokarev_Brass.push(addAmmoentry('HDSpent9mm', hdb_7tokarev_casing_spawn_bias));
+        addAmmo('TokarevBrass', spawns_7Tokarev_Brass, hdb_7tokarev_persistent_spawning);
 }
    
     // Random stuff, stores it and forces negative values just to be 0.
