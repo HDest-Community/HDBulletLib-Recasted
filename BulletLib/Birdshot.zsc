@@ -19,9 +19,9 @@ class HDBirdshotShellAmmo:HDRoundAmmo{
 	default{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
-		inventory.pickupmessage "Picked up a birdshot shell.";
+		inventory.pickupmessage "$PICKUP_BIRDSHOTSHELL";
 		scale 0.3;
-		tag "birdshot shells";
+		tag "$TAG_BIRDSHOT"
 		hdpickup.refid "bsh";//birdshot
 		hdpickup.bulk ENC_SHELL;
 		inventory.icon "BSH4A0";
@@ -31,7 +31,7 @@ class HDBirdshotShellAmmo:HDRoundAmmo{
 		SplitPickupBoxableRound(4,20,"BirdshotShellBoxPickup","BSH4A0","BSHLA0");
 	}
 	override string pickupmessage(){
-		if(amount>1)return "Picked up some birdshot shells.";
+		if(amount>1)return "$PICKUP_BIRDSHOTSHELLS";
 		return super.pickupmessage();
 	}
 	states{
@@ -104,7 +104,7 @@ class BirdshotShellBoxPickup:HDUPK{
 		scale 0.4;
 		hdupk.amount 20;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some birdshot shells.";
+		hdupk.pickupmessage "$PICKUP_BIRDSHOTSHELLBOX";
 		hdupk.pickuptype "HDBirdshotShellAmmo";
 	}
 	states{

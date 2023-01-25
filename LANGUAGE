@@ -34,6 +34,10 @@ TAG_22LR = "5x12mm Bumblebee Rimfire";
 TAG_4GS = "4 gauge saboted slug";
 // 4 GA 00 Buck shell was the original tag, I feel this is a bit more consistent. - [Ted]
 TAG_4GB = "4 gauge 00 buckshot";
+TAG_BIRDSHOT = "birdshot shells";
+TAG_300SAVAGE=".300 Savage ammo";
+TAG_762TOKAREV="7.62 Tokarev round";
+TAG_762TOKAREVBRASS="7.62 Tokarev casing";
 
 PICKUP_50AE="Picked up a .50 AE round.";
 PICKUP_50AEBOX="Picked up some .50 Action Express ammo.";
@@ -53,6 +57,14 @@ PICKUP_FLARESHELLBOX="Picked up some flare shells.";
 PICKUP_LESSLETHALSHELL="Picked up a less-lethal shell.";
 PICKUP_LESSLETHALSHELLS="Picked up some less-lethal shells.";
 PICKUP_LESSLETHALSHELLBOX="Picked up some less-lethal shells.";
+PICKUP_BIRDSHOTSHELL="Picked up a birdshot shell.";
+PICKUP_BIRDSHOTSHELLS="Picked up some birdshot shells.";
+PICKUP_BIRDSHOTSHELLBOX="Picked up some birdshot shells.";
+PICKUP_300SAVAGE="Picked up a .300 Savage round.";
+PICKUP_300SAVAGEBOX="Picked up some .300 Savage ammo.";
+PICKUP_762TOKAREV="Picked up a 7.62 Tokarev round.";
+PICKUP_762TOKAREVBRASS="Picked up some 7.62 Tokarev brass.";
+PICKUP_762TOKAREVBOX="Picked up some 7.62 Tokarev ammo.";
 PICKUP_6MMFLECHETTE="Picked up a 6mm Flechette round.";
 PICKUP_6MMFLECHETTEBOX="Picked up a box of 6mm Flechettes.";
 PICKUP_5MM="Picked up a 5mm BR round.";

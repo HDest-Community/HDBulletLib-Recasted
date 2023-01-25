@@ -27,9 +27,9 @@ class HD762TokarevAmmo:HDRoundAmmo{
 		+rollsprite +rollcenter
 		+hdpickup.multipickup
 		scale 0.4;
-		inventory.pickupmessage "Picked up a 7.62 Tokarev round.";
+		inventory.pickupmessage "$PICKUP_762TOKAREV";
 		hdpickup.refid "7TK";
-		tag "7.62 Tokarev round";
+		tag "$TAG_762TOKAREV";
 		hdpickup.bulk enc_762TOKAREV;
 		inventory.icon "T762A0";
 	}
@@ -51,11 +51,11 @@ class TokarevBrass:HDAmmo{
 		+hdpickup.multipickup
 		+hdpickup.cheatnogive
 		height 16;radius 8;
-		tag "7.62 Tokarev casing";
+		tag "$TAG_762TOKAREVBRASS"
 		hdpickup.refid "tvb";
 		hdpickup.bulk ENC_776B*0.8;
 		xscale 0.4;yscale 0.4;
-		inventory.pickupmessage "Picked up some 7.62 Tokarev brass.";
+		inventory.pickupmessage "$PICKUP_762TOKAREVBRASS";
 		inventory.icon "T7CSB0";
 	}
 	
@@ -73,7 +73,7 @@ class HDSpent762Tokarev:HDUPK{
 		height 4;radius 2;
 		bouncetype "doom";
 		hdupk.pickuptype "TokarevBrass";
-		hdupk.pickupmessage "Picked up a 7.62 Tokarev casing.";
+		hdupk.pickupmessage "$PICKUP_762TOKAREVBRASS";
 
 		bouncesound "misc/casing";
 		bouncefactor 0.4;
@@ -132,7 +132,7 @@ class HD762TokarevBoxPickup:HDUPK{
 		scale 0.3;
 		hdupk.amount 50;
 		hdupk.pickupsound "weapons/pocket";
-		hdupk.pickupmessage "Picked up some 7.62 Tokarev ammo.";
+		hdupk.pickupmessage "$PICKUP_762TOKAREVBOX";
 		hdupk.pickuptype "HD762TokarevAmmo";
 	}
 	states{
