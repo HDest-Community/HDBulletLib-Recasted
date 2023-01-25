@@ -51,7 +51,7 @@ class TokarevBrass:HDAmmo{
 		+hdpickup.multipickup
 		+hdpickup.cheatnogive
 		height 16;radius 8;
-		tag "$TAG_762TOKAREVBRASS"
+		tag "$TAG_762TOKAREVBRASS";
 		hdpickup.refid "tvb";
 		hdpickup.bulk ENC_776B*0.8;
 		xscale 0.4;yscale 0.4;

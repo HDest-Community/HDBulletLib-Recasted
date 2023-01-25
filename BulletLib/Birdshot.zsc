@@ -21,7 +21,7 @@ class HDBirdshotShellAmmo:HDRoundAmmo{
 		+hdpickup.multipickup
 		inventory.pickupmessage "$PICKUP_BIRDSHOTSHELL";
 		scale 0.3;
-		tag "$TAG_BIRDSHOT"
+		tag "$TAG_BIRDSHOT";
 		hdpickup.refid "bsh";//birdshot
 		hdpickup.bulk ENC_SHELL;
 		inventory.icon "BSH4A0";
