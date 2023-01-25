@@ -10,7 +10,7 @@ class HDB_300Savage:HDBulletActor{
 		accuracy 600;
 		stamina 762;
 		woundhealth 5;
-		hdbulletactor.hardness 4;
+		hdbulletactor.hardness 3;
 		hdbulletactor.distantsound "world/riflefar";
 		hdbulletactor.distantsoundvol 2.;
 	}
@@ -41,14 +41,41 @@ class Savage300Ammo:HDRoundAmmo{//use same sprites as 7mm as a texture
 	}
 }
 
-class HDLooseSavage300:HDSpent7mm{
+class LooseSavage300:HDSpent7mm{
 	override void postbeginplay(){
 		HDUPK.postbeginplay();
 	}
 	default{
 		bouncefactor 0.6;
 		hdupk.pickuptype "Savage300Ammo";
-		hdupk.pickupmessage "$PICKUP_300SAVAGE";
+		hdupk.pickupmessage "Picked up a .300 Savage round.";
+	}
+}
+
+class SpentSavage300:HDSpent7mm{
+    default{hdupk.pickuptype "Savage300Brass";}
+}
+//(primers and bullet lead can be cannibalized from 4.26mm rounds)
+class Savage300Brass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 16;radius 8;
+		tag ".300 Savage casing";
+		hdpickup.refid "s3c";
+		hdpickup.bulk ENC_776B;
+		xscale 0.7;yscale 0.8;
+		inventory.icon "RBRSA3A7";
+	}
+	override string PickupMessage() {String pickupmessage = Stringtable.Localize("$PICKUP_7MMBRASS"); return pickupmessage;}
+	override void GetItemsThatUseThis(){
+		itemsthatusethis.push("SavageAutoReloader");
+	}
+	states{
+	spawn:
+		RBRS A -1;
+		stop;
 	}
 }
 
