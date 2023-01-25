@@ -62,6 +62,7 @@ PICKUP_BIRDSHOTSHELLS="Picked up some birdshot shells.";
 PICKUP_BIRDSHOTSHELLBOX="Picked up some birdshot shells.";
 PICKUP_300SAVAGE="Picked up a .300 Savage round.";
 PICKUP_300SAVAGEBOX="Picked up some .300 Savage ammo.";
+PICKUP_300SAVAGEBRASS="Picked up some .300 Savage brass.";
 PICKUP_762TOKAREV="Picked up a 7.62 Tokarev round.";
 PICKUP_762TOKAREVBRASS="Picked up some 7.62 Tokarev brass.";
 PICKUP_762TOKAREVBOX="Picked up some 7.62 Tokarev ammo.";

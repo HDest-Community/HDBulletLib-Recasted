@@ -48,13 +48,14 @@ class LooseSavage300:HDSpent7mm{
 	default{
 		bouncefactor 0.6;
 		hdupk.pickuptype "Savage300Ammo";
-		hdupk.pickupmessage "Picked up a .300 Savage round.";
+		hdupk.pickupmessage "$PICKUP_300SAVAGE";
 	}
 }
 
 class SpentSavage300:HDSpent7mm{
     default{hdupk.pickuptype "Savage300Brass";}
 }
+
 //(primers and bullet lead can be cannibalized from 4.26mm rounds)
 class Savage300Brass:HDAmmo{
 	default{
@@ -67,10 +68,7 @@ class Savage300Brass:HDAmmo{
 		hdpickup.bulk ENC_776B;
 		xscale 0.7;yscale 0.8;
 		inventory.icon "RBRSA3A7";
-	}
-	override string PickupMessage() {String pickupmessage = Stringtable.Localize("$PICKUP_7MMBRASS"); return pickupmessage;}
-	override void GetItemsThatUseThis(){
-		itemsthatusethis.push("SavageAutoReloader");
+		pickupmessage "$PICKUP_300SAVAGEBRASS";
 	}
 	states{
 	spawn:
