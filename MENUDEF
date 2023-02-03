@@ -315,10 +315,12 @@ OptionMenu 45LC
 	Option "Spawn Rate: ", "hdb_45lc_box_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_45lc_box_spawn_bias"
 	StaticText ""
+/*
     StaticText  "Control the spawn rate of 10mm Auto casings", "white"
 	Option "Spawn Rate: ", "hdb_45lc_casing_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_45lc_casing_spawn_bias"
  	StaticText ""
+*/
 	StaticText "Enable/Disable .45 LC from spawning in Ammo Boxes and Backpacks.", "Orange"
 	FlagOption ".45 LC", "hdblib_enableammo_1", "OnOff", 7
 	StaticText ""
@@ -339,14 +341,16 @@ OptionMenu Gold45LC
     StaticText  "spawns of that given type.", "white"
     StaticText ""
 	StaticText "Spawn Options", "Orange"
-    StaticText  "Control the spawn rate of .45 LC on Clip Boxes", "white"
+    StaticText  "Control the spawn rate of Gold .45 LC on Clip Boxes", "white"
 	Option "Spawn Rate: ", "hdb_g45lc_box_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_g45lc_box_spawn_bias"
 	StaticText ""
+/*
     StaticText  "Control the spawn rate of 10mm Auto casings", "white"
 	Option "Spawn Rate: ", "hdb_g45lc_casing_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_g45lc_casing_spawn_bias"
  	StaticText ""
+*/
 	StaticText "Enable/Disable Gold .45 LC from spawning in Ammo Boxes and Backpacks.", "Orange"
 	FlagOption "Golden .45 LC", "hdblib_enableammo_1", "OnOff", 10
 	StaticText ""
