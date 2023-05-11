@@ -4,10 +4,10 @@
 BULLETLIB_MENU = "\c[Blue]Ⓑ\c- HDBulletLib \c[Gold]Recasted\c";
 
 // All of these are for the individual rounds to allow external mods to modify their tags. This can be incredibly helpful for resprites that may want to change lorebits. - [Ted]
-TAG_069BORE = ".069 bore shell";
-TAG_420FREI = ".420 Frei round";
-TAG_420FREI_BOX = ".420 Frei Boxes";
-TAG_069BORE_BOX = ".069 Bore Boxes";
+TAG_069BORE = ".066 bore shell";
+TAG_420FREI = ".451 Frei round";
+TAG_420FREI_BOX = ".451 Frei Boxes";
+TAG_069BORE_BOX = ".066 Bore Boxes";
 TAG_500SWL = ".500 S&W light";
 TAG_500SWH = ".500 S&W heavy";
 TAG_500SW = ".500 S&W";
@@ -80,10 +80,10 @@ PICKUP_500SWHBOX="Picked up some .500 S&W handloads. How the hell did these get 
 PICKUP_SLUG="Picked up a shotgun slug.";
 PICKUP_SLUGS="Picked up some shotgun slugs.";
 PICKUP_SLUGBOX="Picked up some shotgun slugs.";
-PICKUP_420FREI="Picked up a .420 Frei round.";
-PICKUP_420FREIBOX="Picked up some .420 Frei ammo.";
-PICKUP_069BORE="Picked up a .069 bore shell.";
-PICKUP_069BOREBOX="Picked up some .069 bore shells.";
+PICKUP_420FREI="Picked up a .451 Frei round.";
+PICKUP_420FREIBOX="Picked up some .451 Frei ammo.";
+PICKUP_069BORE="Picked up a .066 bore shell.";
+PICKUP_069BOREBOX="Picked up some .066 bore shells.";
 
 OB_20MM="%o was fragged by %k.";
 OB_WANROCKET="%o was fragged by %k.";
