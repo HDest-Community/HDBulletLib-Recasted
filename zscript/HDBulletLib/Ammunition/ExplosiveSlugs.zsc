@@ -6,11 +6,13 @@ class HDExplosiveShellAmmo:HDRoundAmmo{
 	default{
 		+inventory.ignoreskill
 		+hdpickup.multipickup
-		inventory.pickupmessage "$PICKUP_EXPLOSIVESLUG";
+
 		scale 0.3;
+
 		tag "$TAG_EXPLSHL";
 		hdpickup.refid "xsh";
 		hdpickup.bulk ENC_SHELL;
+		inventory.pickupmessage "$PICKUP_EXPLOSIVESLUG";
 		inventory.icon "XLS4A0";
 	}
 	override void GetItemsThatUseThis(){
