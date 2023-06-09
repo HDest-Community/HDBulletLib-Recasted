@@ -68,7 +68,7 @@ class Savage300Brass:HDAmmo{
 		hdpickup.bulk ENC_776B;
 		xscale 0.7;yscale 0.8;
 		inventory.icon "RBRSA3A7";
-		pickupmessage "$PICKUP_300SAVAGEBRASS";
+		inventory.pickupmessage "$PICKUP_300SAVAGEBRASS";
 	}
 	states{
 	spawn:
