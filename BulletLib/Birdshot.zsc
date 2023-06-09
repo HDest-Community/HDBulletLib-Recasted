@@ -1,0 +1,131 @@
+// ------------------------------------------------------------
+// Birdshot Shotgun Shells
+// ------------------------------------------------------------
+
+class HDB_No2Birdshot:HDBulletActor{
+	default{
+		pushfactor 0.5;
+        // Mass changed from 0.3 to 1 to avoid truncation of floating point constant errors. - [Ted]
+		mass 1;
+		speed HDCONST_MPSTODUPT*440;
+		accuracy 200;
+		stamina 381;
+		woundhealth 1;
+		hdbulletactor.hardness 1;
+	}
+}
+
+class HDBirdshotShellAmmo:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill
+		+hdpickup.multipickup
+		inventory.pickupmessage "$PICKUP_BIRDSHOTSHELL";
+		scale 0.3;
+		tag "$TAG_BIRDSHOT";
+		hdpickup.refid "bsh";//birdshot
+		hdpickup.bulk ENC_SHELL;
+		inventory.icon "BSH4A0";
+		translation "80:105=160:167";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(4,20,"BirdshotShellBoxPickup","BSH4A0","BSHLA0");
+	}
+	override string pickupmessage(){
+		if(amount>1)return "$PICKUP_BIRDSHOTSHELLS";
+		return super.pickupmessage();
+	}
+	states{
+	spawn:
+		BSHL A -1;
+		stop;
+	death:
+		ESHL A -1{
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+class HDSpentBirdshotShell:HDDebris{
+	default{
+		-noteleport +forcexybillboard
+		seesound "misc/casing2";scale 0.3;height 2;radius 2;
+		bouncefactor 0.5;
+		translation "80:105=160:167";
+	}
+	override void postbeginplay(){
+		super.postbeginplay();
+		if(vel==(0,0,0))A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+	}
+	vector3 lastvel;
+	override void Tick(){
+		if(!isFrozen())lastvel=vel;
+		super.Tick();
+	}
+	states{
+	spawn:
+		ESHL ABCDEFGH 2;
+		loop;
+	death:
+		ESHL A -1{
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+
+class HDFumblingBirdshotShell:HDSpentBirdshotShell{
+	default{
+		bouncefactor 0.3;
+		translation "80:105=160:167";
+	}
+	states{
+	spawn:
+		ESHL ABCDEFGH 2;
+		loop;
+	death:
+		TNT1 A 0{
+			let sss=spawn("HDBirdshotShellAmmo",pos);
+			sss.vel.xy=lastvel.xy+lastvel.xy.unit()*abs(lastvel.z);
+			sss.setstatelabel("death");
+			if(sss.vel.x||sss.vel.y){
+				sss.A_FaceMovementDirection();
+				sss.angle+=90;
+				sss.frame=randompick(0,4);
+			}else sss.frame=randompick(0,0,0,4,4,4,2,2,5);
+			inventory(sss).amount=1;
+		}stop;
+	}
+}
+
+
+class BirdshotShellBoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of Birdshot Shells"
+		//$Sprite "BBOXA0"
+		scale 0.4;
+		hdupk.amount 20;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "$PICKUP_BIRDSHOTSHELLBOX";
+		hdupk.pickuptype "HDBirdshotShellAmmo";
+	}
+	states{
+	spawn:
+		BBOX A -1;
+	}
+}
+class BirdshotShellPickup:IdleDummy{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Four Birdshot Shells"
+		//$Sprite "BSHLB0"
+	}
+	states{
+	spawn:
+		BSH4 A 0 nodelay{
+			let iii=hdpickup(spawn("HDBirdshotShellAmmo",pos,ALLOW_REPLACE));
+			if(iii){
+				hdf.transferspecials(self,iii,hdf.TS_ALL);
+				iii.amount=4;
+			}
+		}stop;
+	}
+}
