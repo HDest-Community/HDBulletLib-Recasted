@@ -125,30 +125,30 @@ class HDBLRSpawnAmmo play {
     
     bool replaceAmmo;
 
-	string toString() {
+    string toString() {
 
-		let replacements = "[";
-		if (spawnReplaces.size()) {
-			replacements = replacements..spawnReplaces[0].toString();
+        let replacements = "[";
+        if (spawnReplaces.size()) {
+            replacements = replacements..spawnReplaces[0].toString();
 
-			for (let i = 1; i < spawnReplaces.size(); i++) {
-				replacements = replacements..", "..spawnReplaces[i].toString();
-			}
-		}
-		replacements = replacements.."]";
+            for (let i = 1; i < spawnReplaces.size(); i++) {
+                replacements = replacements..", "..spawnReplaces[i].toString();
+            }
+        }
+        replacements = replacements.."]";
 
 
-		return String.format("{ spawnName=%s, spawnReplaces=%s, isPersistent=%b, replaceAmmo=%b }", spawnName, replacements, isPersistent, replaceAmmo);
-	}
+        return String.format("{ spawnName=%s, spawnReplaces=%s, isPersistent=%b, replaceAmmo=%b }", spawnName, replacements, isPersistent, replaceAmmo);
+    }
 }
- 
+
 class HDBLRSpawnAmmoEntry play {
     string name;
     int    chance;
 
-	string toString() {
-		return String.format("{ name=%s, chance=%s }", name, chance >= 0 ? "1/"..(chance + 1) : "never");
-	}
+    string toString() {
+        return String.format("{ name=%s, chance=%s }", name, chance >= 0 ? "1/"..(chance + 1) : "never");
+    }
 }
 
 class HDBulletLibAmmoSpawner: EventHandler {
@@ -170,29 +170,29 @@ class HDBulletLibAmmoSpawner: EventHandler {
         "HDBulletActor",
         "HDLadderSection"
     };
-   
+
     // List of ammo spawn associations.
     // Used for ammo replacement on mapload.
     array<HDBLRSpawnAmmo> ammoSpawnList;
 
     bool cvarsAvailable;
-   
+
     // appends an entry to ammoSpawnList;
     void addAmmo(string name, Array<HDBLRSpawnAmmoEntry> replacees, bool persists, bool rep=true) {
 
-		if (hd_debug) {
-			let msg = "Adding "..(persists ? "Persistent" : "Non-Persistent").." Replacement Entry for "..name..": ["..replacees[0].toString();
+        if (hd_debug) {
+            let msg = "Adding "..(persists ? "Persistent" : "Non-Persistent").." Replacement Entry for "..name..": ["..replacees[0].toString();
 
-			if (replacees.size() > 1) {
-				for (let i = 1; i < replacees.size(); i++) msg = msg..", "..replacees[i].toString();
-			}
+            if (replacees.size() > 1) {
+                for (let i = 1; i < replacees.size(); i++) msg = msg..", "..replacees[i].toString();
+            }
 
-			console.printf(msg.."]");
-		}
+            console.printf(msg.."]");
+        }
 
         // Creates a new struct;
         HDBLRSpawnAmmo spawnee = HDBLRSpawnAmmo(new('HDBLRSpawnAmmo'));
-       
+    
         // Populates the struct with relevant information,
         spawnee.spawnName = name;
         spawnee.isPersistent = persists;
@@ -201,11 +201,11 @@ class HDBulletLibAmmoSpawner: EventHandler {
         for (int i = 0; i < replacees.size(); i++) {
             spawnee.spawnReplaces.push(replacees[i]);
         }
-       
+    
         // Pushes the finished struct to the array.
         ammoSpawnList.push(spawnee);
     }
- 
+
     HDBLRSpawnAmmoEntry addAmmoEntry(string name, int chance) {
         // Creates a new struct;
         HDBLRSpawnAmmoEntry spawnee = HDBLRSpawnAmmoEntry(new('HDBLRSpawnAmmoEntry'));
@@ -213,16 +213,16 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawnee.chance = chance;
         return spawnee;       
     }
-   
+
     // Populates the replacement and association arrays.
     void init() {
 
         cvarsAvailable = true;
-       
+    
         // --------------------
         // Ammo spawn lists.
         // --------------------
- 
+
         // 500 S&W Lights
         Array<HDBLRSpawnAmmoEntry> spawns_500SWL;  
         spawns_500SWL.push(addAmmoEntry('ShellBoxPickup', hdb_500sw_shellbox_spawn_bias));
@@ -501,7 +501,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawns_300savagebox.push(addAmmoEntry('RocketBigPickup', hdb_300savage_box_spawn_bias));
         spawns_300savagebox.push(addAmmoEntry('HDRocketAmmo', hdb_300savage_box_spawn_bias));
         addAmmo('HDSavage300BoxPickup', spawns_300savagebox, hdb_300savage_persistent_spawning);
-         // .300 Savage Casing
+        // .300 Savage Casing
         // Currently doesn't have a casing actor. Once it does this will be pushed to main along with the other concerns being solved. - [Ted]
         /*Array<HDBLRSpawnAmmoEntry> spawns_300savage_casing;  
         spawns_300savage_casing.push(addAmmoEntry('SevenMilBrass', hdb_300savage_casing_spawn_bias));
@@ -516,25 +516,25 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawns_7Tokarev_Brass.push(addAmmoEntry('HDSpent9mm', hdb_7tokarev_casing_spawn_bias));
         addAmmo('TokarevBrass', spawns_7Tokarev_Brass, hdb_7tokarev_persistent_spawning);
     }
-   
+
     // Random stuff, stores it and forces negative values just to be 0.
     bool giveRandom(int chance) {
-		if (chance > -1) {
-			let result = random(0, chance);
+        if (chance > -1) {
+            let result = random(0, chance);
 
-			if (hd_debug) console.printf("Rolled a "..result.." out of "..(chance + 1));
+            if (hd_debug) console.printf("Rolled a "..result.." out of "..(chance + 1));
 
-			return result == 0;
-		}
+            return result == 0;
+        }
 
-		return false;
+        return false;
     }
- 
+
     // Tries to create the ammunition via random spawning.
     bool tryCreateAmmo(Inventory item, HDBLRSpawnAmmo f, int g, bool rep) {
         if (giveRandom(f.spawnReplaces[g].chance)) {
             if (Actor.Spawn(f.spawnName, item.pos) && rep) {
-				if (hd_debug) console.printf(item.GetClassName().." -> "..f.spawnName);
+                if (hd_debug) console.printf(item.GetClassName().." -> "..f.spawnName);
 
                 item.destroy();
 
@@ -544,7 +544,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
 
         return false;
     }
-   
+
     override void worldthingspawned(worldevent e) {
         // Populates the main arrays if they haven't been already.
         if (!cvarsAvailable) init();
@@ -558,7 +558,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         string candidateName = e.Thing.GetClassName();
         candidateName = candidateName.makelower();
 
-		// Pointers for specific classes.
+        // Pointers for specific classes.
         let item = Inventory(e.Thing);
 
         // Return if range before replacing things.
@@ -580,7 +580,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
             if ((prespawn || ammoSpawnList[i].isPersistent) && (!item.owner && prespawn)) {
                 for (let j = 0; j < ammoSpawnList[i].spawnReplaces.size(); j++) {
                     if (ammoSpawnList[i].spawnReplaces[j].name == candidateName) {
-						if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..ammoSpawnList[i].spawnName.."...");
+                        if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..ammoSpawnList[i].spawnName.."...");
 
                         if (tryCreateAmmo(item, ammoSpawnList[i], j, ammoSpawnList[i].replaceAmmo)) return;
                     }
