@@ -14,7 +14,7 @@ jobs:
       - name: build PK3
         uses: montudor/action-zip@v1
         with:
-          args: zip -r "HDBulletLib-Recasted-${{ github.ref_name }}.pk3" . -i patches/* sprites/* zscript/* LANGUAGE.* license.md mapinfo.txt SNDINFO.txt zscript.zsc readme.md
+          args: zip -r "HDBulletLib-Recasted-${{ github.ref_name }}.pk3" . -i patches/* sprites/* zscript/* CVARINFO DECALDEF KEYCONF LANGUAGE LICENSE MAPINFO MENUDEF README.md TEXTURES zscript.zsc
       - name: Release PK3
         uses: softprops/action-gh-release@v0.1.7
         with:
