@@ -1,0 +1,142 @@
+//CHEEKI BREEKI IV DAMKE!!!!!
+
+// The sprites for this don't really fit HDest Vanilla super well along with the 10mm casings so I'll likely redo them before
+// Release and move them to HDBulletlib-Recasted-Oldsprites.
+// I also may want to change the name to be a bit more fitting though we shall see. - [Ted]
+
+const ENC_762TOKAREV=0.9;
+const ENC_762TOKAREV_LOADED=ENC_762TOKAREV/1.3;
+
+class HDB_762Tokarev:HDBulletActor{
+	default{
+		pushfactor 0.3;
+		mass 55; 
+		speed HDCONST_MPSTODUPT*425;
+		accuracy 200;
+		stamina 762;
+		woundhealth 8;
+		hdbulletactor.hardness 3;
+	}
+}
+
+class HD762TokarevAmmo:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill
+		+cannotpush
+		+forcexybillboard
+		+rollsprite +rollcenter
+		+hdpickup.multipickup
+		scale 0.4;
+		inventory.pickupmessage "$PICKUP_762TOKAREV";
+		hdpickup.refid "7TK";
+		tag "$TAG_762TOKAREV";
+		hdpickup.bulk enc_762TOKAREV;
+		inventory.icon "T762A0";
+	}
+
+	override void SplitPickup(){
+		SplitPickupBoxableRound(10,50,"HD762TokarevBoxPickup","T710A0","T762A0");
+	}//100 felt like too much
+	states{
+	spawn:
+		T762 A -1;
+		T710 A -1;
+	}
+}
+
+//(primers and bullet lead can be cannibalized from 9mm rounds)
+class TokarevBrass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 16;radius 8;
+		tag "$TAG_762TOKAREVBRASS";
+		hdpickup.refid "tvb";
+		hdpickup.bulk ENC_776B*0.8;
+		xscale 0.4;yscale 0.4;
+		inventory.pickupmessage "$PICKUP_762TOKAREVBRASS";
+		inventory.icon "T7CSB0";
+	}
+	
+	states{
+	spawn:
+		T7CS B -1;
+		stop;
+	}
+}
+
+class HDSpent762Tokarev:HDUPK{
+	default{
+		+missile
+		+hdupk.multipickup
+		height 4;radius 2;
+		bouncetype "doom";
+		hdupk.pickuptype "TokarevBrass";
+		hdupk.pickupmessage "$PICKUP_762TOKAREVBRASS";
+
+		bouncesound "misc/casing";
+		bouncefactor 0.4;
+		xscale 0.4;yscale 0.4;
+		maxstepheight 0.6;
+	}
+	vector3 lastvel;
+	override void Tick(){
+		if(!isFrozen())lastvel=vel;
+		super.Tick();
+	}
+	states{
+	spawn:
+		T7CS A 2{
+			if(bseesdaggers)angle-=45;else angle+=45;
+			if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
+		}wait;
+	death:
+		T7CS B -1{
+			bmissile=false;
+			vel.xy+=(pos.xy-prev.xy)*max(abs(vel.z),abs(prev.z-pos.z),1.);
+			if(vel.xy==(0,0)){
+				double aaa=angle-90;
+				vel.x+=cos(aaa);
+				vel.y+=sin(aaa);
+			}else{
+				A_FaceMovementDirection();
+				angle+=90;
+			}
+			let gdb=getdefaultbytype(pickuptype);
+			A_SetSize(gdb.radius,gdb.height);
+			return;
+		}stop;
+	}
+}
+
+class HDLoose762Tokarev:HDSpent762Tokarev{
+	default{
+		bouncefactor 0.5;
+	}
+	states{
+	death:
+		TNT1 A 1{
+			actor a=spawn("HD762TokarevAmmo",self.pos,ALLOW_REPLACE);
+			a.roll=self.roll;a.vel=self.vel;
+		}stop;
+	}
+}
+
+class HD762TokarevBoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of 7.62 Tokarev"
+		//$Sprite "T7BXA0"
+
+		scale 0.3;
+		hdupk.amount 50;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "$PICKUP_762TOKAREVBOX";
+		hdupk.pickuptype "HD762TokarevAmmo";
+	}
+	states{
+	spawn:
+		T7BX A -1;
+	}
+}

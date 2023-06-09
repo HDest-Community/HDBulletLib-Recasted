@@ -1,0 +1,97 @@
+// ------------------------------------------------------------
+// .300 Savage Ammo
+// ------------------------------------------------------------
+
+class HDB_300Savage:HDBulletActor{
+	default{
+		pushfactor 0.1;
+		mass 97;
+		speed HDCONST_MPSTODUPT*790;
+		accuracy 600;
+		stamina 762;
+		woundhealth 5;
+		hdbulletactor.hardness 3;
+		hdbulletactor.distantsound "world/riflefar";
+		hdbulletactor.distantsoundvol 2.;
+	}
+}
+
+class Savage300Ammo:HDRoundAmmo{//use same sprites as 7mm as a texture
+	default{
+		+forcexybillboard +cannotpush
+		+inventory.ignoreskill
+		+hdpickup.multipickup
+		xscale 0.7;yscale 0.8;
+		inventory.pickupmessage "$PICKUP_300SAVAGE";
+		hdpickup.refid "sv3";
+		tag "$TAG_300SAVAGE";
+		hdpickup.bulk ENC_776;
+		inventory.icon "SVG6A0";
+	}
+
+	override void SplitPickup(){
+		SplitPickupBoxableRound(6,48,"HDSavage300BoxPickup","SVG6A0","RBRSA0");
+		if(amount==6)scale.y=(0.8*0.83);
+		else scale.y=0.8;
+	}
+	states{
+	spawn:
+		RBRS A -1;
+		SVG6 A -1;
+	}
+}
+
+class LooseSavage300:HDSpent7mm{
+	override void postbeginplay(){
+		HDUPK.postbeginplay();
+	}
+	default{
+		bouncefactor 0.6;
+		hdupk.pickuptype "Savage300Ammo";
+		hdupk.pickupmessage "$PICKUP_300SAVAGE";
+	}
+}
+
+class SpentSavage300:HDSpent7mm{
+    default{hdupk.pickuptype "Savage300Brass";}
+}
+
+//(primers and bullet lead can be cannibalized from 4.26mm rounds)
+class Savage300Brass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 16;radius 8;
+		tag ".300 Savage casing";
+		hdpickup.refid "s3c";
+		hdpickup.bulk ENC_776B;
+		xscale 0.7;yscale 0.8;
+		inventory.icon "RBRSA3A7";
+		pickupmessage "$PICKUP_300SAVAGEBRASS";
+	}
+	states{
+	spawn:
+		RBRS A -1;
+		stop;
+	}
+}
+
+class HDSavage300BoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of .300 Savage"
+		//$Sprite "S3BXA0"
+
+		scale 0.4;
+		hdupk.amount 48;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "$PICKUP_300SAVAGEBOX";
+		hdupk.pickuptype "Savage300Ammo";
+	}
+	states{
+	spawn:
+		S3BX A -1;
+	}
+}
+
