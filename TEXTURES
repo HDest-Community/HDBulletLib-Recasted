@@ -1233,11 +1233,12 @@ sprite ELLSE5,3,4{
 }
 
 //single flare shells
-sprite FLARA0,3,10{
-yscale 0.6
-xscale 0.5
-offset 1,10
-patch FLARA0,0,0{}
+Sprite "FLARA0", 3, 10
+{
+	XScale 0.500
+	YScale 0.600
+	Offset 1, 10
+	Patch "FLARA0", 0, 0
 }
 
 //four flare shells
@@ -1340,62 +1341,70 @@ Sprite "TRTRB0", 16, 58
 
 Sprite "BSHLA0", 3, 7
 {
-    offset 1, 7
-    Patch "BSHLA0", 0, 0
-}
-Sprite "BSH4A0", 15, 7{
-    offset 7, 7
-    Patch BSH4A0, 0, 0
+	Offset 1, 7
+	Patch "BSHLA0", 0, 0
 }
 
-Sprite "BBOXA0", 32, 12{
-    offset 16, 12
-    Patch "BBOXA0", 0, 0
+Sprite "BSH4A0", 15, 7
+{
+	Offset 7, 7
+	Patch "BSH4A0", 0, 0
+}
+
+Sprite "BBOXA0", 32, 12
+{
+	Offset 16, 12
+	Patch "BBOXA0", 0, 0
 }
 
 Sprite "SVG6A0", 6, 5
 {
-    offset 3, 5
-    Patch "ten7a0", 0, 0
+	Offset 3, 5
+	Patch "TEN7A0", 0, 0
 }
 
 Sprite "S3BXA0", 27, 12
 {
-    offset 13, 12
-    Patch "S3BXA0", 0 , 0
+	Offset 13, 12
+	Patch "S3BXA0", 0, 0
 }
 
-sprite T7BXA0, 30, 14{
-    offset 15, 14
-    patch T7BXA0,0,0
+Sprite "T7BXA0", 30, 14
+{
+	Offset 15, 14
+	Patch "T7BXA0", 0, 0
 }
 
-sprite T7CSA0, 10, 16{
-    offset 5, 16
-    xscale 2
-    yscale 2
-    patch T7CSA0,0,0
+Sprite "T7CSA0", 10, 16
+{
+	XScale 2.000
+	YScale 2.000
+	Offset 5, 16
+	Patch "T7CSA0", 0, 0
 }
 
-sprite T7CSB0, 15, 15{
-    offset 7, 15
-    xscale 2
-    yscale 2
-    patch T7CSB0,0,0
+Sprite "T7CSB0", 15, 15
+{
+	XScale 2.000
+	YScale 2.000
+	Offset 7, 15
+	Patch "T7CSB0", 0, 0
 }
 
-sprite T762A0, 8, 20{
-    offset 4, 20
-    xscale 2.5
-    yscale 2.5
-    patch T762A0,0,0
+Sprite "T762A0", 8, 20
+{
+	XScale 2.500
+	YScale 2.500
+	Offset 4, 20
+	Patch "T762A0", 0, 0
 }
 
-sprite T710A0, 40, 23{
-    offset 20, 23
-    xscale 2.5
-    yscale 2.5
-    patch T710A0,0,0
+Sprite "T710A0", 40, 23
+{
+	XScale 2.500
+	YScale 2.500
+	Offset 20, 23
+	Patch "T710A0", 0, 0
 }
 
 // End of texture definitions
