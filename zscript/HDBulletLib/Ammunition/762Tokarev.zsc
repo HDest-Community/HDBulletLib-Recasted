@@ -31,7 +31,7 @@ class HD762TokarevAmmo:HDRoundAmmo{
 		hdpickup.refid "7TK";
 		tag "$TAG_762TOKAREV";
 		hdpickup.bulk enc_762TOKAREV;
-		inventory.icon "T762A0";
+		inventory.icon "T710A0";
 	}
 
 	override void SplitPickup(){
