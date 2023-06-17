@@ -1164,16 +1164,16 @@ Sprite "GC45A0", 9, 22
 
 Sprite "GLBXA0", 59, 27
 {
-	XScale 2.000
-	YScale 2.000
+	XScale 5.000
+	YScale 5.000
 	Offset 28, 27
 	Patch "GLBXA0", 0, 0
 }
 
 Sprite "GSIXA0", 54, 22
 {
-	XScale 2.000
-	YScale 2.000
+	XScale 5.000
+	YScale 5.000
 	Offset 27, 22
 	Patch "GSIXA0", 0, 0
 }
