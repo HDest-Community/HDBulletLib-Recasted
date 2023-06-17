@@ -57,7 +57,7 @@ class HDBallAmmo : HDRoundAmmo
 		HDPickup.RefId "bal";
 		Tag "$TAG_MUSKETBALL";
 		HDPickup.Bulk ENC_BALL;
-		Inventory.Icon "OG10A0";
+		Inventory.Icon "BALLA0";
 	}
 
 	States

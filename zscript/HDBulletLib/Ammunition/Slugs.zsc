@@ -37,7 +37,9 @@ class HDSlugAmmo : HDRoundAmmo
 		+INVENTORY.IGNORESKILL
 		+HDPICKUP.MULTIPICKUP
 		Inventory.PickupMessage "$PICKUP_SLUG";
+
 		Scale 0.3;
+
 		Tag "$TAG_12SLUG";
 		HDPickup.RefId "slu";
 		HDPickup.Bulk ENC_SHELL;

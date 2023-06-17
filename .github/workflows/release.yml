@@ -1,0 +1,23 @@
+name: Release PK3s
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  buildAndRelease:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: build PK3
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -r "HDBulletLib-Recasted-${{ github.ref_name }}.pk3" . -i patches/* sprites/* zscript/* CVARINFO DECALDEF KEYCONF LANGUAGE LICENSE MAPINFO MENUDEF README.md TEXTURES zscript.zsc
+      - name: Release PK3
+        uses: softprops/action-gh-release@v0.1.7
+        with:
+          generate_release_notes: true
+          discussion_category_name: 'Releases'
+          files: ./*.pk3

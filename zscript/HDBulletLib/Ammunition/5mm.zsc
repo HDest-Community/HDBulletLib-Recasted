@@ -28,6 +28,7 @@ class HD5mm_Ammo : HDRoundAmmo
 		HDPickup.RefId HDLD_5MM;
 		Tag "$TAG_22LR";
 		HDPickup.Bulk ENC_5MM;
+		Inventory.icon "5MMYA0";
 	}
 	
 	states
