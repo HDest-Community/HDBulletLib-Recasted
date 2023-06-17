@@ -1188,12 +1188,18 @@ Sprite "LLS1A0", 3, 7
 {
 	Offset 1, 7
 	Patch "LLS1A0", 0, 0
+	{
+		FlipY
+	}
 }
 
 Sprite "LLS4A0", 15, 7
 {
 	Offset 7, 7
 	Patch "LLS4A0", 0, 0
+	{
+		FlipY
+	}
 }
 
 //fumbled shell sprites
@@ -1286,12 +1292,18 @@ Sprite "XLS4A0", 15, 7
 {
 	Offset 7, 7
 	Patch "XLS4A0", 0, 0
+	{
+		FlipY
+	}
 }
 
 Sprite "XLS1A0", 3, 7
 {
 	Offset 1, 7
 	Patch "XLS1A0", 0, 0
+	{
+		FlipY
+	}
 }
 
 Sprite "XLBXA0", 32, 12
@@ -1395,12 +1407,18 @@ Sprite "BSHLA0", 3, 7
 {
 	Offset 1, 7
 	Patch "BSHLA0", 0, 0
+	{
+		FlipY
+	}
 }
 
 Sprite "BSH4A0", 15, 7
 {
 	Offset 7, 7
 	Patch "BSH4A0", 0, 0
+	{
+		FlipY
+	}
 }
 
 Sprite "BBOXA0", 32, 12
