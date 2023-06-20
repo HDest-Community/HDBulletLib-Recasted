@@ -63,7 +63,7 @@ class Savage300Brass:HDAmmo{
 		+hdpickup.multipickup
 		+hdpickup.cheatnogive
 		height 16;radius 8;
-		tag ".300 Savage casing";
+		tag "$TAG_300SAVAGEBRASS";
 		hdpickup.refid "s3c";
 		hdpickup.bulk ENC_776B;
 		xscale 0.7;yscale 0.8;

@@ -505,10 +505,9 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawns_300savage.push(addAmmoEntry('HDShellAmmo', hdb_300savage_shell_spawn_bias));
         addAmmo('HDSavage300Pickup', spawns_300savage, hdb_300savage_persistent_spawning);
         // .300 Savage Casing
-        // Currently doesn't have a casing actor. Once it does this will be pushed to main along with the other concerns being solved. - [Ted]
-        /*Array<HDBLRSpawnAmmoEntry> spawns_300savage_casing;  
+        Array<HDBLRSpawnAmmoEntry> spawns_300savage_casing;  
         spawns_300savage_casing.push(addAmmoEntry('SevenMilBrass', hdb_300savage_casing_spawn_bias));
-        addAmmo('HDSpent50OMG', spawns_300savage_casing, hdb_300savage_persistent_spawning);*/
+        addAmmo('Savage300Brass', spawns_300savage_casing, hdb_300savage_persistent_spawning);
 
         // 7.62 Tokarev Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_7Tokarev_Box;  

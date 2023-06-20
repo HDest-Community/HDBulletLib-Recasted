@@ -36,6 +36,7 @@ TAG_4GS = "4 gauge saboted slug";
 TAG_4GB = "4 gauge 00 buckshot";
 TAG_BIRDSHOT = "birdshot shells";
 TAG_300SAVAGE=".300 Savage ammo";
+TAG_300SAVAGEBRASS=".300 Savage casing";
 TAG_762TOKAREV="7.62 Tokarev round";
 TAG_762TOKAREVBRASS="7.62 Tokarev casing";
 
