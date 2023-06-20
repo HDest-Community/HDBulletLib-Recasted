@@ -95,3 +95,20 @@ class HDSavage300BoxPickup:HDUPK{
 	}
 }
 
+class HDSavage300Pickup:IdleDummy{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Six rounds of .300 Savage"
+		//$Sprite "SVG6A0"
+	}
+	states{
+	spawn:
+		BSH4 A 0 nodelay{
+			let iii=hdpickup(spawn("Savage300Ammo",pos,ALLOW_REPLACE));
+			if(iii){
+				hdf.transferspecials(self,iii,hdf.TS_ALL);
+				iii.amount=6;
+			}
+		}stop;
+	}
+}
