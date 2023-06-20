@@ -501,9 +501,13 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawns_300savagebox.push(addAmmoEntry('ShellBoxPickup', hdb_300savage_shellbox_spawn_bias));
         addAmmo('HDSavage300BoxPickup', spawns_300savagebox, hdb_300savage_persistent_spawning);
         // .300 Savage Pickup
-        Array<HDBLRSpawnAmmoEntry> spawns_300savage;  
-        spawns_300savage.push(addAmmoEntry('HDShellAmmo', hdb_300savage_shell_spawn_bias));
-        addAmmo('HDSavage300Pickup', spawns_300savage, hdb_300savage_persistent_spawning);
+        Array<HDBLRSpawnAmmoEntry> spawns_300savagepickup;  
+        spawns_300savagepickup.push(addAmmoEntry('HDShellAmmo', hdb_300savage_shell_spawn_bias));
+        addAmmo('HDSavage300Pickup', spawns_300savagepickup, hdb_300savage_persistent_spawning);
+        // .300 Savage Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_300savageammo;  
+        spawns_300savageammo.push(addAmmoEntry('HDShellAmmo', hdb_300savage_shell_spawn_bias));
+        addAmmo('Savage300Ammo', spawns_300savageammo, hdb_300savage_persistent_spawning);
         // .300 Savage Casing
         Array<HDBLRSpawnAmmoEntry> spawns_300savage_casing;  
         spawns_300savage_casing.push(addAmmoEntry('SevenMilBrass', hdb_300savage_casing_spawn_bias));
