@@ -1,5 +1,5 @@
 const HDLD_420="4fr";
-const HDLD_069BORE="69b";
+const HDLD_069BORE="66b";
 const ENC_420=1;
 const ENC_420_LOADED=0.6;
 const ENC_069BORE=0.6;
