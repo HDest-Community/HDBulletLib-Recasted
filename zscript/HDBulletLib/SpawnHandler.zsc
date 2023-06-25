@@ -245,7 +245,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('SlugBoxPickup', spawns_12gslugbox, hdb_12gslug_persistent_spawning);
         // 12 Gauge Slug Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_12gslugpick;  
-        spawns_12gslugpick.push(addAmmoEntry('ShellPickup', hdb_12gslug_shell_spawn_bias));
+        spawns_12gslugpick.push(addAmmoEntry('HDShellAmmo', hdb_12gslug_shell_spawn_bias));
         addAmmo('SlugPickup', spawns_12gslugpick, hdb_12gslug_persistent_spawning);
         // 12 Gauge Slug Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_12gslugammo;  
@@ -341,7 +341,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('LLShellBoxPickup', spawns_llsbox, hdb_LLS_persistent_spawning);
         // Less-Lethal Shell Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_llspickup;  
-        spawns_llspickup.push(addAmmoEntry('ShellPickup', hdb_LLS_shell_spawn_bias));
+        spawns_llspickup.push(addAmmoEntry('HDShellAmmo', hdb_LLS_shell_spawn_bias));
         addAmmo('LLShellPickup', spawns_llspickup, hdb_LLS_persistent_spawning);
         // Less-Lethal Shell Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_llsammo;  
@@ -358,7 +358,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('ExplosiveShellBoxPickup', spawns_eslugbox, hdb_ESlug_persistent_spawning);
         // Explosive Slug Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_elugpickup;  
-        spawns_elugpickup.push(addAmmoEntry('ShellPickup', hdb_ESlug_shell_spawn_bias));
+        spawns_elugpickup.push(addAmmoEntry('HDShellAmmo', hdb_ESlug_shell_spawn_bias));
         addAmmo('ExplosiveShellPickup', spawns_elugpickup, hdb_ESlug_persistent_spawning);
         // Explosive Slug Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_eslugammo;  
@@ -375,7 +375,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('FlareShellBoxPickup', spawns_fshellbox, hdb_FShell_persistent_spawning);
         // Flare Shell Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_fshellpickup;  
-        spawns_fshellpickup.push(addAmmoEntry('ShellPickup', hdb_FShell_shell_spawn_bias));
+        spawns_fshellpickup.push(addAmmoEntry('HDShellAmmo', hdb_FShell_shell_spawn_bias));
         addAmmo('FlareShellPickup', spawns_fshellpickup, hdb_FShell_persistent_spawning);
         // Flare Shell Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_fshellammo;  
@@ -395,7 +395,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('HD4GSSpawn', spawns_4gssbox, hdb_4gss_persistent_spawning);
         // 4-Gauge Saboted Slug Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_4gsspickup;  
-        spawns_4gsspickup.push(addAmmoEntry('ShellPickup', hdb_4gss_shell_spawn_bias));
+        spawns_4gsspickup.push(addAmmoEntry('HDShellAmmo', hdb_4gss_shell_spawn_bias));
         addAmmo('HDFumbled4GS', spawns_4gsspickup, hdb_4gss_persistent_spawning);
         // 4-Gauge Saboted Slug Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_4gssammo;  
@@ -468,7 +468,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('HD4GBBox', spawns_4gbsbox, hdb_4gbs_persistent_spawning);
         // 4-Gauge Buckshot Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_4gbspickup;  
-        spawns_4gbspickup.push(addAmmoEntry('ShellPickup', hdb_4gbs_shell_spawn_bias));
+        spawns_4gbspickup.push(addAmmoEntry('HDShellAmmo', hdb_4gbs_shell_spawn_bias));
         addAmmo('HD4GBPickup', spawns_4gbspickup, hdb_4gbs_persistent_spawning);
         // 4-Gauge Buckshot Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_4gbsammo;  
@@ -485,7 +485,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('BirdshotShellBoxPickup', spawns_birdbox, hdb_bird_persistent_spawning);
         // Birdshot Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_birdpickup;  
-        spawns_birdpickup.push(addAmmoEntry('ShellPickup', hdb_bird_shell_spawn_bias));
+        spawns_birdpickup.push(addAmmoEntry('HDShellAmmo', hdb_bird_shell_spawn_bias));
         addAmmo('BirdshotShellPickup', spawns_birdpickup, hdb_bird_persistent_spawning);
         // Birdshot Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_birdammo;  
@@ -501,14 +501,17 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawns_300savagebox.push(addAmmoEntry('ShellBoxPickup', hdb_300savage_shellbox_spawn_bias));
         addAmmo('HDSavage300BoxPickup', spawns_300savagebox, hdb_300savage_persistent_spawning);
         // .300 Savage Pickup
-        Array<HDBLRSpawnAmmoEntry> spawns_300savage;  
-        spawns_300savage.push(addAmmoEntry('HDShellAmmo', hdb_300savage_shell_spawn_bias));
-        addAmmo('HDSavage300Pickup', spawns_300savage, hdb_300savage_persistent_spawning);
+        Array<HDBLRSpawnAmmoEntry> spawns_300savagepickup;  
+        spawns_300savagepickup.push(addAmmoEntry('HDShellAmmo', hdb_300savage_shell_spawn_bias));
+        addAmmo('HDSavage300Pickup', spawns_300savagepickup, hdb_300savage_persistent_spawning);
+        // .300 Savage Ammo
+        Array<HDBLRSpawnAmmoEntry> spawns_300savageammo;  
+        spawns_300savageammo.push(addAmmoEntry('HDShellAmmo', hdb_300savage_shell_spawn_bias));
+        addAmmo('Savage300Ammo', spawns_300savageammo, hdb_300savage_persistent_spawning);
         // .300 Savage Casing
-        // Currently doesn't have a casing actor. Once it does this will be pushed to main along with the other concerns being solved. - [Ted]
-        /*Array<HDBLRSpawnAmmoEntry> spawns_300savage_casing;  
+        Array<HDBLRSpawnAmmoEntry> spawns_300savage_casing;  
         spawns_300savage_casing.push(addAmmoEntry('SevenMilBrass', hdb_300savage_casing_spawn_bias));
-        addAmmo('HDSpent50OMG', spawns_300savage_casing, hdb_300savage_persistent_spawning);*/
+        addAmmo('Savage300Brass', spawns_300savage_casing, hdb_300savage_persistent_spawning);
 
         // 7.62 Tokarev Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_7Tokarev_Box;  

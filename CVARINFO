@@ -132,6 +132,7 @@ server bool hdb_bird_persistent_spawning = false;
 // .300 Savage
 server int hdb_300savage_shellbox_spawn_bias = -1;
 server int hdb_300savage_shell_spawn_bias = -1;
+server int hdb_300savage_casing_spawn_bias = -1;
 server bool hdb_300savage_persistent_spawning = false;
 
 // 7.62 Tokarev

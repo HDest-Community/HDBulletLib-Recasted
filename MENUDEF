@@ -778,9 +778,14 @@ OptionMenu 300savage
     StaticText  "Control the spawn rate of .300 Savage on Shells", "white"
 	Option "Spawn Rate: ", "hdb_300savage_shell_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_300savage_shell_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of .300 Savage casings", "white"
+	Option "Spawn Rate: ", "hdb_300savage_casing_spawn_bias", "SpawnBias"
+	SafeCommand "Reset spawn options", "resetcvar hdb_300savage_casing_spawn_bias"
  	StaticText ""
-	StaticText "Enable/Disable .300 Savage from spawning in Ammo Boxes and Backpacks.", "Orange"
+	StaticText "Enable/Disable .300 Savage and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
 	FlagOption "$TAG_300SAVAGE", "hdblib_enableammo_1", "OnOff", 27
+	FlagOption "$TAG_300SAVAGEBRASS", "hdblib_enableammo_1", "OnOff", 30
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_300savage_persistent_spawning", "OnOff"
