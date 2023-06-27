@@ -537,12 +537,12 @@ class HDBulletLibAmmoSpawner: EventHandler {
     }
 
     // Tries to create the ammunition via random spawning.
-    bool tryCreateAmmo(Inventory item, HDBLRSpawnAmmo f, int g, bool rep) {
+    bool tryCreateAmmo(Actor thing, HDBLRSpawnAmmo f, int g, bool rep) {
         if (giveRandom(f.spawnReplaces[g].chance)) {
-            if (Actor.Spawn(f.spawnName, item.pos) && rep) {
-                if (hd_debug) console.printf(item.GetClassName().." -> "..f.spawnName);
+            if (Actor.Spawn(f.spawnName, thing.pos) && rep) {
+                if (hd_debug) console.printf(thing.GetClassName().." -> "..f.spawnName);
 
-                item.destroy();
+                thing.destroy();
 
                 return true;
             }
@@ -564,16 +564,13 @@ class HDBulletLibAmmoSpawner: EventHandler {
         string candidateName = e.Thing.GetClassName();
         candidateName = candidateName.makelower();
 
-        // Pointers for specific classes.
-        let item = Inventory(e.Thing);
-
         // Return if range before replacing things.
         if (level.MapName ~== "RANGE") return;
 
-        if (item) handleAmmoReplacements(item, candidateName);
+        handleAmmoReplacements(e.Thing, candidateName);
     }
 
-    private void handleAmmoReplacements(Inventory item, string candidateName) {
+    private void handleAmmoReplacements(Actor thing, string candidateName) {
 
         // Checks if the level has been loaded more than 1 tic.
         bool prespawn = !(level.maptime > 1);
@@ -583,12 +580,13 @@ class HDBulletLibAmmoSpawner: EventHandler {
 
             // if the ammo is owned (doesn't retain owner ptr),
             // do not replace it.
-            if ((prespawn || ammoSpawnList[i].isPersistent) && (!item.owner && prespawn)) {
+            let item = Inventory(thing);
+            if ((prespawn || ammoSpawnList[i].isPersistent) && (!(item && item.owner) && prespawn)) {
                 for (let j = 0; j < ammoSpawnList[i].spawnReplaces.size(); j++) {
                     if (ammoSpawnList[i].spawnReplaces[j].name == candidateName) {
                         if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..ammoSpawnList[i].spawnName.."...");
 
-                        if (tryCreateAmmo(item, ammoSpawnList[i], j, ammoSpawnList[i].replaceAmmo)) return;
+                        if (tryCreateAmmo(thing, ammoSpawnList[i], j, ammoSpawnList[i].replaceAmmo)) return;
                     }
                 }
             }
