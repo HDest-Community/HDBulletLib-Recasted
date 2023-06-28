@@ -156,7 +156,6 @@ class HDBulletLibAmmoSpawner: EventHandler {
     // This -should- mean this mod has no performance impact.
     static const class<actor> blacklist[] = {
         "HDSmoke",
-        "BloodTrail",
         "CheckPuff",
         "WallChunk",
         "HDBulletPuff",
