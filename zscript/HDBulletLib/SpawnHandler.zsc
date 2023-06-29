@@ -102,11 +102,7 @@ class HDBulletLibHandler : EventHandler {
     }
 
     private bool IsRemovedClass(class<HDAmmo> cls) {
-        for (int i = 0; i < RemovedClasses.Size(); ++i) {
-            if (cls == RemovedClasses[i]) {
-                return true;
-            }
-        }
+        foreach (removedClass : RemovedClasses) if (cls == removedClass) return true;
 
         return false;
     }
@@ -131,9 +127,7 @@ class HDBLRSpawnAmmo play {
         if (spawnReplaces.size()) {
             replacements = replacements..spawnReplaces[0].toString();
 
-            for (let i = 1; i < spawnReplaces.size(); i++) {
-                replacements = replacements..", "..spawnReplaces[i].toString();
-            }
+            foreach (replacee : spawnReplaces) replacements = replacements..", "..replacee.toString();
         }
         replacements = replacements.."]";
 
@@ -154,8 +148,9 @@ class HDBLRSpawnAmmoEntry play {
 class HDBulletLibAmmoSpawner: EventHandler {
     // List of persistent classes to completely ignore.
     // This -should- mean this mod has no performance impact.
-    static const class<actor> blacklist[] = {
+    static const string blacklist[] = {
         "HDSmoke",
+		"BloodTrail",
         "CheckPuff",
         "WallChunk",
         "HDBulletPuff",
@@ -182,9 +177,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         if (hd_debug) {
             let msg = "Adding "..(persists ? "Persistent" : "Non-Persistent").." Replacement Entry for "..name..": ["..replacees[0].toString();
 
-            if (replacees.size() > 1) {
-                for (let i = 1; i < replacees.size(); i++) msg = msg..", "..replacees[i].toString();
-            }
+            if (replacees.size() > 1) foreach (replacee : replacees) msg = msg..", "..replacee.toString();
 
             console.printf(msg.."]");
         }
@@ -197,9 +190,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawnee.isPersistent = persists;
         spawnee.replaceAmmo = rep;
 
-        for (int i = 0; i < replacees.size(); i++) {
-            spawnee.spawnReplaces.push(replacees[i]);
-        }
+        foreach (replacee : replacees) spawnee.spawnReplaces.push(replacee);
     
         // Pushes the finished struct to the array.
         ammoSpawnList.push(spawnee);
@@ -536,12 +527,12 @@ class HDBulletLibAmmoSpawner: EventHandler {
     }
 
     // Tries to create the ammunition via random spawning.
-    bool tryCreateAmmo(Inventory item, HDBLRSpawnAmmo f, int g, bool rep) {
-        if (giveRandom(f.spawnReplaces[g].chance)) {
-            if (Actor.Spawn(f.spawnName, item.pos) && rep) {
-                if (hd_debug) console.printf(item.GetClassName().." -> "..f.spawnName);
+    bool tryCreateAmmo(Actor thing, string spawnName, int chance, bool rep) {
+        if (giveRandom(chance)) {
+            if (Actor.Spawn(spawnName, thing.pos) && rep) {
+                if (hd_debug) console.printf(thing.GetClassName().." -> "..spawnName);
 
-                item.destroy();
+                thing.destroy();
 
                 return true;
             }
@@ -550,7 +541,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         return false;
     }
 
-    override void worldthingspawned(worldevent e) {
+    override void worldThingSpawned(worldevent e) {
         // Populates the main arrays if they haven't been already.
         if (!cvarsAvailable) init();
 
@@ -558,36 +549,34 @@ class HDBulletLibAmmoSpawner: EventHandler {
         if (!e.Thing) return;
 
         // If thing spawned is blacklisted, quit
-        for (let i = 0; i < blacklist.size(); i++) if (e.Thing is blacklist[i]) return;
+        foreach (bl : blacklist) if (e.Thing is bl) return;
         
         string candidateName = e.Thing.GetClassName();
         candidateName = candidateName.makelower();
 
-        // Pointers for specific classes.
-        let item = Inventory(e.Thing);
-
         // Return if range before replacing things.
         if (level.MapName ~== "RANGE") return;
 
-        if (item) handleAmmoReplacements(item, candidateName);
+        handleAmmoReplacements(e.Thing, candidateName);
     }
 
-    private void handleAmmoReplacements(Inventory item, string candidateName) {
+    private void handleAmmoReplacements(Actor thing, string candidateName) {
 
         // Checks if the level has been loaded more than 1 tic.
         bool prespawn = !(level.maptime > 1);
 
         // Iterates through the list of ammo candidates for e.thing.
-        for (let i = 0; i < ammoSpawnList.size(); i++) {
+        foreach (ammoSpawn : ammoSpawnList) {
 
             // if the ammo is owned (doesn't retain owner ptr),
             // do not replace it.
-            if ((prespawn || ammoSpawnList[i].isPersistent) && (!item.owner && prespawn)) {
-                for (let j = 0; j < ammoSpawnList[i].spawnReplaces.size(); j++) {
-                    if (ammoSpawnList[i].spawnReplaces[j].name == candidateName) {
-                        if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..ammoSpawnList[i].spawnName.."...");
+            let item = Inventory(thing);
+            if ((prespawn || ammoSpawn.isPersistent) && (!(item && item.owner) && prespawn)) {
+                foreach (spawnReplace : ammoSpawn.spawnReplaces) {
+                    if (spawnReplace.name == candidateName) {
+                        if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..ammoSpawn.spawnName.."...");
 
-                        if (tryCreateAmmo(item, ammoSpawnList[i], j, ammoSpawnList[i].replaceAmmo)) return;
+                        if (tryCreateAmmo(thing, ammoSpawn.spawnName, spawnReplace.chance, ammoSpawn.replaceAmmo)) return;
                     }
                 }
             }
