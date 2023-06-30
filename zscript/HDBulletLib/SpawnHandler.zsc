@@ -30,7 +30,8 @@ class HDBulletLibHandler : EventHandler {
         "HDBirdshotShellAmmo",
         "Savage300Ammo",
         "HD762TokarevAmmo",
-        "TokarevBrass"
+        "TokarevBrass",
+        "Savage300Brass"
     };
 
     // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.
