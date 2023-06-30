@@ -37,64 +37,48 @@ class HDBulletLibHandler : EventHandler {
     private transient CVar AmmoSpawns[3];
     private HDAmBoxList AmmoBoxList;
 
-    override void WorldThingSpawned(WorldEvent e) {
+	override void OnRegister() {
+		SetOrder(HDCONST_BPSPAWNPOOLEVENT + 1);
+	}
+
+	override void WorldLoaded(worldevent e) {
         for (let i = 0; i < 1 + RemovedClasses.Size() / 32; ++i) {    
             if (!AmmoSpawns[i]) {
                 AmmoSpawns[i] = CVar.GetCVar("hdblib_enableammo_"..(i + 1));
             }
         }
 
+        for (let i = 0; i < RemovedClasses.size(); i++) {
+            if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
+                if (hd_debug) console.printf("Removing "..RemovedClasses[i].getClassName().." from Backpack Spawn Pool");
+                
+                BPSpawnPool.removeItem(RemovedClasses[i]);
+            }
+        }
+	}
+
+    override void WorldThingSpawned(WorldEvent e) {
         // [Ace] Only do it for the first ammo box encountered because they all share the same thinker.
         if (e.Thing is 'HDAmBox' && !AmmoBoxList) {
             AmmoBoxList = HDAmBoxList.Get();
-            for (int i = 0; i < AmmoBoxList.InvClasses.Size();) {
-                int deleted = -1;
-                for (let j = 0; j < RemovedClasses.Size(); ++j) {
-                    if (AmmoBoxList.InvClasses[i] == RemovedClasses[j] && !(AmmoSpawns[j / 32].GetInt() & (1 << (j % 32)))) {
-                        int index = AmmoBoxList.InvClasses.Find(RemovedClasses[j].GetClassName());
-                        if (index != AmmoBoxList.InvClasses.Size()) {
-                            AmmoBoxList.InvClasses.Delete(index);
-                            deleted = index;
-                            continue;
-                        }
-                    }
-                }
-                // [MK] deleting an index lesser or equal to the current one already "advances" on its own
-                if ( (deleted == -1) || (deleted > i) ) {
-                    i++;
-                }
-            }
-        }
-        else if (e.Thing is 'HDBackpack' && !Inventory(e.Thing).Owner) {
-            Array<class<HDAmmo> > validItems;
-            let bp = HDBackpack(e.Thing);
-            for (int i = 0; i < RemovedClasses.Size(); ++i) {
+
+            // Loop through all the names in the removed classes list.
+            for (let i = 0; i < RemovedClasses.Size(); ++i) {
+                if (hd_debug) console.printf("i=%i, AmmoBoxList.InvClasses.size()=%i, RemovedClasses.size()=%i, AmmoSpawns.size()=%i",
+                                              i,    AmmoBoxList.InvClasses.size(),    RemovedClasses.size(),    AmmoSpawns.size());
+
+                // If we find the removed class in the AmmoBoxList, remove it
                 if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
-                    // [Ace] Delete disabled ammo types and spawn something else in their place.
-                    if (bp.Storage.DestroyItem(RemovedClasses[i])) {
-                        // [Ace] Only populate the list once to save on performance.
-                        if (validItems.Size() == 0) {
-                            for (int j = 0; j < AllActorClasses.Size(); ++j) {
-                                let invItem = (class<HDAmmo>)(AllActorClasses[j]);
-                                if (!invItem || invItem is 'HDMagAmmo' || IsRemovedClass(invItem)) {
-                                    continue;
-                                }
+                    int index = AmmoBoxList.InvClasses.Find(RemovedClasses[i].GetClassName());
+                    if (index != AmmoBoxList.InvClasses.Size()) {
+                        if (hd_debug) console.printf("Removing "..RemovedClasses[i].getClassName().." from Ammo Box Spawn Pool");
 
-                                if (bp.Storage.CheckConditions(null, invItem) != IType_Invalid) {
-                                    validItems.Push(invItem);
-                                }
-                            }
+                        AmmoBoxList.InvClasses.Delete(index);
+
+                        if (hd_debug) {
+                            console.printf("Ammo Box Spawn Pool Size: %i", AmmoBoxList.InvClasses.size());
+                            foreach (ammoBoxItem : AmmoBoxList.InvClasses) console.printf(" * "..ammoBoxItem);
                         }
-
-                        int index = random(0, validItems.Size() - 1);
-                        let am = GetDefaultByType(validItems[index]);
-
-                        int amt = 0;
-                        amt = int(min(random(1, am.bMULTIPICKUP ? random(1, 80) : random(1, random(1, 20))), am.MaxAmount, bp.MaxCapacity / (max(1.0, am.Bulk) * 5.0)));
-                        if (am.RefId == "") {
-                            amt = random(-2, amt);
-                        }
-                        bp.Storage.AddAmount(am.GetClass(), amt);
                     }
                 }
             }
