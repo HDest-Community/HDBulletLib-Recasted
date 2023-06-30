@@ -64,22 +64,11 @@ class HDBulletLibHandler : EventHandler {
 
             // Loop through all the names in the removed classes list.
             for (let i = 0; i < RemovedClasses.Size(); ++i) {
-                if (hd_debug) console.printf("i=%i, AmmoBoxList.InvClasses.size()=%i, RemovedClasses.size()=%i, AmmoSpawns.size()=%i",
-                                              i,    AmmoBoxList.InvClasses.size(),    RemovedClasses.size(),    AmmoSpawns.size());
 
                 // If we find the removed class in the AmmoBoxList, remove it
                 if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
                     int index = AmmoBoxList.InvClasses.Find(RemovedClasses[i].GetClassName());
-                    if (index != AmmoBoxList.InvClasses.Size()) {
-                        if (hd_debug) console.printf("Removing "..RemovedClasses[i].getClassName().." from Ammo Box Spawn Pool");
-
-                        AmmoBoxList.InvClasses.Delete(index);
-
-                        if (hd_debug) {
-                            console.printf("Ammo Box Spawn Pool Size: %i", AmmoBoxList.InvClasses.size());
-                            foreach (ammoBoxItem : AmmoBoxList.InvClasses) console.printf(" * "..ammoBoxItem);
-                        }
-                    }
+                    if (index != AmmoBoxList.InvClasses.Size()) AmmoBoxList.InvClasses.Delete(index);
                 }
             }
         }
