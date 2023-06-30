@@ -38,11 +38,11 @@ class HDBulletLibHandler : EventHandler {
     private transient CVar AmmoSpawns[3];
     private HDAmBoxList AmmoBoxList;
 
-	override void OnRegister() {
-		SetOrder(HDCONST_BPSPAWNPOOLEVENT + 1);
-	}
+    override void OnRegister() {
+        SetOrder(HDCONST_BPSPAWNPOOLEVENT + 1);
+    }
 
-	override void WorldLoaded(worldevent e) {
+    override void WorldLoaded(worldevent e) {
         for (let i = 0; i < 1 + RemovedClasses.Size() / 32; ++i) {    
             if (!AmmoSpawns[i]) {
                 AmmoSpawns[i] = CVar.GetCVar("hdblib_enableammo_"..(i + 1));
@@ -56,7 +56,7 @@ class HDBulletLibHandler : EventHandler {
                 BPSpawnPool.removeItem(RemovedClasses[i]);
             }
         }
-	}
+    }
 
     override void WorldThingSpawned(WorldEvent e) {
         // [Ace] Only do it for the first ammo box encountered because they all share the same thinker.
@@ -124,7 +124,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
     // This -should- mean this mod has no performance impact.
     static const string blacklist[] = {
         "HDSmoke",
-		"BloodTrail",
+        "BloodTrail",
         "CheckPuff",
         "WallChunk",
         "HDBulletPuff",
