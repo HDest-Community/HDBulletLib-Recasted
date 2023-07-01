@@ -809,7 +809,7 @@ OptionMenu 762Tokarev
 	SafeCommand "Reset spawn options", "resetcvar hdb_7Tokarev_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 7.62 Tokarev casings", "white"
-	Option "Spawn Rate: ", "hdb_762Tokarev_casing_spawn_bias", "SpawnBias"
+	Option "Spawn Rate: ", "hdb_7Tokarev_casing_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_7Tokarev_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 7.62 Tokarev and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
