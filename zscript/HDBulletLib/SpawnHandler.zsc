@@ -1,3 +1,5 @@
+const HDCONST_HDBLEVENT = HDCONST_BPSPAWNPOOLEVENT + 1;
+
 class HDBulletLibHandler : EventHandler {
     // [Ace] Order here must match order in menu. And zscript files. - [Ted]
     static const class<HDAmmo> RemovedClasses[] = {
@@ -39,7 +41,7 @@ class HDBulletLibHandler : EventHandler {
     private HDAmBoxList AmmoBoxList;
 
     override void OnRegister() {
-        SetOrder(HDCONST_BPSPAWNPOOLEVENT + 1);
+        SetOrder(HDCONST_HDBLEVENT);
     }
 
     override void WorldLoaded(worldevent e) {
