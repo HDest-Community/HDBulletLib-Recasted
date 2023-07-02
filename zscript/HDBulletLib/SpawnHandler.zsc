@@ -71,7 +71,11 @@ class HDBulletLibHandler : EventHandler {
                 // If we find the removed class in the AmmoBoxList, remove it
                 if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
                     int index = AmmoBoxList.InvClasses.Find(RemovedClasses[i].GetClassName());
-                    if (index != AmmoBoxList.InvClasses.Size()) AmmoBoxList.InvClasses.Delete(index);
+                    if (index != AmmoBoxList.InvClasses.Size()) {
+                        if (hd_debug) console.printf("Removing "..RemovedClasses[i].getClassName().." from Ammo Box Loot Table");
+                        
+                        AmmoBoxList.InvClasses.Delete(index);
+                    }
                 }
             }
         }
