@@ -1,3 +1,5 @@
+const HDCONST_HDBLEVENT = HDCONST_BPSPAWNPOOLEVENT + 1;
+
 class HDBulletLibHandler : EventHandler {
     // [Ace] Order here must match order in menu. And zscript files. - [Ted]
     static const class<HDAmmo> RemovedClasses[] = {
@@ -39,7 +41,7 @@ class HDBulletLibHandler : EventHandler {
     private HDAmBoxList AmmoBoxList;
 
     override void OnRegister() {
-        SetOrder(HDCONST_BPSPAWNPOOLEVENT + 1);
+        SetOrder(HDCONST_HDBLEVENT);
     }
 
     override void WorldLoaded(worldevent e) {
@@ -69,7 +71,11 @@ class HDBulletLibHandler : EventHandler {
                 // If we find the removed class in the AmmoBoxList, remove it
                 if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
                     int index = AmmoBoxList.InvClasses.Find(RemovedClasses[i].GetClassName());
-                    if (index != AmmoBoxList.InvClasses.Size()) AmmoBoxList.InvClasses.Delete(index);
+                    if (index != AmmoBoxList.InvClasses.Size()) {
+                        if (hd_debug) console.printf("Removing "..RemovedClasses[i].getClassName().." from Ammo Box Loot Table");
+                        
+                        AmmoBoxList.InvClasses.Delete(index);
+                    }
                 }
             }
         }
