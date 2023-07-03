@@ -69,6 +69,35 @@ class HDSpent5mmMR : HDDebris
 	}
 }
 
+// Originally defined in Hexadoken's Legacy Continued,
+// ported here for reusability
+class HDLoose5mmMR : HDDebris
+{
+	override void postbeginplay(){
+		HDDebris.postbeginplay();
+	}
+	default{
+		bouncesound "misc/casing3";
+		scale 0.55;
+		bouncefactor 0.5;
+	}
+	states{
+	spawn:
+		5MMR Z 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		TNT1 A 1{
+			string lol = "HD5mm_Ammo";
+			Class<Inventory> b = lol;
+			if (b) {
+				actor a=spawn(b,self.pos,ALLOW_REPLACE);
+				a.roll=self.roll;a.vel=self.vel;
+			}
+		}stop;
+	}
+}
+
 class PB_5mmBoxPickup : HDUPK
 {
 	Default
