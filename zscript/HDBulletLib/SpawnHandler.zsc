@@ -82,7 +82,7 @@ class HDBulletLibHandler : EventHandler {
     }
 
     private bool IsRemovedClass(class<HDAmmo> cls) {
-        foreach (removedClass : RemovedClasses) if (cls ~== removedClass) return true;
+        foreach (removedClass : RemovedClasses) if (cls == removedClass) return true;
 
         return false;
     }
