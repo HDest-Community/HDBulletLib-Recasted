@@ -3,37 +3,37 @@ const HDCONST_HDBLEVENT = HDCONST_BPSPAWNPOOLEVENT + 1;
 class HDBulletLibHandler : EventHandler {
     // [Ace] Order here must match order in menu. And zscript files. - [Ted]
     static const class<HDAmmo> RemovedClasses[] = {
-        "HD50AEAmmo",
-        "HDSlugAmmo",
-        "HD500SWLightAmmo",
-        "HD500SWHeavyAmmo",
-        "HD50OMGAmmo",
-        "HD45ACPAmmo",
-        "HD10mAmmo",
-        "HD45LCAmmo",
-        "HDLLShellAmmo",
-        "HDExplosiveShellAmmo",
-        "HDGold45LCAmmo",
-        "HDFlareAmmo",
-        "HDBallAmmo",
-        "HD4GSAmmo",
-        "HD5mm_Ammo",
-        "HD6mmFlechetteAmmo",
-        "HD50AM_Ammo",
-        "HDAurochsAmmo",
-        "HD069BoreAmmo",
-        "TenMilBrass",
-        "Wan_ThuRKTAmmo",
-        "Wan_TortRKTAmmo",
-        "WAN_20mmGrenadeAmmo",
-        "ThirtyAughtSixAmmo",
-        "ThirtyAughtSixBrass",
-        "HD4GBAmmo",
-        "HDBirdshotShellAmmo",
-        "Savage300Ammo",
-        "HD762TokarevAmmo",
-        "TokarevBrass",
-        "Savage300Brass"
+        'HD50AEAmmo',
+        'HDSlugAmmo',
+        'HD500SWLightAmmo',
+        'HD500SWHeavyAmmo',
+        'HD50OMGAmmo',
+        'HD45ACPAmmo',
+        'HD10mAmmo',
+        'HD45LCAmmo',
+        'HDLLShellAmmo',
+        'HDExplosiveShellAmmo',
+        'HDGold45LCAmmo',
+        'HDFlareAmmo',
+        'HDBallAmmo',
+        'HD4GSAmmo',
+        'HD5mm_Ammo',
+        'HD6mmFlechetteAmmo',
+        'HD50AM_Ammo',
+        'HDAurochsAmmo',
+        'HD069BoreAmmo',
+        'TenMilBrass',
+        'Wan_ThuRKTAmmo',
+        'Wan_TortRKTAmmo',
+        'WAN_20mmGrenadeAmmo',
+        'ThirtyAughtSixAmmo',
+        'ThirtyAughtSixBrass',
+        'HD4GBAmmo',
+        'HDBirdshotShellAmmo',
+        'Savage300Ammo',
+        'HD762TokarevAmmo',
+        'TokarevBrass',
+        'Savage300Brass'
     };
 
     // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.
@@ -82,7 +82,7 @@ class HDBulletLibHandler : EventHandler {
     }
 
     private bool IsRemovedClass(class<HDAmmo> cls) {
-        foreach (removedClass : RemovedClasses) if (cls == removedClass) return true;
+        foreach (removedClass : RemovedClasses) if (cls ~== removedClass) return true;
 
         return false;
     }
@@ -104,13 +104,10 @@ class HDBLRSpawnAmmo play {
     string toString() {
 
         let replacements = "[";
-        if (spawnReplaces.size()) {
-            replacements = replacements..spawnReplaces[0].toString();
 
-            foreach (replacee : spawnReplaces) replacements = replacements..", "..replacee.toString();
-        }
+        foreach (replacee : spawnReplaces) replacements = replacements..", "..replacee.toString();
+
         replacements = replacements.."]";
-
 
         return String.format("{ spawnName=%s, spawnReplaces=%s, isPersistent=%b, replaceAmmo=%b }", spawnName, replacements, isPersistent, replaceAmmo);
     }
@@ -129,20 +126,20 @@ class HDBulletLibAmmoSpawner: EventHandler {
     // List of persistent classes to completely ignore.
     // This -should- mean this mod has no performance impact.
     static const string blacklist[] = {
-        "HDSmoke",
-        "BloodTrail",
-        "CheckPuff",
-        "WallChunk",
-        "HDBulletPuff",
-        "HDFireballTail",
-        "ReverseImpBallTail",
-        "HDSmokeChunk",
-        "ShieldSpark",
-        "HDFlameRed",
-        "HDMasterBlood",
-        "PlantBit",
-        "HDBulletActor",
-        "HDLadderSection"
+        'HDSmoke',
+        'BloodTrail',
+        'CheckPuff',
+        'WallChunk',
+        'HDBulletPuff',
+        'HDFireballTail',
+        'ReverseImpBallTail',
+        'HDSmokeChunk',
+        'ShieldSpark',
+        'HDFlameRed',
+        'HDMasterBlood',
+        'PlantBit',
+        'HDBulletActor',
+        'HDLadderSection'
     };
 
     // List of ammo spawn associations.
@@ -155,9 +152,9 @@ class HDBulletLibAmmoSpawner: EventHandler {
     void addAmmo(string name, Array<HDBLRSpawnAmmoEntry> replacees, bool persists, bool rep=true) {
 
         if (hd_debug) {
-            let msg = "Adding "..(persists ? "Persistent" : "Non-Persistent").." Replacement Entry for "..name..": ["..replacees[0].toString();
+            let msg = "Adding "..(persists ? "Persistent" : "Non-Persistent").." Replacement Entry for "..name..": [";
 
-            if (replacees.size() > 1) foreach (replacee : replacees) msg = msg..", "..replacee.toString();
+            foreach (replacee : replacees) msg = msg..", "..replacee.toString();
 
             console.printf(msg.."]");
         }
@@ -169,8 +166,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawnee.spawnName = name;
         spawnee.isPersistent = persists;
         spawnee.replaceAmmo = rep;
-
-        foreach (replacee : replacees) spawnee.spawnReplaces.push(replacee);
+        spawnee.spawnreplaces.copy(replacees);
     
         // Pushes the finished struct to the array.
         ammoSpawnList.push(spawnee);
@@ -179,7 +175,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
     HDBLRSpawnAmmoEntry addAmmoEntry(string name, int chance) {
         // Creates a new struct;
         HDBLRSpawnAmmoEntry spawnee = HDBLRSpawnAmmoEntry(new('HDBLRSpawnAmmoEntry'));
-        spawnee.name = name.makelower();
+        spawnee.name = name;
         spawnee.chance = chance;
         return spawnee;       
     }
@@ -498,7 +494,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         if (chance > -1) {
             let result = random(0, chance);
 
-            if (hd_debug) console.printf("Rolled a "..result.." out of "..(chance + 1));
+            if (hd_debug) console.printf("Rolled a "..(result + 1).." out of "..(chance + 1));
 
             return result == 0;
         }
@@ -532,10 +528,9 @@ class HDBulletLibAmmoSpawner: EventHandler {
         foreach (bl : blacklist) if (e.Thing is bl) return;
         
         string candidateName = e.Thing.GetClassName();
-        candidateName = candidateName.makelower();
 
         // Return if range before replacing things.
-        if (level.MapName ~== "RANGE") return;
+        if (level.MapName == 'RANGE') return;
 
         handleAmmoReplacements(e.Thing, candidateName);
     }
@@ -553,7 +548,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
             let item = Inventory(thing);
             if ((prespawn || ammoSpawn.isPersistent) && (!(item && item.owner) && prespawn)) {
                 foreach (spawnReplace : ammoSpawn.spawnReplaces) {
-                    if (spawnReplace.name == candidateName) {
+                    if (spawnReplace.name ~== candidateName) {
                         if (hd_debug) console.printf("Attempting to replace "..candidateName.." with "..ammoSpawn.spawnName.."...");
 
                         if (tryCreateAmmo(thing, ammoSpawn.spawnName, spawnReplace.chance, ammoSpawn.replaceAmmo)) return;
