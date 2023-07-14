@@ -83,8 +83,8 @@ class HDLoose5mmMR : HDDebris
 	}
 	states{
 	spawn:
-		5MMR Z 2 nodelay{
-			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		5MMR Y 2 nodelay{
+			A_SetRoll(roll + 45, SPF_INTERPOLATE);
 		}loop;
 	death:
 		TNT1 A 1{
