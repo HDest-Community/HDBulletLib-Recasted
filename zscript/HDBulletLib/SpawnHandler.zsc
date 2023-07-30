@@ -410,13 +410,13 @@ class HDBulletLibAmmoSpawner: EventHandler {
         Array<HDBLRSpawnAmmoEntry> spawns_thunderrockets;  
         spawns_thunderrockets.push(addAmmoEntry('RocketBigPickup', hdb_ThuRKT_rbox_spawn_bias));
         spawns_thunderrockets.push(addAmmoEntry('HEATAmmo', hdb_ThuRKT_rbox_spawn_bias));
-        addAmmo('WAN_ThuRKT', spawns_thunderrockets, hdb_ThuRKT_persistent_spawning);
+        addAmmo('WAN_ThuRKTAmmo', spawns_thunderrockets, hdb_ThuRKT_persistent_spawning);
 
         // Tortoise Missiles
         Array<HDBLRSpawnAmmoEntry> spawns_tortrockets;  
         spawns_tortrockets.push(addAmmoEntry('RocketBigPickup', hdb_TortRKT_rbox_spawn_bias));
         spawns_tortrockets.push(addAmmoEntry('HEATAmmo', hdb_TortRKT_rbox_spawn_bias));
-        addAmmo('Wan_TortRkt', spawns_tortrockets, hdb_TortRKT_persistent_spawning);
+        addAmmo('Wan_TortRktAmmo', spawns_tortrockets, hdb_TortRKT_persistent_spawning);
 
         // .30-06 Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_3006box;  
