@@ -37,9 +37,14 @@ class HDB_500LAD : HDBulletActor
 
 class HDSpent500 : HDSpent9mm
 {
-	Default
-	{
-		YScale 1.20;
+	states{
+	spawn:
+		SWCS A 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		SWCS # -1;
+		stop;
 	}
 }
 
@@ -84,7 +89,6 @@ class HD500SWHeavyAmmo : HD500SWLightAmmo
 
 	Default
 	{
-		Translation "64:111=@72[128,13,0]";
 		Inventory.PickupMessage "$PICKUP_500SWH";
 		HDPickup.RefId "5ld";
 		Tag "$TAG_500SWH";
