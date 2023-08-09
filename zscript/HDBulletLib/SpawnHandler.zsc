@@ -45,11 +45,7 @@ class HDBulletLibHandler : EventHandler {
     }
 
     override void WorldLoaded(worldevent e) {
-        for (let i = 0; i < 1 + RemovedClasses.Size() / 32; ++i) {    
-            if (!AmmoSpawns[i]) {
-                AmmoSpawns[i] = CVar.GetCVar("hdblib_enableammo_"..(i + 1));
-            }
-        }
+        InitRemovedClasses();
 
         for (let i = 0; i < RemovedClasses.size(); i++) {
             if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
@@ -64,6 +60,8 @@ class HDBulletLibHandler : EventHandler {
         // [Ace] Only do it for the first ammo box encountered because they all share the same thinker.
         if (e.Thing is 'HDAmBox' && !AmmoBoxList) {
             AmmoBoxList = HDAmBoxList.Get();
+            
+            InitRemovedClasses();
 
             // Loop through all the names in the removed classes list.
             for (let i = 0; i < RemovedClasses.Size(); ++i) {
@@ -77,6 +75,14 @@ class HDBulletLibHandler : EventHandler {
                         AmmoBoxList.InvClasses.Delete(index);
                     }
                 }
+            }
+        }
+    }
+
+    private void InitRemovedClasses() {
+        for (let i = 0; i < 1 + RemovedClasses.Size() / 32; ++i) {    
+            if (!AmmoSpawns[i]) {
+                AmmoSpawns[i] = CVar.GetCVar("hdblib_enableammo_"..(i + 1));
             }
         }
     }
