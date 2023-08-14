@@ -40,12 +40,29 @@ class HDBulletLibHandler : EventHandler {
     private transient CVar AmmoSpawns[3];
     private HDAmBoxList AmmoBoxList;
 
+    bool cvarsAvailable;
+
+    // Populates the replacement and association arrays.
+    void init() {
+
+        cvarsAvailable = true;
+
+        // Init enabled ammo CVARs
+        for (let i = 0; i < 1 + RemovedClasses.Size() / 32; ++i) {    
+            if (!AmmoSpawns[i]) {
+                AmmoSpawns[i] = CVar.GetCVar("hdblib_enableammo_"..(i + 1));
+            }
+        }
+    }
+
     override void OnRegister() {
         SetOrder(HDCONST_HDBLEVENT);
     }
 
     override void WorldLoaded(worldevent e) {
-        InitRemovedClasses();
+
+        // Populates the main arrays if they haven't been already.
+        if (!cvarsAvailable) init();
 
         for (let i = 0; i < RemovedClasses.size(); i++) {
             if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
@@ -57,12 +74,14 @@ class HDBulletLibHandler : EventHandler {
     }
 
     override void WorldThingSpawned(WorldEvent e) {
+
+        // Populates the main arrays if they haven't been already.
+        if (!cvarsAvailable) init();
+
         // [Ace] Only do it for the first ammo box encountered because they all share the same thinker.
         if (e.Thing is 'HDAmBox' && !AmmoBoxList) {
             AmmoBoxList = HDAmBoxList.Get();
             
-            InitRemovedClasses();
-
             // Loop through all the names in the removed classes list.
             for (let i = 0; i < RemovedClasses.Size(); ++i) {
 
@@ -75,14 +94,6 @@ class HDBulletLibHandler : EventHandler {
                         AmmoBoxList.InvClasses.Delete(index);
                     }
                 }
-            }
-        }
-    }
-
-    private void InitRemovedClasses() {
-        for (let i = 0; i < 1 + RemovedClasses.Size() / 32; ++i) {    
-            if (!AmmoSpawns[i]) {
-                AmmoSpawns[i] = CVar.GetCVar("hdblib_enableammo_"..(i + 1));
             }
         }
     }
@@ -190,7 +201,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
     void init() {
 
         cvarsAvailable = true;
-    
+
         // --------------------
         // Ammo spawn lists.
         // --------------------
