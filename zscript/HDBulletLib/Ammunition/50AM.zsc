@@ -89,7 +89,7 @@ class PB_50AMBoxPickup:HDUPK{
 class HDB_50AM:HDBulletActor{
     default{
 		pushfactor 0.35;
-		mass 110;
+		mass 150;
 		speed HDCONST_MPSTODUPT*650;
 		accuracy 300;
 		stamina 1270;

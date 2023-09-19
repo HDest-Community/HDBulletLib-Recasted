@@ -7,7 +7,7 @@ class HDB_45ACP : HDBulletActor
 	Default
 	{
 		PushFactor 0.2;
-		Mass 150;
+		Mass 110;
 		Speed HDCONST_MPSTODUPT * 400;
 		Stamina 1150;
 		WoundHealth 4;
