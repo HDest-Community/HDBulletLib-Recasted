@@ -25,9 +25,6 @@ OptionMenu "HDBulletLibMenu"
 	StaticText ""
 	SafeCommand "Reset all options", "hdb_reset_cvars"
 	StaticText ""
-	StaticText "Created by Accensus", "cyan"
-	Submenu "$TAG_50AE", "50AE", 0, 1
-	StaticText ""
 	StaticText "Created by Sledge & prettyFist", "purple"
 	Submenu "$TAG_12SLUG", "12GaugeSlugs", 0, 1
 	Submenu "$TAG_500SW", "500SW", 0, 1
