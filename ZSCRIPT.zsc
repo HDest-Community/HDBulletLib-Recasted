@@ -2,7 +2,6 @@ version "4.10"
 
 #include "zscript/HDBulletLib/SpawnHandler.zsc"
 
-#include "zscript/HDBulletLib/Ammunition/50AE.zsc"
 #include "zscript/HDBulletLib/Ammunition/Slugs.zsc"
 #include "zscript/HDBulletLib/Ammunition/500S&W.zsc"
 #include "zscript/HDBulletLib/Ammunition/50OMG.zsc"
