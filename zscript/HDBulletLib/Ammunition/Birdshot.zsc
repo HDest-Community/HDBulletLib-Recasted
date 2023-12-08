@@ -2,18 +2,38 @@
 // Birdshot Shotgun Shells
 // ------------------------------------------------------------
 
-class HDB_No2Birdshot:HDBulletActor{
+class HDB_BBShot:HDBulletActor{//used in shotgun shells
+
+//changed pellet size from 2 to BB shot, since 
+//i need to reduce the pellet amount fired
+//in the Duck Hunter
+//(and so pellet guns can have something to shoot,
+//if someone ever decides to make one, heheh)
+
 	default{
 		pushfactor 0.5;
         // Mass changed from 0.3 to 1 to avoid truncation of floating point constant errors. - [Ted]
-		mass 1;
-		speed HDCONST_MPSTODUPT*440;
-		accuracy 200;
-		stamina 381;
+		// Turns out i messed up, i made the mass 10x lighter
+		// than it should have been. whoops. - Swampie
+		
+		mass 3;//steel BBs are about 0.33-0.34 grams, so i rounded it down
+		speed HDCONST_MPSTODUPT*381;//approximately 1250 feet per second when fired from a shotgun
+		accuracy 200;//literally just a ball
+		stamina 457;//4.57mm(.177 cal) in diameter
 		woundhealth 1;
-		hdbulletactor.hardness 1;
+		hdbulletactor.hardness 1;//meant to be steel, but hardness doesn't work like that in HDest
 	}
 }
+
+//"you'll shoot your eye out, kid!"
+class HDB_BBPellet:HDB_BBShot{//used in BB guns, slight smaller than BB shot
+	default{
+		speed HDCONST_MPSTODUPT*92;//approximately 300 feet per second when fired from a shotgun
+		accuracy 200;//literally just a ball
+		stamina 440;//slightly smaller than BB shot
+	}
+}
+
 
 class HDBirdshotShellAmmo:HDRoundAmmo{
 	default{
