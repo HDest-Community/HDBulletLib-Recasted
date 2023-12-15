@@ -98,7 +98,7 @@ class WAN_20mmGrenade:SlowProjectile{
 			A_HDBlast(
 				//blastradius:128,blastdamage:random(24,48),fullblastradius:48,
 				pushradius:128,pushamount:64,fullpushradius:48,
-				fragradius:HDCONST_ONEMETRE*(1.6+0.2*stamina),fragtype:"WAN_20mmFragment",
+				fragradius:HDCONST_ONEMETRE*(3.2+0.2*stamina),fragtype:"WAN_20mmFragment",fragments:1117,
 				immolateradius:48,immolateamount:random(3,30),
 				immolatechance:10
 			);
