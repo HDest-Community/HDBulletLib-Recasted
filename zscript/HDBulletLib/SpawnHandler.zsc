@@ -62,7 +62,7 @@ class HDBulletLibHandler : EventHandler {
     override void WorldLoaded(worldevent e) {
 
         // Populates the main arrays if they haven't been already.
-        if (!cvarsAvailable) init();
+        if (!cvarsAvailable || !AmmoSpawns[0]) init();
 
         for (let i = 0; i < RemovedClasses.size(); i++) {
             if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
@@ -76,7 +76,7 @@ class HDBulletLibHandler : EventHandler {
     override void WorldThingSpawned(WorldEvent e) {
 
         // Populates the main arrays if they haven't been already.
-        if (!cvarsAvailable) init();
+        if (!cvarsAvailable || !AmmoSpawns[0]) init();
 
         // [Ace] Only do it for the first ammo box encountered because they all share the same thinker.
         if (e.Thing is 'HDAmBox' && !AmmoBoxList) {
