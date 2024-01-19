@@ -203,6 +203,21 @@ class WAN_20mmGrenadeAmmo:HDAmmo{
 	}
 }
 
+class WAN_20mmGrenadeBox:HDUPK{
+	default{
+		scale 0.33;
+		tag "$TAG_20MMGRENBOX";
+		hdupk.pickupmessage "$PICKUP_20MMBOX";
+		hdupk.pickuptype "WAN_20mmGrenadeAmmo";
+		hdupk.amount 10;
+	}
+	states{
+	spawn:
+		MA7G C -1;
+		stop;
+	}
+}
+
 class WAN_Dud20mmGrenade:HDActor{ //You can't use them for anything so there's no need to be able to pick them up currently
 	//bool isrocket;
 	default{

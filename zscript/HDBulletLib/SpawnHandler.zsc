@@ -416,7 +416,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         // 20mm Grenade Ammo
         Array<HDBLRSpawnAmmoEntry> spawns_20mmgrenades;
         spawns_20mmgrenades.push(addAmmoEntry('RocketBoxRandom', hdb_20mm_rbox_spawn_bias));
-        addAmmo('WAN_20mmGrenadeAmmo', spawns_20mmgrenades, hdb_20mm_persistent_spawning);
+        addAmmo('WAN_20mmGrenadeBox', spawns_20mmgrenades, hdb_20mm_persistent_spawning);
 
         // Thunder Rockets
         Array<HDBLRSpawnAmmoEntry> spawns_thunderrockets;
