@@ -45,3 +45,9 @@ If your round follows all of those guidelines, feel free to make a pull request 
 - Migrate all of the pickup messages and tags to a LANGUAGE lump instead.
 - Add more community created munitions.
 - Add presets for spawns to allow easier setup for new users.
+
+## Credits
+
+_Unfortunately most of the assets in this library were added before being maintained by the community without proper credits.  If you see something that is uncredited and know who should be attributed to making it, reach out or create an issue so it can be fixed!_
+
+- 20mm Grenade Box Pickup: Zrrion, recolored by Wanzer.
