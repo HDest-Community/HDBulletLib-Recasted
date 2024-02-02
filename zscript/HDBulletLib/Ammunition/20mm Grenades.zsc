@@ -23,8 +23,8 @@ class WAN_20mmFragment:HDB_frag{
 
 class WAN_20mmLauncher:HDWeapon{
 	//int airburst;
-	action void A_Fire20mmGL(){
-		A_StartSound("weapons/grenadeshot",CHAN_WEAPON,CHANF_OVERLAP);
+	action void A_Fire20mmGL(string firingsound="weapons/grenadeshot"){
+		A_StartSound(firingsound,CHAN_WEAPON,CHANF_OVERLAP);
 		vector3 gpos=pos+gunpos((0,0,-getdefaultbytype("WAN_20mmgrenade").height*0.6));
 		let ggg=WAN_20mmgrenade(spawn("WAN_20mmgrenade",gpos,ALLOW_REPLACE));
 
