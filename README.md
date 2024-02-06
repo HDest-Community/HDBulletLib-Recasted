@@ -1,4 +1,8 @@
-# Notes
+# HDBulletLib: Recasted
+
+[![Nightly Build](https://github.com/HDest-Community/HDBulletLib-Recasted/actions/workflows/nightly.yml/badge.svg)](https://github.com/HDest-Community/HDBulletLib-Recasted/actions/workflows/nightly.yml)
+
+## Notes
 
 This must be loaded after Hideous Destructor and before all addons.
 
