@@ -502,7 +502,7 @@ void A_ImpNoSquirt(){
 			A_Scream();
 			tracer=null;
 			if(blockingmobj){
-				if(blockingmobj is "Serpentipede"&&(!target||blockingmobj!=target.target))
+				if(blockingmobj is "FighterImp"&&(!target||blockingmobj!=target.target))
 				{
 					blockingmobj.givebody(random(1,5));
 					impacted = true;
