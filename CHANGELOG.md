@@ -7,12 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.4.0] - 2024-02-23
+
 ### Changed
 
 -   Updated build scripts (#29).
 -   Updated Serpentipede Classname for latest HDest Main (#30).
 
-## [v1.3.4]
+## [v1.3.4] - 2024-02-07
 
 ### Changed
 
@@ -20,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Updated readme with proper mod title & nightly build status badge (#27).
 -   Fixed build script (#28).
 
-## [v1.3.3]
+## [v1.3.3] - 2024-01-19
 
 ### Added
 
@@ -31,20 +33,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Update CVAR init check (#24).
 
-## [v1.3.2]
+## [v1.3.2] - 2023-12-14
 
 ### Changed
 
 -   Tweaked Birdshot stats.
 -   Tweaked 20mm Grenade stats (#22).
 
-## [v1.3.1]
+## [v1.3.1] - 2023-10-25
 
 ### Changed
 
 -   Further refactor RemovedClasses CVAR init (#19).
 
-## [v1.3.0]
+## [v1.3.0] - 2023-10-20
 
 ### Changed
 
@@ -53,26 +55,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Refactored ammo init process (#16).
 -   Corrected round mass stats for .45 ACP & .50 AM (#18).
 
-## [v1.2.3]
+## [v1.2.3] - 2023-07-30
 
 ### Changed
 
 -   Fixed WAN Rocket Spawns (#15).
 -   Tweaked 5mm Round sprite (#15).
 
-## [v1.2.2]
+## [v1.2.2] - 2023-07-04
 
 ### Changed
 
 -   Fixed Build Scripts (#14).
 
-## [v1.2.1]
+## [v1.2.1] - 2023-07-04
 
 ### Changed
 
 -   Fixed string comparisons being case-sensitive (#13).
 
-## [v1.2.0]
+## [v1.2.0] - 2023-07-04
 
 ### Added
 
@@ -91,19 +93,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Fixed spawning rules not accounting for all Actor classes (#7).
 -   Fixed 7.62 Tokarev Casing spawn bias option in Menu (#9).
 
-## [v1.1]
+## [v1.1] - 2022-10-04
 
 ### Added
 
 -   Added proper MENUDEF.
 
-## [v1.0]
+## [v1.0] - 2022-09-07
 
 ### Added
 
 -   Initial Release.
 
-[Unreleased]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.3.4..HEAD
+[Unreleased]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.4.0...HEAD
+
+[v1.4.0]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.3.4...v1.4.0
+
+[v1.3.4]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.3.3..v1.3.4
+
+[v1.3.3]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.3.2..v1.3.3
+
+[v1.3.2]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.3.1..v1.3.2
+
+[v1.3.1]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.3.0..v1.3.1
+
+[v1.3.0]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.2.3..v1.3.0
+
+[v1.2.3]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.2.2..v1.2.3
+
+[v1.2.2]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.2.1..v1.2.2
+
+[v1.2.1]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.2.0..v1.2.1
+
 [v1.2.0]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.1..v1.2.0
+
 [v1.1]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.0..v1.1
+
 [v1.0]: https://github.com/HDest-Community/HDBulletLib-Recasted/releases/tag/v1.0
