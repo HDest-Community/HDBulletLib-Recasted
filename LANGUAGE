@@ -15,7 +15,6 @@ TAG_EXPLSHL = "Explosive Shotgun Slugs";
 TAG_FLARESHELL = "Flare Shells";
 TAG_G45LC = "Golden .45 LC round";
 TAG_45LC = ".45 LC Round";
-TAG_50AE = ".50 AE round";
 TAG_50AM = ".50 Action Mega";
 TAG_50OMG = ".50 OMG round";
 TAG_MUSKETBALL = "Lead Ball";

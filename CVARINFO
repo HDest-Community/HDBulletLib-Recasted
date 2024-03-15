@@ -28,11 +28,6 @@ server int hdb_069bore_box_spawn_bias = -1;
 server int hdb_069bore_casing_spawn_bias = -1;
 server bool hdb_069bore_persistent_spawning = false;
 
-// .50 AE
-server int hdb_50ae_box_spawn_bias = -1;
-server int hdb_50ae_casing_spawn_bias = -1;
-server bool hdb_50ae_persistent_spawning = false;
-
 // .50 OMG
 server int hdb_50omg_box_spawn_bias = -1;
 server int hdb_50omg_casing_spawn_bias = -1;
