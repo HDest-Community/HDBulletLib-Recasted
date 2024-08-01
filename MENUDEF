@@ -28,7 +28,7 @@ OptionMenu "HDBulletLibMenu"
 	StaticText "Created by Accensus", "cyan"
 	Submenu "$TAG_50AE", "50AE", 0, 1
 	StaticText ""
-	StaticText "Created by Sledge & prettyFist", "purple"
+	StaticText "Created by Peppergrinder Team", "purple"
 	Submenu "$TAG_12SLUG", "12GaugeSlugs", 0, 1
 	Submenu "$TAG_500SW", "500SW", 0, 1
 	Submenu "$TAG_420FREI", "420Frei", 0, 1
@@ -167,21 +167,21 @@ OptionMenu 12GaugeSlugs
 
 OptionMenu 420Frei
 {
-    Title "------ .420 Frei Options ------"
+    Title "------ .451 Frei Options ------"
    	StaticText "Notice:", "purple"
     StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
     StaticText  "spawns of that given type.", "white"
     StaticText ""
 	StaticText "Spawn Options", "purple"
-    StaticText  "Control the spawn rate of .420 Frei on Clip Boxes", "white"
+    StaticText  "Control the spawn rate of .451 Frei on Clip Boxes", "white"
 	Option "Spawn Rate: ", "hdb_420frei_box_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_420frei_box_spawn_bias"
 	StaticText ""
-    StaticText  "Control the spawn rate of .420 Frei casings", "white"
+    StaticText  "Control the spawn rate of .451 Frei casings", "white"
 	Option "Spawn Rate: ", "hdb_420frei_casing_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_420frei_casing_spawn_bias"
  	StaticText ""
-	StaticText "Enable/Disable .420 Frei from spawning in Ammo Boxes and Backpacks.", "purple"
+	StaticText "Enable/Disable .451 Frei from spawning in Ammo Boxes and Backpacks.", "purple"
 	FlagOption "$TAG_420FREI", "hdblib_enableammo_1", "OnOff", 17
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
@@ -195,21 +195,21 @@ OptionMenu 420Frei
 
 OptionMenu 069Bore
 {
-    Title "------ .069 Bore Options ------"
+    Title "------ .066 Bore Options ------"
    	StaticText "Notice:", "purple"
     StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
     StaticText  "spawns of that given type.", "white"
     StaticText ""
 	StaticText "Spawn Options", "purple"
-    StaticText  "Control the spawn rate of .069 Bore on Clip Boxes", "white"
+    StaticText  "Control the spawn rate of .066 Bore on Clip Boxes", "white"
 	Option "Spawn Rate: ", "hdb_069bore_box_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_069bore_box_spawn_bias"
 	StaticText ""
-    StaticText  "Control the spawn rate of .069 Bore casings", "white"
+    StaticText  "Control the spawn rate of .066 Bore casings", "white"
 	Option "Spawn Rate: ", "hdb_069bore_casing_spawn_bias", "SpawnBias"
 	SafeCommand "Reset spawn options", "resetcvar hdb_069bore_casing_spawn_bias"
  	StaticText ""
-	StaticText "Enable/Disable .069 Bore from spawning in Ammo Boxes and Backpacks.", "purple"
+	StaticText "Enable/Disable .066 Bore from spawning in Ammo Boxes and Backpacks.", "purple"
 	FlagOption "$TAG_069BORE", "hdblib_enableammo_1", "OnOff", 18
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
