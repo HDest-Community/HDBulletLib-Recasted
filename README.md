@@ -21,7 +21,7 @@ It's better to opt-in than it is to opt-out in this case. Check out the menu.
 Currently Includes:
 
 - .50 AE by Accensus
-- 12 Gauge Slugs, .500 S&W Lights and Heavies, .420 Frei and .069 Bore by the Peppergrinder team
+- 12 Gauge Slugs, .500 S&W Lights and Heavies, .451 Frei and .066 Bore by the Peppergrinder team
 - .50 OMG by Bogus
 - .45 ACP and 4-Gauge Buckshot by Popguy
 - 10mm Auto, .45 LC, Golden .45 LC, Less-Lethal Shells, Explosive Slugs and Flare Shells by Swampyrad
