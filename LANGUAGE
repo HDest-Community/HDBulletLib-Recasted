@@ -3,6 +3,12 @@
 // This controls the menu's coloration in the options menu. I have to use it like this as I wanted the funky symbol and the coloring. - [Ted]
 BULLETLIB_MENU = "\c[Blue]Ⓑ\c- HDBulletLib \c[Gold]Recasted\c";
 
+// Menu Option Values
+MENU_ENABLED = "Enabled";
+MENU_DISABLED = "Disabled";
+MENU_REPLACEALL = "Replace All";
+MENU_WITHALL = "With All";
+
 // All of these are for the individual rounds to allow external mods to modify their tags. This can be incredibly helpful for resprites that may want to change lorebits. - [Ted]
 TAG_069BORE = ".066 bore shell";
 TAG_420FREI = ".451 Frei round";
