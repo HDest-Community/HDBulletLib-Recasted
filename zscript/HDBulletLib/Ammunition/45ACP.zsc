@@ -2,6 +2,10 @@
 // CREATED BY POPGUY12
 // ------------------------------
 
+
+const ENC_45ACPLOADED = 0.55;
+const ENC_45ACP = ENC_45ACPLOADED * 1.35;
+
 class HDB_45ACP : HDBulletActor
 {
 	Default
@@ -43,8 +47,8 @@ class HD45ACPAmmo : HDRoundAmmo
 		SplitPickupBoxableRound(10, 50, "HD45ACPBoxPickup", "45TNA0", "45RNA0");
 	}
 
-	const EncRoundLoaded = 0.55;
-	const EncRound = EncRoundLoaded * 1.35;
+	const EncRoundLoaded = ENC_45ACPLOADED;
+	const EncRound = ENC_45ACP;
 
 	Default
 	{
