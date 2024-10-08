@@ -274,7 +274,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('HD50OMGBoxPickup', spawns_50omgbox, hdb_50omg_persistent_spawning);
         // .50 OMG Casing
         Array<HDBLRSpawnAmmoEntry> spawns_50omgcasing;
-        spawns_50omgcasing.push(addAmmoEntry('SevenMilBrass', hdb_50omg_casing_spawn_bias));
+        spawns_50omgcasing.push(addAmmoEntry('HDCasingBits', hdb_50omg_casing_spawn_bias));
         addAmmo('HDSpent50OMG', spawns_50omgcasing, hdb_50omg_persistent_spawning);
 
         // .45 ACP Box Pickup
@@ -435,7 +435,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('HD3006BoxPickup', spawns_3006box, hdb_3006_persistent_spawning);
         // .30-06 Casing/Brass
         Array<HDBLRSpawnAmmoEntry> spawns_3006casing;
-        spawns_3006casing.push(addAmmoEntry('SevenMilBrass', hdb_3006_casing_spawn_bias));
+        spawns_3006casing.push(addAmmoEntry('HDCasingBits', hdb_3006_casing_spawn_bias));
         addAmmo('HDSpent3006', spawns_3006casing, hdb_3006_persistent_spawning);
 
         // 4-Gauge Buckshot Box
@@ -486,7 +486,7 @@ class HDBulletLibAmmoSpawner: EventHandler {
         addAmmo('Savage300Ammo', spawns_300savageammo, hdb_300savage_persistent_spawning);
         // .300 Savage Casing
         Array<HDBLRSpawnAmmoEntry> spawns_300savage_casing;
-        spawns_300savage_casing.push(addAmmoEntry('SevenMilBrass', hdb_300savage_casing_spawn_bias));
+        spawns_300savage_casing.push(addAmmoEntry('HDCasingBits', hdb_300savage_casing_spawn_bias));
         addAmmo('Savage300Brass', spawns_300savage_casing, hdb_300savage_persistent_spawning);
 
         // 7.62 Tokarev Box Pickup
