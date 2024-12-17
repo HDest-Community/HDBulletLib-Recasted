@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Updated build scripts (#29).
 -   Updated Serpentipede Classname for latest HDest Main (#30).
+-   Added Belt Links.
 
 ## [v1.3.4] - 2024-02-07
 
