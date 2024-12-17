@@ -27,7 +27,7 @@ Currently Includes:
 - 10mm Auto, .45 LC, Golden .45 LC, Less-Lethal Shells, Explosive Slugs and Flare Shells by Swampyrad
 - .56 Caliber Musket Balls by Cozi and Ted
 - 4-Gauge Saboted Slugs by Khan
-- 5mm Bumblebee Rimfire, 6mm Flechettes and .50 Action-Mega by Potetobloke.
+- 5mm Bumblebee Rimfire, 6mm Flechettes, .50 Action-Mega and Belt Links by Potetobloke.
 - 20mm Grenades, Thunder Rockets and Tortoise Rockets by Wanzer.
 - .30-06 by HexaDoken.
 

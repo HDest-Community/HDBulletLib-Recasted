@@ -1,0 +1,213 @@
+const ENC_776BELTLINK=0.005;
+const ENC_12MMBELTLINK=0.008;
+const ENC_35MMBELTLINK=0.01;
+
+const HDLD_776BELTLINK="7lk";
+const HDLD_12MMBELTLINK="5lk";
+const HDLD_35MMBELTLINK="hwl";
+
+
+//small belt links, good for anything up to 8mm
+class HD_776BeltLink:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		+rollsprite +rollcenter
+		height 16;radius 8;
+		tag "$TAG_776BELTLINK";
+		hdpickup.refid HDLD_776BELTLINK;
+		hdpickup.bulk ENC_776BELTLINK;
+		xscale 0.7;yscale 0.7;
+		inventory.pickupmessage "$PICKUP_776BELTLINK";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(30,300,"PB_776BeltLinkPile","SBKYA0","SBKZA0");
+	}
+	states{
+	spawn:
+		SBKZ A -1;
+		SBKY A -1;
+		stop;
+	}
+}
+
+class PB_776BeltLinkPile:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Pile of Small Belt Links"
+		//$Sprite "BLT0B0"
+
+		scale 0.7;
+		hdupk.amount 300;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "PICKUP_776BELTLINKPILE";
+		hdupk.pickuptype "HD_776BeltLink";
+	}
+	states{
+	spawn:
+		SBKZ B -1;
+	}
+}
+
+class HDFlyingBeltLink:HDSpent50AM{ //why does it inherit from the .50 AM casings? i dunno im lazy
+	override void postbeginplay(){
+		HDDebris.postbeginplay();
+	}
+	default{
+		scale 0.7;
+		bouncefactor 0.1;
+		bouncesound "there is no sound";
+	}
+	states{
+		spawn:
+		SBKZ A 0 nodelay{
+			A_SetRoll(roll+frandom(0,180));
+		}
+		SBKZ A 1{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}wait;
+	death:
+		TNT1 A 1{
+			actor a=spawn("HD_776BeltLink",self.pos,ALLOW_REPLACE);
+			a.roll=self.roll;a.vel=self.vel;
+		}stop;
+	}
+}
+
+//medium belt links, good for anything up to 30mm
+class HD_12MMBeltLink:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		+rollsprite +rollcenter
+		height 16;radius 8;
+		tag "$TAG_12MMBELTLINK";
+		hdpickup.refid HDLD_12MMBELTLINK;
+		hdpickup.bulk ENC_12MMBELTLINK;
+		xscale 0.65;yscale 0.65;
+		inventory.pickupmessage "$PICKUP_12MMBELTLINK";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(12,120,"PB_12MMBeltLinkPile","2BKYA0","2BKZA0");
+	}
+	states{
+	spawn:
+		2BKZ A -1;
+		2BKY A -1;
+		stop;
+	}
+}
+
+class PB_12MMBeltLinkPile:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Pile of Medium-Sized Belt Links"
+		//$Sprite "BLT0B0"
+
+		scale 0.65;
+		hdupk.amount 120;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "$PICKUP_12MMBELTLINKPILE";
+		hdupk.pickuptype "HD_12MMBeltLink";
+		+forcexybillboard
+	}
+	states{
+	spawn:
+		2BKZ B -1;
+	}
+}
+
+class HDFlyingBeltLink_12MM:HDSpent50AM{ //why does it inherit from the .50 AM casings? i dunno im lazy
+	override void postbeginplay(){
+		HDDebris.postbeginplay();
+	}
+	default{
+		scale 0.65;
+		bouncefactor 0.1;
+		bouncesound "there is no sound";
+	}
+	states{
+		spawn:
+		2BKZ A 0 nodelay{
+			A_SetRoll(roll+frandom(0,180));
+		}
+		2BKZ A 1{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}wait;
+	death:
+		TNT1 A 1{
+			actor a=spawn("HD_12MMBeltLink",self.pos,ALLOW_REPLACE);
+			a.roll=self.roll;a.vel=self.vel;
+		}stop;
+	}
+}
+
+//large belt links, good for anything from 35mm and beyond
+class HD_35mmBeltLink : HDRoundAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		+rollsprite +rollcenter
+		height 16;radius 8;
+		tag "$TAG_35MMBELTLINK";
+		hdpickup.refid HDLD_35MMBELTLINK;
+		hdpickup.bulk ENC_35MMBELTLINK;
+		scale 0.3;
+		inventory.pickupmessage "$PICKUP_35MMBELTLINK";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(7,70,"PB_35mmBeltLinkPile","HW1LA0","HW0LA0");
+	}
+	states{
+	spawn:
+		HW0L A -1;
+		HW1L A -1;
+		stop;
+	}
+}
+
+class PB_35mmBeltLinkPile:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Pile of 7.76 Belt Links"
+		//$Sprite "BLT0B0"
+
+		scale 0.3;
+		hdupk.amount 70;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "$PICKUP_35MMBELTLINKPILE";
+		hdupk.pickuptype "HD_35mmBeltLink";
+	}
+	states{
+	spawn:
+		HW0L B -1;
+	}
+}
+
+class HD35MMFlyingBeltLink:HDSpent50AM{ //why does it inherit from the .50 AM casings? i dunno im lazy
+	override void postbeginplay(){
+		HDDebris.postbeginplay();
+	}
+	default{
+		scale 0.3;
+		bouncefactor 0.1;
+		bouncesound "there is no sound";
+	}
+	states{
+		spawn:
+		HW0L A 0 nodelay{
+			A_SetRoll(roll+frandom(0,180));
+		}
+		HW0L A 1{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}wait;
+	death:
+		TNT1 A 1{
+			actor a=spawn("HD_35mmBeltLink",self.pos,ALLOW_REPLACE);
+			a.roll=self.roll;a.vel=self.vel;
+		}stop;
+	}
+}

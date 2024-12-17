@@ -1487,3 +1487,24 @@ Sprite "T710A0", 40, 23
 }
 
 // End of texture definitions
+
+//Belt Links
+
+//Large
+Sprite "HW0LA0", 14, 6
+{
+	Offset 7, 6
+	Patch "ATCN_ST1", 0, -7
+}
+
+Sprite "HW0LB0", 59, 19
+{
+	Offset 29, 19
+	Patch "ATCN_ST1", 0, -14
+}
+
+Sprite "HW1LA0", 56, 6
+{
+	Offset 29, 6
+	Patch "ATCN_ST1", 0, 0
+}

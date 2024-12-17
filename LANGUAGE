@@ -107,5 +107,18 @@ PICKUP_420FREIBOX="Picked up some .451 Frei ammo.";
 PICKUP_069BORE="Picked up a .066 bore shell.";
 PICKUP_069BOREBOX="Picked up some .066 bore shells.";
 
+TAG_776BELTLINK="Small Belt Link";
+TAG_12MMBELTLINK="Medium-Sized Belt Link";
+TAG_35MMBELTLINK="Large Belt Link";
+
+PICKUP_776BELTLINK="Picked up a small belt link.";
+PICKUP_12MMBELTLINK="Picked up a medium-sized belt link.";
+PICKUP_35MMBELTLINK="Picked up a large belt link.";
+
+PICKUP_776BELTLINKPILE="Picked up a pile of small belt links.";
+PICKUP_12MMBELTLINKPILE="Picked up a pile of medium-sized belt links.";
+PICKUP_35MMBELTLINKPILE="Picked up a pile of large belt links.";
+
+
 OB_20MM="%o was fragged by %k.";
 OB_WANROCKET="%o was fragged by %k.";
