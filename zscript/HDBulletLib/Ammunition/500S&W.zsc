@@ -35,16 +35,56 @@ class HDB_500LAD : HDBulletActor
 	}
 }
 
+class HDLoose500Light : HDLoose9mm
+{
+	Default
+	{
+		bouncefactor 0.5;
+	}
+	
+	States
+	{
+		spawn:
+			SWCS A 2 NoDelay A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			Loop;
+		death:
+			SWCS # 1{
+				actor a=spawn("HD500SWLightAmmo",self.pos,ALLOW_REPLACE);
+				a.roll=self.roll;a.vel=self.vel;
+			}stop;
+	}
+}
+
+class HDLoose500Heavy : HDLoose9mm
+{
+	Default
+	{
+		bouncefactor 0.5;
+	}
+	
+	States
+	{
+		spawn:
+			SWCS A 2 NoDelay A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			Loop;
+		death:
+			SWCS # 1{
+				actor a=spawn("HD500SWHeavyAmmo",self.pos,ALLOW_REPLACE);
+				a.roll=self.roll;a.vel=self.vel;
+			}stop;
+	}
+}
+
 class HDSpent500 : HDSpent9mm
 {
-	states{
-	spawn:
-		SWCS A 2 nodelay{
-			A_SetRoll(roll+45,SPF_INTERPOLATE);
-		}loop;
-	death:
-		SWCS # -1;
-		stop;
+	States
+	{
+		spawn:
+			SWCS A 2 nodelay A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			loop;
+		death:
+			SWCS # -1;
+			stop;
 	}
 }
 
