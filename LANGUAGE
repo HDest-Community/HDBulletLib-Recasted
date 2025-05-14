@@ -107,6 +107,7 @@ PICKUP_420FREIBOX="Picked up some .451 Frei ammo.";
 PICKUP_069BORE="Picked up a .066 bore shell.";
 PICKUP_069BOREBOX="Picked up some .066 bore shells.";
 
+TAG_BELTLINKS="Belt Links";
 TAG_776BELTLINK="Small Belt Link";
 TAG_12MMBELTLINK="Medium-Sized Belt Link";
 TAG_35MMBELTLINK="Large Belt Link";

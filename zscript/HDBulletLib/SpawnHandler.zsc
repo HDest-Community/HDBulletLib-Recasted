@@ -33,7 +33,10 @@ class HDBulletLibHandler : EventHandler {
         'Savage300Ammo',
         'HD762TokarevAmmo',
         'TokarevBrass',
-        'Savage300Brass'
+        'Savage300Brass',
+        'HD_776BeltLink', //[Eric] NOTE FOR FUTURE ADDITIONS: The first hdblib_enableammo CVAR is full as of this line. The next 32 entries below must use hdblib_enableammo_2.
+        'HD_12MMBeltLink',
+        'HD_35mmBeltLink'
     };
 
     // [Ace] Future-proofing. I doubt this library will ever have 32 * 3 ammo types and projectiles.
