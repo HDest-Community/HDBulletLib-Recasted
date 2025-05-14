@@ -62,6 +62,7 @@ OptionMenu "HDBulletLibMenu"
 	Submenu "$TAG_22LR", "5mm", 0, 1
 	Submenu "$TAG_50AM", "50AM", 0, 1
 	Submenu "$TAG_6MMFLECH", "6mmF", 0, 1
+	Submenu "$TAG_BELTLINKS", "Belts", 0, 1
 	StaticText ""
 	StaticText "Created by Wanzer", "Light Blue"
 	Submenu "$TAG_THUNROCKET", "ThuRKT", 0, 1
@@ -823,4 +824,18 @@ OptionMenu 762Tokarev
    	StaticText ""
 	StaticText "Reset Options", "Orange"
 	SafeCommand "Reset all options", "hdb_762Tokarev_reset_cvars"
+}
+
+OptionMenu Belts
+{
+	Title "------ Belt Link Options ------"
+	StaticText "Enable/Disable Small Belt Links from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "$TAG_776BELTLINK", "hdblib_enableammo_1", "OnOff", 31
+	StaticText ""
+	StaticText "Enable/Disable Medium Belt Links from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "$TAG_12MMBELTLINK", "hdblib_enableammo_2", "OnOff", 0
+	StaticText ""
+	StaticText "Enable/Disable Large Belt Links from spawning in Ammo Boxes and Backpacks.", "Orange"
+	FlagOption "$TAG_35MMBELTLINK", "hdblib_enableammo_2", "OnOff", 1
+	StaticText ""
 }
