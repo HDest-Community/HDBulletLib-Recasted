@@ -1,168 +1,168 @@
 // 9mm NDM
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "HDNDMBoxPickup", "weight": "#hdb_NDM_box_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "HDNDMBoxPickup", "weight": "#hdb_NDM_box_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
 
 // 9mm NDM Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpentNDM", "weight": "#hdb_NDM_casing_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBitsReplaces", "name": "HDSpentNDM", "weight": "#hdb_NDM_casing_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
 
 // .500 S&W Lights
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "HD500SWLightBoxPickup", "weight": "#hdb_500sw_shellbox_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD500SWLightBoxPickup", "weight": "#hdb_500sw_shellbox_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
 
 // .500 S&W Heavies
-addSpawnTableSingleEntry => { "tableName": "HDCore.RocketReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.RocketBoxReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
 
 // .500 S&W Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent500", "weight": "#hdb_500sw_casing_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent500", "weight": "#hdb_500sw_casing_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
 
 // 12 Gauge Slugs
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HDSlugAmmo", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "SlugPickup", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "SlugBoxPickup", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDSlugAmmo", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "SlugPickup", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "SlugBoxPickup", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
 
 // 12 Gauge Slug Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpentSlug", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentSlug", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
 
 // .420 Frei
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HD420BoxPickup", "weight": "#hdb_420frei_box_spawn_bias", "persists": "#hdb_420frei_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD420BoxPickup", "weight": "#hdb_420frei_box_spawn_bias", "persists": "#hdb_420frei_persistent_spawning" }
 
 // .420 Frei Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent420", "weight": "#hdb_420frei_casing_spawn_bias", "persists": "#hdb_420frei_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent420", "weight": "#hdb_420frei_casing_spawn_bias", "persists": "#hdb_420frei_persistent_spawning" }
 
 // .069 Bore
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "HD069BoreBox", "weight": "#hdb_069bore_box_spawn_bias", "persists": "#hdb_069bore_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD069BoreBox", "weight": "#hdb_069bore_box_spawn_bias", "persists": "#hdb_069bore_persistent_spawning" }
 
 // .069 Bore Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent069Bore", "weight": "#hdb_069bore_casing_spawn_bias", "persists": "#hdb_069bore_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent069Bore", "weight": "#hdb_069bore_casing_spawn_bias", "persists": "#hdb_069bore_persistent_spawning" }
 
 // .50 OMG
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HD50OMGBoxPickup", "weight": "#hdb_50omg_box_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.RocketBoxReplaces", "name": "HD50OMGBoxPickup", "weight": "#hdb_50omg_box_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD50OMGBoxPickup", "weight": "#hdb_50omg_box_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "HD50OMGBoxPickup", "weight": "#hdb_50omg_box_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
 
 // .50 OMG Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent50OMG", "weight": "#hdb_50omg_casing_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent50OMG", "weight": "#hdb_50omg_casing_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
 
 // .45 ACP
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HD45ACPBoxPickup", "weight": "#hdb_45acp_box_spawn_bias", "persists": "#hdb_45acp_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD45ACPBoxPickup", "weight": "#hdb_45acp_box_spawn_bias", "persists": "#hdb_45acp_persistent_spawning" }
 
 // .45 ACP Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent45ACP", "weight": "#hdb_45acp_casing_spawn_bias", "persists": "#hdb_45acp_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent45ACP", "weight": "#hdb_45acp_casing_spawn_bias", "persists": "#hdb_45acp_persistent_spawning" }
 
 // 10mm Auto
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HD10mBoxPickup", "weight": "#hdb_10mm_box_spawn_bias", "persists": "#hdb_10mm_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD10mBoxPickup", "weight": "#hdb_10mm_box_spawn_bias", "persists": "#hdb_10mm_persistent_spawning" }
 
 // 10mm Auto Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent10mm", "weight": "#hdb_10mm_casing_spawn_bias", "persists": "#hdb_10mm_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent10mm", "weight": "#hdb_10mm_casing_spawn_bias", "persists": "#hdb_10mm_persistent_spawning" }
 
 // .45 LC
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HD45LCBoxPickup", "weight": "#hdb_45lc_box_spawn_bias", "persists": "#hdb_45lc_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD45LCBoxPickup", "weight": "#hdb_45lc_box_spawn_bias", "persists": "#hdb_45lc_persistent_spawning" }
 
 // .45 LC Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent45LC", "weight": "#hdb_45lc_casing_spawn_bias", "persists": "#hdb_45lc_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent45LC", "weight": "#hdb_45lc_casing_spawn_bias", "persists": "#hdb_45lc_persistent_spawning" }
 
 // Golden .45 LC
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HDGold45LCBoxPickup", "weight": "#hdb_g45lc_box_spawn_bias", "persists": "#hdb_g45lc_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HDGold45LCBoxPickup", "weight": "#hdb_g45lc_box_spawn_bias", "persists": "#hdb_g45lc_persistent_spawning" }
 
 // Golden .45 LC Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpentGold45LC", "weight": "#hdb_g45lc_casing_spawn_bias", "persists": "#hdb_g45lc_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentGold45LC", "weight": "#hdb_g45lc_casing_spawn_bias", "persists": "#hdb_g45lc_persistent_spawning" }
 
 // Less-Lethal Shells
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HDLLShellAmmo", "weight": "#hdb_LLS_shell_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "LLShellPickup", "weight": "#hdb_LLS_shell_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "LLShellBoxPickup", "weight": "#hdb_LLS_shellbox_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDLLShellAmmo", "weight": "#hdb_LLS_shell_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "LLShellPickup", "weight": "#hdb_LLS_shell_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "LLShellBoxPickup", "weight": "#hdb_LLS_shellbox_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
 
 // Less-Lethal Shell Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDLLSpentShell", "weight": "#hdb_LLS_casing_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDLLSpentShell", "weight": "#hdb_LLS_casing_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
 
 // Explosive Slugs
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HDExplosiveShellAmmo", "weight": "#hdb_ESlug_shell_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "ExplosiveShellPickup", "weight": "#hdb_ESlug_shell_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "ExplosiveShellBoxPickup", "weight": "#hdb_ESlug_shellbox_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDExplosiveShellAmmo", "weight": "#hdb_ESlug_shell_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "ExplosiveShellPickup", "weight": "#hdb_ESlug_shell_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "ExplosiveShellBoxPickup", "weight": "#hdb_ESlug_shellbox_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
 
 // Explosive Slug Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpentExplosiveShell", "weight": "#hdb_ESlug_casing_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentExplosiveShell", "weight": "#hdb_ESlug_casing_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
 
 // Flare Shells
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HDFlareAmmo", "weight": "#hdb_FShell_shell_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "FlareShellPickup", "weight": "#hdb_FShell_shell_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "FlareShellBoxPickup", "weight": "#hdb_FShell_shellbox_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDFlareAmmo", "weight": "#hdb_FShell_shell_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "FlareShellPickup", "weight": "#hdb_FShell_shell_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "FlareShellBoxPickup", "weight": "#hdb_FShell_shellbox_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
 
 // Flare Shell Casings
-// addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent", "weight": "#hdb_FShell_casing_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
+// addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent", "weight": "#hdb_FShell_casing_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
 
 // .56 cal Musket Balls
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDBallAmmo", "weight": "#hdb_MBall_casing_spawn_bias", "persists": "#hdb_MBall_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDBallAmmo", "weight": "#hdb_MBall_casing_spawn_bias", "persists": "#hdb_MBall_persistent_spawning" }
 
 // 4 Gauge Slugs
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HD4GSAmmo", "weight": "#hdb_4gss_shell_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HDFumbled4GS", "weight": "#hdb_4gss_shell_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "HD4GSSpawn", "weight": "#hdb_4gss_shellbox_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HD4GSAmmo", "weight": "#hdb_4gss_shell_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDFumbled4GS", "weight": "#hdb_4gss_shell_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD4GSSpawn", "weight": "#hdb_4gss_shellbox_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
 
 // 4 Gauge Slug Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent4GS", "weight": "#hdb_4gss_casing_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent4GS", "weight": "#hdb_4gss_casing_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
 
 // 5mm Bumblebee Rimfire
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "PB_5mmBoxPickup", "weight": "#hdb_5mm_box_spawn_bias", "persists": "#hdb_5mm_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "PB_5mmBoxPickup", "weight": "#hdb_5mm_box_spawn_bias", "persists": "#hdb_5mm_persistent_spawning" }
 
 // 5mm Bumblebee Rimfire Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent5mmMR", "weight": "#hdb_5mm_casing_spawn_bias", "persists": "#hdb_5mm_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent5mmMR", "weight": "#hdb_5mm_casing_spawn_bias", "persists": "#hdb_5mm_persistent_spawning" }
 
 // .50 AM
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "PB_50AMBoxPickup", "weight": "#hdb_50am_box_spawn_bias", "persists": "#hdb_50am_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "PB_50AMBoxPickup", "weight": "#hdb_50am_box_spawn_bias", "persists": "#hdb_50am_persistent_spawning" }
 
 // .50 AM Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent50AM", "weight": "#hdb_50am_casing_spawn_bias", "persists": "#hdb_50am_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent50AM", "weight": "#hdb_50am_casing_spawn_bias", "persists": "#hdb_50am_persistent_spawning" }
 
 // 6mm Flechettes
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HD6mmFlechetteBoxPickup", "weight": "#hdb_6mm_box_spawn_bias", "persists": "#hdb_6mm_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD6mmFlechetteBoxPickup", "weight": "#hdb_6mm_box_spawn_bias", "persists": "#hdb_6mm_persistent_spawning" }
 
 // 6mm Flechette Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent6mmFlechette", "weight": "#hdb_6mm_casing_spawn_bias", "persists": "#hdb_6mm_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent6mmFlechette", "weight": "#hdb_6mm_casing_spawn_bias", "persists": "#hdb_6mm_persistent_spawning" }
 
 // 20mm Grenades
-addSpawnTableSingleEntry => { "tableName": "HDCore.RocketBoxReplaces", "name": "WAN_20mmGrenadeBox", "weight": "#hdb_20mm_rbox_spawn_bias", "persists": "#hdb_20mm_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "WAN_20mmGrenadeBox", "weight": "#hdb_20mm_rbox_spawn_bias", "persists": "#hdb_20mm_persistent_spawning" }
 
 // Thunder Rockets
-addSpawnTableSingleEntry => { "tableName": "HDCore.RocketBoxReplaces", "name": "WAN_ThuRKTAmmo", "weight": "#hdb_ThuRKT_rbox_spawn_bias", "persists": "#hdb_ThuRKT_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "WAN_ThuRKTAmmo", "weight": "#hdb_ThuRKT_rbox_spawn_bias", "persists": "#hdb_ThuRKT_persistent_spawning" }
 
 // Tortoise Missiles
-addSpawnTableSingleEntry => { "tableName": "HDCore.RocketBoxReplaces", "name": "WAN_TortRktAmmo", "weight": "#hdb_TortRKT_rbox_spawn_bias", "persists": "#hdb_TortRKT_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "WAN_TortRktAmmo", "weight": "#hdb_TortRKT_rbox_spawn_bias", "persists": "#hdb_TortRKT_persistent_spawning" }
 
 // .30-06
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.RocketReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
 
 // .30-06 Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent3006", "weight": "#hdb_3006_casing_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent3006", "weight": "#hdb_3006_casing_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
 
 // 4 Gauge Shells
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HD4GBAmmo", "weight": "#hdb_4gbs_shell_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HD4GBPickup", "weight": "#hdb_4gbs_shell_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "HD4GBBox", "weight": "#hdb_4gbs_shellbox_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HD4GBAmmo", "weight": "#hdb_4gbs_shell_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HD4GBPickup", "weight": "#hdb_4gbs_shell_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD4GBBox", "weight": "#hdb_4gbs_shellbox_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
 
 // 4 Gauge Shell Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpent4GB", "weight": "#hdb_4gbs_casing_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent4GB", "weight": "#hdb_4gbs_casing_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
 
 // Birdshot
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HDBirdshotShellAmmo", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HDBirdshotShellPickup", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "HDBirdshotShellBoxPickup", "weight": "#hdb_bird_shellbox_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDBirdshotShellAmmo", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDBirdshotShellPickup", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HDBirdshotShellBoxPickup", "weight": "#hdb_bird_shellbox_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
 
 // Birdshot Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "HDSpentBirdshotShell", "weight": "#hdb_bird_casing_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentBirdshotShell", "weight": "#hdb_bird_casing_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
 
 // .300 Savage
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "Savage300Ammo", "weight": "#hdb_300savage_shell_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellReplaces", "name": "HDSavage300Pickup", "weight": "#hdb_300savage_shell_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "HDCore.ShellBoxReplaces", "name": "HDSavage300BoxPickup", "weight": "#hdb_300savage_shellbox_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "Savage300Ammo", "weight": "#hdb_300savage_shell_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDSavage300Pickup", "weight": "#hdb_300savage_shell_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HDSavage300BoxPickup", "weight": "#hdb_300savage_shellbox_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
 
 // .300 Savage Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "Savage300Brass", "weight": "#hdb_300savage_casing_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "Savage300Brass", "weight": "#hdb_300savage_casing_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
 
 // 7.62 Tokarev
-addSpawnTableSingleEntry => { "tableName": "HDCore.ClipBoxReplaces", "name": "HDTokarevBoxPickup", "weight": "#hdb_7tokarev_box_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HDTokarevBoxPickup", "weight": "#hdb_7tokarev_box_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
 
 // 7.62 Tokarev Casings
-addSpawnTableSingleEntry => { "tableName": "HDCore.HDCasingBitsReplaces", "name": "TokarevBrass", "weight": "#hdb_7tokarev_casing_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "TokarevBrass", "weight": "#hdb_7tokarev_casing_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
 
 
 // HDBL Ammo Associations
