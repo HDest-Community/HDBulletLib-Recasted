@@ -240,7 +240,7 @@ class HDB_00Rubber:HDBulletActor{
 		if(penshell<=0)penshell=0;
 		else penshell*=1.-frandom(0,hitangle*0.004);
 
-		if(hd_debug)A_Log("Armour: "..pen.."    -"..penshell.."    = "..pen-penshell.."     "..hdmath.getname(hitactor));
+		if(hd_debug)A_Log("Armour: "..pen.."    -"..penshell.."    = "..pen-penshell.."     "..hitactor.gettag());
 
 		//apply final armour
 		pen-=penshell;
