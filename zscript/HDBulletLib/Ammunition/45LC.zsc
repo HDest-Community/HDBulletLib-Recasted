@@ -226,6 +226,7 @@ class HD45LCAmmo:HDRoundAmmo{
 		+forcexybillboard
 		inventory.pickupmessage "$PICKUP_45LC";
 		hdpickup.refid "45L";
+		+HDPICKUP.MULTIPICKUP
 		tag "$TAG_45LC";
 		hdpickup.bulk ENC_355*2;
 		inventory.icon "T10MA0";
