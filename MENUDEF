@@ -25,14 +25,12 @@ OptionMenu "HDBulletLibMenu"
 	StaticText ""
 	SafeCommand "Reset all options", "hdb_reset_cvars"
 	StaticText ""
-	StaticText "Created by Accensus", "cyan"
-	Submenu "$TAG_50AE", "50AE", 0, 1
-	StaticText ""
 	StaticText "Created by Peppergrinder Team", "purple"
 	Submenu "$TAG_12SLUG", "12GaugeSlugs", 0, 1
 	Submenu "$TAG_500SW", "500SW", 0, 1
 	Submenu "$TAG_420FREI", "420Frei", 0, 1
 	Submenu "$TAG_069BORE", "069Bore", 0, 1
+	Submenu "$TAG_NDM", "9mmNDM", 0, 1
 	StaticText ""
 	StaticText "Created by Bogus", "white"
 	Submenu "$TAG_50OMG", "50OMG", 0, 1
@@ -71,34 +69,6 @@ OptionMenu "HDBulletLibMenu"
 	StaticText ""
 	StaticText "Created by HexaDoken", "Dark Green"
 	Submenu "$TAG_3006", "3006", 0, 1
-}
-
-OptionMenu 50AE
-{
-    Title "------ .50 AE Options ------"
-   	StaticText "Notice:", "Cyan"
-    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
-    StaticText  "spawns of that given type.", "white"
-    StaticText ""
-	StaticText "Spawn Options", "Cyan"
-    StaticText  "Control the spawn rate of .50 AE on Clip Boxes", "white"
-	ScaleSlider "Spawn Rate: ", "hdb_50ae_box_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
-	SafeCommand "Reset spawn options", "resetcvar hdb_50ae_box_spawn_bias"
-	StaticText ""
-    StaticText  "Control the spawn rate of .50 AE casings", "white"
-	ScaleSlider "Spawn Rate: ", "hdb_50ae_casing_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
-	SafeCommand "Reset spawn options", "resetcvar hdb_50ae_casing_spawn_bias"
- 	StaticText ""
-	StaticText "Enable/Disable .50 AE from spawning in Ammo Boxes and Backpacks.", "Cyan"
-	FlagOption "$TAG_50AE", "hdblib_enableammo_1", "OnOff", 0
-	StaticText ""
-    StaticText  "Control whether replacements happen after a mapload.", "white"
-	Option "Persistent Spawns: ", "hdb_50ae_persistent_spawning", "OnOff"
-	SafeCommand "Reset persistence options", "resetcvar hdb_50ae_persistent_spawning"
- 	StaticText ""
-   	StaticText ""
-	StaticText "Reset Options", "Cyan"
-	SafeCommand "Reset all options", "hdb_50ae_reset_cvars"
 }
 
 OptionMenu 500SW
@@ -220,6 +190,34 @@ OptionMenu 069Bore
    	StaticText ""
 	StaticText "Reset Options", "purple"
 	SafeCommand "Reset all options", "hdb_069bore_reset_cvars"
+}
+
+OptionMenu 9mmNDM
+{
+    Title "------ Nail Driver Maximum Options ------"
+   	StaticText "Notice:", "purple"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "purple"
+    StaticText  "Control the spawn rate of NDM on Clip Boxes", "white"
+	ScaleSlider "Spawn Rate: ", "hdb_ndm_box_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
+	SafeCommand "Reset spawn options", "resetcvar hdb_ndm_box_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of NDM casings", "white"
+	ScaleSlider "Spawn Rate: ", "hdb_ndm_casing_spawn_bias", -1, 999, 1, "$MENU_REPLACEALL", "$MENU_DISABLED"
+	SafeCommand "Reset spawn options", "resetcvar hdb_ndm_casing_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable NDM from spawning in Ammo Boxes and Backpacks.", "purple"
+	FlagOption "$TAG_NDM", "hdblib_enableammo_1", "OnOff", 18
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_ndm_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_ndm_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "purple"
+	SafeCommand "Reset all options", "hdb_ndm_reset_cvars"
 }
 
 OptionMenu 50OMG

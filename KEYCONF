@@ -5,7 +5,7 @@ alias hdb_500sw_reset_cvars            "resetcvar hdb_500sw_shellbox_spawn_bias;
 alias hdb_12gslug_reset_cvars          "resetcvar hdb_12gslug_shellbox_spawn_bias;   resetcvar hdb_12gslug_shell_spawn_bias;   resetcvar hdb_12gslug_casing_spawn_bias;   resetcvar hdb_12gslug_persistent_spawning"
 alias hdb_420frei_reset_cvars          "resetcvar hdb_420frei_box_spawn_bias;                                                  resetcvar hdb_420frei_casing_spawn_bias;   resetcvar hdb_420frei_persistent_spawning"
 alias hdb_069bore_reset_cvars          "resetcvar hdb_069bore_box_spawn_bias;                                                  resetcvar hdb_069bore_casing_spawn_bias;   resetcvar hdb_069bore_persistent_spawning"
-alias hdb_50ae_reset_cvars             "resetcvar hdb_50ae_box_spawn_bias;                                                     resetcvar hdb_50ae_casing_spawn_bias;      resetcvar hdb_50ae_persistent_spawning"
+alias hdb_ndm_reset_cvars              "resetcvar hdb_ndm_box_spawn_bias;                                                      resetcvar hdb_ndm_casing_spawn_bias;       resetcvar hdb_ndm_persistent_spawning"
 alias hdb_50OMG_reset_cvars            "resetcvar hdb_50omg_box_spawn_bias;                                                    resetcvar hdb_50omg_casing_spawn_bias;     resetcvar hdb_50omg_persistent_spawning"
 alias hdb_45ACP_reset_cvars            "resetcvar hdb_45acp_box_spawn_bias;                                                    resetcvar hdb_45acp_casing_spawn_bias;     resetcvar hdb_45acp_persistent_spawning"
 alias hdb_10mmAuto_reset_cvars         "resetcvar hdb_10mm_box_spawn_bias;                                                     resetcvar hdb_10mm_casing_spawn_bias;      resetcvar hdb_10mm_persistent_spawning"

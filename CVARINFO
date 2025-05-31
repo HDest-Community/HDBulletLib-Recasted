@@ -18,20 +18,20 @@ server int hdb_12gslug_shell_spawn_bias = -1;
 server int hdb_12gslug_casing_spawn_bias = -1;
 server bool hdb_12gslug_persistent_spawning = false;
 
-// .420 Frei
+// .451 Frei
 server int hdb_420frei_box_spawn_bias = -1;
 server int hdb_420frei_casing_spawn_bias = -1;
 server bool hdb_420frei_persistent_spawning = false;
 
-// .069 Bore
+// .066 Bore
 server int hdb_069bore_box_spawn_bias = -1;
 server int hdb_069bore_casing_spawn_bias = -1;
 server bool hdb_069bore_persistent_spawning = false;
 
-// .50 AE
-server int hdb_50ae_box_spawn_bias = -1;
-server int hdb_50ae_casing_spawn_bias = -1;
-server bool hdb_50ae_persistent_spawning = false;
+// 9mm NDM
+server int hdb_ndm_box_spawn_bias = -1;
+server int hdb_ndm_casing_spawn_bias = -1;
+server bool hdb_ndm_persistent_spawning = false;
 
 // .50 OMG
 server int hdb_50omg_box_spawn_bias = -1;

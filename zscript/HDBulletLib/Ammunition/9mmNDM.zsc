@@ -1,0 +1,71 @@
+// ------------------------------------------------------------
+// CREATED BY Sledge
+// ------------------------------------------------------------
+
+class HDSpentNDM:HDSpent9mm{
+	default{
+		Translation "128:167=#[91,168,244]";
+	}
+}
+//////////////////////////////////////////////////////
+const HDLD_NDM="ndm";
+
+class HDB_NDM:HDBulletActor{
+	default{
+		pushfactor 0.4;
+		mass 60;
+		speed 740;
+		accuracy 450;
+		stamina 762;
+		woundhealth 30;
+		hdbulletactor.hardness 15;
+	}
+}
+
+class HDNDMLoose:HDRoundAmmo{
+	default{
+		+inventory.ignoreskill
+		+cannotpush
+		+forcexybillboard
+		+rollsprite +rollcenter
+		+hdpickup.multipickup
+		xscale 0.7;
+		yscale 0.6;
+		inventory.pickupmessage "$PICKUP_NDM";
+		hdpickup.refid HDLD_NDM;
+		tag "$TAG_NDM";
+		hdpickup.bulk ENC_9;
+		inventory.icon "TNNDA0";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(10,60,"HDNDMBoxPickup","TNNDA0","NRNDA0");
+	}
+	override void GetItemsThatUseThis(){
+		itemsthatusethis.push("HDGuillotine");
+		itemsthatusethis.push("HDBreakerP90");
+	}
+	states{
+	spawn:
+		NRND A -1;
+		TNND A -1;
+	}
+}
+
+class HDNDMBoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of 9mm"
+		//$Sprite "9BOXA0"
+
+		tag "$TAG_NDMBOX";
+		scale 0.4;
+		hdupk.amount 60;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "$PICKUP_NDMBOX";
+		hdupk.pickuptype "HDNDMLoose";
+	}
+	states{
+	spawn:
+		NDMB A -1;
+	}
+}

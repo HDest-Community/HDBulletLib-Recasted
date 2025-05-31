@@ -3,7 +3,6 @@ const HDCONST_HDBLEVENT = HDCONST_BPSPAWNPOOLEVENT + 1;
 class HDBulletLibHandler : EventHandler {
     // [Ace] Order here must match order in menu. And zscript files. - [Ted]
     static const class<HDAmmo> RemovedClasses[] = {
-        'HD50AEAmmo',
         'HDSlugAmmo',
         'HD500SWLightAmmo',
         'HD500SWHeavyAmmo',
@@ -22,6 +21,7 @@ class HDBulletLibHandler : EventHandler {
         'HD50AM_Ammo',
         'HDAurochsAmmo',
         'HD069BoreAmmo',
+		'HDNDMLoose',
         'TenMilBrass',
         'Wan_ThuRKTAmmo',
         'Wan_TortRKTAmmo',
@@ -241,34 +241,34 @@ class HDBulletLibAmmoSpawner: EventHandler {
         spawns_12gslugcase.push(addAmmoEntry('HDSpentShell', hdb_12gslug_casing_spawn_bias));
         addAmmo('HDSpentSlug', spawns_12gslugcase, hdb_12gslug_persistent_spawning);
 
-        // .420 Frei Box Pickup
+        // .451 Frei Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_420freibox;
         spawns_420freibox.push(addAmmoEntry('ClipBoxPickup', hdb_420frei_box_spawn_bias));
         addAmmo('HD420BoxPickup', spawns_420freibox, hdb_420frei_persistent_spawning);
-        // .420 Frei Casing
+        // .451 Frei Casing
         Array<HDBLRSpawnAmmoEntry> spawns_420freicasing;
         spawns_420freicasing.push(addAmmoEntry('HDSpent9mm', hdb_420frei_casing_spawn_bias));
         spawns_420freicasing.push(addAmmoEntry('HDSpent355', hdb_420frei_casing_spawn_bias));
         addAmmo('HDSpent420', spawns_420freicasing, hdb_420frei_persistent_spawning);
 
-        // .069 Bore Box Pickup
+        // .066 Bore Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_069borebox;
         spawns_069borebox.push(addAmmoEntry('ShellBoxRandom', hdb_069bore_box_spawn_bias));
         addAmmo('HD069BoreBox', spawns_069borebox, hdb_069bore_persistent_spawning);
-        // .069 Bore Casing
+        // .066 Bore Casing
         Array<HDBLRSpawnAmmoEntry> spawns_069borecasing;
         spawns_069borecasing.push(addAmmoEntry('HDSpentShell', hdb_069bore_casing_spawn_bias));
         addAmmo('HDSpent069Bore', spawns_069borecasing, hdb_069bore_persistent_spawning);
 
-        // .50 AE Box Pickup
-        Array<HDBLRSpawnAmmoEntry> spawns_50aebox;
-        spawns_50aebox.push(addAmmoEntry('ClipBoxPickup', hdb_50ae_box_spawn_bias));
-        addAmmo('HD50AEBoxPickup', spawns_50aebox, hdb_50ae_persistent_spawning);
-        // .50 AE Casing
-        Array<HDBLRSpawnAmmoEntry> spawns_50aecasing;
-        spawns_50aecasing.push(addAmmoEntry('HDSpent9mm', hdb_50ae_casing_spawn_bias));
-        spawns_50aecasing.push(addAmmoEntry('HDSpent355', hdb_50ae_casing_spawn_bias));
-        addAmmo('HDSpent50AE', spawns_50aecasing, hdb_50ae_persistent_spawning);
+        // 9mm NDM Box Pickup
+        Array<HDBLRSpawnAmmoEntry> spawns_NDMbox;
+        spawns_NDMbox.push(addAmmoEntry('ClipBoxPickup', hdb_NDM_box_spawn_bias));
+        addAmmo('HDNDMBoxPickup', spawns_NDMbox, hdb_NDM_persistent_spawning);
+        // 9mm NDM Casing
+        Array<HDBLRSpawnAmmoEntry> spawns_NDMcasing;
+        spawns_NDMcasing.push(addAmmoEntry('HDSpent9mm', hdb_NDM_casing_spawn_bias));
+        spawns_NDMcasing.push(addAmmoEntry('HDSpent355', hdb_NDM_casing_spawn_bias));
+        addAmmo('HDSpentNDM', spawns_NDMcasing, hdb_NDM_persistent_spawning);
 
         // .50 OMG Box Pickup
         Array<HDBLRSpawnAmmoEntry> spawns_50omgbox;
