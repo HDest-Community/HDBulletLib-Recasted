@@ -80,15 +80,15 @@ OptionMenu 500SW
     StaticText ""
 	StaticText "Spawn Options", "purple"
     StaticText  "Control the spawn rate of .500 S&W lights on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_500sw_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_500sw_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_500sw_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .500 S&W heavies on Rocket Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_500sw_rocket_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_500sw_rocket_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_500sw_rocket_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .500 S&W casings", "white"
-	Slider "Spawn Rate: ", "hdb_500sw_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_500sw_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_500sw_casing_spawn_bias"
 	StaticText ""
 	StaticText "Enable/Disable .500 S&W from spawning in Ammo Boxes and Backpacks.", "purple"
@@ -113,15 +113,15 @@ OptionMenu 12GaugeSlugs
     StaticText ""
 	StaticText "Spawn Options", "purple"
     StaticText  "Control the spawn rate of 12-Gauge Slugs on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_12gslug_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_12gslug_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_12gslug_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 12-Gauge Slugs on Shells", "white"
-	Slider "Spawn Rate: ", "hdb_12gslug_shell_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_12gslug_shell_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_12gslug_shell_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 12-Gauge Slug casings", "white"
-	Slider "Spawn Rate: ", "hdb_12gslug_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_12gslug_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_12gslug_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 12 Gauge Slugs from spawning in Ammo Boxes and Backpacks.", "purple"
@@ -145,11 +145,11 @@ OptionMenu 420Frei
     StaticText ""
 	StaticText "Spawn Options", "purple"
     StaticText  "Control the spawn rate of .451 Frei on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_420frei_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_420frei_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_420frei_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .451 Frei casings", "white"
-	Slider "Spawn Rate: ", "hdb_420frei_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_420frei_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_420frei_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .451 Frei from spawning in Ammo Boxes and Backpacks.", "purple"
@@ -173,11 +173,11 @@ OptionMenu 069Bore
     StaticText ""
 	StaticText "Spawn Options", "purple"
     StaticText  "Control the spawn rate of .066 Bore on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_069bore_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_069bore_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_069bore_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .066 Bore casings", "white"
-	Slider "Spawn Rate: ", "hdb_069bore_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_069bore_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_069bore_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .066 Bore from spawning in Ammo Boxes and Backpacks.", "purple"
@@ -201,11 +201,11 @@ OptionMenu 9mmNDM
     StaticText ""
 	StaticText "Spawn Options", "purple"
     StaticText  "Control the spawn rate of NDM on Clip Boxes", "white"
-	ScaleSlider "Spawn Rate: ", "hdb_ndm_box_spawn_bias",  0.0, 1000, .01, 3
+	ScaleSlider "Spawn Rate: ", "hdb_ndm_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_ndm_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of NDM casings", "white"
-	ScaleSlider "Spawn Rate: ", "hdb_ndm_casing_spawn_bias",  0.0, 1000, .01, 3
+	ScaleSlider "Spawn Rate: ", "hdb_ndm_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_ndm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable NDM from spawning in Ammo Boxes and Backpacks.", "purple"
@@ -229,11 +229,11 @@ OptionMenu 50OMG
     StaticText ""
 	StaticText "Spawn Options", "white"
     StaticText  "Control the spawn rate of .50 OMG on Rocket Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_50omg_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_50omg_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_50omg_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .50 OMG casings", "white"
-	Slider "Spawn Rate: ", "hdb_50omg_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_50omg_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_50omg_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .50 OMG from spawning in Ammo Boxes and Backpacks.", "white"
@@ -257,11 +257,11 @@ OptionMenu 45ACP
     StaticText ""
 	StaticText "Spawn Options", "Purple"
     StaticText  "Control the spawn rate of .45 ACP on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_45acp_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_45acp_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_45acp_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .45 ACP casings", "white"
-	Slider "Spawn Rate: ", "hdb_45acp_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_45acp_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_45acp_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .45 ACP from spawning in Ammo Boxes and Backpacks.", "purple"
@@ -285,11 +285,11 @@ OptionMenu 10mmAuto
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of 10mm Auto on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_10mm_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_10mm_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_10mm_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 10mm Auto casings", "white"
-	Slider "Spawn Rate: ", "hdb_10mm_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_10mm_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_10mm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 10mm Auto and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
@@ -314,12 +314,12 @@ OptionMenu 45LC
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of .45 LC on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_45lc_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_45lc_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_45lc_box_spawn_bias"
 	StaticText ""
 /*
     StaticText  "Control the spawn rate of 10mm Auto casings", "white"
-	Slider "Spawn Rate: ", "hdb_45lc_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_45lc_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_45lc_casing_spawn_bias"
  	StaticText ""
 */
@@ -344,12 +344,12 @@ OptionMenu Gold45LC
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of Gold .45 LC on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_g45lc_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_g45lc_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_g45lc_box_spawn_bias"
 	StaticText ""
 /*
     StaticText  "Control the spawn rate of 10mm Auto casings", "white"
-	Slider "Spawn Rate: ", "hdb_g45lc_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_g45lc_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_g45lc_casing_spawn_bias"
  	StaticText ""
 */
@@ -374,15 +374,15 @@ OptionMenu LessLethalShells
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of Less-Lethal Shells on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_LLS_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_LLS_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_LLS_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of Less-Lethal Shells on Shells", "white"
-	Slider "Spawn Rate: ", "hdb_LLS_shell_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_LLS_shell_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_LLS_shell_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of Less-Lethal Shell casings", "white"
-	Slider "Spawn Rate: ", "hdb_LLS_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_LLS_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_LLS_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Less-Lethal Shells from spawning in Ammo Boxes and Backpacks.", "Orange"
@@ -406,15 +406,15 @@ OptionMenu ExplosiveSlugs
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of Explosive Slug boxes on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_ESlug_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_ESlug_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_ESlug_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of Explosive Slugs on Shells", "white"
-	Slider "Spawn Rate: ", "hdb_ESlug_shell_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_ESlug_shell_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_ESlug_shell_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of Explosive Slug casings", "white"
-	Slider "Spawn Rate: ", "hdb_ESlug_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_ESlug_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_ESlug_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Explosive Slugs from spawning in Ammo Boxes and Backpacks.", "Orange"
@@ -438,11 +438,11 @@ OptionMenu FlareShells
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of Flare Shell Boxes on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_FShell_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_FShell_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_FShell_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of Flare Shells on Shells", "white"
-	Slider "Spawn Rate: ", "hdb_FShell_shell_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_FShell_shell_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_FShell_shell_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Flare Shells from spawning in Ammo Boxes and Backpacks.", "Orange"
@@ -466,7 +466,7 @@ OptionMenu MusketBalls
     StaticText ""
 	StaticText "Spawn Options", "Green"
     StaticText  "Control the spawn rate of Musket Balls on Casings", "white"
-	Slider "Spawn Rate: ", "hdb_MBall_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_MBall_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_MBall_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Musket Balls from spawning in Ammo Boxes and Backpacks.", "Green"
@@ -490,15 +490,15 @@ OptionMenu 4GSS
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of 4-Gauge Slugs on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_4gss_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_4gss_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_4gss_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 4-Gauge Slugs on Shells", "white"
-	Slider "Spawn Rate: ", "hdb_4gss_shell_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_4gss_shell_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_4gss_shell_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 4-Gauge Slug casings", "white"
-	Slider "Spawn Rate: ", "hdb_4gss_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_4gss_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_4gss_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 4-Gauge Slugs from spawning in Ammo Boxes and Backpacks.", "Orange"
@@ -522,15 +522,15 @@ OptionMenu 4GaugeBuckshot
     StaticText ""
 	StaticText "Spawn Options", "Purple"
     StaticText  "Control the spawn rate of 4-Gauge Buckshot on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_4gbs_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_4gbs_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_4gbs_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 4-Gauge Buckshot on Shells", "white"
-	Slider "Spawn Rate: ", "hdb_4gbs_shell_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_4gbs_shell_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_4gbs_shell_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 4-Gauge Buckshot casings", "white"
-	Slider "Spawn Rate: ", "hdb_4gbs_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_4gbs_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_4gbs_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 4-Gauge Buckshot from spawning in Ammo Boxes and Backpacks.", "Purple"
@@ -554,11 +554,11 @@ OptionMenu 5mm
     StaticText ""
 	StaticText "Spawn Options", "Blue"
     StaticText  "Control the spawn rate of 5mm Bumblebee Rimfire on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_5mm_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_5mm_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_5mm_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 5mm Bumblebee Rimfire casings", "white"
-	Slider "Spawn Rate: ", "hdb_5mm_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_5mm_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_5mm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 5mm Bumblebee Rimfire from spawning in Ammo Boxes and Backpacks.", "Blue"
@@ -582,11 +582,11 @@ OptionMenu 50AM
     StaticText ""
 	StaticText "Spawn Options", "Blue"
     StaticText  "Control the spawn rate of .50 Action-Mega on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_50am_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_50am_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_50am_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .50 Action-Mega casings", "white"
-	Slider "Spawn Rate: ", "hdb_50am_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_50am_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_50am_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .50 Action-Mega from spawning in Ammo Boxes and Backpacks.", "Blue"
@@ -610,11 +610,11 @@ OptionMenu 6mmF
     StaticText ""
 	StaticText "Spawn Options", "Blue"
     StaticText  "Control the spawn rate of 6mm Flechettes on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_6mm_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_6mm_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_6mm_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 6mm Flechettes casings", "white"
-	Slider "Spawn Rate: ", "hdb_6mm_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_6mm_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_6mm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 6mm Flechettes from spawning in Ammo Boxes and Backpacks.", "Blue"
@@ -638,7 +638,7 @@ OptionMenu 20mmG
     StaticText ""
 	StaticText "Spawn Options", "Light Blue"
     StaticText  "Control the spawn rate of 20mm Grenades on Rocket Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_20mm_rbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_20mm_rbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_20mm_rbox_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 20mm Grenades from spawning in Ammo Boxes and Backpacks.", "Light Blue"
@@ -662,7 +662,7 @@ OptionMenu ThuRKT
     StaticText ""
 	StaticText "Spawn Options", "Light Blue"
     StaticText  "Control the spawn rate of Thunder Rockets on Rocket Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_ThuRKT_rbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_ThuRKT_rbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_ThuRKT_rbox_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Thunder Rockets from spawning in Ammo Boxes and Backpacks.", "Light Blue"
@@ -686,7 +686,7 @@ OptionMenu TortRKT
     StaticText ""
 	StaticText "Spawn Options", "Light Blue"
     StaticText  "Control the spawn rate of Tortoise Rockets on Rocket Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_TortRKT_rbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_TortRKT_rbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_TortRKT_rbox_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Tortoise Rockets from spawning in Ammo Boxes and Backpacks.", "Light Blue"
@@ -710,11 +710,11 @@ OptionMenu 3006
     StaticText ""
 	StaticText "Spawn Options", "Dark Green"
     StaticText  "Control the spawn rate of .30-06 on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_3006_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_3006_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_3006_box_spawn_bias"
  	StaticText ""
     StaticText  "Control the spawn rate of .30-06 casings", "white"
-	Slider "Spawn Rate: ", "hdb_3006_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_3006_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_3006_casing_spawn_bias"
 	StaticText ""
 	StaticText "Enable/Disable .30-06 and its casings from spawning in Ammo Boxes and Backpacks.", "Dark Green"
@@ -739,15 +739,15 @@ OptionMenu Birdshot
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of Birdshot on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_bird_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_bird_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_bird_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of Birdshot on Shells", "white"
-	Slider "Spawn Rate: ", "hdb_bird_shell_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_bird_shell_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_bird_shell_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of Birdshot casings", "white"
-	Slider "Spawn Rate: ", "hdb_bird_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_bird_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_bird_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Birdshot from spawning in Ammo Boxes and Backpacks.", "Orange"
@@ -771,15 +771,15 @@ OptionMenu 300savage
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of .300 Savage on Shell Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_300savage_shellbox_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_300savage_shellbox_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_300savage_shellbox_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .300 Savage on Shells", "white"
-	Slider "Spawn Rate: ", "hdb_300savage_shell_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_300savage_shell_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_300savage_shell_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of .300 Savage casings", "white"
-	Slider "Spawn Rate: ", "hdb_300savage_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_300savage_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_300savage_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .300 Savage and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
@@ -804,11 +804,11 @@ OptionMenu 762Tokarev
     StaticText ""
 	StaticText "Spawn Options", "Orange"
     StaticText  "Control the spawn rate of 7.62 Tokarev on Clip Boxes", "white"
-	Slider "Spawn Rate: ", "hdb_7Tokarev_box_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_7Tokarev_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_7Tokarev_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of 7.62 Tokarev casings", "white"
-	Slider "Spawn Rate: ", "hdb_7Tokarev_casing_spawn_bias",  0.0, 1000, .01, 3
+	Slider "Spawn Rate: ", "hdb_7Tokarev_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_7Tokarev_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 7.62 Tokarev and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
