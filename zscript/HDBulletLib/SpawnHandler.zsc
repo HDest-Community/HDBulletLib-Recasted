@@ -1,8 +1,9 @@
 const HDCONST_HDBLEVENT = HDCONST_BPSPAWNPOOLEVENT + 1;
 
 class HDBulletLibHandler : EventHandler {
-    // [Ace] Order here must match order in menu. And zscript files. - [Ted]
+    // [Ace] Order here must match bitshifting order in menudef and zscript files. - [Ted, UZ]
     static const class<HDAmmo> RemovedClasses[] = {
+		'HDNDMLoose',
         'HDSlugAmmo',
         'HD500SWLightAmmo',
         'HD500SWHeavyAmmo',
@@ -21,7 +22,6 @@ class HDBulletLibHandler : EventHandler {
         'HD50AM_Ammo',
         'HDAurochsAmmo',
         'HD069BoreAmmo',
-		'HDNDMLoose',
         'TenMilBrass',
         'Wan_ThuRKTAmmo',
         'Wan_TortRKTAmmo',

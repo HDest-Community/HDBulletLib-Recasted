@@ -1039,6 +1039,7 @@ Sprite "G50YA0", 10, 7
 	}
 }
 
+// .069 Bore & .420 Frei
 Sprite "42TEA0", 10, 6
 {
 	Offset 5, 6
@@ -1210,6 +1211,7 @@ Sprite "LLS4A0", 15, 7
 	}
 }
 
+//fumbled shell sprites
 Sprite "ELLSA1", 3, 4
 {
 	Offset 1, 4
@@ -1270,6 +1272,7 @@ Sprite "ELLSE5", 3, 4
 	Patch "ELLSE5", 0, 0
 }
 
+//single flare shells
 Sprite "FLARA0", 3, 10
 {
 	XScale 0.500
@@ -1278,6 +1281,7 @@ Sprite "FLARA0", 3, 10
 	Patch "FLARA0", 0, 0
 }
 
+//four flare shells
 Sprite "FLA4A0", 15, 10
 {
 	XScale 0.500
@@ -1286,6 +1290,7 @@ Sprite "FLA4A0", 15, 10
 	Patch "FLA4A0", 0, 0
 }
 
+//flare shellbox
 Sprite "FLBXA0", 32, 12
 {
 	Offset 16, 12
@@ -1316,6 +1321,7 @@ Sprite "XLBXA0", 32, 12
 	Patch "XLBXA0", 0, 0
 }
 
+//fumbled shell sprites
 Sprite "XLLSA1", 3, 4
 {
 	Offset 1, 4
@@ -1480,6 +1486,11 @@ Sprite "T710A0", 40, 23
 	Patch "T710A0", 0, 0
 }
 
+// End of texture definitions
+
+//Belt Links
+
+//Large
 Sprite "HW0LA0", 14, 6
 {
 	Offset 7, 6
