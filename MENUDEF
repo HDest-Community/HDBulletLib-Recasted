@@ -209,7 +209,7 @@ OptionMenu 9mmNDM
 	SafeCommand "Reset spawn options", "resetcvar hdb_ndm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable NDM from spawning in Ammo Boxes and Backpacks.", "purple"
-	FlagOption "$TAG_NDM", "hdblib_enableammo_1", "OnOff", 18
+	FlagOption "$TAG_NDM", "hdblib_enableammo_1", "OnOff", 0
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_ndm_persistent_spawning", "OnOff"
