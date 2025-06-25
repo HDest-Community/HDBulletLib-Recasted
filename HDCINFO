@@ -1,5 +1,5 @@
 // 9mm NDM
-addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "HDNDMBoxPickup", "weight": "#hdb_NDM_box_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HDNDMBoxPickup", "weight": "#hdb_NDM_box_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
 
 // 9mm NDM Casings
 addSpawnTableSingleEntry => { "tableName": "HDCasingBitsReplaces", "name": "HDSpentNDM", "weight": "#hdb_NDM_casing_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
