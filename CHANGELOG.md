@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.5.0] - 2025-07-01
+
 ## [v1.4.0] - 2024-02-23
 
 ### Changed
@@ -106,7 +108,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Initial Release.
 
-[Unreleased]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.5.0...HEAD
+
+[v1.5.0]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.4.0...v1.5.0
 
 [v1.4.0]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.3.4...v1.4.0
 
