@@ -9,13 +9,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.5.0] - 2025-07-01
 
+### Added
+
+-   Belt Links have been added from Potetobloke's Bangers & Mash.
+-   9mm NDM has been added from Peppergrinder (#44).
+-   Add loose round actors for .500 S&W Lights/Heavies (#40).
+-   Added Backpack Filters for Belt Links (#42).
+
+### Removed
+
+-   .50 AE has been fully removed. (#44, #45).
+
+## Changed
+
+-   Updated Peppergrinder Menu Labels (#34).
+-   Updated Spawner Menus to use Sliders instead of Option toggles (#35).
+-   Fixed Slug Translations for FreeDoom & Lotan's Tomb (#38).
+-   Added FD/LT-style Slug Ammobox (#41).
+-   Replaced getName() with getTag() (#43).
+-   .45 LC can now be multi-picked-up.
+
 ## [v1.4.0] - 2024-02-23
 
 ### Changed
 
 -   Updated build scripts (#29).
 -   Updated Serpentipede Classname for latest HDest Main (#30).
--   Added Belt Links.
 
 ## [v1.3.4] - 2024-02-07
 
