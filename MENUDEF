@@ -201,11 +201,11 @@ OptionMenu 9mmNDM
     StaticText ""
 	StaticText "Spawn Options", "purple"
     StaticText  "Control the spawn rate of NDM on Clip Boxes", "white"
-	ScaleSlider "Spawn Rate: ", "hdb_ndm_box_spawn_bias", 0.0, 100, .01, 2
+	Slider "Spawn Rate: ", "hdb_ndm_box_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_ndm_box_spawn_bias"
 	StaticText ""
     StaticText  "Control the spawn rate of NDM casings", "white"
-	ScaleSlider "Spawn Rate: ", "hdb_ndm_casing_spawn_bias", 0.0, 100, .01, 2
+	Slider "Spawn Rate: ", "hdb_ndm_casing_spawn_bias", 0.0, 100, .01, 2
 	SafeCommand "Reset spawn options", "resetcvar hdb_ndm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable NDM from spawning in Ammo Boxes and Backpacks.", "purple"
