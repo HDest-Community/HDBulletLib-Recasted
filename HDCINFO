@@ -2,13 +2,13 @@
 addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HDNDMBoxPickup", "weight": "#hdb_NDM_box_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
 
 // 9mm NDM Casings
-addSpawnTableSingleEntry => { "tableName": "HDCasingBitsReplaces", "name": "HDSpentNDM", "weight": "#hdb_NDM_casing_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentNDM", "weight": "#hdb_NDM_casing_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
 
 // .500 S&W Lights
 addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD500SWLightBoxPickup", "weight": "#hdb_500sw_shellbox_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
 
 // .500 S&W Heavies
-addSpawnTableSingleEntry => { "tableName": "RocketReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketAmmoReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
 addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
 
 // .500 S&W Casings
@@ -129,7 +129,7 @@ addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "WAN_Tor
 
 // .30-06
 addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "RocketReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketAmmoReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
 
 // .30-06 Casings
 addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent3006", "weight": "#hdb_3006_casing_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
