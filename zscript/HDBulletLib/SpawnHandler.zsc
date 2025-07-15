@@ -3,7 +3,7 @@ const HDCONST_HDBLEVENT = HDCONST_BPSPAWNPOOLEVENT + 1;
 class HDBulletLibHandler : EventHandler {
     // [Ace] Order here must match bitshifting order in menudef and zscript files. - [Ted, UZ]
     static const class<HDAmmo> RemovedClasses[] = {
-		'HDNDMLoose',
+        'HDNDMLoose',
         'HDSlugAmmo',
         'HD500SWLightAmmo',
         'HD500SWHeavyAmmo',
@@ -621,8 +621,8 @@ class HDBulletLibAmmoSpawner: EventHandler {
             let item = Inventory(thing);
             if (
                 (prespawn || ammoSpawn.isPersistent)
-             && (!(item && item.owner) && prespawn)
-             && !ammoSpawn.replaceAmmo
+                && (!(item && item.owner) && prespawn)
+                && !ammoSpawn.replaceAmmo
             ) {
                 foreach (spawnReplace : ammoSpawn.spawnReplaces) {
                     if (spawnReplace.name ~== candidateName) {
