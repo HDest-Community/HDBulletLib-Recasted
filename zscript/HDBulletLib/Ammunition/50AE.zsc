@@ -2,94 +2,94 @@
 // CREATED BY ACCENSUS
 // ------------------------------
 
-class HDB_50AE : HDBulletActor
-{
-	Default
-	{
-		PushFactor 0.375;
-		Mass 220;
-		Speed HDCONST_MPSTODUPT * 520;
-		Accuracy 260;
-		Stamina 1270;
-		WoundHealth 45;
-		HDBulletActor.Hardness 3;
-	}
-}
+// class HDB_50AE : HDBulletActor
+// {
+// 	Default
+// 	{
+// 		PushFactor 0.375;
+// 		Mass 220;
+// 		Speed HDCONST_MPSTODUPT * 520;
+// 		Accuracy 260;
+// 		Stamina 1270;
+// 		WoundHealth 45;
+// 		HDBulletActor.Hardness 3;
+// 	}
+// }
 
-class HDSpent50AE : HDSpent9mm
-{
-	Default
-	{
-		BounceSound "misc/casing";
-		XScale 0.8;
-		YScale 0.7;
-	}
-	States
-	{
-		Spawn:
-			PBRS A 2 NoDelay
-			{
-				A_SetRoll(roll + 45, SPF_INTERPOLATE);
-			}
-			Loop;
-		Death:
-			PBRS # -1;
-			Stop;
-	}
-}
+// class HDSpent50AE : HDSpent9mm
+// {
+// 	Default
+// 	{
+// 		BounceSound "misc/casing";
+// 		XScale 0.8;
+// 		YScale 0.7;
+// 	}
+// 	States
+// 	{
+// 		Spawn:
+// 			PBRS A 2 NoDelay
+// 			{
+// 				A_SetRoll(roll + 45, SPF_INTERPOLATE);
+// 			}
+// 			Loop;
+// 		Death:
+// 			PBRS # -1;
+// 			Stop;
+// 	}
+// }
 
-class HD50AEAmmo : HDRoundAmmo
-{
-	override void SplitPickup()
-	{
-		SplitPickupBoxableRound(10, 50, "HD50AEBoxPickup", "TEN9A0", "PRNDA0");
-	}
+// class HD50AEAmmo : HDRoundAmmo
+// {
+// 	override void SplitPickup()
+// 	{
+// 		SplitPickupBoxableRound(10, 50, "HD50AEBoxPickup", "TEN9A0", "PRNDA0");
+// 	}
 
-	const EncRoundLoaded = 0.65;
-	const EncRound = EncRoundLoaded * 1.4;
+// 	const EncRoundLoaded = 0.65;
+// 	const EncRound = EncRoundLoaded * 1.4;
 
-	Default
-	{
-		+INVENTORY.IGNORESKILL
-		+CANNOTPUSH
-		+FORCEXYBILLBOARD
-		+ROLLSPRITE
-		+ROLLCENTER
-		+HDPICKUP.MULTIPICKUP
-		XScale 0.9;
-		YScale 0.8;
-		Tag "$TAG_50AE";
-		Inventory.icon "TEN9A0";
-		Inventory.PickupMessage "$PICKUP_50AE";
-		HDPickup.RefId "50r";
-		HDPickup.Bulk EncRound;
-	}
+// 	Default
+// 	{
+// 		+INVENTORY.IGNORESKILL
+// 		+CANNOTPUSH
+// 		+FORCEXYBILLBOARD
+// 		+ROLLSPRITE
+// 		+ROLLCENTER
+// 		+HDPICKUP.MULTIPICKUP
+// 		XScale 0.9;
+// 		YScale 0.8;
+// 		Tag "$TAG_50AE";
+// 		Inventory.icon "TEN9A0";
+// 		Inventory.PickupMessage "$PICKUP_50AE";
+// 		HDPickup.RefId "50r";
+// 		HDPickup.Bulk EncRound;
+// 	}
 	
-	States
-	{
-		Spawn:
-			PRND A -1;
-			TEN9 A -1;
-			Stop;
-	}
-}
+// 	States
+// 	{
+// 		Spawn:
+// 			PRND A -1;
+// 			TEN9 A -1;
+// 			Stop;
+// 	}
+// }
 
 
-class HD50AEBoxPickup : HDUPK
-{
-	Default
-	{
-		Scale 0.32;
-		HDUPK.Amount 50;
-		HDUPK.PickupSound "weapons/pocket";
-		HDUPK.PickupMessage "$PICKUP_50AEBOX";
-		HDUPK.PickupType "HD50AEAmmo";
-	}
+// class HD50AEBoxPickup : HDUPK
+// {
+// 	Default
+// 	{
+// 		Scale 0.32;
+// 		HDUPK.Amount 50;
+// 		HDUPK.PickupSound "weapons/pocket";
+// 		HDUPK.PickupMessage "$PICKUP_50AEBOX";
+// 		HDUPK.PickupType "HD50AEAmmo";
+// 	}
 
-	states
-	{
-		Spawn:
-			50AE X -1;
-			Stop;
-	}
-}
+// 	states
+// 	{
+// 		Spawn:
+// 			50AE X -1;
+// 			Stop;
+// 	}
+// }
