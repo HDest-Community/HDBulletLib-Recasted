@@ -144,7 +144,7 @@ addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent4GB",
 
 // Birdshot
 addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDBirdshotShellAmmo", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDBirdshotShellPickup", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "BirdshotShellPickup", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
 addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HDBirdshotShellBoxPickup", "weight": "#hdb_bird_shellbox_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
 
 // Birdshot Casings
@@ -159,7 +159,7 @@ addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HDSavage
 addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "Savage300Brass", "weight": "#hdb_300savage_casing_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
 
 // 7.62 Tokarev
-addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HDTokarevBoxPickup", "weight": "#hdb_7tokarev_box_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD762TokarevBoxPickup", "weight": "#hdb_7tokarev_box_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
 
 // 7.62 Tokarev Casings
 addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "TokarevBrass", "weight": "#hdb_7tokarev_casing_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
