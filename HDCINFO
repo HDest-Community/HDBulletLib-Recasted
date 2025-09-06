@@ -145,7 +145,7 @@ addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent4GB",
 // Birdshot
 addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDBirdshotShellAmmo", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
 addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "BirdshotShellPickup", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
-addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HDBirdshotShellBoxPickup", "weight": "#hdb_bird_shellbox_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "BirdshotShellBoxPickup", "weight": "#hdb_bird_shellbox_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
 
 // Birdshot Casings
 addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentBirdshotShell", "weight": "#hdb_bird_casing_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
