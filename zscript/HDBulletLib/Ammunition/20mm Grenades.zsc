@@ -185,7 +185,7 @@ class WAN_20mmsploder:HDActor{
 	}
 }
 
-class WAN_20mmGrenadeAmmo:HDAmmo{
+class WAN_20mmGrenadeAmmo:HDRoundAmmo{
 	default{
 
 		inventory.pickupmessage "$PICKUP_20MM";
@@ -195,6 +195,9 @@ class WAN_20mmGrenadeAmmo:HDAmmo{
 		hdpickup.bulk ENC_20MMGRENADE;
 		inventory.maxamount (60+40);
 		inventory.icon "MA7GB0";
+	}
+	override void SplitPickup(){
+		SplitPickupBoxableRound(10, 10, "WAN_20mmGrenadeBox", "MA7GB0", "MA7GB0");
 	}
 	states{
 	spawn:
