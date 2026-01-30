@@ -1,0 +1,73 @@
+// ====================================================
+//  UAC 8.28mm Battle Rifle cartridge by Niko Chevrier
+// ====================================================
+
+const ENC_828 = ENC_426 * 2.45;
+const ENC_828_LOADED = ENC_426_LOADED * 2.65;
+const ENC_828MAG_EMPTY = ENC_426MAG_EMPTY * 1.4;
+const ENC_828MAG = ENC_828MAG_EMPTY + (ENC_828_LOADED * 35);
+const ENC_828MAG_LOADED = ENC_828MAG_EMPTY * 0.4;
+
+
+//[nkc] 8.28mm differs from 7.76mm by basically being way lighter but fast as fuck
+//[nkc] felt fitting given 4.26mm's gimmick of being tiny but lightning fast
+class HDB_828:HDBulletActor{
+	default{
+		pushfactor 0.3;
+		mass 64;
+		speed HDCONST_MPSTODUPT*1120;
+		accuracy 700;
+		stamina 828;
+		woundhealth 8;
+		hdbulletactor.hardness 4;
+		hdbulletactor.distantsound "world/riflefar";
+	}
+}
+
+class EightMilAmmo:HDAmmo{
+	default{
+		+inventory.ignoreskill
+		+hdpickup.cheatnogive
+		+hdpickup.multipickup
+		xscale 0.5; yscale 0.6;
+		tag "$TAG_828MM";
+		hdpickup.refid "828";
+		hdpickup.bulk ENC_828;
+		inventory.icon "RCLSA3A7";
+		inventory.pickupmessage "$PICKUP_828MM";
+	}
+	override string pickupmessage(){
+		
+		string pms=amount==1?Stringtable.Localize("$PICKUP_828MM"):Stringtable.Localize("$PICKUP_828MMCHUNK");
+		return pms;
+	}
+	override void splitpickup(){
+		int amm=min(amount,random(4,26));
+		while(amount>amm){
+			int ld=min(amount,random(4,26));
+			actor a=spawn("EightMilAmmo",pos);
+			a.vel+=vel+(frandom(-1,1),frandom(-1,1),frandom(-1,1));
+			a.angle=frandom(0,360);
+			inventory(a).amount=ld;
+			amount-=ld;
+		}
+		if(amount<1){
+			destroy();
+			return;
+		}
+		scale.y=default.scale.y*max(1.,amount*0.3);
+		if(amount>1)frame=1;
+	}
+	override void GetItemsThatUseThis(){
+		//[nkc] do I just leave this empty for the weapon mods to add to it on their own?
+		//[nkc] for now I guess I will.
+		//itemsthatusethis.push("ZM81BattleRifle");
+	}
+	states(actor){
+	spawn:
+		RCLS A -1;
+		stop;
+	}
+}
+
+//[nkc] oh wait, mags should be the responsibility of the weapon modders, huh?
