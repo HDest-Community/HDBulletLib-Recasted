@@ -47,6 +47,7 @@ TAG_300SAVAGE=".300 Savage ammo";
 TAG_300SAVAGEBRASS=".300 Savage casing";
 TAG_762TOKAREV="7.62 Tokarev round";
 TAG_762TOKAREVBRASS="7.62 Tokarev casing";
+TAG_828MM = "8.28mm UAC round";
 
 PICKUP_10MM="Picked up a 10mm round.";
 PICKUP_10MMBRASS="Picked up some 10mm brass.";
@@ -107,6 +108,8 @@ PICKUP_069BORE="Picked up a .066 bore shell.";
 PICKUP_069BOREBOX="Picked up some .066 bore shells.";
 PICKUP_NDM="Picked up a 9mm NDM round.";
 PICKUP_NDMBOX="Picked up some 9mm NDM ammo.";
+PICKUP_828MM = "Picked up a stray 8.28mm round.";
+PICKUP_828MMCHUNK = "Picked up some stray 8.28mm rounds.";
 
 TAG_BELTLINKS="Belt Links";
 TAG_776BELTLINK="Small Belt Link";
