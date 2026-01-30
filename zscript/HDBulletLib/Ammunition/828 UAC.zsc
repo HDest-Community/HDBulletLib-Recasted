@@ -32,7 +32,7 @@ class EightMilAmmo:HDAmmo{
 		+inventory.ignoreskill
 		+hdpickup.cheatnogive
 		+hdpickup.multipickup
-		xscale 0.5; yscale 0.6;
+		xscale 0.9; yscale 1.2;
 		tag "$TAG_828MM";
 		hdpickup.refid "828";
 		hdpickup.bulk ENC_828;
