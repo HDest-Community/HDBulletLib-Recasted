@@ -14,6 +14,7 @@ const ENC_828_LOADED = ENC_426_LOADED * 2.65;
 		which cooks off much faster and has much heftier recoil
 		it has great flesh damage pretty good armor pen, mediocre shield damage.
 */
+//[nkc] mass 6.4 > 9.1, pushfactor 0.3 > 0.26, woundhealth 8 > 15, speed 1120 > 1180
 class HDB_828:HDBulletActor{
 	default{
 		pushfactor 0.26;
