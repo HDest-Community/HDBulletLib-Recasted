@@ -14,15 +14,15 @@ const ENC_828_LOADED = ENC_426_LOADED * 2.65;
 		which cooks off much faster and has much heftier recoil
 		it has great flesh damage pretty good armor pen, mediocre shield damage.
 */
-//[nkc] mass 6.4 > 9.1, pushfactor 0.3 > 0.26, woundhealth 8 > 15, speed 1120 > 1180
+//[nkc] mass 6.4 > 8.9, woundhealth 8 > 6, speed 1120 > 1130
 class HDB_828:HDBulletActor{
 	default{
-		pushfactor 0.26;
-		mass 91;
-		speed HDCONST_MPSTODUPT*1180;
+		pushfactor 0.3;
+		mass 89;
+		speed HDCONST_MPSTODUPT*1130;
 		accuracy 700;
 		stamina 828;
-		woundhealth 15;
+		woundhealth 6;
 		hdbulletactor.hardness 4;
 		hdbulletactor.distantsound "world/riflefar";
 	}
