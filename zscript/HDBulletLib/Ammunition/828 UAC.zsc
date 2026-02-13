@@ -14,14 +14,15 @@ const ENC_828_LOADED = ENC_426_LOADED * 2.65;
 		which cooks off much faster and has much heftier recoil
 		it has great flesh damage pretty good armor pen, mediocre shield damage.
 */
+//[nkc] mass 6.4 > 8.9, woundhealth 8 > 6, speed 1120 > 1130
 class HDB_828:HDBulletActor{
 	default{
 		pushfactor 0.3;
-		mass 64;
-		speed HDCONST_MPSTODUPT*1120;
+		mass 89;
+		speed HDCONST_MPSTODUPT*1130;
 		accuracy 700;
 		stamina 828;
-		woundhealth 8;
+		woundhealth 6;
 		hdbulletactor.hardness 4;
 		hdbulletactor.distantsound "world/riflefar";
 	}
@@ -64,7 +65,7 @@ class EightMilAmmo:HDAmmo{
 	override void GetItemsThatUseThis(){
 		//[nkc] do I just leave this empty for the weapon mods to add to it on their own?
 		//[nkc] for now I guess I will.
-		//itemsthatusethis.push("ZM81BattleRifle");
+		itemsthatusethis.push("ZM81BattleRifle");
 	}
 	states(actor){
 	cache:
@@ -72,6 +73,26 @@ class EightMilAmmo:HDAmmo{
 	spawn:
 		828R A -1;
 		stop;
+	}
+}
+
+//[nkc] need an ammobox for more reasonable actual world-spawned pickups
+//[nkc] as opposed to just a million little explosive lego bricks on the floor
+class HD8mBoxPickup:HDUPK{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Box of 8.28mm UAC battle rifle ammo"
+		//$Sprite "8BOXA0"
+
+		scale 0.6;
+		hdupk.amount 104;
+		hdupk.pickupsound "weapons/pocket";
+		hdupk.pickupmessage "$PICKUP_828MMBOX";
+		hdupk.pickuptype "EightMilAmmo";
+	}
+	states{
+	spawn:
+		8BOX A -1;
 	}
 }
 
