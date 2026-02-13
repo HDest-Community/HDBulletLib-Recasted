@@ -16,12 +16,12 @@ const ENC_828_LOADED = ENC_426_LOADED * 2.65;
 */
 class HDB_828:HDBulletActor{
 	default{
-		pushfactor 0.3;
-		mass 64;
-		speed HDCONST_MPSTODUPT*1120;
+		pushfactor 0.26;
+		mass 91;
+		speed HDCONST_MPSTODUPT*1180;
 		accuracy 700;
 		stamina 828;
-		woundhealth 8;
+		woundhealth 15;
 		hdbulletactor.hardness 4;
 		hdbulletactor.distantsound "world/riflefar";
 	}
@@ -64,7 +64,7 @@ class EightMilAmmo:HDAmmo{
 	override void GetItemsThatUseThis(){
 		//[nkc] do I just leave this empty for the weapon mods to add to it on their own?
 		//[nkc] for now I guess I will.
-		//itemsthatusethis.push("ZM81BattleRifle");
+		itemsthatusethis.push("ZM81BattleRifle");
 	}
 	states(actor){
 	cache:
