@@ -1,0 +1,232 @@
+// 9mm NDM
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HDNDMBoxPickup", "weight": "#hdb_NDM_box_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
+
+// 9mm NDM Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentNDM", "weight": "#hdb_NDM_casing_spawn_bias", "persists": "#hdb_NDM_persistent_spawning" }
+
+// .500 S&W Lights
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD500SWLightBoxPickup", "weight": "#hdb_500sw_shellbox_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+
+// .500 S&W Heavies
+addSpawnTableSingleEntry => { "tableName": "RocketAmmoReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "HD500SWHeavyBoxPickup", "weight": "#hdb_500sw_rocket_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+
+// .500 S&W Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent500", "weight": "#hdb_500sw_casing_spawn_bias", "persists": "#hdb_500sw_persistent_spawning" }
+
+// 12 Gauge Slugs
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDSlugAmmo", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "SlugPickup", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "SlugBoxPickup", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
+
+// 12 Gauge Slug Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentSlug", "weight": "#hdb_12gslug_shellbox_spawn_bias", "persists": "#hdb_12gslug_persistent_spawning" }
+
+// .420 Frei
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD420BoxPickup", "weight": "#hdb_420frei_box_spawn_bias", "persists": "#hdb_420frei_persistent_spawning" }
+
+// .420 Frei Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent420", "weight": "#hdb_420frei_casing_spawn_bias", "persists": "#hdb_420frei_persistent_spawning" }
+
+// .069 Bore
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD069BoreBox", "weight": "#hdb_069bore_box_spawn_bias", "persists": "#hdb_069bore_persistent_spawning" }
+
+// .069 Bore Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent069Bore", "weight": "#hdb_069bore_casing_spawn_bias", "persists": "#hdb_069bore_persistent_spawning" }
+
+// .50 OMG
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD50OMGBoxPickup", "weight": "#hdb_50omg_box_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "HD50OMGBoxPickup", "weight": "#hdb_50omg_box_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
+
+// .50 OMG Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent50OMG", "weight": "#hdb_50omg_casing_spawn_bias", "persists": "#hdb_50omg_persistent_spawning" }
+
+// .45 ACP
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD45ACPBoxPickup", "weight": "#hdb_45acp_box_spawn_bias", "persists": "#hdb_45acp_persistent_spawning" }
+
+// .45 ACP Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent45ACP", "weight": "#hdb_45acp_casing_spawn_bias", "persists": "#hdb_45acp_persistent_spawning" }
+
+// 10mm Auto
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD10mBoxPickup", "weight": "#hdb_10mm_box_spawn_bias", "persists": "#hdb_10mm_persistent_spawning" }
+
+// 10mm Auto Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent10mm", "weight": "#hdb_10mm_casing_spawn_bias", "persists": "#hdb_10mm_persistent_spawning" }
+
+// .45 LC
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD45LCBoxPickup", "weight": "#hdb_45lc_box_spawn_bias", "persists": "#hdb_45lc_persistent_spawning" }
+
+// .45 LC Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent45LC", "weight": "#hdb_45lc_casing_spawn_bias", "persists": "#hdb_45lc_persistent_spawning" }
+
+// Golden .45 LC
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HDGold45LCBoxPickup", "weight": "#hdb_g45lc_box_spawn_bias", "persists": "#hdb_g45lc_persistent_spawning" }
+
+// Golden .45 LC Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentGold45LC", "weight": "#hdb_g45lc_casing_spawn_bias", "persists": "#hdb_g45lc_persistent_spawning" }
+
+// Less-Lethal Shells
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDLLShellAmmo", "weight": "#hdb_LLS_shell_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "LLShellPickup", "weight": "#hdb_LLS_shell_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "LLShellBoxPickup", "weight": "#hdb_LLS_shellbox_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
+
+// Less-Lethal Shell Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDLLSpentShell", "weight": "#hdb_LLS_casing_spawn_bias", "persists": "#hdb_LLS_persistent_spawning" }
+
+// Explosive Slugs
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDExplosiveShellAmmo", "weight": "#hdb_ESlug_shell_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "ExplosiveShellPickup", "weight": "#hdb_ESlug_shell_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "ExplosiveShellBoxPickup", "weight": "#hdb_ESlug_shellbox_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
+
+// Explosive Slug Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentExplosiveShell", "weight": "#hdb_ESlug_casing_spawn_bias", "persists": "#hdb_ESlug_persistent_spawning" }
+
+// Flare Shells
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDFlareAmmo", "weight": "#hdb_FShell_shell_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "FlareShellPickup", "weight": "#hdb_FShell_shell_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "FlareShellBoxPickup", "weight": "#hdb_FShell_shellbox_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
+
+// Flare Shell Casings
+// addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent", "weight": "#hdb_FShell_casing_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
+
+// .56 cal Musket Balls
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDBallAmmo", "weight": "#hdb_MBall_casing_spawn_bias", "persists": "#hdb_MBall_persistent_spawning" }
+
+// 4 Gauge Slugs
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HD4GSAmmo", "weight": "#hdb_4gss_shell_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDFumbled4GS", "weight": "#hdb_4gss_shell_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD4GSSpawn", "weight": "#hdb_4gss_shellbox_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
+
+// 4 Gauge Slug Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent4GS", "weight": "#hdb_4gss_casing_spawn_bias", "persists": "#hdb_4gss_persistent_spawning" }
+
+// 5mm Bumblebee Rimfire
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "PB_5mmBoxPickup", "weight": "#hdb_5mm_box_spawn_bias", "persists": "#hdb_5mm_persistent_spawning" }
+
+// 5mm Bumblebee Rimfire Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent5mmMR", "weight": "#hdb_5mm_casing_spawn_bias", "persists": "#hdb_5mm_persistent_spawning" }
+
+// .50 AM
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "PB_50AMBoxPickup", "weight": "#hdb_50am_box_spawn_bias", "persists": "#hdb_50am_persistent_spawning" }
+
+// .50 AM Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent50AM", "weight": "#hdb_50am_casing_spawn_bias", "persists": "#hdb_50am_persistent_spawning" }
+
+// 6mm Flechettes
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD6mmFlechetteBoxPickup", "weight": "#hdb_6mm_box_spawn_bias", "persists": "#hdb_6mm_persistent_spawning" }
+
+// 6mm Flechette Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent6mmFlechette", "weight": "#hdb_6mm_casing_spawn_bias", "persists": "#hdb_6mm_persistent_spawning" }
+
+// 20mm Grenades
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "WAN_20mmGrenadeBox", "weight": "#hdb_20mm_rbox_spawn_bias", "persists": "#hdb_20mm_persistent_spawning" }
+
+// Thunder Rockets
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "WAN_ThuRKTAmmo", "weight": "#hdb_ThuRKT_rbox_spawn_bias", "persists": "#hdb_ThuRKT_persistent_spawning" }
+
+// Tortoise Missiles
+addSpawnTableSingleEntry => { "tableName": "RocketBoxReplaces", "name": "WAN_TortRktAmmo", "weight": "#hdb_TortRKT_rbox_spawn_bias", "persists": "#hdb_TortRKT_persistent_spawning" }
+
+// .30-06
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "RocketAmmoReplaces", "name": "HD3006BoxPickup", "weight": "#hdb_3006_box_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
+
+// .30-06 Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent3006", "weight": "#hdb_3006_casing_spawn_bias", "persists": "#hdb_3006_persistent_spawning" }
+
+// 4 Gauge Shells
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HD4GBAmmo", "weight": "#hdb_4gbs_shell_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HD4GBPickup", "weight": "#hdb_4gbs_shell_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HD4GBBox", "weight": "#hdb_4gbs_shellbox_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
+
+// 4 Gauge Shell Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent4GB", "weight": "#hdb_4gbs_casing_spawn_bias", "persists": "#hdb_4gbs_persistent_spawning" }
+
+// Birdshot
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDBirdshotShellAmmo", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "BirdshotShellPickup", "weight": "#hdb_bird_shell_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "BirdshotShellBoxPickup", "weight": "#hdb_bird_shellbox_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+
+// Birdshot Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpentBirdshotShell", "weight": "#hdb_bird_casing_spawn_bias", "persists": "#hdb_bird_persistent_spawning" }
+
+// .300 Savage
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "Savage300Ammo", "weight": "#hdb_300savage_shell_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDSavage300Pickup", "weight": "#hdb_300savage_shell_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "HDSavage300BoxPickup", "weight": "#hdb_300savage_shellbox_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
+
+// .300 Savage Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "Savage300Brass", "weight": "#hdb_300savage_casing_spawn_bias", "persists": "#hdb_300savage_persistent_spawning" }
+
+// 7.62 Tokarev
+addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD762TokarevBoxPickup", "weight": "#hdb_7tokarev_box_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
+
+// 7.62 Tokarev Casings
+addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "TokarevBrass", "weight": "#hdb_7tokarev_casing_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
+
+
+// HDBL Ammo Associations
+newAmmo => { "ammoName": "HDNDMLoose" }
+newAmmo => { "ammoName": "HDSlugAmmo" }
+newAmmo => { "ammoName": "HD500SWLightAmmo" }
+newAmmo => { "ammoName": "HD500SWHeavyAmmo" }
+newAmmo => { "ammoName": "HD50OMGAmmo" }
+newAmmo => { "ammoName": "HD45ACPAmmo" }
+newAmmo => { "ammoName": "HD10mAmmo" }
+newAmmo => { "ammoName": "HD45LCAmmo" }
+newAmmo => { "ammoName": "HDLLShellAmmo" }
+newAmmo => { "ammoName": "HDExplosiveShellAmmo" }
+newAmmo => { "ammoName": "HDGold45LCAmmo" }
+newAmmo => { "ammoName": "HDFlareAmmo" }
+newAmmo => { "ammoName": "HDBallAmmo" }
+newAmmo => { "ammoName": "HD4GSAmmo" }
+newAmmo => { "ammoName": "HD5mm_Ammo" }
+newAmmo => { "ammoName": "HD6mmFlechetteAmmo" }
+newAmmo => { "ammoName": "HD50AM_Ammo" }
+newAmmo => { "ammoName": "HDAurochsAmmo" }
+newAmmo => { "ammoName": "HD069BoreAmmo" }
+newAmmo => { "ammoName": "TenMilBrass" }
+newAmmo => { "ammoName": "Wan_ThuRKTAmmo" }
+newAmmo => { "ammoName": "Wan_TortRKTAmmo" }
+newAmmo => { "ammoName": "WAN_20mmGrenadeAmmo" }
+newAmmo => { "ammoName": "ThirtyAughtSixAmmo" }
+newAmmo => { "ammoName": "ThirtyAughtSixBrass" }
+newAmmo => { "ammoName": "HD4GBAmmo" }
+newAmmo => { "ammoName": "HDBirdshotShellAmmo" }
+newAmmo => { "ammoName": "Savage300Ammo" }
+newAmmo => { "ammoName": "HD762TokarevAmmo" }
+newAmmo => { "ammoName": "TokarevBrass" }
+newAmmo => { "ammoName": "Savage300Brass" }
+newAmmo => { "ammoName": "HD_776BeltLink" }
+newAmmo => { "ammoName": "HD_12mmBeltLink" }
+newAmmo => { "ammoName": "HD_35mmBeltLink" }
+
+
+// Merchant Store Entries
+newMerchantStoreItem => { "enabled": "#hdm_enable_069bore", "type": "ammo", "category": "$MERCH_CAT_069BORE", "item": "HD069BoreAmmo", "amount": "36", "icon": "42BXA0", "displayName": "$MERCH_TAG_069BORE", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_069BORE" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_10mm", "type": "ammo", "category": "$MERCH_CAT_10MM", "item": "HD10mAmmo", "amount": "100", "icon": "BX10A0", "displayName": "$MERCH_TAG_10MM", "basePrice": "60", "flavorText": "$MERCH_FLAVOR_10MM" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_12gflare", "type": "ammo", "category": "$MERCH_CAT_12GFLARE", "item": "HDFlareAmmo", "amount": "20", "icon": "FLBXA0", "displayName": "$MERCH_TAG_12GFLARE", "basePrice": "25", "flavorText": "$MERCH_FLAVOR_12GFLARE" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_12gslug", "type": "ammo", "category": "$MERCH_CAT_12GSLUG", "item": "HDSlugAmmo", "amount": "20", "icon": "SLBXA0", "displayName": "$MERCH_TAG_12GSLUG", "basePrice": "40", "flavorText": "$MERCH_FLAVOR_12GSLUG" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_20mmgrenade", "type": "ammo", "category": "$MERCH_CAT_20MMGRENADE", "item": "WAN_20mmGrenadeAmmo", "amount": "6", "icon": "MA7GC0", "displayName": "$MERCH_TAG_20MMGRENADE", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_20MMGRENADE" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_3006", "type": "ammo", "category": "$MERCH_CAT_3006", "item": "ThirtyAughtSixAmmo", "amount": "40", "icon": "M1A1Y0", "displayName": "$MERCH_TAG_3006", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_3006" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_300savage", "type": "ammo", "category": "$MERCH_CAT_300SAVAGE", "item": "Savage300Ammo", "amount": "48", "icon": "S3BXA0", "displayName": "$MERCH_TAG_300SAVAGE", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_300SAVAGE" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_420frei", "type": "ammo", "category": "$MERCH_CAT_420FREI", "item": "HDAurochAmmo", "amount": "42", "icon": "420AA0", "displayName": "$MERCH_TAG_420FREI", "basePrice": "40", "flavorText": "$MERCH_FLAVOR_420FREI" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_45acp", "type": "ammo", "category": "$MERCH_CAT_45ACP", "item": "HD45ACPAmmo", "amount": "50", "icon": "45BXA0", "displayName": "$MERCH_TAG_45ACP", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_45ACP" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_45lc", "type": "ammo", "category": "$MERCH_CAT_45LC", "item": "HD45LCAmmo", "amount": "50", "icon": "45LBA0", "displayName": "$MERCH_TAG_45LC", "basePrice": "45", "flavorText": "$MERCH_FLAVOR_45LC" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_4gshell", "type": "ammo", "category": "$MERCH_CAT_4GSHELL", "item": "HD4GBAmmo", "amount": "25", "icon": "4GBXA0", "displayName": "$MERCH_TAG_4GSHELL", "basePrice": "500", "flavorText": "$MERCH_FLAVOR_4GSHELL" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_4gslug", "type": "ammo", "category": "$MERCH_CAT_4GSLUG", "item": "HD4GSAmmo", "amount": "1", "icon": "4GS1A0", "displayName": "$MERCH_TAG_4GSLUG", "basePrice": "20", "flavorText": "$MERCH_FLAVOR_4GSLUG" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_500swh", "type": "ammo", "category": "$MERCH_CAT_500SWH", "item": "HD500SWHeavyAmmo", "amount": "20", "icon": "5HBXA0", "displayName": "$MERCH_TAG_500SWH", "basePrice": "40", "flavorText": "$MERCH_FLAVOR_500SWH" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_500swl", "type": "ammo", "category": "$MERCH_CAT_500SWL", "item": "HD500SWLightAmmo", "amount": "40", "icon": "5LBXA0", "displayName": "$MERCH_TAG_500SWL", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_500SWL" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_50am", "type": "ammo", "category": "$MERCH_CAT_50AM", "item": "HD50AM_Ammo", "amount": "60", "icon": "50AMX0", "displayName": "$MERCH_TAG_50AM", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_50AM" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_50omg", "type": "ammo", "category": "$MERCH_CAT_50OMG", "item": "HD50OMG50OMGAmmo", "amount": "20", "icon": "OGBXA0", "displayName": "$MERCH_TAG_50OMG", "basePrice": "70", "flavorText": "$MERCH_FLAVOR_50OMG" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_5mmbr", "type": "ammo", "category": "$MERCH_CAT_5MMBR", "item": "HD5mm_Ammo", "amount": "160", "icon": "5MBXA0", "displayName": "$MERCH_TAG_5MMBR", "basePrice": "45", "flavorText": "$MERCH_FLAVOR_5MMBR" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_6mmflechette", "type": "ammo", "category": "$MERCH_CAT_6MMFLECHETTE", "item": "HD6mmFlechetteAmmo", "amount": "42", "icon": "ACRPK0", "displayName": "$MERCH_TAG_6MMFLECHETTE", "basePrice": "60", "flavorText": "$MERCH_FLAVOR_6MMFLECHETTE" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_762tokarev", "type": "ammo", "category": "$MERCH_CAT_762TOKAREV", "item": "HD762TokarevAmmo", "amount": "50", "icon": "T7BXA0", "displayName": "$MERCH_TAG_762TOKAREV", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_762TOKAREV" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_birdshot", "type": "ammo", "category": "$MERCH_CAT_BIRDSHOT", "item": "HDBirdshotShellAmmo", "amount": "20", "icon": "BBOXA0", "displayName": "$MERCH_TAG_BIRDSHOT", "basePrice": "15", "flavorText": "$MERCH_FLAVOR_BIRDSHOT" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_g45lc", "type": "ammo", "category": "$MERCH_CAT_G45LC", "item": "HDGold45LCAmmo", "amount": "12", "icon": "GLBXA0", "displayName": "$MERCH_TAG_G45LC", "basePrice": "15", "flavorText": "$MERCH_FLAVOR_G45LC" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_leadball", "type": "ammo", "category": "$MERCH_CAT_LEADBALL", "item": "HDBallAmmo", "amount": "10", "icon": "BALLA0", "displayName": "$MERCH_TAG_LEADBALL", "basePrice": "15", "flavorText": "$MERCH_FLAVOR_LEADBALL" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_llshell", "type": "ammo", "category": "$MERCH_CAT_LLSHELL", "item": "HDLLShellAmmo", "amount": "20", "icon": "LLBXA0", "displayName": "$MERCH_TAG_LLSHELL", "basePrice": "35", "flavorText": "$MERCH_FLAVOR_LLSHELL" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_ndm", "type": "ammo", "category": "$MERCH_CAT_NDM", "item": "HDNDMLoose", "amount": "60", "icon": "NDMBA0", "displayName": "$MERCH_TAG_NDM", "basePrice": "45", "flavorText": "$MERCH_FLAVOR_NDM" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_thunderrocket", "type": "ammo", "category": "$MERCH_CAT_THUNDERROCKET", "item": "WAN_ThuRKTAmmo", "amount": "1", "icon": "THRKB0", "displayName": "$MERCH_TAG_THUNDERROCKET", "basePrice": "10", "flavorText": "$MERCH_FLAVOR_THUNDERROCKET" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_tortoiserocket", "type": "ammo", "category": "$MERCH_CAT_TORTOISEROCKET", "item": "WAN_TortRKTAmmo", "amount": "1", "icon": "TRTRB0", "displayName": "$MERCH_TAG_TORTOISEROCKET", "basePrice": "10", "flavorText": "$MERCH_FLAVOR_TORTOISEROCKET" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_xshell", "type": "ammo", "category": "$MERCH_CAT_XSHELL", "item": "HDExplosiveShellAmmo", "amount": "20", "icon": "XLBXA0", "displayName": "$MERCH_TAG_XSHELL", "basePrice": "45", "flavorText": "$MERCH_FLAVOR_XSHELL" }

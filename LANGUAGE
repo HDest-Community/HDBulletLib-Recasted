@@ -128,3 +128,146 @@ PICKUP_35MMBELTLINKPILE="Picked up a pile of large belt links.";
 
 OB_20MM="%o was fragged by %k.";
 OB_WANROCKET="%o was fragged by %k.";
+
+
+// Merchant Store Entries
+
+// .069 Bore Shell
+MERCH_CAT_069BORE                 = "Joint Task Force";
+MERCH_TAG_069BORE                 = ".066 Bore Shell";
+MERCH_FLAVOR_069BORE              = "These shotgun shells have undergone a strict weight-loss program!";
+
+// .300 Savage
+MERCH_CAT_300SAVAGE               = "Joint Task Force";
+MERCH_TAG_300SAVAGE               = ".300 Savage Rounds";
+MERCH_FLAVOR_300SAVAGE            = "Like when that dude kicked the other dude into the pit.";
+
+// .30-06
+MERCH_CAT_3006                    = "Joint Task Force";
+MERCH_TAG_3006                    = ".30-06 Rounds";
+MERCH_FLAVOR_3006                 = "For when you wanna ping ping.";
+
+// .420 Frei
+MERCH_CAT_420FREI                 = "Joint Task Force";
+MERCH_TAG_420FREI                 = ".451 Frei";
+MERCH_FLAVOR_420FREI              = "An antique cartridge. They seem a bit strange, don't they?";
+
+// .45 ACP
+MERCH_CAT_45ACP                   = "Joint Task Force";
+MERCH_TAG_45ACP                   = ".45 ACP";
+MERCH_FLAVOR_45ACP                = "The stopping power on these is really incredible.";
+
+// .45 LC
+MERCH_CAT_45LC                    = "Joint Task Force";
+MERCH_TAG_45LC                    = ".45 Long Colt Ammo";
+MERCH_FLAVOR_45LC                 = "Known as 'America's round'. They sure are a long way from home, though.";
+
+// .45 LC (Golden)
+MERCH_CAT_G45LC                   = "Joint Task Force";
+MERCH_TAG_G45LC                   = "Golden .45 Long Colt Ammo";
+MERCH_FLAVOR_G45LC                = "It's not about the money, it's about sending a message.";
+
+// .50 AE
+MERCH_CAT_50AE                    = "Joint Task Force";
+MERCH_TAG_50AE                    = ".50 Action Express";
+MERCH_FLAVOR_50AE                 = "Ought to kill something in a single shot. If it doesn't, shoot again.";
+
+// .50 AM
+MERCH_CAT_50AM                    = "Joint Task Force";
+MERCH_TAG_50AM                    = ".50 Action Mega";
+MERCH_FLAVOR_50AM                 = "Not to be confused with the similarly-named .50 Action Express.";
+
+// .50 OMG
+MERCH_CAT_50OMG                   = "Joint Task Force";
+MERCH_TAG_50OMG                   = ".50 OMG";
+MERCH_FLAVOR_50OMG                = "The one round that guarantees nothing will wallbang back at you.";
+
+// .500 S&W Heavy
+MERCH_CAT_500SWH                  = "Joint Task Force";
+MERCH_TAG_500SWH                  = ".500 S&W Handloads";
+MERCH_FLAVOR_500SWH               = "These ought to punch a hole.";
+
+// .500 S&W Light
+MERCH_CAT_500SWL                  = "Joint Task Force";
+MERCH_TAG_500SWL                  = ".500 S&W";
+MERCH_FLAVOR_500SWL               = "Much better than the peashooter .355, isn't it?";
+
+// 10mm
+MERCH_CAT_10MM                    = "Joint Task Force";
+MERCH_TAG_10MM                    = "10mm Ammo";
+MERCH_FLAVOR_10MM                 = "Because 10 is better than 9.";
+
+// 12ga Flares
+MERCH_CAT_12GFLARE                = "Joint Task Force";
+MERCH_TAG_12GFLARE                = "Flare Gun Ammo";
+MERCH_FLAVOR_12GFLARE             = "You're gonna paint the town red with these.";
+
+// 12ga Slug
+MERCH_CAT_12GSLUG                 = "Joint Task Force";
+MERCH_TAG_12GSLUG                 = "Shotgun Slug";
+MERCH_FLAVOR_12GSLUG              = "These aren't slimy like the others.";
+
+// 20mm Grenade
+MERCH_CAT_20MMGRENADE             = "Joint Task Force";
+MERCH_TAG_20MMGRENADE             = "20mm Grenade";
+MERCH_FLAVOR_20MMGRENADE          = "Smaller payload, just as big-uh boom.";
+
+// 4ga Shell
+MERCH_CAT_4GSHELL                 = "Joint Task Force";
+MERCH_TAG_4GSHELL                 = "4 gauge 00 buckshot";
+MERCH_FLAVOR_4GSHELL              = "That's a lotta shot fer yer buck, err shot.";
+
+// 4ga Slug
+MERCH_CAT_4GSLUG                  = "Joint Task Force";
+MERCH_TAG_4GSLUG                  = "4 gauge saboted slug";
+MERCH_FLAVOR_4GSLUG               = "That's a lotta slug fer yer, sabot-ed, slug? Nah that's not it.";
+
+// 5mm BR
+MERCH_CAT_5MMBR                   = "Joint Task Force";
+MERCH_TAG_5MMBR                   = ".5x16mm Bumblebee Rimfire";
+MERCH_FLAVOR_5MMBR                = "Oh no, not the bees... Not the bees! AAAAAHHHH!";
+
+// 6mm Flechette
+MERCH_CAT_6MMFLECHETTE            = "Joint Task Force";
+MERCH_TAG_6MMFLECHETTE            = "6x42mm SCF Flechette";
+MERCH_FLAVOR_6MMFLECHETTE         = "These flechettes are almost as dangerous as lawn darts!";
+
+// 7.62mm Tokarev
+MERCH_CAT_762TOKAREV              = "Joint Task Force";
+MERCH_TAG_762TOKAREV              = "7.62 Tokarev Rounds";
+MERCH_FLAVOR_762TOKAREV           = "I can't tell if this is for a handgun or a rifle...";
+
+// Birdshot
+MERCH_CAT_BIRDSHOT                = "Joint Task Force";
+MERCH_TAG_BIRDSHOT                = "Birdshot Shells";
+MERCH_FLAVOR_BIRDSHOT             = "Goin' skeet shootin'?";
+
+// Explosive Shells
+MERCH_CAT_XSHELL                  = "Joint Task Force";
+MERCH_TAG_XSHELL                  = "Explosive Shells";
+MERCH_FLAVOR_XSHELL               = "You wanna stay alive? Buy these from me.";
+
+// Lead Ball
+MERCH_CAT_LEADBALL                = "Joint Task Force";
+MERCH_TAG_LEADBALL                = "Lead Ball";
+MERCH_FLAVOR_LEADBALL             = "Make sure you pack it in good.";
+
+// Less-Lethal Shell
+MERCH_CAT_LLSHELL                 = "Joint Task Force";
+MERCH_TAG_LLSHELL                 = "Less-Lethal Shells";
+MERCH_FLAVOR_LLSHELL              = "I have no idea why anyone would want these, but I'll sell them if you're buying.";
+
+// Thunder Rocket
+MERCH_CAT_THUNDERROCKET           = "Joint Task Force";
+MERCH_TAG_THUNDERROCKET           = "Thunder Rocket";
+MERCH_FLAVOR_THUNDERROCKET        = "Sparky sparky boom, man!";
+
+// Tortoise Rocket
+MERCH_CAT_TORTOISEROCKET          = "Joint Task Force";
+MERCH_TAG_TORTOISEROCKET          = "Tortoise Rocket";
+MERCH_FLAVOR_TORTOISEROCKET       = "It'll boom ya, it's the boomiest!";
+
+// 9mm NDM
+MERCH_CAT_NDM                     = "Joint Task Force";
+MERCH_TAG_NDM                     = "9mm Nail Driver Maximum";
+MERCH_FLAVOR_NDM                  = "You can only get these at nunneries for some reason.";
