@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.6.0] - 2026-05-19
 
+### Added
+
+-   Added 8.28mm Caseless Rounds (#48, #49).
+
+### Changed
+
+-   Updated 20mm Base Class (#50).
+
+### Removed
+
+-   All remaining references to .50 AE files completely removed (#47).
+
 ## [v1.5.0] - 2025-07-01
 
 ### Added
