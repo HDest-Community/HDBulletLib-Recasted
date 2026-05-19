@@ -1,4 +1,4 @@
-const HDCONST_HDBLEVENT = HDCONST_BPSPAWNPOOLEVENT + 1;
+// const HDCONST_HDBLEVENT = HDCONST_BPSPAWNPOOLEVENT + 1;
 
 class HDBulletLibHandler : EventHandler {
     // [Ace] Order here must match bitshifting order in menudef and zscript files. - [Ted, UZ]
@@ -58,22 +58,23 @@ class HDBulletLibHandler : EventHandler {
         }
     }
 
-    override void OnRegister() {
-        SetOrder(HDCONST_HDBLEVENT);
-    }
+    // override void OnRegister() {
+    //     SetOrder(HDCONST_HDBLEVENT);
+    // }
 
     override void WorldLoaded(worldevent e) {
 
         // Populates the main arrays if they haven't been already.
         if (!cvarsAvailable || !AmmoSpawns[0]) init();
 
-        for (let i = 0; i < RemovedClasses.size(); i++) {
-            if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
-                if (hd_debug) console.printf("Removing "..RemovedClasses[i].getClassName().." from Backpack Spawn Pool");
+        // TODO: Reimplement new Wild Backpack Spawn Pool
+        // for (let i = 0; i < RemovedClasses.size(); i++) {
+        //     if (!(AmmoSpawns[i / 32].GetInt() & (1 << (i % 32)))) {
+        //         if (hd_debug) console.printf("Removing "..RemovedClasses[i].getClassName().." from Backpack Spawn Pool");
 
-                BPSpawnPool.removeItem(RemovedClasses[i]);
-            }
-        }
+        //         BPSpawnPool.removeItem(RemovedClasses[i]);
+        //     }
+        // }
     }
 
     override void WorldThingSpawned(WorldEvent e) {
