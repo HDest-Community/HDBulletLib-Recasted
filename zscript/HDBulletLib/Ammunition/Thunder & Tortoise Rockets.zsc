@@ -119,7 +119,7 @@ class WAN_CustomRocket:SlowProjectile{
 				bool crapshot=dangle>40;
 				if(dangle<20){
 					dmgg+=int((180-dangle)*squirtamt*frandom(0.4,0.45));
-					if(hd_debug)console.printf("CRIT!");
+					HDCore.log('HDBulletLib', LOGGING_DEBUG, "CRIT!");
 				}else if(!crapshot)dmgg+=int(frandom(100,400-dangle+squirtamt*2));
 				int originalhealth=sqtrace.hitactor.health;
 				sqtrace.hitactor.damagemobj(
