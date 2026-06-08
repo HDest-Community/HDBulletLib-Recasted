@@ -168,3 +168,5 @@ server bool hdm_enable_ndm                  = true;
 server bool hdm_enable_thunderrocket        = true;
 server bool hdm_enable_tortoiserocket       = true;
 server bool hdm_enable_xshell               = true;
+
+server bool hdb_nocasingpickup = false;

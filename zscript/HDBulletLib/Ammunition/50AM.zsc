@@ -1,7 +1,6 @@
 // ------------------------------------------------------------
 // .50 Action Mega
 // ------------------------------------------------------------
-const HDLD_50AM="5am";
 const ENC_50AM=ENC_355*1.1;
 const ENC_50AM_LOADED=ENC_355_LOADED*1.1;
 
@@ -12,7 +11,7 @@ class HD50AM_Ammo:HDRoundAmmo{
 		+hdpickup.multipickup
 		xscale 0.7;yscale 0.7;
 		inventory.pickupmessage "$PICKUP_50AM";
-		hdpickup.refid HDLD_50AM;
+		hdpickup.refid "5am";
 		tag "$TAG_50AM";
 		hdpickup.bulk ENC_50AM;
 		inventory.icon "50AMW0";
@@ -27,30 +26,80 @@ class HD50AM_Ammo:HDRoundAmmo{
 	}
 }
 
-class HDSpent50AM:HDDebris{
+class HDSpent50AM:HDUPK{
+	default{
+		+missile
+		+hdupk.multipickup
+		height 2;radius 2;
+		bouncetype "doom";
+		hdupk.pickuptype "HD50AMBrass";
+		hdupk.pickupmessage "$PICKUP_50AMCASING";
+
+		bouncesound "misc/casing3";
+		bouncefactor 0.4;
+		xscale 0.7;yscale 0.7;
+		maxstepheight 0.6;
+	}
+	override void A_HDUPKGive()
+	{
+		if(hdb_nocasingpickup)Super.A_HDUPKGive();
+	}
 	override void postbeginplay(){
 		super.postbeginplay();
 		//should we just put this in the weapon itself? but right now they're all the same...
 		A_ChangeVelocity(frandom(-0.5,0.5),frandom(-7,-8),frandom(-0.5,0.5),CVF_RELATIVE);
 	}
-	default{
-		bouncesound "misc/casing3";scale 0.7;
-	}
 	states{
 	spawn:
-		50AM Y 2 nodelay{
-			A_SetRoll(roll+45,SPF_INTERPOLATE);
-		}loop;
+		50AM Y 2{
+			if(bseesdaggers)angle-=45;else angle+=45;
+			if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
+		}wait;
 	death:
-		50AM # -1;
+		50AM # -1{
+			if(hdmath.deathmatchclutter())A_SetTics(140);
+			bmissile=false;
+			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
+			if(vel.xy==(0,0)){
+				double aaa=angle-90;
+				vel.x+=cos(aaa);
+				vel.y+=sin(aaa);
+			}else{
+				A_FaceMovementDirection();
+				angle+=90;
+			}
+			let gdb=getdefaultbytype(pickuptype);
+			A_SetSize(gdb.radius,gdb.height);
+			return;
+		}stop;
 	}
 }
 
-class HDLoose50AM:HDSpent50AM{
+class HD50AMBrass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 2;radius 2;
+		tag "$TAG_50AMCASING";
+		hdpickup.bulk ENC_50AM_LOADED;
+		xscale 0.7;yscale 0.7;
+		inventory.pickupmessage "$PICKUP_50AMCASING";
+		inventory.icon "50AMY0";
+	}
+	states{
+	spawn:
+		50AM Y -1;
+		stop;
+	}
+}
+
+class HDLoose50AM:HDDebris{
 	override void postbeginplay(){
 		HDDebris.postbeginplay();
 	}
 	default{
+		bouncesound "misc/casing3";scale 0.7;
 		bouncefactor 0.5;
 	}
 	states{

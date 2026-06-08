@@ -75,16 +75,72 @@ class HDLoose500Heavy : HDLoose9mm
 	}
 }
 
-class HDSpent500 : HDSpent9mm
+class HDSpent500 : HDUPK
 {
+	Default
+	{
+		+missile
+		+hdupk.multipickup
+		height 2;radius 2;
+		bouncetype "doom";
+		hdupk.pickuptype "HD500Brass";
+		hdupk.pickupmessage "$PICKUP_500CASING";
+
+		bouncesound "misc/casing";
+		bouncefactor 0.4;
+		xscale 1.0;yscale 0.6;
+		maxstepheight 0.6;
+	}
+	override void A_HDUPKGive()
+	{
+		if(hdb_nocasingpickup)Super.A_HDUPKGive();
+	}
 	States
 	{
 		spawn:
-			SWCS A 2 nodelay A_SetRoll(roll + 45, SPF_INTERPOLATE);
-			loop;
+			SWCS A 2
+			{
+				A_SetRoll(roll + 45, SPF_INTERPOLATE);
+				if(bseesdaggers)angle-=45;else angle+=45;
+				if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
+			}wait;
 		death:
-			SWCS # -1;
-			stop;
+			SWCS # -1
+			{
+				if(hdmath.deathmatchclutter())A_SetTics(140);
+				bmissile=false;
+				vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
+				if(vel.xy==(0,0)){
+					double aaa=angle-90;
+					vel.x+=cos(aaa);
+					vel.y+=sin(aaa);
+				}else{
+					A_FaceMovementDirection();
+					angle+=90;
+				}
+				let gdb=getdefaultbytype(pickuptype);
+				A_SetSize(gdb.radius,gdb.height);
+				return;
+		}stop;
+	}
+}
+
+class HD500Brass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 16;radius 8;
+		tag "$TAG_500CASING";
+		hdpickup.bulk ENC_50SW_LOADED;
+		xscale 1.0;yscale 0.6;
+		inventory.pickupmessage "$PICKUP_500CASING";
+		inventory.icon "SWCSA0";
+	}
+	states{
+	spawn:
+		SWCS A -1;
+		stop;
 	}
 }
 

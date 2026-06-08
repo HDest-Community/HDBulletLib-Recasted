@@ -50,7 +50,9 @@ class PB_776BeltLinkPile:HDUPK{
 	}
 }
 
-class HDFlyingBeltLink:HDSpent50AM{ //why does it inherit from the .50 AM casings? i dunno im lazy
+//why does it inherit from the .50 AM casings? i dunno im lazy
+// This no longer does because that's DUMB!!!!!!!!!!!!! - [Ted]
+class HDFlyingBeltLink:HDDebris{ 
 	override void postbeginplay(){
 		HDDebris.postbeginplay();
 	}
@@ -119,7 +121,7 @@ class PB_12MMBeltLinkPile:HDUPK{
 	}
 }
 
-class HDFlyingBeltLink_12MM:HDSpent50AM{ //why does it inherit from the .50 AM casings? i dunno im lazy
+class HDFlyingBeltLink_12MM:HDDebris{ 
 	override void postbeginplay(){
 		HDDebris.postbeginplay();
 	}
@@ -187,7 +189,7 @@ class PB_35mmBeltLinkPile:HDUPK{
 	}
 }
 
-class HD35MMFlyingBeltLink:HDSpent50AM{ //why does it inherit from the .50 AM casings? i dunno im lazy
+class HD35MMFlyingBeltLink:HDDebris{ 
 	override void postbeginplay(){
 		HDDebris.postbeginplay();
 	}

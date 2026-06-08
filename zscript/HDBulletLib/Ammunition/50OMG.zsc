@@ -60,15 +60,28 @@ class HD50OMGAmmo : HDRoundAmmo
 	}
 }
 
-class HDSpent50OMG : HDDebris
+class HDSpent50OMG : HDUPK
 {
 	Default
 	{
+		+missile
+		+hdupk.multipickup
+		bouncetype "doom";
+		hdupk.pickuptype "HD50OMGBrass";
+		hdupk.pickupmessage "$PICKUP_50OMGCASING";
 		-noteleport +forcexybillboard
 		BounceSound "misc/casing";
+		BounceFactor 0.6;
+		Height 4;
+		Radius 4;
 		XScale 0.7;
 		YScale 0.8;
-		BounceFactor 0.6;
+		MaxStepHeight 0.6;
+	}
+	
+	override void A_HDUPKGive()
+	{
+		if(hdb_nocasingpickup)Super.A_HDUPKGive();
 	}
 
 	override void postbeginplay() {
@@ -93,6 +106,8 @@ class HDSpent50OMG : HDDebris
 		Spawn:
 			OGBS A 2
 			{
+				if(bseesdaggers)angle-=45;else angle+=45;
+				if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
 				angle += random(25, 45);
 				roll += random(5, 15);
 			}
@@ -101,14 +116,71 @@ class HDSpent50OMG : HDDebris
 			OGBS A -1
 			{
 				roll = 0;
+				if(hdmath.deathmatchclutter())A_SetTics(140);
+				bmissile=false;
+				vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
+				if(vel.xy==(0,0)){
+					double aaa=angle-90;
+					vel.x+=cos(aaa);
+					vel.y+=sin(aaa);
+				}else{
+					A_FaceMovementDirection();
+					angle+=90;
+				}
+				let gdb=getdefaultbytype(pickuptype);
+				A_SetSize(gdb.radius,gdb.height);
+				return;
 			}
 			Stop;
 	}
 }
 
+class HD50OMGBrass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 4;radius 4;
+		tag "$TAG_50OMGCASING";
+		hdpickup.bulk ENC_50OMG_LOADED;
+		xscale 0.7;yscale 0.8;
+		inventory.pickupmessage "$PICKUP_50OMGCASING";
+		inventory.icon "OGBSA3A7";
+	}
+	states{
+	spawn:
+		OGBS A -1;
+		stop;
+	}
+}
+
 // a .50 OMG that can be caught in hand, launched from the Wyvern
-class HDUnSpent50OMG : HDSpent50OMG
+class HDUnSpent50OMG : HDDebris
 {
+	Default
+	{
+		-noteleport +forcexybillboard
+		BounceSound "misc/casing";
+		XScale 0.7;
+		YScale 0.8;
+		BounceFactor 0.6;
+	}
+	override void postbeginplay() {
+		super.postbeginplay();
+
+		if(vel == (0,0,0)) {
+			A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+		}
+	}
+
+	vector3 lastvel;
+	override void Tick() {
+		if(!isFrozen()) {
+			lastvel = vel;
+		}
+
+		super.Tick();
+	}
 	states
 	{
 		spawn:
@@ -130,11 +202,32 @@ class HDUnSpent50OMG : HDSpent50OMG
 }
 
 // any other single .50 OMG tumblng out
-class HDFumbling50OMG : HDSpent50OMG
+class HDFumbling50OMG : HDDebris
 {
 	default
 	{
+		-noteleport +forcexybillboard
+		BounceSound "misc/casing";
+		XScale 0.7;
+		YScale 0.8;
 		bouncefactor 0.3;
+	}
+
+	override void postbeginplay() {
+		super.postbeginplay();
+
+		if(vel == (0,0,0)) {
+			A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+		}
+	}
+
+	vector3 lastvel;
+	override void Tick() {
+		if(!isFrozen()) {
+			lastvel = vel;
+		}
+
+		super.Tick();
 	}
 
 	states

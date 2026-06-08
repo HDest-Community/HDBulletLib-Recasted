@@ -31,11 +31,22 @@ class HDLLShellAmmo:HDRoundAmmo{
 		}stop;
 	}
 }
-class HDLLSpentShell:HDDebris{
+class HDLLSpentShell:HDUPK{
 	default{
 		-noteleport +forcexybillboard
-		seesound "misc/casing2";scale 0.3;height 2;radius 2;
+		bouncesound "misc/casing2";scale 0.3;height 2;radius 2;
 		bouncefactor 0.5;
+		maxstepheight 0.6;
+		bouncetype "doom";
+		hdupk.pickuptype "LessLethalBrass";
+		hdupk.pickupmessage "$PICKUP_LLSCASING";
+
+		bouncesound "misc/casing";
+		bouncefactor 0.4;
+	}
+	override void A_HDUPKGive()
+	{
+		if(hdb_nocasingpickup)Super.A_HDUPKGive();
 	}
 	override void postbeginplay(){
 		super.postbeginplay();
@@ -49,12 +60,48 @@ class HDLLSpentShell:HDDebris{
 	}
 	states{
 	spawn:
-		ELLS ABCDEFGH 2;
-		loop;
+		ELLS ABCDEFGH 2{
+			if(bseesdaggers)angle-=45;else angle+=45;
+			if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
+		}wait;
 	death:
 		ELLS A -1{
 			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+			if(hdmath.deathmatchclutter())A_SetTics(140);
+			bmissile=false;
+			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
+			if(vel.xy==(0,0)){
+				double aaa=angle-90;
+				vel.x+=cos(aaa);
+				vel.y+=sin(aaa);
+			}else{
+				A_FaceMovementDirection();
+				angle+=90;
+			}
+			let gdb=getdefaultbytype(pickuptype);
+			A_SetSize(gdb.radius,gdb.height);
+			return;
 		}stop;
+	}
+}
+
+// B-but brass shouldn't ever be lethal smh... - [Ted]
+class LessLethalBrass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 2;radius 2;
+		tag "$TAG_LLSCASING";
+		hdpickup.bulk ENC_SHELL;
+		xscale 0.3;yscale 0.3;
+		inventory.pickupmessage "$PICKUP_LLSCASING";
+		inventory.icon "ELLSA1";
+	}
+	states{
+	spawn:
+		ELLS A -1;
+		stop;
 	}
 }
 

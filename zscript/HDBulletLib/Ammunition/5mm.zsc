@@ -40,7 +40,7 @@ class HD5mm_Ammo : HDRoundAmmo
 	}
 }
 
-class HDSpent5mmMR : HDDebris
+class HDSpent5mmMR : HDUPK
 {
 	override void PostBeginPlay()
 	{
@@ -48,24 +48,71 @@ class HDSpent5mmMR : HDDebris
 		A_ChangeVelocity(frandom(-1, 1), frandom(-0.4, 0.4), 0, CVF_RELATIVE);
 	}
 	
-
 	Default
 	{
 		BounceSound "misc/casing3";
+		bouncefactor 0.4;
 		Scale 0.55;
+		+missile
+		+hdupk.multipickup
+		height 2;radius 2;
+		bouncetype "doom";
+		hdupk.pickuptype "HD5mmBrass";
+		hdupk.pickupmessage "$PICKUP_5MMCASING";
+		maxstepheight 0.6;
+	}
+	
+	override void A_HDUPKGive()
+	{
+		if(hdb_nocasingpickup)Super.A_HDUPKGive();
 	}
 
 	States
 	{
 		Spawn:
-			5MMR Z 2 NoDelay
+			5MMR Z 2
 			{
 				A_SetRoll(roll + 45, SPF_INTERPOLATE);
+				if(bseesdaggers)angle-=45;else angle+=45;
+				if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
 			}
-			Loop;
+			Wait;
 		Death:
-			5MMR # -1;
-			Stop;
+			5MMR # -1{
+			if(hdmath.deathmatchclutter())A_SetTics(140);
+			bmissile=false;
+			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
+			if(vel.xy==(0,0)){
+				double aaa=angle-90;
+				vel.x+=cos(aaa);
+				vel.y+=sin(aaa);
+			}else{
+				A_FaceMovementDirection();
+				angle+=90;
+			}
+			let gdb=getdefaultbytype(pickuptype);
+			A_SetSize(gdb.radius,gdb.height);
+			return;
+		}stop;
+	}
+}
+
+class HD5mmBrass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 2;radius 2;
+		tag "$TAG_5MMCASING";
+		hdpickup.bulk ENC_5MM_LOADED;
+		xscale 0.55;yscale 0.55;
+		inventory.pickupmessage "$PICKUP_5MMCASING";
+		inventory.icon "5MMRA1";
+	}
+	states{
+	spawn:
+		5MMR A -1;
+		stop;
 	}
 }
 

@@ -41,7 +41,24 @@ class HD4GSAmmo:HDRoundAmmo{
 		}stop;
 	}
 }
-class HDSpent4GS:HDSpentShell{
+class HDSpent4GS:HDUPK{
+	default{
+		+missile
+		+hdupk.multipickup
+		height 2;radius 2;
+		bouncetype "doom";
+		hdupk.pickuptype "HD4GSBrass";
+		hdupk.pickupmessage "$PICKUP_4GSCASING";
+
+		bouncesound "misc/casing2";
+		bouncefactor 0.4;
+		xscale 0.3;yscale 0.3;
+		maxstepheight 0.6;
+	}
+	override void A_HDUPKGive()
+	{
+		if(hdb_nocasingpickup)Super.A_HDUPKGive();
+	}
 	override void postbeginplay(){
 		super.postbeginplay();
 		if(Wads.CheckNumForName("id",0)==-1)A_SetTranslation("Free4GS");
@@ -49,15 +66,50 @@ class HDSpent4GS:HDSpentShell{
 	}
 	states{
 	spawn:
-		E4GS ABCDEFGH 2;
-		loop;
+		E4GS ABCDEFGH 2{
+			if(bseesdaggers)angle-=45;else angle+=45;
+			if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
+		}wait;
 	death:
 		E4GS A -1{
 			bmissile=false;
 			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+			if(hdmath.deathmatchclutter())A_SetTics(140);
+			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
+			if(vel.xy==(0,0)){
+				double aaa=angle-90;
+				vel.x+=cos(aaa);
+				vel.y+=sin(aaa);
+			}else{
+				A_FaceMovementDirection();
+				angle+=90;
+			}
+			let gdb=getdefaultbytype(pickuptype);
+			A_SetSize(gdb.radius,gdb.height);
+			return;
 		}stop;
 	}
 }
+
+class HD4GSBrass:HDAmmo{
+	default{
+		+inventory.ignoreskill +forcexybillboard +cannotpush
+		+hdpickup.multipickup
+		+hdpickup.cheatnogive
+		height 2;radius 2;
+		tag "$TAG_4GSCASING";
+		hdpickup.bulk ENC_4GSLOADED;
+		xscale 0.3;yscale 0.3;
+		inventory.pickupmessage "$PICKUP_4GSCASING";
+		inventory.icon "E4GSA1";
+	}
+	states{
+	spawn:
+		E4GS A -1;
+		stop;
+	}
+}
+
 //a shell that can be caught in hand, launched from the Slayer
 class HDUnSpent4GS:HDSpent4GS{
 	states{
