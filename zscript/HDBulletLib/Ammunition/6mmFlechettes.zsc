@@ -101,11 +101,11 @@ class HD6mmBrass:HDAmmo{
 		hdpickup.bulk ENC_6MMFLECHETTE_LOADED;
 		xscale 0.3;yscale 0.3;
 		inventory.pickupmessage "$PICKUP_6MMCASING";
-		inventory.icon "ACRPA1";
+		inventory.icon "ACRPL1";
 	}
 	states{
 	spawn:
-		ACRP A -1;
+		ACRP L -1;
 		stop;
 	}
 }

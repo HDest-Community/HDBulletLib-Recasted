@@ -98,7 +98,7 @@ class ExplosiveShellBrass:HDAmmo{
 		hdpickup.bulk ENC_SHELL;
 		xscale 0.3;yscale 0.3;
 		inventory.pickupmessage "$PICKUP_ESHLCASING";
-		inventory.icon "XLLSA0";
+		inventory.icon "XLLSA1";
 	}
 	states{
 	spawn:

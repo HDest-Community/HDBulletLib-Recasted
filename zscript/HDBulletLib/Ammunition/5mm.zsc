@@ -107,11 +107,11 @@ class HD5mmBrass:HDAmmo{
 		hdpickup.bulk ENC_5MM_LOADED;
 		xscale 0.55;yscale 0.55;
 		inventory.pickupmessage "$PICKUP_5MMCASING";
-		inventory.icon "5MMRA1";
+		inventory.icon "5MMRZ0";
 	}
 	states{
 	spawn:
-		5MMR A -1;
+		5MMR Z -1;
 		stop;
 	}
 }

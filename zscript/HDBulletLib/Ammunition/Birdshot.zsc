@@ -128,7 +128,7 @@ class BirdshotBrass:HDAmmo{
 		hdpickup.bulk ENC_SHELL;
 		xscale 0.7;yscale 0.8;
 		inventory.pickupmessage "$PICKUP_BIRDSHOTCASING";
-		inventory.icon "ESHLA0";
+		inventory.icon "ESHLA1";
 		translation "80:105=160:167";
 	}
 	states{
