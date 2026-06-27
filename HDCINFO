@@ -86,9 +86,6 @@ addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDFlareAmmo
 addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "FlareShellPickup", "weight": "#hdb_FShell_shell_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
 addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "FlareShellBoxPickup", "weight": "#hdb_FShell_shellbox_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
 
-// Flare Shell Casings
-// addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDSpent", "weight": "#hdb_FShell_casing_spawn_bias", "persists": "#hdb_FShell_persistent_spawning" }
-
 // .56 cal Musket Balls
 addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "HDBallAmmo", "weight": "#hdb_MBall_casing_spawn_bias", "persists": "#hdb_MBall_persistent_spawning" }
 
@@ -164,6 +161,10 @@ addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD762Toka
 // 7.62 Tokarev Casings
 addSpawnTableSingleEntry => { "tableName": "HDCasingBits", "name": "TokarevBrass", "weight": "#hdb_7tokarev_casing_spawn_bias", "persists": "#hdb_7tokarev_persistent_spawning" }
 
+// Micro-Cells
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDMicroCell", "weight": "#hdb_microcell_shell_spawn_bias", "persists": "#hdb_microcell_persistent_spawning" }
+addSpawnTableSingleEntry => { "tableName": "CellReplaces", "name": "HDMicroCell", "weight": "#hdb_microcell_battery_spawn_bias", "persists": "#hdb_microcell_persistent_spawning" }
+
 
 // HDBL Ammo Associations
 newAmmo => { "ammoName": "HDNDMLoose" }
@@ -200,6 +201,44 @@ newAmmo => { "ammoName": "Savage300Brass" }
 newAmmo => { "ammoName": "HD_776BeltLink" }
 newAmmo => { "ammoName": "HD_12mmBeltLink" }
 newAmmo => { "ammoName": "HD_35mmBeltLink" }
+newAmmo => { "ammoName": "HDMicroCell" }
+
+// HDBL Backpack-Listing
+addStorageItemListFilter => { "name": "HDNDMLoose", "allowed": "hdb_ndm_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDSlugAmmo", "allowed": "hdb_slug_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD500SWLightAmmo", "allowed": "hdb_5swl_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD500SWHeavyAmmo", "allowed": "hdb_5swh_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD50OMGAmmo", "allowed": "hdb_50omg_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD45ACPAmmo", "allowed": "hdb_45acp_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD10mAmmo", "allowed": "hdb_10mm_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD45LCAmmo", "allowed": "hdb_45lc_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDLLShellAmmo", "allowed": "hdb_llsh_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDExplosiveShellAmmo", "allowed": "hdb_eshl_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDGold45LCAmmo", "allowed": "hdb_g45lc_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDFlareAmmo", "allowed": "hdb_flare_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDBallAmmo", "allowed": "hdb_ball_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD4GSAmmo", "allowed": "hdb_4gs_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD5mm_Ammo", "allowed": "hdb_5mm_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD6mmFlechetteAmmo", "allowed": "hdb_6mm_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD50AM_Ammo", "allowed": "hdb_50am_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDAurochsAmmo", "allowed": "hdb_461_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD069BoreAmmo", "allowed": "hdb_066_allowBackpacks" }
+addStorageItemListFilter => { "name": "TenMilBrass", "allowed": "hdb_10mb_allowBackpacks" }
+addStorageItemListFilter => { "name": "Wan_ThuRKTAmmo", "allowed": "hdb_thrkt_allowBackpacks" }
+addStorageItemListFilter => { "name": "Wan_TortRKTAmmo", "allowed": "hdb_torkt_allowBackpacks" }
+addStorageItemListFilter => { "name": "WAN_20mmGrenadeAmmo", "allowed": "hdb_20mm_allowBackpacks" }
+addStorageItemListFilter => { "name": "ThirtyAughtSixAmmo", "allowed": "hdb_3006_allowBackpacks" }
+addStorageItemListFilter => { "name": "ThirtyAughtSixBrass", "allowed": "hdb_3006b_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD4GBAmmo", "allowed": "hdb_4gb_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDBirdshotShellAmmo", "allowed": "hdb_bsht_allowBackpacks" }
+addStorageItemListFilter => { "name": "Savage300Ammo", "allowed": "hdb_300_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD762TokarevAmmo", "allowed": "hdb_762t_allowBackpacks" }
+addStorageItemListFilter => { "name": "TokarevBrass", "allowed": "hdb_762tb_allowBackpacks" }
+addStorageItemListFilter => { "name": "Savage300Brass", "allowed": "hdb_300b_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD_776BeltLink", "allowed": "hdb_776belt_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD_12mmBeltLink", "allowed": "hdb_12belt_allowBackpacks" }
+addStorageItemListFilter => { "name": "HD_35mmBeltLink", "allowed": "hdb_35belt_allowBackpacks" }
+addStorageItemListFilter => { "name": "HDMicroCell", "allowed": "hdb_mcell_allowBackpacks" }
 
 
 // Merchant Store Entries
@@ -230,3 +269,4 @@ newMerchantStoreItem => { "enabled": "#hdm_enable_ndm", "type": "ammo", "categor
 newMerchantStoreItem => { "enabled": "#hdm_enable_thunderrocket", "type": "ammo", "category": "$MERCH_CAT_THUNDERROCKET", "item": "WAN_ThuRKTAmmo", "amount": "1", "icon": "THRKB0", "displayName": "$MERCH_TAG_THUNDERROCKET", "basePrice": "10", "flavorText": "$MERCH_FLAVOR_THUNDERROCKET" }
 newMerchantStoreItem => { "enabled": "#hdm_enable_tortoiserocket", "type": "ammo", "category": "$MERCH_CAT_TORTOISEROCKET", "item": "WAN_TortRKTAmmo", "amount": "1", "icon": "TRTRB0", "displayName": "$MERCH_TAG_TORTOISEROCKET", "basePrice": "10", "flavorText": "$MERCH_FLAVOR_TORTOISEROCKET" }
 newMerchantStoreItem => { "enabled": "#hdm_enable_xshell", "type": "ammo", "category": "$MERCH_CAT_XSHELL", "item": "HDExplosiveShellAmmo", "amount": "20", "icon": "XLBXA0", "displayName": "$MERCH_TAG_XSHELL", "basePrice": "45", "flavorText": "$MERCH_FLAVOR_XSHELL" }
+newMerchantStoreItem => { "enabled": "#hdm_enable_microcell", "type": "ammo", "category": "$MERCH_CAT_MICROCELL", "item": "HDMicroCell", "icon": "MCLLA0", "displayName": "$MERCH_TAG_MICROCELL", "basePrice": "15", "flavorText": "$MERCH_FLAVOR_MICROCELL" }

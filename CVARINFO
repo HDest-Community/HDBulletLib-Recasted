@@ -1,4 +1,4 @@
-// Main HDBulletLib cvars for handling ammo box and backpack spawns. - [Ted]
+// Legacy HDBulletLib cvars for handling ammo box and backpack spawns. - [Ted]
 server int hdblib_enableammo_1 = -1;
 server int hdblib_enableammo_2 = -1;
 server int hdblib_enableammo_3 = -1;
@@ -140,6 +140,11 @@ server float hdb_7Tokarev_box_spawn_bias = 0.0;
 server float hdb_7Tokarev_casing_spawn_bias = 0.0;
 server bool hdb_7Tokarev_persistent_spawning = false;
 
+//Micro-Cell Ammo
+server float microcell_shell_spawn_bias = 0.0;
+server float microcell_battery_spawn_bias = 0.0;
+server bool microcell_persistent_spawning = false;
+
 // Merchant Store Filters
 server bool hdm_enable_069bore              = true;
 server bool hdm_enable_10mm                 = true;
@@ -168,5 +173,43 @@ server bool hdm_enable_ndm                  = true;
 server bool hdm_enable_thunderrocket        = true;
 server bool hdm_enable_tortoiserocket       = true;
 server bool hdm_enable_xshell               = true;
+server bool hdm_enable_mcell                = true;
+
+// Backpack-listing
+server bool hdb_ndm_allowBackpacks = true;
+server bool hdb_slug_allowBackpacks = true;
+server bool hdb_5swl_allowBackpacks = true;
+server bool hdb_5swh_allowBackpacks = true;
+server bool hdb_50omg_allowBackpacks = true;
+server bool hdb_45acp_allowBackpacks = true;
+server bool hdb_10mm_allowBackpacks = true;
+server bool hdb_45lc_allowBackpacks = true;
+server bool hdb_llsh_allowBackpacks = true;
+server bool hdb_eshl_allowBackpacks = true;
+server bool hdb_g45lc_allowBackpacks = true;
+server bool hdb_flare_allowBackpacks = true;
+server bool hdb_ball_allowBackpacks = true;
+server bool hdb_4gs_allowBackpacks = true;
+server bool hdb_5mm_allowBackpacks = true;
+server bool hdb_6mm_allowBackpacks = true;
+server bool hdb_50am_allowBackpacks = true;
+server bool hdb_461_allowBackpacks = true;
+server bool hdb_066_allowBackpacks = true;
+server bool hdb_10mb_allowBackpacks = true;
+server bool hdb_thrkt_allowBackpacks = true;
+server bool hdb_torkt_allowBackpacks = true;
+server bool hdb_20mm_allowBackpacks = true;
+server bool hdb_3006_allowBackpacks = true;
+server bool hdb_3006b_allowBackpacks = true;
+server bool hdb_4gb_allowBackpacks = true;
+server bool hdb_bsht_allowBackpacks = true;
+server bool hdb_300_allowBackpacks = true;
+server bool hdb_762t_allowBackpacks = true;
+server bool hdb_762tb_allowBackpacks = true;
+server bool hdb_300b_allowBackpacks = true;
+server bool hdb_776belt_allowBackpacks = true;
+server bool hdb_12belt_allowBackpacks = true;
+server bool hdb_35belt_allowBackpacks = true;
+server bool hdb_mcell_allowBackpacks = true;
 
 server bool hdb_nocasingpickup = false;

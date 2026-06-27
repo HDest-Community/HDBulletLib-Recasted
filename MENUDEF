@@ -49,6 +49,7 @@ OptionMenu "HDBulletLibMenu"
 	Submenu "$TAG_BIRDSHOT", "Birdshot", 0, 1
 	Submenu "$TAG_300SAVAGE", "300Savage", 0, 1
 	Submenu "$TAG_762TOKAREV", "762Tokarev", 0, 1
+	Submenu "$TAG_MICROCELL", "Microcell", 0, 1
 	StaticText ""
 	StaticText "Created by Cozi & Ted", "green"
 	Submenu "$TAG_MUSKETBALL", "MusketBalls", 0, 1
@@ -92,8 +93,8 @@ OptionMenu 500SW
 	SafeCommand "Reset spawn options", "resetcvar hdb_500sw_casing_spawn_bias"
 	StaticText ""
 	StaticText "Enable/Disable .500 S&W from spawning in Ammo Boxes and Backpacks.", "purple"
-	FlagOption "$TAG_500SWL", "hdblib_enableammo_1", "OnOff", 2
-	FlagOption "$TAG_500SWH", "hdblib_enableammo_1", "OnOff", 3
+	Option "$TAG_500SWL", "hdb_5swl_allowBackpacks", "OnOff"
+	Option "$TAG_500SWH", "hdb_5swh_allowBackpacks", "OnOff"
  	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_500sw_persistent_spawning", "OnOff"
@@ -125,7 +126,7 @@ OptionMenu 12GaugeSlugs
 	SafeCommand "Reset spawn options", "resetcvar hdb_12gslug_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 12 Gauge Slugs from spawning in Ammo Boxes and Backpacks.", "purple"
-	FlagOption "$TAG_12SLUG", "hdblib_enableammo_1", "OnOff", 1
+	Option "$TAG_12SLUG", "hdb_slug_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_12gslug_persistent_spawning", "OnOff"
@@ -153,7 +154,7 @@ OptionMenu 420Frei
 	SafeCommand "Reset spawn options", "resetcvar hdb_420frei_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .451 Frei from spawning in Ammo Boxes and Backpacks.", "purple"
-	FlagOption "$TAG_420FREI", "hdblib_enableammo_1", "OnOff", 17
+	Option "$TAG_420FREI", "hdb_461_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_420frei_persistent_spawning", "OnOff"
@@ -181,7 +182,7 @@ OptionMenu 069Bore
 	SafeCommand "Reset spawn options", "resetcvar hdb_069bore_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .066 Bore from spawning in Ammo Boxes and Backpacks.", "purple"
-	FlagOption "$TAG_069BORE", "hdblib_enableammo_1", "OnOff", 18
+	Option "$TAG_069BORE", "hdb_066_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_069bore_persistent_spawning", "OnOff"
@@ -209,7 +210,7 @@ OptionMenu 9mmNDM
 	SafeCommand "Reset spawn options", "resetcvar hdb_ndm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable NDM from spawning in Ammo Boxes and Backpacks.", "purple"
-	FlagOption "$TAG_NDM", "hdblib_enableammo_1", "OnOff", 0
+	Option "$TAG_NDM", "hdb_ndm_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_ndm_persistent_spawning", "OnOff"
@@ -237,7 +238,7 @@ OptionMenu 50OMG
 	SafeCommand "Reset spawn options", "resetcvar hdb_50omg_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .50 OMG from spawning in Ammo Boxes and Backpacks.", "white"
-	FlagOption "$TAG_50OMG", "hdblib_enableammo_1", "OnOff", 4
+	Option "$TAG_50OMG", "hdb_50omg_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_50omg_persistent_spawning", "OnOff"
@@ -265,7 +266,7 @@ OptionMenu 45ACP
 	SafeCommand "Reset spawn options", "resetcvar hdb_45acp_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .45 ACP from spawning in Ammo Boxes and Backpacks.", "purple"
-	FlagOption "$TAG_45ACP", "hdblib_enableammo_1", "OnOff", 5
+	Option "$TAG_45ACP", "hdb_45acp_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_45acp_persistent_spawning", "OnOff"
@@ -293,8 +294,8 @@ OptionMenu 10mmAuto
 	SafeCommand "Reset spawn options", "resetcvar hdb_10mm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 10mm Auto and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_10MMAUTO", "hdblib_enableammo_1", "OnOff", 6
-	FlagOption "$TAG_10MMCASING", "hdblib_enableammo_1", "OnOff", 19
+	Option "$TAG_10MMAUTO", "hdb_10mm_allowBackpacks", "OnOff"
+	Option "$TAG_10MMCASING", "hdb_10mb_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_10mm_persistent_spawning", "OnOff"
@@ -324,7 +325,7 @@ OptionMenu 45LC
  	StaticText ""
 */
 	StaticText "Enable/Disable .45 LC from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_45LC", "hdblib_enableammo_1", "OnOff", 7
+	Option "$TAG_45LC", "hdb_45lc_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_45lc_persistent_spawning", "OnOff"
@@ -354,7 +355,7 @@ OptionMenu Gold45LC
  	StaticText ""
 */
 	StaticText "Enable/Disable Gold .45 LC from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_G45LC", "hdblib_enableammo_1", "OnOff", 10
+	Option "$TAG_G45LC", "hdb_g45lc_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_g45lc_persistent_spawning", "OnOff"
@@ -386,7 +387,7 @@ OptionMenu LessLethalShells
 	SafeCommand "Reset spawn options", "resetcvar hdb_LLS_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Less-Lethal Shells from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_LLSHELL", "hdblib_enableammo_1", "OnOff", 8
+	Option "$TAG_LLSHELL", "hdb_llsh_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_LLS_persistent_spawning", "OnOff"
@@ -418,7 +419,7 @@ OptionMenu ExplosiveSlugs
 	SafeCommand "Reset spawn options", "resetcvar hdb_ESlug_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Explosive Slugs from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_EXPLSHL", "hdblib_enableammo_1", "OnOff", 9
+	Option "$TAG_EXPLSHL", "hdb_eshl_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_ESlug_persistent_spawning", "OnOff"
@@ -446,7 +447,7 @@ OptionMenu FlareShells
 	SafeCommand "Reset spawn options", "resetcvar hdb_FShell_shell_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Flare Shells from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_FLARESHELL", "hdblib_enableammo_1", "OnOff", 11
+	Option "$TAG_FLARESHELL", "hdb_flare_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_FShell_persistent_spawning", "OnOff"
@@ -470,7 +471,7 @@ OptionMenu MusketBalls
 	SafeCommand "Reset spawn options", "resetcvar hdb_MBall_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Musket Balls from spawning in Ammo Boxes and Backpacks.", "Green"
-	FlagOption "$TAG_MUSKETBALL", "hdblib_enableammo_1", "OnOff", 12
+	Option "$TAG_MUSKETBALL", "hdb_ball_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_MBall_persistent_spawning", "OnOff"
@@ -502,7 +503,7 @@ OptionMenu 4GSS
 	SafeCommand "Reset spawn options", "resetcvar hdb_4gss_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 4-Gauge Slugs from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_4GS", "hdblib_enableammo_1", "OnOff", 13
+	Option "$TAG_4GS", "hdb_4gs_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_4gss_persistent_spawning", "OnOff"
@@ -534,7 +535,7 @@ OptionMenu 4GaugeBuckshot
 	SafeCommand "Reset spawn options", "resetcvar hdb_4gbs_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 4-Gauge Buckshot from spawning in Ammo Boxes and Backpacks.", "Purple"
-	FlagOption "$TAG_4GB", "hdblib_enableammo_1", "OnOff", 25
+	Option "$TAG_4GB", "hdb_4gb_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_4gbs_persistent_spawning", "OnOff"
@@ -562,7 +563,7 @@ OptionMenu 5mm
 	SafeCommand "Reset spawn options", "resetcvar hdb_5mm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 5mm Bumblebee Rimfire from spawning in Ammo Boxes and Backpacks.", "Blue"
-	FlagOption "$TAG_22LR", "hdblib_enableammo_1", "OnOff", 14
+	Option "$TAG_22LR", "hdb_5mm_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_5mm_persistent_spawning", "OnOff"
@@ -590,7 +591,7 @@ OptionMenu 50AM
 	SafeCommand "Reset spawn options", "resetcvar hdb_50am_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .50 Action-Mega from spawning in Ammo Boxes and Backpacks.", "Blue"
-	FlagOption "$TAG_50AM", "hdblib_enableammo_1", "OnOff", 16
+	Option "$TAG_50AM", "hdb_50am_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_50am_persistent_spawning", "OnOff"
@@ -618,7 +619,7 @@ OptionMenu 6mmF
 	SafeCommand "Reset spawn options", "resetcvar hdb_6mm_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 6mm Flechettes from spawning in Ammo Boxes and Backpacks.", "Blue"
-	FlagOption "$TAG_6MMFLECH", "hdblib_enableammo_1", "OnOff", 15
+	Option "$TAG_6MMFLECH", "hdb_6mm_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_6mm_persistent_spawning", "OnOff"
@@ -642,7 +643,7 @@ OptionMenu 20mmG
 	SafeCommand "Reset spawn options", "resetcvar hdb_20mm_rbox_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 20mm Grenades from spawning in Ammo Boxes and Backpacks.", "Light Blue"
-	FlagOption "$TAG_20MMGREN", "hdblib_enableammo_1", "OnOff", 22
+	Option "$TAG_20MMGREN", "hdb_20mm_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_20mm_persistent_spawning", "OnOff"
@@ -666,7 +667,7 @@ OptionMenu ThuRKT
 	SafeCommand "Reset spawn options", "resetcvar hdb_ThuRKT_rbox_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Thunder Rockets from spawning in Ammo Boxes and Backpacks.", "Light Blue"
-	FlagOption "$TAG_THUNROCKET", "hdblib_enableammo_1", "OnOff", 20
+	Option "$TAG_THUNROCKET", "hdb_thrkt_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_ThuRKT_persistent_spawning", "OnOff"
@@ -690,7 +691,7 @@ OptionMenu TortRKT
 	SafeCommand "Reset spawn options", "resetcvar hdb_TortRKT_rbox_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Tortoise Rockets from spawning in Ammo Boxes and Backpacks.", "Light Blue"
-	FlagOption "$TAG_TORTROCKET", "hdblib_enableammo_1", "OnOff", 21
+	Option "$TAG_TORTROCKET", "hdb_torkt_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_TortRKT_persistent_spawning", "OnOff"
@@ -718,8 +719,8 @@ OptionMenu 3006
 	SafeCommand "Reset spawn options", "resetcvar hdb_3006_casing_spawn_bias"
 	StaticText ""
 	StaticText "Enable/Disable .30-06 and its casings from spawning in Ammo Boxes and Backpacks.", "Dark Green"
-	FlagOption "$TAG_3006", "hdblib_enableammo_1", "OnOff", 23
-	FlagOption "$TAG_3006BRASS", "hdblib_enableammo_1", "OnOff", 24
+	Option "$TAG_3006", "hdb_3006_allowBackpacks", "OnOff"
+	Option "$TAG_3006BRASS", "hdb_3006b_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_3006_persistent_spawning", "OnOff"
@@ -751,7 +752,7 @@ OptionMenu Birdshot
 	SafeCommand "Reset spawn options", "resetcvar hdb_bird_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable Birdshot from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_BIRDSHOT", "hdblib_enableammo_1", "OnOff", 26
+	Option "$TAG_BIRDSHOT", "hdb_bsht_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_bird_persistent_spawning", "OnOff"
@@ -783,8 +784,8 @@ OptionMenu 300savage
 	SafeCommand "Reset spawn options", "resetcvar hdb_300savage_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable .300 Savage and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_300SAVAGE", "hdblib_enableammo_1", "OnOff", 27
-	FlagOption "$TAG_300SAVAGEBRASS", "hdblib_enableammo_1", "OnOff", 30
+	Option "$TAG_300SAVAGE", "hdb_300_allowBackpacks", "OnOff"
+	Option "$TAG_300SAVAGEBRASS", "hdb_300b_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_300savage_persistent_spawning", "OnOff"
@@ -812,8 +813,8 @@ OptionMenu 762Tokarev
 	SafeCommand "Reset spawn options", "resetcvar hdb_7Tokarev_casing_spawn_bias"
  	StaticText ""
 	StaticText "Enable/Disable 7.62 Tokarev and its casings from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_762TOKAREV", "hdblib_enableammo_1", "OnOff", 28
-	FlagOption "$TAG_762TOKAREVBRASS", "hdblib_enableammo_1", "OnOff", 29
+	Option "$TAG_762TOKAREV", "hdb_762t_allowBackpacks", "OnOff"
+	Option "$TAG_762TOKAREVBRASS", "hdb_762tb_allowBackpacks", "OnOff"
 	StaticText ""
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_7Tokarev_persistent_spawning", "OnOff"
@@ -828,12 +829,40 @@ OptionMenu Belts
 {
 	Title "------ Belt Link Options ------"
 	StaticText "Enable/Disable Small Belt Links from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_776BELTLINK", "hdblib_enableammo_1", "OnOff", 31
+	Option "$TAG_776BELTLINK", "hdb_776belt_allowBackpacks", "OnOff"
 	StaticText ""
 	StaticText "Enable/Disable Medium Belt Links from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_12MMBELTLINK", "hdblib_enableammo_2", "OnOff", 0
+	Option "$TAG_12MMBELTLINK", "hdb_12belt_allowBackpacks", "OnOff"
 	StaticText ""
 	StaticText "Enable/Disable Large Belt Links from spawning in Ammo Boxes and Backpacks.", "Orange"
-	FlagOption "$TAG_35MMBELTLINK", "hdblib_enableammo_2", "OnOff", 1
+	Option "$TAG_35MMBELTLINK", "hdb_35belt_allowBackpacks", "OnOff"
 	StaticText ""
+}
+
+OptionMenu Microcell
+{
+    Title "------ Microcell Options ------"
+   	StaticText "Notice:", "Orange"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Orange"
+    StaticText  "Control the spawn rate of Microcells on Shotgun Shells", "white"
+	Slider "Spawn Rate: ", "microcell_shell_spawn_bias", 0.0, 100, .01, 2
+	SafeCommand "Reset spawn options", "resetcvar microcell_shell_spawn_bias"
+	StaticText ""
+    StaticText  "Control the spawn rate of Microcells on Batteries", "white"
+	Slider "Spawn Rate: ", "microcell_battery_spawn_bias", 0.0, 100, .01, 2
+	SafeCommand "Reset spawn options", "resetcvar microcell_battery_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Microcells from spawning in Ammo Boxes and Backpacks.", "Orange"
+	Option "$TAG_MICROCELL", "hdb_mcell_allowBackpacks", "OnOff"
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "microcell_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar microcell_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Orange"
+	SafeCommand "Reset all options", "hdb_microcells_reset_cvars"
 }

@@ -44,6 +44,7 @@ TAG_BIRDSHOT = "Birdshot shell";
 TAG_300SAVAGE=".300 Savage ammo";
 TAG_762TOKAREV="7.62 Tokarev round";
 TAG_828MM = "8.28mm UAC round";
+TAG_MICROCELL = "Micro-Cell";
 
 // Casings
 TAG_762TOKAREVBRASS="7.62 Tokarev casing";
@@ -130,6 +131,7 @@ PICKUP_NDMBOX="Picked up some 9mm NDM ammo.";
 PICKUP_828MM = "Picked up a stray 8.28mm round.";
 PICKUP_828MMCHUNK = "Picked up some stray 8.28mm rounds.";
 PICKUP_828MMBOX = "Picked up a box of 8.28mm UAC battle rifle rounds.";
+PICKUP_MICROCELL = "You picked up a micro-cell.";
 
 TAG_BELTLINKS="Belt Links";
 TAG_776BELTLINK="Small Belt Link";
