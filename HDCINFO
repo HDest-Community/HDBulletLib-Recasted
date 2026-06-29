@@ -240,6 +240,43 @@ addStorageItemListFilter => { "name": "HD_12mmBeltLink", "allowed": "hdb_12belt_
 addStorageItemListFilter => { "name": "HD_35mmBeltLink", "allowed": "hdb_35belt_allowBackpacks" }
 addStorageItemListFilter => { "name": "HDMicroCell", "allowed": "hdb_mcell_allowBackpacks" }
 
+// HDBL Ammobox-Listing
+addAmmoBoxFilter => { "name": "HDNDMLoose", "allowed": "hdb_ndm_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDSlugAmmo", "allowed": "hdb_slug_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD500SWLightAmmo", "allowed": "hdb_5swl_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD500SWHeavyAmmo", "allowed": "hdb_5swh_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD50OMGAmmo", "allowed": "hdb_50omg_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD45ACPAmmo", "allowed": "hdb_45acp_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD10mAmmo", "allowed": "hdb_10mm_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD45LCAmmo", "allowed": "hdb_45lc_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDLLShellAmmo", "allowed": "hdb_llsh_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDExplosiveShellAmmo", "allowed": "hdb_eshl_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDGold45LCAmmo", "allowed": "hdb_g45lc_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDFlareAmmo", "allowed": "hdb_flare_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDBallAmmo", "allowed": "hdb_ball_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD4GSAmmo", "allowed": "hdb_4gs_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD5mm_Ammo", "allowed": "hdb_5mm_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD6mmFlechetteAmmo", "allowed": "hdb_6mm_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD50AM_Ammo", "allowed": "hdb_50am_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDAurochsAmmo", "allowed": "hdb_461_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD069BoreAmmo", "allowed": "hdb_066_allowBackpacks" }
+addAmmoBoxFilter => { "name": "TenMilBrass", "allowed": "hdb_10mb_allowBackpacks" }
+addAmmoBoxFilter => { "name": "Wan_ThuRKTAmmo", "allowed": "hdb_thrkt_allowBackpacks" }
+addAmmoBoxFilter => { "name": "Wan_TortRKTAmmo", "allowed": "hdb_torkt_allowBackpacks" }
+addAmmoBoxFilter => { "name": "WAN_20mmGrenadeAmmo", "allowed": "hdb_20mm_allowBackpacks" }
+addAmmoBoxFilter => { "name": "ThirtyAughtSixAmmo", "allowed": "hdb_3006_allowBackpacks" }
+addAmmoBoxFilter => { "name": "ThirtyAughtSixBrass", "allowed": "hdb_3006b_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD4GBAmmo", "allowed": "hdb_4gb_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDBirdshotShellAmmo", "allowed": "hdb_bsht_allowBackpacks" }
+addAmmoBoxFilter => { "name": "Savage300Ammo", "allowed": "hdb_300_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD762TokarevAmmo", "allowed": "hdb_762t_allowBackpacks" }
+addAmmoBoxFilter => { "name": "TokarevBrass", "allowed": "hdb_762tb_allowBackpacks" }
+addAmmoBoxFilter => { "name": "Savage300Brass", "allowed": "hdb_300b_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD_776BeltLink", "allowed": "hdb_776belt_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD_12mmBeltLink", "allowed": "hdb_12belt_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HD_35mmBeltLink", "allowed": "hdb_35belt_allowBackpacks" }
+addAmmoBoxFilter => { "name": "HDMicroCell", "allowed": "hdb_mcell_allowBackpacks" }
+
 
 // Merchant Store Entries
 newMerchantStoreItem => { "enabled": "#hdm_enable_069bore", "type": "ammo", "category": "$MERCH_CAT_069BORE", "item": "HD069BoreAmmo", "amount": "36", "icon": "42BXA0", "displayName": "$MERCH_TAG_069BORE", "basePrice": "50", "flavorText": "$MERCH_FLAVOR_069BORE" }
