@@ -40,7 +40,7 @@ class HD5mm_Ammo : HDRoundAmmo
 	}
 }
 
-class HDSpent5mmMR : HDUPK
+class HDSpent5mmMRb : HDUPK
 {
 	override void PostBeginPlay()
 	{
@@ -72,7 +72,6 @@ class HDSpent5mmMR : HDUPK
 		Spawn:
 			5MMR Z 2
 			{
-				A_SetRoll(roll + 45, SPF_INTERPOLATE);
 				if(bseesdaggers)angle-=45;else angle+=45;
 				if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
 			}
@@ -81,19 +80,39 @@ class HDSpent5mmMR : HDUPK
 			5MMR # -1{
 			if(hdmath.deathmatchclutter())A_SetTics(140);
 			bmissile=false;
-			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
-			if(vel.xy==(0,0)){
-				double aaa=angle-90;
-				vel.x+=cos(aaa);
-				vel.y+=sin(aaa);
-			}else{
-				A_FaceMovementDirection();
-				angle+=90;
-			}
 			let gdb=getdefaultbytype(pickuptype);
 			A_SetSize(gdb.radius,gdb.height);
 			return;
 		}stop;
+	}
+}
+
+class HDSpent5mmMR : HDDebris
+{
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		A_ChangeVelocity(frandom(-1, 1), frandom(-0.4, 0.4), 0, CVF_RELATIVE);
+	}
+	
+
+	Default
+	{
+		BounceSound "misc/casing3";
+		Scale 0.55;
+	}
+
+	States
+	{
+		Spawn:
+			5MMR Z 2 NoDelay
+			{
+				A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			}
+			Loop;
+		Death:
+			TNT1 # -1 A_SpawnItemEx('HDSpent5mmMRb');
+			Stop;
 	}
 }
 

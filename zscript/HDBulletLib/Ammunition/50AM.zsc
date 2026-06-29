@@ -26,7 +26,7 @@ class HD50AM_Ammo:HDRoundAmmo{
 	}
 }
 
-class HDSpent50AM:HDUPK{
+class HDSpent50AMb:HDUPK{
 	default{
 		+missile
 		+hdupk.multipickup
@@ -72,6 +72,26 @@ class HDSpent50AM:HDUPK{
 			A_SetSize(gdb.radius,gdb.height);
 			return;
 		}stop;
+	}
+}
+
+class HDSpent50AM:HDDebris{
+	override void postbeginplay(){
+		super.postbeginplay();
+		//should we just put this in the weapon itself? but right now they're all the same...
+		A_ChangeVelocity(frandom(-0.5,0.5),frandom(-7,-8),frandom(-0.5,0.5),CVF_RELATIVE);
+	}
+	default{
+		bouncesound "misc/casing3";scale 0.7;
+	}
+	states{
+	spawn:
+		50AM Y 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		TNT1 # -1 A_SpawnItemEx('HDSpent50AMb');
+		stop;
 	}
 }
 

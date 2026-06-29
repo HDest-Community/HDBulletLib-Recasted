@@ -60,7 +60,7 @@ class HD50OMGAmmo : HDRoundAmmo
 	}
 }
 
-class HDSpent50OMG : HDUPK
+class HDSpent50OMGb : HDUPK
 {
 	Default
 	{
@@ -130,6 +130,53 @@ class HDSpent50OMG : HDUPK
 				let gdb=getdefaultbytype(pickuptype);
 				A_SetSize(gdb.radius,gdb.height);
 				return;
+			}
+			Stop;
+	}
+}
+
+class HDSpent50OMG : HDDebris
+{
+	Default
+	{
+		-noteleport +forcexybillboard
+		BounceSound "misc/casing";
+		XScale 0.7;
+		YScale 0.8;
+		BounceFactor 0.6;
+	}
+
+	override void postbeginplay() {
+		super.postbeginplay();
+
+		if(vel == (0,0,0)) {
+			A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+		}
+	}
+
+	vector3 lastvel;
+	override void Tick() {
+		if(!isFrozen()) {
+			lastvel = vel;
+		}
+
+		super.Tick();
+	}
+
+	States
+	{
+		Spawn:
+			OGBS A 2
+			{
+				angle += random(25, 45);
+				roll += random(5, 15);
+			}
+			Loop;
+		Death:
+			TNT1 A -1
+			{
+				roll = 0;
+				A_SpawnItemEx ('HDSpent50OMGb');
 			}
 			Stop;
 	}

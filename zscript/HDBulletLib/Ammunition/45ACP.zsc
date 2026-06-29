@@ -20,7 +20,7 @@ class HDB_45ACP : HDBulletActor
 	}
 }
 
-class HDSpent45ACP : HDUPK
+class HDSpent45ACPb : HDUPK
 {
 	Default
 	{
@@ -52,19 +52,30 @@ class HDSpent45ACP : HDUPK
 		PBRS A -1{
 			if(hdmath.deathmatchclutter())A_SetTics(140);
 			bmissile=false;
-			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
-			if(vel.xy==(0,0)){
-				double aaa=angle-90;
-				vel.x+=cos(aaa);
-				vel.y+=sin(aaa);
-			}else{
-				A_FaceMovementDirection();
-				angle+=90;
-			}
 			let gdb=getdefaultbytype(pickuptype);
 			A_SetSize(gdb.radius,gdb.height);
 			return;
 		}stop;
+	}
+}
+
+class HDSpent45ACP : HDSpent9mm
+{
+	Default
+	{
+		BounceSound "misc/casing3";
+		XScale 0.7;
+		YScale 0.6;
+	}
+
+	States
+	{
+		Spawn:
+			45CA A 2 NoDelay A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			Loop;
+		Death:
+			TNT1 # -1 A_SpawnItemEx('HDSpent45ACPb');
+			Stop;
 	}
 }
 

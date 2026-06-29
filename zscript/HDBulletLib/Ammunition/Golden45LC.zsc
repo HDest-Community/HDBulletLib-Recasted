@@ -217,7 +217,7 @@ class HDB_Gold45lc:HDBulletActor{
 
 }
 
-class HDSpentGold45lc:HDUPK{
+class HDSpentGold45lcb:HDUPK{
 	default{
 		+missile
 		+hdupk.multipickup
@@ -258,6 +258,22 @@ class HDSpentGold45lc:HDUPK{
 			A_SetSize(gdb.radius,gdb.height);
 			return;
 		}stop;
+	}
+}
+
+class HDSpentGold45lc:HDDebris{
+	default{
+		scale 0.3;
+
+		bouncesound "misc/casing";
+	}
+	states{
+	spawn:
+		C45G A 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		TNT1 # -1 A_SpawnItemEX('HDSpentGold45lc');
 	}
 }
 

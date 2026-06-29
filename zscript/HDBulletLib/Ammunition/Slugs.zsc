@@ -64,7 +64,7 @@ class HDSlugAmmo : HDRoundAmmo
 	}
 }
 
-class HDSpentSlug : HDUPK
+class HDSpentSlugb : HDUPK
 {
 	Default
 	{
@@ -119,6 +119,32 @@ class HDSpentSlug : HDUPK
 				let gdb=getdefaultbytype(pickuptype);
 				A_SetSize(gdb.radius,gdb.height);
 				return;
+			}
+			Stop;
+	}
+}
+
+class HDSpentSlug : HDSpentShell
+{
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if (Wads.CheckNumForName("id", 0) == -1)
+		{
+			A_SetTranslation("FreeSlug");
+		}
+	}
+
+	States
+	{
+		Spawn:
+			ESLG ABCDEFGH 2;
+			Loop;
+		Death:
+			TNT1 A -1
+			{
+				bMISSILE = false;
+				A_SpawnItemEX('HDSpentSlugb');
 			}
 			Stop;
 	}

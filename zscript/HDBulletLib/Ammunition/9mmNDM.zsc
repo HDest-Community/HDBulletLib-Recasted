@@ -2,7 +2,7 @@
 // CREATED BY Sledge
 // ------------------------------------------------------------
 
-class HDSpentNDM:HDUPK{
+class HDSpentNDMb:HDUPK{
 	default{
 		+missile
 		+hdupk.multipickup
@@ -31,19 +31,25 @@ class HDSpentNDM:HDUPK{
 		PBRS A -1{
 			if(hdmath.deathmatchclutter())A_SetTics(140);
 			bmissile=false;
-			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
-			if(vel.xy==(0,0)){
-				double aaa=angle-90;
-				vel.x+=cos(aaa);
-				vel.y+=sin(aaa);
-			}else{
-				A_FaceMovementDirection();
-				angle+=90;
-			}
 			let gdb=getdefaultbytype(pickuptype);
 			A_SetSize(gdb.radius,gdb.height);
 			return;
 		}stop;
+	}
+}
+
+class HDSpentNDM:HDSpent9mm{
+	default{
+		Translation "128:167=#[91,168,244]";
+	}
+	states{
+	spawn:
+		PBRS A 2 nodelay{
+			A_SetRoll(roll+45,SPF_INTERPOLATE);
+		}loop;
+	death:
+		TNT1 # -1 A_SpawnItemEx('HDSpentNDMb');
+		stop;
 	}
 }
 

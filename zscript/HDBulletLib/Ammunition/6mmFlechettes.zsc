@@ -48,7 +48,7 @@ class HD6mmFlechetteBoxPickup:HDUPK{
 	}
 }
 
-class HDSpent6mmFlechette:HDUPK{
+class HDSpent6mmFlechetteb:HDUPK{
 	default{
 		bouncesound "misc/casing3";scale 0.30;
 		alpha 0.5;
@@ -75,19 +75,24 @@ class HDSpent6mmFlechette:HDUPK{
 		ACRP L -1{
 			if(hdmath.deathmatchclutter())A_SetTics(140);
 			bmissile=false;
-			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
-			if(vel.xy==(0,0)){
-				double aaa=angle-90;
-				vel.x+=cos(aaa);
-				vel.y+=sin(aaa);
-			}else{
-				A_FaceMovementDirection();
-				angle+=90;
-			}
 			let gdb=getdefaultbytype(pickuptype);
 			A_SetSize(gdb.radius,gdb.height);
 			return;
 		}stop;
+	}
+}
+
+class HDSpent6mmFlechette:HDDebris{
+	default{
+		bouncesound "misc/casing3";scale 0.30;
+		alpha 0.5;
+	}
+	states{
+	spawn:
+		ACRP L 2 nodelay;
+		loop;
+	death:
+		TNT1 # -1 A_SpawnItemEx('HDSpent6mmFlechetteb');
 	}
 }
 

@@ -75,7 +75,7 @@ class HDLoose500Heavy : HDLoose9mm
 	}
 }
 
-class HDSpent500 : HDUPK
+class HDSpent500b : HDUPK
 {
 	Default
 	{
@@ -87,7 +87,7 @@ class HDSpent500 : HDUPK
 		hdupk.pickupmessage "$PICKUP_500CASING";
 
 		bouncesound "misc/casing";
-		bouncefactor 0.4;
+		bouncefactor 0.5;
 		xscale 1.0;yscale 0.6;
 		maxstepheight 0.6;
 	}
@@ -98,9 +98,8 @@ class HDSpent500 : HDUPK
 	States
 	{
 		spawn:
-			SWCS A 2
+			SWCS A 2 nodelay
 			{
-				A_SetRoll(roll + 45, SPF_INTERPOLATE);
 				if(bseesdaggers)angle-=45;else angle+=45;
 				if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
 			}wait;
@@ -109,19 +108,23 @@ class HDSpent500 : HDUPK
 			{
 				if(hdmath.deathmatchclutter())A_SetTics(140);
 				bmissile=false;
-				vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
-				if(vel.xy==(0,0)){
-					double aaa=angle-90;
-					vel.x+=cos(aaa);
-					vel.y+=sin(aaa);
-				}else{
-					A_FaceMovementDirection();
-					angle+=90;
-				}
 				let gdb=getdefaultbytype(pickuptype);
 				A_SetSize(gdb.radius,gdb.height);
 				return;
 		}stop;
+	}
+}
+
+class HDSpent500 : HDSpent9mm
+{
+	States
+	{
+		spawn:
+			SWCS A 2 nodelay A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			loop;
+		death:
+			TNT1 A -1 A_SpawnItem('HDSpent500b');
+			stop;
 	}
 }
 

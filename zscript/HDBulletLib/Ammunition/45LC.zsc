@@ -217,7 +217,7 @@ class HDB_45lc:HDBulletActor{
 
 }
 
-class HDSpent45LC:HDUPK
+class HDSpent45LCb:HDUPK
 {
 	default
 	{
@@ -261,6 +261,24 @@ class HDSpent45LC:HDUPK
 			A_SetSize(gdb.radius,gdb.height);
 			return;
 		}stop;
+	}
+}
+
+class HDSpent45LC:HDSpent9mm
+{
+	default
+	{
+		xscale 0.75;
+		yscale 1.0;
+	}
+	States
+	{
+		spawn:
+			PBRS A 2 nodelay A_SetRoll(roll + 45, SPF_INTERPOLATE);
+			loop;
+		death:
+			TNT1 A -1 A_SpawnItem('HDSpent45LCb');
+			stop;
 	}
 }
 

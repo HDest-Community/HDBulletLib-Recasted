@@ -36,7 +36,7 @@ class HDExplosiveShellAmmo:HDRoundAmmo{
 		}stop;
 	}
 }
-class HDSpentExplosiveShell:HDUPK{
+class HDSpentExplosiveShellb:HDUPK{
 	default{
 		-noteleport +forcexybillboard
 		seesound "misc/casing2";scale 0.3;height 2;radius 2;
@@ -84,6 +84,32 @@ class HDSpentExplosiveShell:HDUPK{
 			let gdb=getdefaultbytype(pickuptype);
 			A_SetSize(gdb.radius,gdb.height);
 			return;
+		}stop;
+	}
+}
+
+class HDSpentExplosiveShell:HDDebris{
+	default{
+		-noteleport +forcexybillboard
+		seesound "misc/casing2";scale 0.3;height 2;radius 2;
+		bouncefactor 0.5;
+	}
+	override void postbeginplay(){
+		super.postbeginplay();
+			if(vel==(0,0,0))A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+	}
+	vector3 lastvel;
+	override void Tick(){
+		if(!isFrozen())lastvel=vel;
+		super.Tick();
+	}
+	states{
+	spawn:
+		XLLS ABCDEFGH 2;
+		loop;
+	death:
+		TNT1 A -1{
+			A_SpawnItemEX('HDSpentExplosiveShellb');
 		}stop;
 	}
 }

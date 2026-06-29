@@ -33,7 +33,7 @@ class HDB_000:HDBulletActor{
     }
 }
 
-class HDSpent420:HDUPK{
+class HDSpent420b:HDUPK{
 	default{
 		+missile
 		+hdupk.multipickup
@@ -53,7 +53,6 @@ class HDSpent420:HDUPK{
 	states{
 	spawn:
 		420S A 2 nodelay{
-			A_SetRoll(roll+45,SPF_INTERPOLATE);
 			if(bseesdaggers)angle-=45;else angle+=45;
 			if(pos.z-floorz<2&&abs(vel.z)<2.)setstatelabel("death");
 		}wait;
@@ -61,19 +60,24 @@ class HDSpent420:HDUPK{
 		420S # -1{
 			if(hdmath.deathmatchclutter())A_SetTics(140);
 			bmissile=false;
-			vel.xy+=(pos.xy-lastpos.xy)*max(abs(vel.z),abs(lastpos.z-pos.z),1.);
-			if(vel.xy==(0,0)){
-				double aaa=angle-90;
-				vel.x+=cos(aaa);
-				vel.y+=sin(aaa);
-			}else{
-				A_FaceMovementDirection();
-				angle+=90;
-			}
 			let gdb=getdefaultbytype(pickuptype);
 			A_SetSize(gdb.radius,gdb.height);
 			return;
 		}stop;
+	}
+}
+
+class HDSpent420:HDDebris{
+	default{
+		bouncesound "misc/casing3";scale 0.6;
+	}
+	states{
+	spawn:
+		420S A 2 nodelay A_SetRoll(roll+45,SPF_INTERPOLATE);
+		loop;
+	death:
+		TNT1 # -1 A_SpawnItem('HDSpent420b');
+		stop;
 	}
 }
 
