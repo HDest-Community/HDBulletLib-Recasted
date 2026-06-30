@@ -13,6 +13,7 @@ class HDMicroCell:HDMagAmmo{
 		hdpickup.bulk ENC_BATTERY/2;
 		hdmagammo.magbulk ENC_BATTERY/2;
 		hdmagammo.mustshowinmagmanager true;
+		inventory.pickupmessage "$PICKUP_MICROCELL";
 		inventory.icon "MCLLA0";
 		scale 0.4;
 	}
@@ -26,9 +27,6 @@ class HDMicroCell:HDMagAmmo{
 	int ticker;
 	int lastamount;
 	int chargemode;
-	override string pickupmessage(){
-		return Stringtable.Localize("$PICKUP_MICROCELL");
-	}
 	override void doeffect(){
 		//testingdoeffect();return;
 		if(chargemode==BATT_UNDEFINED)chargemode=BATT_CHARGEDEFAULT;
@@ -57,7 +55,7 @@ class HDMicroCell:HDMagAmmo{
 		ChargeMicroCell(usetop:true);
 		ChargeMicroCell();
 	}
-	
+
 	void ChargeMicroCell(int chargestodo=-1,bool usetop=false){
 		SyncAmount();
 		if(amount<1)return;
@@ -135,7 +133,7 @@ class HDMicroCell:HDMagAmmo{
 	}
 	
 	override string,string,name,double getmagsprite(int thismagamt){
-		string magsprite="MCLLA0";
+		string magsprite;
 		if(thismagamt>6)magsprite="MCLLA0";
 		else if(thismagamt>3)magsprite="MCLLB0";
 		else if(thismagamt>0)magsprite="MCLLC0";
@@ -147,13 +145,20 @@ class HDMicroCell:HDMagAmmo{
 		offx+=40;
 		scl=1;
 		let battt=chargemode;
-		string batts="uNone";
-		if(battt==hdbattery.BATT_CHARGEMAX)batts="eAuto";
-		else if(battt==hdbattery.BATT_CHARGESELECTED)batts="ySelected";
+		string batts="$BATTERYCHARGE_NONE";
+		if(battt==hdbattery.BATT_CHARGEMAX)batts="$BATTERYCHARGE_AUTO";
+		else if(battt==hdbattery.BATT_CHARGESELECTED)batts="$BATTERYCHARGE_SELECTED";
 		sb.DrawString(
-			sb.psmallfont,string.format(Stringtable.Localize("$MBAT_HELPTEXT_1"),helptext?Stringtable.Localize("$MBAT_HELPTEXT_2"):"",batts,helptext?Stringtable.Localize("$MBAT_HELPTEXT_3"):""),(offx+2,offy),
-			sb.DI_SCREEN_CENTER|sb.DI_TEXT_ALIGN_LEFT,
-			wrapwidth:smallfont.StringWidth("m")*80
+			sb.psmallfont,
+					(helptext?StringTable.Localize("$BATTERYCHARGE_CHARGING"):"")
+					.."\c"..
+					StringTable.Localize(batts)..
+					(helptext?StringTable.Localize("$BATTERYCHARGE_RELOAD"):"")
+				,
+
+				(offx+2,offy),
+				sb.DI_SCREEN_CENTER|sb.DI_TEXT_ALIGN_LEFT,
+				wrapwidth:smallfont.StringWidth("m")*80
 		);
 
 		sb.drawimage("MCLLA0",(offx,offy),
@@ -165,7 +170,7 @@ class HDMicroCell:HDMagAmmo{
 		itemsthatusethis.push("PhazerPistol");
 		itemsthatusethis.push("HDStunGun");
 	}
-	
+
 	states(actor){
 	spawn:
 		MCLL CAB -1 nodelay{
@@ -177,5 +182,18 @@ class HDMicroCell:HDMagAmmo{
 	spawnempty:
 		MCLL D -1;
 		stop;
+	}
+}
+class HDMicroCellEmpty:IdleDummy{
+	default{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title "Micro-Cell (Spent)"
+		//$Sprite "MCLLD0"
+	}
+	override void postbeginplay(){
+		super.postbeginplay();
+		angle=frandom(0,360);
+		HDMagAmmo.SpawnMag(self,"HDMicroCell",0);
+		destroy();
 	}
 }
