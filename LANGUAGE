@@ -163,9 +163,16 @@ PICKUP_G45LCCASING = "Picked up a Golden .45 LC casing.";
 PICKUP_LLSCASING = "Picked up a Less-lethal shotgun shell casing.";
 PICKUP_SLUGCASING = "Picked up a Shotgun slug casing.";
 
-
+// Misc
 OB_20MM="%o was fragged by %k.";
 OB_WANROCKET="%o was fragged by %k.";
+
+MBAT_HELPTEXT_1 = "%s\c%s%s";
+MBAT_HELPTEXT_2 = "Charging: ";
+MBAT_HELPTEXT_3 = "\n\cu(\cqReload\cu to cycle)";
+
+MBAT_USERERROR_1 = "Battery configuration error: full battery selected. Rerouting.";
+MBAT_USERERROR_2 = "Battery configuration error: lowest battery selected. Rerouting.";
 
 
 // Merchant Store Entries
