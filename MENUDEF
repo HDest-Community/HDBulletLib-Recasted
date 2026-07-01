@@ -17,59 +17,122 @@ OptionMenu "HDBulletLibMenu"
 {
 	Title "Standard Bullet Library Options"
 
-	StaticText "Enabling the ammo types below allows them to be spawned", "White"
-	StaticText "in ammo boxes and backpacks. Otherwise, they will be disabled.", "White"
-	StaticText "Keep an ammo type disabled if you are not playing with any", "White"
-	StaticText "mods that utilize it.", "White"
-	StaticText "Does not actually control spawning by other mods.", "Fire"
+	StaticText "Enabling the ammo types below allows them to be spawned in world.", "White"
+	StaticText "Otherwise, they will be disabled.", "White"
+	StaticText "Does not control spawning by other mods.", "Fire"
 	StaticText ""
-	SafeCommand "Reset all options", "hdb_reset_cvars"
+	Submenu "Advanced Options", "AdvancedHDBulletLibMenu", 0, 1
 	StaticText ""
 	StaticText "Created by Peppergrinder Team", "purple"
-	Submenu "$TAG_12SLUG", "12GaugeSlugs", 0, 1
-	Submenu "$TAG_500SW", "500SW", 0, 1
-	Submenu "$TAG_420FREI", "420Frei", 0, 1
-	Submenu "$TAG_069BORE", "069Bore", 0, 1
-	Submenu "$TAG_NDM", "9mmNDM", 0, 1
+	Option "$TAG_12SLUG", "hdb_enable_12gslug", "OnOff"
+	Option "$TAG_500SW", "hdb_enable_500sw", "OnOff"
+	Option "$TAG_NDM", "hdb_enable_ndm", "OnOff"
+	StaticText ""
+	StaticText "Created by 1337Spy", "Cyan"
+	Option "$TAG_420FREI", "hdb_enable_420frei", "OnOff"
+	Option "$TAG_069BORE", "hdb_enable_069bore", "OnOff"
 	StaticText ""
 	StaticText "Created by Bogus", "white"
-	Submenu "$TAG_50OMG", "50OMG", 0, 1
+	Option "$TAG_50OMG", "hdb_enable_50omg", "OnOff"
 	StaticText ""
 	StaticText "Created by Popguy", "purple"
-	Submenu "$TAG_45ACP", "45ACP", 0, 1
-	Submenu "$TAG_4GB", "4GaugeBuckshot", 0, 1
+	Option "$TAG_45ACP", "hdb_enable_45acp", "OnOff"
+	Option "$TAG_4GB", "hdb_enable_4gshell", "OnOff"
 	StaticText ""
 	StaticText "Created by Swampyrad", "orange"
-	Submenu "$TAG_10MMAUTO", "10mmAuto", 0, 1
-	Submenu "$TAG_45LC", "45LC", 0, 1
-	Submenu "$TAG_G45LC", "Gold45LC", 0, 1
-	Submenu "$TAG_LLSHELL", "LessLethalShells", 0, 1
-	Submenu "$TAG_EXPLSHL", "ExplosiveSlugs", 0, 1
-	Submenu "$TAG_FLARESHELL", "FlareShells", 0, 1
-	Submenu "$TAG_BIRDSHOT", "Birdshot", 0, 1
-	Submenu "$TAG_300SAVAGE", "300Savage", 0, 1
-	Submenu "$TAG_762TOKAREV", "762Tokarev", 0, 1
-	Submenu "$TAG_MICROCELL", "Microcell", 0, 1
+	Option "$TAG_10MMAUTO", "hdb_enable_10mm", "OnOff"
+	Option "$TAG_45LC", "hdb_enable_45lc", "OnOff"
+	Option "$TAG_G45LC", "hdb_enable_g45lc", "OnOff"
+	Option "$TAG_LLSHELL", "hdb_enable_llshell", "OnOff"
+	Option "$TAG_EXPLSHL", "hdb_enable_xshell", "OnOff"
+	Option "$TAG_FLARESHELL", "hdb_enable_12gflare", "OnOff"
+	Option "$TAG_BIRDSHOT", "hdb_enable_birdshot", "OnOff"
+	Option "$TAG_300SAVAGE", "hdb_enable_300savage", "OnOff"
+	Option "$TAG_762TOKAREV", "hdb_enable_762tokarev", "OnOff"
+	Option "$TAG_MICROCELL", "hdb_enable_mcell", "OnOff"
 	StaticText ""
 	StaticText "Created by Cozi & Ted", "green"
-	Submenu "$TAG_MUSKETBALL", "MusketBalls", 0, 1
+	Option "$TAG_MUSKETBALL", "hdb_enable_leadball", "OnOff"
 	StaticText ""
 	StaticText "Created by Khan", "orange"
-	Submenu "$TAG_4GS", "4GSS", 0, 1
+	Option "$TAG_4GS", "hdb_enable_4gslug", "OnOff"
 	StaticText ""
 	StaticText "Created by Potetobloke", "Blue"
-	Submenu "$TAG_22LR", "5mm", 0, 1
-	Submenu "$TAG_50AM", "50AM", 0, 1
-	Submenu "$TAG_6MMFLECH", "6mmF", 0, 1
-	Submenu "$TAG_BELTLINKS", "Belts", 0, 1
+	Option "$TAG_22LR", "hdb_enable_5mmbr", "OnOff"
+	Option "$TAG_50AM", "hdb_enable_50am", "OnOff"
+	Option "$TAG_6MMFLECH", "hdb_enable_6mmflechette", "OnOff"
+	Option "$TAG_BELTLINKS", "hdb_enable_belts", "OnOff"
 	StaticText ""
 	StaticText "Created by Wanzer", "Light Blue"
-	Submenu "$TAG_THUNROCKET", "ThuRKT", 0, 1
-	Submenu "$TAG_TORTROCKET", "TortRKT", 0, 1
-	Submenu "$TAG_20MMGREN", "20mmG", 0, 1
+	Option "$TAG_THUNROCKET", "hdb_enable_thunderrocket", "OnOff"
+	Option "$TAG_TORTROCKET", "hdb_enable_tortoiserocket", "OnOff"
+	Option "$TAG_20MMGREN", "hdb_enable_20mmgrenade", "OnOff"
 	StaticText ""
 	StaticText "Created by HexaDoken", "Dark Green"
-	Submenu "$TAG_3006", "3006", 0, 1
+	Option "$TAG_3006", "hdb_enable_3006", "OnOff"
+	StaticText ""
+	Command "Reset all options?", "hdb_reset_cvars", 1, 1
+}
+
+OptionMenu "AdvancedHDBulletLibMenu"
+{
+	Title "Advanced Bullet Library Options"
+
+	StaticText "Enabling the ammo types below allows them to be spawned in world.", "White"
+	StaticText "Otherwise, they will be disabled.", "White"
+	StaticText "Does not control spawning by other mods.", "Fire"
+	StaticText ""
+	Submenu "Simple Options", "HDBulletLibMenu", 0, 1
+	StaticText ""
+	StaticText "Created by Peppergrinder Team", "purple"
+	LabeledSubmenu "$TAG_12SLUG", "hdb_enable_12gslug", "12GaugeSlugs", 1
+	LabeledSubmenu "$TAG_500SW", "hdb_enable_500sw", "500SW", 1
+	LabeledSubmenu "$TAG_NDM", "hdb_enable_ndm", "9mmNDM", 1
+	StaticText ""
+	StaticText "Created by 1337Spy", "Cyan"
+	LabeledSubmenu "$TAG_420FREI", "hdb_enable_420frei", "420Frei", 1
+	LabeledSubmenu "$TAG_069BORE", "hdb_enable_069bore", "069Bore", 1
+	StaticText ""
+	StaticText "Created by Bogus", "white"
+	LabeledSubmenu "$TAG_50OMG", "hdb_enable_50omg", "50OMG", 1
+	StaticText ""
+	StaticText "Created by Popguy", "purple"
+	LabeledSubmenu "$TAG_45ACP", "hdb_enable_45acp", "45ACP", 1
+	LabeledSubmenu "$TAG_4GB", "hdb_enable_4gshell", "4GaugeBuckshot", 1
+	StaticText ""
+	StaticText "Created by Swampyrad", "orange"
+	LabeledSubmenu "$TAG_10MMAUTO", "hdb_enable_10mm", "10mmAuto", 1
+	LabeledSubmenu "$TAG_45LC", "hdb_enable_45lc", "45LC", 1
+	LabeledSubmenu "$TAG_G45LC", "hdb_enable_g45lc", "Gold45LC", 1
+	LabeledSubmenu "$TAG_LLSHELL", "hdb_enable_llshell", "LessLethalShells", 1
+	LabeledSubmenu "$TAG_EXPLSHL", "hdb_enable_xshell", "ExplosiveSlugs", 1
+	LabeledSubmenu "$TAG_FLARESHELL", "hdb_enable_12gflare", "FlareShells", 1
+	LabeledSubmenu "$TAG_BIRDSHOT", "hdb_enable_birdshot", "Birdshot", 1
+	LabeledSubmenu "$TAG_300SAVAGE", "hdb_enable_300savage", "300Savage", 1
+	LabeledSubmenu "$TAG_762TOKAREV", "hdb_enable_762tokarev", "762Tokarev", 1
+	LabeledSubmenu "$TAG_MICROCELL","hdb_enable_mcell", "Microcell", 1
+	StaticText ""
+	StaticText "Created by Cozi & Ted", "green"
+	LabeledSubmenu "$TAG_MUSKETBALL", "hdb_enable_leadball", "MusketBalls", 1
+	StaticText ""
+	StaticText "Created by Khan", "orange"
+	LabeledSubmenu "$TAG_4GS", "hdb_enable_4gslug", "4GSS", 1
+	StaticText ""
+	StaticText "Created by Potetobloke", "Blue"
+	LabeledSubmenu "$TAG_22LR", "hdb_enable_5mmbr", "5mm", 1
+	LabeledSubmenu "$TAG_50AM", "hdb_enable_50am", "50AM", 1
+	LabeledSubmenu "$TAG_6MMFLECH", "hdb_enable_6mmflechette", "6mmF", 1
+	LabeledSubmenu "$TAG_BELTLINKS", "hdb_enable_belts", "Belts", 1
+	StaticText ""
+	StaticText "Created by Wanzer", "Light Blue"
+	LabeledSubmenu "$TAG_THUNROCKET", "hdb_enable_thunderrocket", "ThuRKT", 1
+	LabeledSubmenu "$TAG_TORTROCKET", "hdb_enable_tortoiserocket", "TortRKT", 1
+	LabeledSubmenu "$TAG_20MMGREN", "hdb_enable_20mmgrenade", "20mmG", 1
+	StaticText ""
+	StaticText "Created by HexaDoken", "Dark Green"
+	LabeledSubmenu "$TAG_3006", "hdb_enable_3006", "3006", 1
+	StaticText ""
+	SafeCommand "Reset all options?", "hdb_reset_cvars"
 }
 
 OptionMenu 500SW
