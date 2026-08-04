@@ -132,14 +132,10 @@ class HDMicroCell:HDMagAmmo{
 		if(hd_debug)LogAmounts();
 	}
 	
-	override string,string,name,double getmagsprite(int thismagamt){
-		string magsprite;
-		if(thismagamt>6)magsprite="MCLLA0";
-		else if(thismagamt>3)magsprite="MCLLB0";
-		else if(thismagamt>0)magsprite="MCLLC0";
-		else magsprite="MCLLD0";
-		return magsprite,"MCLPA0","HDMicroCell",0.8;
+	override string,string,name,double getmagsprite(int thismagamt) {
+		return HDCore.getMicroCellIcon(thismagamt),"MCLPA0","HDMicroCell",0.8;
 	}
+
 	override void DrawRoundCount(HDStatusBar sb,HDPlayerPawn hpl,name roundsprite,double scl,int offx,int offy){
 		bool helptext=hpl.hd_helptext.getbool();
 		offx+=40;
