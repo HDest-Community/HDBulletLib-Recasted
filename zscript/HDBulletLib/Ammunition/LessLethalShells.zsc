@@ -354,7 +354,7 @@ class HDB_00Rubber:HDBulletActor{
 
 			//apply impact damage
 			if(impact>(hitactor.spawnhealth()>>2))hdmobbase.forcepain(hitactor);
-			HDCore.log('HDBulletLib', LOGGING_DEBUG, hitactor.getclassname().." resisted, impact:  "..impact);
+			HDBL.logDebug('HDBulletLib', hitactor.getclassname().." resisted, impact:  "..impact);
 			hitactor.damagemobj(self,target,int(impact)<<2,"melee",DMG_NO_ARMOR);
 			if(!bcanblast)bulletdie();
 			return;
@@ -369,7 +369,7 @@ class HDB_00Rubber:HDBulletActor{
 		);
 
 		int shockbash=int(max(impact,impact*min(pen,deemedwidth))*(frandom(0.2,0.25)+stamina*0.00001));
-		HDCore.log('HDBulletLib', LOGGING_DEBUG, "     "..shockbash.." temp cav dmg");
+		HDBL.logDebug('HDBulletLib', "     "..shockbash.." temp cav dmg");
 
 		if(
 			!HDMobBase(hitactor)
@@ -421,7 +421,7 @@ class HDB_00Rubber:HDBulletActor{
 
 		//see if the bullet may actually gib
 		bnoextremedeath=(chdmg<(max(hitactor.spawnhealth(),gibhealth)<<4));
-		HDCore.log('HDBulletLib', LOGGING_DEBUG, hitactor.getclassname().."  wound channel:  "..channelwidth.." x "..pen.."    channel HP damage: "..chdmg);
+		HDBL.logDebug('HDBulletLib', hitactor.getclassname().."  wound channel:  "..channelwidth.." x "..pen.."    channel HP damage: "..chdmg);
 
 		//inflict wound
 		if(multiplayer&&target&&hitactor.isteammate(target))channelwidth*=teamdamage;
@@ -440,7 +440,7 @@ class HDB_00Rubber:HDBulletActor{
 				basehitz>mincritheight
 				||basehitz+pen*vu.z>mincritheight
 			){
-				HDCore.log('HDBulletLib', LOGGING_DEBUG, "CRIT!");
+				HDBL.logDebug('HDBulletLib', "CRIT!");
 				int critdmg=int(
 					(chdmg+random((stamina>>5),(stamina>>5)+(int(speed)>>6)))
 					*(1.+pushfactor*0.3)
@@ -502,7 +502,7 @@ class HDB_00Rubber:HDBulletActor{
 		//fragmentation
 		if(!(flags&BLAF_DONTFRAGMENT)&&random(0,100)<woundhealth){
 			int fragments=clamp(random(2,(woundhealth>>3)),1,5);
-			HDCore.log('HDBulletLib', LOGGING_DEBUG, fragments.." fragments emerged from bullet");
+			HDBL.logDebug('HDBulletLib', fragments.." fragments emerged from bullet");
 			while(fragments){
 				fragments--;
 				let bbb=HDBulletActor(spawn("HDBulletActor",pos));
