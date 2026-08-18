@@ -133,7 +133,16 @@ class HDMicroCell:HDMagAmmo{
 	}
 	
 	override string,string,name,double getmagsprite(int thismagamt) {
-		return HDCore.getMicroCellIcon(thismagamt),"MCLPA0","HDMicroCell",0.8;
+		let icon = "MCLLD0";
+
+        if (thismagamt > 6) icon = "MCLLA0";
+        if (thismagamt > 3) icon = "MCLLB0";
+        if (thismagamt > 0) icon = "MCLLC0";
+
+		return icon,"MCLPA0","HDMicroCell",0.8;
+
+		// TODO: Refactor HDCore Helper Method into Service for soft dependency
+		// return HDCore.getMicroCellIcon(thismagamt),"MCLPA0","HDMicroCell",0.8;
 	}
 
 	override void DrawRoundCount(HDStatusBar sb,HDPlayerPawn hpl,name roundsprite,double scl,int offx,int offy){

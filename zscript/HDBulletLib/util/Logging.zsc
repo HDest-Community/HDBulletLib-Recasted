@@ -1,0 +1,38 @@
+class HDBL play {
+
+    static void logError(name namespace, string message) {
+        let hdcLogger = ServiceIterator.find("HDCoreLoggingService").next();
+
+        if (hdcLogger) hdcLogger.getString("error", stringArg: namespace..":"..message);
+    }
+
+    static void logWarn(name namespace, string message) {
+        let hdcLogger = ServiceIterator.find("HDCoreLoggingService").next();
+
+        if (hdcLogger) hdcLogger.getString("warn", stringArg: namespace..":"..message);
+    }
+
+    static void logInfo(name namespace, string message) {
+        let hdcLogger = ServiceIterator.find("HDCoreLoggingService").next();
+
+        if (hdcLogger) hdcLogger.getString("info", stringArg: namespace..":"..message);
+    }
+
+    static void logDebug(name namespace, string message) {
+        let hdcLogger = ServiceIterator.find("HDCoreLoggingService").next();
+
+        if (hdcLogger) hdcLogger.getString("debug", stringArg: namespace..":"..message);
+    }
+
+    static void logTrace(name namespace, string message) {
+        let hdcLogger = ServiceIterator.find("HDCoreLoggingService").next();
+
+        if (hdcLogger) hdcLogger.getString("trace", stringArg: namespace..":"..message);
+    }
+
+    static void log(name namespace, int level, string message) {
+        let hdcLogger = ServiceIterator.find("HDCoreLoggingService").next();
+
+        if (hdcLogger) hdcLogger.getString("log", stringArg: namespace..":"..message, intArg: level);
+    }
+}
