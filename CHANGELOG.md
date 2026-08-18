@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.7.0] - 2026-08-18
+
+### Added
+
+-   Added unique casing for each round type.
+-   Added RadTech Micro-Cells
+
+### Changed
+
+-   Fixed Merchant Store Entries HDCoreLib Commands.
+-   Updated Micro-Cells to sync up with modern HDest Cell Batteries (#55).
+-   Softened HDCoreLib Dependency via newly implemented `HDCoreLoggingService` (#56).
+
+## [v1.6.1] - 2026-05-30
+
+### Changed
+
+-   A quick mix of the Merchant Store Entries HDCINFO commands but without the full HDCoreLib updates, made manually for those that might need it, but aren't running the latest commits still.
+
 ## [v1.6.0] - 2026-05-19
 
 ### Added
@@ -141,7 +160,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Initial Release.
 
-[Unreleased]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.6.0...HEAD
+[Unreleased]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.7.0...HEAD
+
+[v1.7.0]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.6.1...v1.7.0
+
+[v1.6.1]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.6.0...v1.6.1
 
 [v1.6.0]: https://github.com/HDest-Community/HDBulletLib-Recasted/compare/v1.5.0...v1.6.0
 
