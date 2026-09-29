@@ -140,10 +140,14 @@ server float hdb_7Tokarev_box_spawn_bias = 0.0;
 server float hdb_7Tokarev_casing_spawn_bias = 0.0;
 server bool hdb_7Tokarev_persistent_spawning = false;
 
-//Micro-Cell Ammo
+// Micro-Cell Ammo
 server float microcell_shell_spawn_bias = 0.0;
 server float microcell_battery_spawn_bias = 0.0;
 server bool microcell_persistent_spawning = false;
+
+// 8mm Ammo
+server float hdb_8mm_box_spawn_bias = 0.0;
+server bool hdb_8mm_persistent_spawning = false;
 
 // Merchant Store Filters
 server bool hdb_enable_069bore              = false;
@@ -174,5 +178,6 @@ server bool hdb_enable_tortoiserocket       = false;
 server bool hdb_enable_xshell               = false;
 server bool hdb_enable_mcell                = false;
 server bool hdb_enable_belts                = false;
+server bool hdb_enable_8mm                  = false;
 
 server bool hdb_nocasingpickup = false;
