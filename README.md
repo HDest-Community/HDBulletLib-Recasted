@@ -24,12 +24,13 @@ Currently Includes:
 - 12 Gauge Slugs, .500 S&W Lights and Heavies, .451 Frei, .066 Bore, and 9mm NDM by the Peppergrinder team
 - .50 OMG by Bogus
 - .45 ACP and 4-Gauge Buckshot by Popguy
-- 10mm Auto, .45 LC, Golden .45 LC, Less-Lethal Shells, Explosive Slugs and Flare Shells by Swampyrad
+- 10mm Auto, .45 LC, Golden .45 LC, Less-Lethal Shells, Explosive Slugs, Micro-cells and Flare Shells by Swampyrad
 - .56 Caliber Musket Balls by Cozi and Ted
 - 4-Gauge Saboted Slugs by Khan
 - 5mm Bumblebee Rimfire, 6mm Flechettes, .50 Action-Mega and Belt Links by Potetobloke.
 - 20mm Grenades, Thunder Rockets and Tortoise Rockets by Wanzer.
 - .30-06 by HexaDoken.
+- 8.28mm by Charlotte.lua.
 
 ## Addition Requirements
 
