@@ -23,6 +23,8 @@ OptionMenu "HDBulletLibMenu"
 	StaticText ""
 	Submenu "Advanced Options", "AdvancedHDBulletLibMenu", 0, 1
 	StaticText ""
+	Option "Casings as pickups:", "hdb_nocasingpickup", "OnOff"
+	StaticText ""
 	StaticText "Created by Peppergrinder Team", "purple"
 	Option "$TAG_12SLUG", "hdb_enable_12gslug", "OnOff"
 	Option "$TAG_500SW", "hdb_enable_500sw", "OnOff"
@@ -74,7 +76,7 @@ OptionMenu "HDBulletLibMenu"
 	StaticText "Created by Charlotte", "Gold"
 	Option "$TAG_828MM", "hdb_enable_8mm", "OnOff"
 	StaticText ""
-	Command "Reset all options?", "hdb_reset_cvars", 1, 1
+	Command "Reset all options?", "hdb_reset_cvars"
 }
 
 OptionMenu "AdvancedHDBulletLibMenu"
