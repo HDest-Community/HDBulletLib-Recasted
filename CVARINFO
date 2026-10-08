@@ -7,146 +7,146 @@ server int hdblib_enableammo_3 = -1;
 // I keep them at -1 by default to have the opt-in nature respected. - [Ted]
 
 // .500 S&W
-server float hdb_500sw_shellbox_spawn_bias = 0.0;
-server float hdb_500sw_rocket_spawn_bias = 0.0;
-server float hdb_500sw_casing_spawn_bias = 0.0;
+server float hdb_500sw_shellbox_spawn_bias = 0.95;
+server float hdb_500sw_rocket_spawn_bias = 0.35;
+server float hdb_500sw_casing_spawn_bias = 1.2;
 server bool hdb_500sw_persistent_spawning = false;
 
 // 12 Gauge Slugs
-server float hdb_12gslug_shellbox_spawn_bias = 0.0;
-server float hdb_12gslug_shell_spawn_bias = 0.0;
-server float hdb_12gslug_casing_spawn_bias = 0.0;
+server float hdb_12gslug_shellbox_spawn_bias = 1.0;
+server float hdb_12gslug_shell_spawn_bias = 3.5;
+server float hdb_12gslug_casing_spawn_bias = 0.5;
 server bool hdb_12gslug_persistent_spawning = false;
 
 // .420 Frei
-server float hdb_420frei_box_spawn_bias = 0.0;
-server float hdb_420frei_casing_spawn_bias = 0.0;
+server float hdb_420frei_box_spawn_bias = 1.95;
+server float hdb_420frei_casing_spawn_bias = 1.35;
 server bool hdb_420frei_persistent_spawning = false;
 
 // .069 Bore
-server float hdb_069bore_box_spawn_bias = 0.0;
-server float hdb_069bore_casing_spawn_bias = 0.0;
+server float hdb_069bore_box_spawn_bias = 1.0;
+server float hdb_069bore_casing_spawn_bias = 1.35;
 server bool hdb_069bore_persistent_spawning = false;
 
 // 9mm NDM
-server float hdb_ndm_box_spawn_bias = 0.0;
-server float hdb_ndm_casing_spawn_bias = 0.0;
+server float hdb_ndm_box_spawn_bias = 1.5;
+server float hdb_ndm_casing_spawn_bias = 2.5;
 server bool hdb_ndm_persistent_spawning = false;
 
 // .50 OMG
-server float hdb_50omg_box_spawn_bias = 0.0;
-server float hdb_50omg_casing_spawn_bias = 0.0;
+server float hdb_50omg_box_spawn_bias = 0.75;
+server float hdb_50omg_casing_spawn_bias = 1.15;
 server bool hdb_50omg_persistent_spawning = false;
 
 // .45 ACP
-server float hdb_45acp_box_spawn_bias = 0.0;
-server float hdb_45acp_casing_spawn_bias = 0.0;
+server float hdb_45acp_box_spawn_bias = 2.2;
+server float hdb_45acp_casing_spawn_bias = 2.35;
 server bool hdb_45acp_persistent_spawning = false;
 
 // 10mm
-server float hdb_10mm_box_spawn_bias = 0.0;
-server float hdb_10mm_casing_spawn_bias = 0.0;
+server float hdb_10mm_box_spawn_bias = 2.25;
+server float hdb_10mm_casing_spawn_bias = 2.35;
 server bool hdb_10mm_persistent_spawning = false;
 
 // .45 LC
-server float hdb_45lc_box_spawn_bias = 0.0;
-server float hdb_45lc_casing_spawn_bias = 0.0;
+server float hdb_45lc_box_spawn_bias = 1.2;
+server float hdb_45lc_casing_spawn_bias = 1.3;
 server bool hdb_45lc_persistent_spawning = false;
 
 // Golden .45 LC
-server float hdb_g45lc_box_spawn_bias = 0.0;
-server float hdb_g45lc_casing_spawn_bias = 0.0;
+server float hdb_g45lc_box_spawn_bias = 0.5;
+server float hdb_g45lc_casing_spawn_bias = 0.05;
 server bool hdb_g45lc_persistent_spawning = false;
 
 // Less-Lethal Shells
-server float hdb_LLS_shellbox_spawn_bias = 0.0;
-server float hdb_LLS_shell_spawn_bias = 0.0;
-server float hdb_LLS_casing_spawn_bias = 0.0;
+server float hdb_LLS_shellbox_spawn_bias = 1.0;
+server float hdb_LLS_shell_spawn_bias = 5.0;
+server float hdb_LLS_casing_spawn_bias = 1.5;
 server bool hdb_LLS_persistent_spawning = false;
 
 // Explosive Slugs
-server float hdb_ESlug_shellbox_spawn_bias = 0.0;
-server float hdb_ESlug_shell_spawn_bias = 0.0;
-server float hdb_ESlug_casing_spawn_bias = 0.0;
+server float hdb_ESlug_shellbox_spawn_bias = 1.0;
+server float hdb_ESlug_shell_spawn_bias = 4.3;
+server float hdb_ESlug_casing_spawn_bias = 1.05;
 server bool hdb_ESlug_persistent_spawning = false;
 
 // Flare Shells
-server float hdb_FShell_shellbox_spawn_bias = 0.0;
-server float hdb_FShell_shell_spawn_bias = 0.0;
+server float hdb_FShell_shellbox_spawn_bias = 0.9;
+server float hdb_FShell_shell_spawn_bias = 1.25;
 server bool hdb_FShell_persistent_spawning = false;
 
 // Musket Balls
-server float hdb_MBall_casing_spawn_bias = 0.0;
+server float hdb_MBall_casing_spawn_bias = 6.5;
 server bool hdb_MBall_persistent_spawning = false;
 
 // 4-Gauge Saboted Slugs
-server float hdb_4gss_shellbox_spawn_bias = 0.0;
-server float hdb_4gss_shell_spawn_bias = 0.0;
-server float hdb_4gss_casing_spawn_bias = 0.0;
+server float hdb_4gss_shellbox_spawn_bias = 0.55;
+server float hdb_4gss_shell_spawn_bias = 2.5;
+server float hdb_4gss_casing_spawn_bias = 0.75;
 server bool hdb_4gss_persistent_spawning = false;
 
 // 5mm Bumblebee Rimfire
-server float hdb_5mm_box_spawn_bias = 0.0;
-server float hdb_5mm_casing_spawn_bias = 0.0;
+server float hdb_5mm_box_spawn_bias = 1.5;
+server float hdb_5mm_casing_spawn_bias = 4.25;
 server bool hdb_5mm_persistent_spawning = false;
 
 // .50 Action-Mega
-server float hdb_50am_box_spawn_bias = 0.0;
-server float hdb_50am_casing_spawn_bias = 0.0;
+server float hdb_50am_box_spawn_bias = 1.25;
+server float hdb_50am_casing_spawn_bias = 1.1;
 server bool hdb_50am_persistent_spawning = false;
 
 // 6mm Flechette
-server float hdb_6mm_box_spawn_bias = 0.0;
-server float hdb_6mm_casing_spawn_bias = 0.0;
+server float hdb_6mm_box_spawn_bias = 3.0;
+server float hdb_6mm_casing_spawn_bias = 1.4;
 server bool hdb_6mm_persistent_spawning = false;
 
 // 20mm Grenades
-server float hdb_20mm_rbox_spawn_bias = 0.0;
+server float hdb_20mm_rbox_spawn_bias = 0.5;
 server bool hdb_20mm_persistent_spawning = false;
 
 // Thunder Rockets
-server float hdb_ThuRKT_rbox_spawn_bias = 0.0;
+server float hdb_ThuRKT_rbox_spawn_bias = 0.25;
 server bool hdb_ThuRKT_persistent_spawning = false;
 
 // Tortoise Rockets
-server float hdb_TortRKT_rbox_spawn_bias = 0.0;
+server float hdb_TortRKT_rbox_spawn_bias = 0.2;
 server bool hdb_TortRKT_persistent_spawning = false;
 
 // .30-06
-server float hdb_3006_box_spawn_bias = 0.0;
-server float hdb_3006_casing_spawn_bias = 0.0;
+server float hdb_3006_box_spawn_bias = 3.0;
+server float hdb_3006_casing_spawn_bias = 2.5;
 server bool hdb_3006_persistent_spawning = false;
 
 // 4-Gauge Buckshot
-server float hdb_4gbs_shellbox_spawn_bias = 0.0;
-server float hdb_4gbs_shell_spawn_bias = 0.0;
-server float hdb_4gbs_casing_spawn_bias = 0.0;
+server float hdb_4gbs_shellbox_spawn_bias = 0.55;
+server float hdb_4gbs_shell_spawn_bias = 2.5;
+server float hdb_4gbs_casing_spawn_bias = 0.85;
 server bool hdb_4gbs_persistent_spawning = false;
 
 // Birdshot
-server float hdb_bird_shellbox_spawn_bias = 0.0;
-server float hdb_bird_shell_spawn_bias = 0.0;
-server float hdb_bird_casing_spawn_bias = 0.0;
+server float hdb_bird_shellbox_spawn_bias = 0.6;
+server float hdb_bird_shell_spawn_bias = 0.4;
+server float hdb_bird_casing_spawn_bias = 6.2;
 server bool hdb_bird_persistent_spawning = false;
 
 // .300 Savage
-server float hdb_300savage_shellbox_spawn_bias = 0.0;
-server float hdb_300savage_shell_spawn_bias = 0.0;
-server float hdb_300savage_casing_spawn_bias = 0.0;
+server float hdb_300savage_shellbox_spawn_bias = 1.0;
+server float hdb_300savage_shell_spawn_bias = 3.5;
+server float hdb_300savage_casing_spawn_bias = 5.25;
 server bool hdb_300savage_persistent_spawning = false;
 
 // 7.62 Tokarev
-server float hdb_7Tokarev_box_spawn_bias = 0.0;
-server float hdb_7Tokarev_casing_spawn_bias = 0.0;
+server float hdb_7Tokarev_box_spawn_bias = 3.3;
+server float hdb_7Tokarev_casing_spawn_bias = 4.25;
 server bool hdb_7Tokarev_persistent_spawning = false;
 
 // Micro-Cell Ammo
-server float microcell_shell_spawn_bias = 0.0;
-server float microcell_battery_spawn_bias = 0.0;
+server float microcell_shell_spawn_bias = 0.6;
+server float microcell_battery_spawn_bias = 0.4;
 server bool microcell_persistent_spawning = false;
 
 // 8mm Ammo
-server float hdb_8mm_box_spawn_bias = 0.0;
+server float hdb_8mm_box_spawn_bias = 2.5;
 server bool hdb_8mm_persistent_spawning = false;
 
 // Merchant Store Filters
