@@ -89,6 +89,8 @@ OptionMenu "AdvancedHDBulletLibMenu"
 	StaticText ""
 	Submenu "Simple Options", "HDBulletLibMenu", 0, 1
 	StaticText ""
+	Option "Casings as pickups:", "hdb_nocasingpickup", "OnOff"
+	StaticText ""
 	StaticText "Created by Peppergrinder Team", "purple"
 	LabeledSubmenu "$TAG_12SLUG", "hdb_enable_12gslug", "12GaugeSlugs", 1
 	LabeledSubmenu "$TAG_500SW", "hdb_enable_500sw", "500SW", 1
