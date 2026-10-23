@@ -318,6 +318,6 @@ MERCH_TAG_NDM                     = "9mm Nail Driver Maximum";
 MERCH_FLAVOR_NDM                  = "You can only get these at nunneries for some reason.";
 
 // 8.28mm
-MERCH_CAT_NDM                     = "Joint Task Force";
-MERCH_TAG_NDM                     = "8.28mm UAC Battle Rifle";
-MERCH_FLAVOR_NDM                  = "Not to be confused with 7mm, or 4mm, or any kind of millimeter for that matter.";
+MERCH_CAT_8MM                     = "Joint Task Force";
+MERCH_TAG_8MM                     = "8.28mm UAC Battle Rifle";
+MERCH_FLAVOR_8MM                  = "Not to be confused with 7mm, or 4mm, or any kind of millimeter for that matter.";
