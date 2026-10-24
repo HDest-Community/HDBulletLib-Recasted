@@ -62,3 +62,68 @@ decalgroup BulletChipLarge
 	BulletChipLarge4 1
 	BulletChipLarge5 1
 }
+
+// [UZ] FlechettePuncture taken from PB's B&M (6mm Flechettes)
+decal FlechettePuncture1
+{
+	pic CHIP1
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decal FlechettePuncture2
+{
+	pic CHIP2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decal FlechettePuncture3
+{
+	pic CHIP3
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decal FlechettePuncture4
+{
+	pic CHIP4
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decal FlechettePuncture5
+{
+	pic CHIP5
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decalgroup FlechettePuncture
+{
+	FlechettePuncture1 1
+	FlechettePuncture2 1
+	FlechettePuncture3 1
+	FlechettePuncture4 1
+	FlechettePuncture5 1
+}
