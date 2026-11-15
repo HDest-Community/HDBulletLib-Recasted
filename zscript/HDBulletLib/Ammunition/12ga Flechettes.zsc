@@ -1,0 +1,259 @@
+// ------------------------------------------------------------
+// CREATED BY UZ
+// ------------------------------------------------------------
+
+// pushfactor: 0.05-5.0 - imagine it being horizontal speed blowing in the wind
+// mass: in tenths of a gram
+// speed: as with any projectile
+// accuracy: 0,200,200-700 - angle of outline from perpendicular, round deemed to be 200
+// stamina: 900, 776, 426, you get the idea
+// hardness: 1-5 - 1=pure lead, 5=steel
+// woundhealth: % chance of fragmentation
+
+class HDB_FlechetteShell : HDBulletActor {
+    default {
+        pushfactor 0.15;               // Cross-winds barely affect
+        mass 5;                        // 0.47g
+        speed HDCONST_MPSTODUPT * 950; // 950 m/s
+        accuracy 760;                  // Super sharp darts
+        stamina 125;                   // Flechettes are slim
+        woundhealth 25;                // 25% chance to fragment
+
+        HDBulletActor.hardness 5;      // full steel flechettes
+    }
+
+    // Both entrance and exit holes are small
+    override void HitGeometry(line hitline, sector hitsector, int hitside, int hitpart, vector3 vu, double lastdist) {
+        A_SprayDecal("FlechettePuncture", 4);
+
+        super.HitGeometry(hitline, hitsector, hitside, hitpart, vu, lastdist);
+
+        angle -= 180;
+        A_SprayDecal("FlechettePuncture", 4);
+        angle += 180;
+    }
+    
+    override name GetBulletDecal(double bulletspeed, line hitline, int hitpart, bool exithole) { return "FlechettePuncture"; }
+}
+
+class HDFlechetteShellAmmo : HDRoundAmmo {
+    default {
+        // +CANNOTPUSH
+        // +FORCEXYBILLBOARD
+        // +ROLLSPRITE +ROLLCENTER
+        +Inventory.IGNORESKILL
+        +HDPickup.MULTIPICKUP
+
+        scale 0.4;
+
+        tag "$TAG_FLECHETTESHELL";
+        Inventory.pickupMessage "$PICKUP_FLECHETTESHELL";
+        inventory.icon "SHF4A0";
+        
+        HDPickup.refID "shf";
+        HDPickup.bulk ENC_SHELL;
+    }
+
+    override string pickupMessage() { return amount > 1 ? "$PICKUP_FLECHETTESHELLS" : super.pickupMessage(); }
+
+    override void splitPickup() { splitPickupBoxableRound(4, 20, "HDFlechetteShellBoxPickup", "SHF4A0", "SHF1A0"); }
+
+    states {
+        spawn:
+            SHF1 A -1;
+            stop;
+        death:
+            ESHF A -1 {
+                // if (Wads.checkNumForName("id", 0) == -1) A_SetTranslation("FreeFlechetteShell");
+
+                frame = randomPick(0, 0, 0, 0, 4, 4, 4, 4, 2, 2, 5);
+            }
+            stop;
+    }
+}
+
+class HDSpentFlechetteShellb : HDUPK {
+    default {
+        +MISSILE
+        +HDUPK.MULTIPICKUP
+
+        scale 0.4;
+        bouncefactor 0.4;
+        maxstepheight 0.6;
+        height 2;
+        radius 2;
+        
+        bounceSound "misc/casing2";
+        bounceType "doom";
+
+        HDUPK.pickupMessage "$PICKUP_FLECHETTESHELLCASING";
+        HDUPK.pickupType "HDFlechetteShellBrass";
+    }
+
+    override void A_HDUPKGive() { if (hdb_nocasingpickup) super.A_HDUPKGive(); }
+
+    states {
+        spawn:
+            ESHF ABCDEFGH 2 {
+                angle += 45 * (bSEESDAGGERS * -1);
+
+                if (pos.z - floorz < 2 && abs(vel.z) < 2.0) setstatelabel("death");
+            }
+            wait;
+        death:
+            ESHF A -1 {
+                if (HDMath.deathmatchClutter()) A_SetTics(140);
+
+                bMISSILE = false;
+                frame = randomPick(0, 0, 0, 0, 4, 4, 4, 4, 2, 2, 5);
+
+                let gdb = getdefaultbytype(pickupType);
+                A_SetSize(gdb.radius, gdb.height);
+            }
+            stop;
+    }
+}
+
+class HDSpentFlechetteShell : HDSpentShell {
+    // default {
+    //     bouncesound "misc/casing2";
+    //     scale 0.4;
+    // }
+
+    states {
+        spawn:
+            ESHF ABCDEFGH 2;
+            loop;
+        death:
+            TNT1 # -1 {
+                bMISSILE = false;
+                A_SpawnItemEx('HDSpentFlechetteShellb');
+            }
+            stop;
+    }
+}
+
+class HDFlechetteShellBrass : HDAmmo {
+    default {
+        +FORCEXYBILLBOARD
+        +CANNOTPUSH
+        +Inventory.IGNORESKILL
+        +HDPickup.MULTIPICKUP
+        +HDPickup.CHEATNOGIVE
+
+        height 2;
+        radius 2;
+        scale 0.4;
+
+        tag "$TAG_FLECHETTESHELLCASING";
+        HDPickup.bulk ENC_SHELLLOADED;
+
+        inventory.pickupmessage "$PICKUP_FLECHETTESHELLCASING";
+        inventory.icon "ESHFA1";
+    }
+
+    states {
+        spawn:
+            ESHF A -1;
+            stop;
+    }
+}
+
+//a shell that can be caught in hand, launched from the Slayer
+class HDUnSpentFlechetteShell : HDSpentFlechetteShell {
+    states {
+        Spawn:
+            ESHF ABCDE 2;
+            TNT1 A 0 {
+                if (A_JumpIfInTargetInventory("HDFlechetteShellAmmo",0,"null")) {
+                    A_SpawnItemEx(
+                        "HDFumblingFlechetteShell",
+                        0, 0, 0,
+                        vel.x + frandom(-1, 1), vel.y + frandom(-1, 1), vel.z,
+                        0,
+                        SXF_NOCHECKPOSITION|SXF_ABSOLUTEMOMENTUM
+                    );
+                } else {
+                    A_GiveToTarget("HDFlechetteShellAmmo", 1);
+                }
+            }
+            Stop;
+    }
+}
+
+//any other single shell tumblng out
+class HDFumblingFlechetteShell : HDSpentFlechetteShell {
+    default {
+        BounceFactor 0.3;
+    }
+
+    states {
+        Spawn:
+            ESHF ABCDEFGH 2;
+            Loop;
+        Death:
+            TNT1 A 0 A_SpawnItemEx(
+                "HDFumbledFlechetteShell",
+                0, 0, 0,
+                vel.x, vel.y, vel.z,
+                0,
+                SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION
+            );
+            Stop;
+    }
+}
+
+//the static pickup
+class HDFumbledFlechetteShell : IdleDummy {
+    states {
+        Spawn:
+            TNT1 A 0 NoDelay {
+                let sss = HDFlechetteShellAmmo(spawn("HDFlechetteShellAmmo", pos, ALLOW_REPLACE));
+                sss.amount = 1;
+                sss.SetStateLabel("death");
+            }
+            stop;
+    }
+}
+
+class HDFlechetteShellBoxPickup : HDUPK {
+    default {
+        //$Category "Ammo/Hideous Destructor/"
+        //$Title "Box of Flechette Shells"
+        //$Sprite "SFBXA0"
+
+        scale 0.4;
+
+        HDUPK.amount 20;
+        HDUPK.pickupMessage "$PICKUP_FLECHETTESHELLBOX";
+        HDUPK.pickupSound "weapons/pocket";
+        HDUPK.pickupType "HDFlechetteShellAmmo";
+    }
+
+    states {
+        spawn:
+            SFBX A -1;
+    }
+}
+
+class FlechetteShellPickup : IdleDummy {
+    default {
+        //$Category "Ammo/Hideous Destructor/"
+        //$Title "Four Flechette Shells"
+        //$Sprite "SHF4A0"
+    }
+
+    states {
+        spawn:
+            SHF4 A 0 NoDelay {
+                let iii = HDPickup(spawn("HDFlechetteShellAmmo", pos, ALLOW_REPLACE));
+
+                if (!iii) return;
+
+                HDF.transferSpecials(self, iii, HDF.TS_ALL);
+
+                iii.amount = 4;
+            }
+            stop;
+    }
+}

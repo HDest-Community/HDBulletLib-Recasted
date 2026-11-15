@@ -139,23 +139,17 @@ class HDB_6mmFlechette:HDBulletActor{
 	
 	//Both entrance and exit holes are small
 	
-	override void HitGeometry(line hitline, sector hitsector, int hitside, int hitpart, vector3 vu, double lastdist)
-	{
-		A_SprayDecal(speed > 400 ? "FlechettePuncture" : "FlechettePuncture", 4);
+	override void HitGeometry(line hitline, sector hitsector, int hitside, int hitpart, vector3 vu, double lastdist) {
+		A_SprayDecal("FlechettePuncture", 4);
+
 		super.HitGeometry(hitline, hitsector, hitside, hitpart, vu, lastdist);
+
 		angle -= 180;
-		A_SprayDecal(speed > 400 ? "FlechettePuncture" : "FlechettePuncture", 4);
+		A_SprayDecal("FlechettePuncture", 4);
 		angle += 180;
 	}
 	
-	override name GetBulletDecal(
-		double bulletspeed,
-		line hitline,
-		int hitpart,
-		bool exithole
-	){
-		return bulletspeed>(exithole?400:600)?"FlechettePuncture":"FlechettePuncture";
-	}
+	override name GetBulletDecal(double bulletspeed, line hitline, int hitpart, bool exithole) { return "FlechettePuncture"; }
 }
 
 

@@ -76,6 +76,9 @@ OptionMenu "HDBulletLibMenu"
 	StaticText "Created by Charlotte", "Gold"
 	Option "$TAG_828MM", "hdb_enable_8mm", "OnOff"
 	StaticText ""
+	StaticText "Created by Undead Zeratul", "purple"
+	Option "$TAG_FLECHETTESHELL", "hdb_enable_flechetteshell", "OnOff"
+	StaticText ""
 	Command "Reset all options?", "hdb_reset_cvars"
 }
 
@@ -139,8 +142,11 @@ OptionMenu "AdvancedHDBulletLibMenu"
 	StaticText "Created by HexaDoken", "Dark Green"
 	LabeledSubmenu "$TAG_3006", "hdb_enable_3006", "3006", 1
 	StaticText ""
-	StaticText "Created by Charlotte", "Dark Green"
+	StaticText "Created by Charlotte", "Gold"
 	LabeledSubmenu "$TAG_828MM", "hdb_enable_8mm", "828mm", 1
+	StaticText ""
+	StaticText "Created by Undead Zeratul", "Purple"
+	LabeledSubmenu "$TAG_FlechetteShell", "hdb_enable_flechetteshell", "FlechetteShell", 1
 	StaticText ""
 	SafeCommand "Reset all options?", "hdb_reset_cvars"
 }
@@ -946,6 +952,30 @@ OptionMenu 828mm
     StaticText  "Control whether replacements happen after a mapload.", "white"
 	Option "Persistent Spawns: ", "hdb_8mm_persistent_spawning", "OnOff"
 	SafeCommand "Reset persistence options", "resetcvar hdb_8mm_persistent_spawning"
+ 	StaticText ""
+   	StaticText ""
+	StaticText "Reset Options", "Gold"
+	SafeCommand "Reset all options", "hdb_8mm_reset_cvars"
+} 
+
+OptionMenu FlechetteShell
+{
+    Title "------ Flechette Shell Options ------"
+   	StaticText "Notice:", "Gold"
+    StaticText  "Setting 'spawn rate' to Replace All will suppress", "white"
+    StaticText  "spawns of that given type.", "white"
+    StaticText ""
+	StaticText "Spawn Options", "Gold"
+    StaticText  "Control the spawn rate of Flechette Shells on Shell Boxes", "white"
+	Slider "Spawn Rate: ", "hdb_flechetteshell_shellbox_spawn_bias", 0.0, 100, .01, 2
+	SafeCommand "Reset spawn options", "resetcvar hdb_flechetteshell_shellbox_spawn_bias"
+ 	StaticText ""
+	StaticText "Enable/Disable Flechette Shells from spawning.", "Gold"
+	Option "$TAG_FLECHETTESHELL", "hdb_enable_flechetteshell", "OnOff"
+	StaticText ""
+    StaticText  "Control whether replacements happen after a mapload.", "white"
+	Option "Persistent Spawns: ", "hdb_flechetteshell_persistent_spawning", "OnOff"
+	SafeCommand "Reset persistence options", "resetcvar hdb_flechetteshell_persistent_spawning"
  	StaticText ""
    	StaticText ""
 	StaticText "Reset Options", "Gold"

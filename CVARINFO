@@ -149,6 +149,10 @@ server bool microcell_persistent_spawning = false;
 server float hdb_8mm_box_spawn_bias = 2.5;
 server bool hdb_8mm_persistent_spawning = false;
 
+// Flechette Shell Ammo
+server float hdb_flechetteshell_shellbox_spawn_bias = 1.0;
+server bool hdb_flechetteshell_persistent_spawning = false;
+
 // Merchant Store Filters
 server bool hdb_enable_069bore              = false;
 server bool hdb_enable_10mm                 = false;
@@ -179,5 +183,6 @@ server bool hdb_enable_xshell               = false;
 server bool hdb_enable_mcell                = false;
 server bool hdb_enable_belts                = false;
 server bool hdb_enable_8mm                  = false;
+server bool hdb_enable_flechetteshell       = false;
 
 server bool hdb_nocasingpickup = false;
