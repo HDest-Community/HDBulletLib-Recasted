@@ -168,6 +168,11 @@ addSpawnTableSingleEntry => { "tableName": "CellReplaces", "name": "HDMicroCell"
 // 8mm
 addSpawnTableSingleEntry => { "tableName": "ClipBoxReplaces", "name": "HD8mBoxPickup", "weight": "#hdb_8mm_box_spawn_bias", "persists": "#hdb_8mm_persistent_spawning", "enabled": "#hdb_enable_8mm" }
 
+// 12 Gauge Flechettes
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "HDFlechetteShellAmmo", "weight": "#hdb_flechetteshell_shellbox_spawn_bias", "persists": "#hdb_flechetteshell_persistent_spawning", "enabled": "#hdb_enable_flechetteshell" }
+addSpawnTableSingleEntry => { "tableName": "ShellReplaces", "name": "FlechetteShellPickup", "weight": "#hdb_flechetteshell_shellbox_spawn_bias", "persists": "#hdb_flechetteshell_persistent_spawning", "enabled": "#hdb_enable_flechetteshell" }
+addSpawnTableSingleEntry => { "tableName": "ShellBoxReplaces", "name": "FlechetteShellBoxPickup", "weight": "#hdb_flechetteshell_shellbox_spawn_bias", "persists": "#hdb_flechetteshell_persistent_spawning", "enabled": "#hdb_enable_flechetteshell" }
+
 
 // HDBL Ammo Associations
 newAmmo => { "ammoName": "HDNDMLoose" }
@@ -206,6 +211,7 @@ newAmmo => { "ammoName": "HD_12mmBeltLink" }
 newAmmo => { "ammoName": "HD_35mmBeltLink" }
 newAmmo => { "ammoName": "HDMicroCell" }
 newAmmo => { "ammoName": "EightMilAmmo" }
+newAmmo => { "ammoName": "HDFlechetteShellAmmo" }
 
 // HDBL Backpack-Listing
 addStorageItemListFilter => { "name": "HDNDMLoose", "allowed": "#hdb_enable_ndm" }
@@ -244,6 +250,7 @@ addStorageItemListFilter => { "name": "HD_12mmBeltLink", "allowed": "#hdb_enable
 addStorageItemListFilter => { "name": "HD_35mmBeltLink",  "allowed": "#hdb_enable_belts" }
 addStorageItemListFilter => { "name": "HDMicroCell", "allowed": "#hdb_enable_mcell" }
 addStorageItemListFilter => { "name": "EightMilAmmo", "allowed": "#hdb_enable_8mm" }
+addStorageItemListFilter => { "name": "HDFlechetteShellAmmo", "allowed": "#hdb_enable_flechetteshell" }
 
 // HDBL Ammobox-Listing
 addAmmoBoxFilter => { "ammoName": "HDNDMLoose", "allowed": "#hdb_enable_ndm" }
@@ -282,6 +289,7 @@ addAmmoBoxFilter => { "ammoName": "HD_12mmBeltLink", "allowed": "#hdb_enable_bel
 addAmmoBoxFilter => { "ammoName": "HD_35mmBeltLink",  "allowed": "#hdb_enable_belts" }
 addAmmoBoxFilter => { "ammoName": "HDMicroCell", "allowed": "#hdb_enable_mcell" }
 addAmmoBoxFilter => { "ammoName": "EightMilAmmo", "allowed": "#hdb_enable_8mm" }
+addAmmoBoxFilter => { "ammoName": "HDFlechetteShellAmmo", "allowed": "#hdb_enable_flechetteshell" }
 
 
 // Merchant Store Entries
@@ -314,3 +322,4 @@ newMerchantStoreItem => { "enabled": "#hdb_enable_tortoiserocket", "type": "ammo
 newMerchantStoreItem => { "enabled": "#hdb_enable_xshell", "type": "ammo", "category": "$MERCH_CAT_XSHELL", "item": "HDExplosiveShellAmmo", "amount": "20", "icon": "XLBXA0", "displayName": "$MERCH_TAG_XSHELL", "basePrice": "45", "flavorText": "$MERCH_FLAVOR_XSHELL" }
 newMerchantStoreItem => { "enabled": "#hdb_enable_microcell", "type": "ammo", "category": "$MERCH_CAT_MICROCELL", "item": "HDMicroCell", "icon": "MCLLA0", "displayName": "$MERCH_TAG_MICROCELL", "basePrice": "15", "flavorText": "$MERCH_FLAVOR_MICROCELL" }
 newMerchantStoreItem => { "enabled": "#hdb_enable_8mm", "type": "ammo", "category": "$MERCH_CAT_8MM", "item": "EightMilAmmo", "icon": "828RA0", "displayName": "$MERCH_TAG_8MM", "amount": "104", "basePrice": "80", "flavorText": "$MERCH_FLAVOR_8MM" }
+newMerchantStoreItem => { "enabled": "#hdb_enable_flechetteshell", "type": "ammo", "category": "$MERCH_CAT_FLECHETTESHELL", "item": "HDFlechetteShellAmmo", "amount": "20", "icon": "SFBXA0", "displayName": "$MERCH_TAG_FLECHETTESHELL", "basePrice": "40", "flavorText": "$MERCH_FLAVOR_FLECHETTESHELL" }

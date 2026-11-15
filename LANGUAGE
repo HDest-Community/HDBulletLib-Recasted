@@ -45,6 +45,7 @@ TAG_300SAVAGE=".300 Savage ammo";
 TAG_762TOKAREV="7.62 Tokarev round";
 TAG_828MM = "8.28mm UAC round";
 TAG_MICROCELL = "Micro-Cell";
+TAG_FLECHETTESHELL = "Flechette shell";
 
 // Casings
 TAG_762TOKAREVBRASS="7.62 Tokarev casing";
@@ -67,6 +68,7 @@ TAG_ESHLCASING = "Explosive shotgun slug casing";
 TAG_G45LCCASING = "Golden .45 LC casing";
 TAG_LLSCASING = "Less-lethal shotgun shell casing";
 TAG_SLUGCASING = "Shotgun slug casing";
+TAG_FLECHETTESHELLCASING = "Flechette shell casing";
 
 // Pickups
 PICKUP_10MM="Picked up a 10mm round.";
@@ -132,6 +134,8 @@ PICKUP_828MM = "Picked up a stray 8.28mm round.";
 PICKUP_828MMCHUNK = "Picked up some stray 8.28mm rounds.";
 PICKUP_828MMBOX = "Picked up a box of 8.28mm UAC battle rifle rounds.";
 PICKUP_MICROCELL = "You picked up a micro-cell.";
+PICKUP_FLECHETTESHELL = "Picked up a flechette shell.";
+PICKUP_FLECHETTESHELLBOX = "Picked up a box of flechette shells.";
 
 TAG_BELTLINKS="Belt Links";
 TAG_776BELTLINK="Small Belt Link";
@@ -162,6 +166,7 @@ PICKUP_ESHLCASING = "Picked up an Explosive shotgun slug casing.";
 PICKUP_G45LCCASING = "Picked up a Golden .45 LC casing.";
 PICKUP_LLSCASING = "Picked up a Less-lethal shotgun shell casing.";
 PICKUP_SLUGCASING = "Picked up a Shotgun slug casing.";
+PICKUP_FLECHETTESHELLCASING = "Picked up a flechette shell casing.";
 
 // Misc
 OB_20MM="%o was fragged by %k.";
@@ -321,3 +326,8 @@ MERCH_FLAVOR_NDM                  = "You can only get these at nunneries for som
 MERCH_CAT_8MM                     = "Joint Task Force";
 MERCH_TAG_8MM                     = "8.28mm UAC Battle Rifle";
 MERCH_FLAVOR_8MM                  = "Not to be confused with 7mm, or 4mm, or any kind of millimeter for that matter.";
+
+// Flechette Shell
+MERCH_CAT_FLECHETTESHELL          = "Joint Task Force";
+MERCH_TAG_FLECHETTESHELL          = "Flechette Shells";
+MERCH_FLAVOR_FLECHETTESHELL       = "Kill 6 birds with one, err, shell.";
