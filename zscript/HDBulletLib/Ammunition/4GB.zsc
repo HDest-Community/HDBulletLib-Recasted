@@ -37,16 +37,16 @@ class HD4GBAmmo : HDRoundAmmo {
 		tag "$TAG_4GB";
 		hdpickup.refid "4gb";
 		hdpickup.bulk ENC_4GB;
-		inventory.icon "4GS1A0";
+		inventory.icon "4GSIA0";
 	}
 	
 	override void SplitPickup() {
-		SplitPickupBoxableRound(4, 25, "HD4GBBox", "4GPAA0", "4GS1A0");
+		SplitPickupBoxableRound(4, 25, "HD4GBBox", "4GPAA0", "4GSIA0");
 	}
 
 	states {
 		spawn:
-			4GS1 A -1;
+			4GSI A -1;
 			stop;
 		death:
 			400S A -1 {
